@@ -1,0 +1,2331 @@
+[
+  {
+    "route_index": 1,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 11.98,
+    "duration_minutes": 33.04,
+    "electric_wh_consumed": 89.76747664528608,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3610.232523354689
+  },
+  {
+    "route_index": 2,
+    "start_coords": {
+      "lat": 6.238083853,
+      "lon": -75.53075002
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 8.17,
+    "duration_minutes": 27.168333333333333,
+    "electric_wh_consumed": 35.48428163669605,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3664.5157183632878
+  },
+  {
+    "route_index": 3,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 7.89,
+    "duration_minutes": 21.621666666666666,
+    "electric_wh_consumed": 30.7089073866732,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3669.291092613308
+  },
+  {
+    "route_index": 4,
+    "start_coords": {
+      "lat": 6.198714745,
+      "lon": -75.55931263
+    },
+    "end_coords": {
+      "lat": 6.24280842,
+      "lon": -75.57111967
+    },
+    "distance_km": 6.8,
+    "duration_minutes": 19.051666666666666,
+    "electric_wh_consumed": 18.79455208845483,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3681.205447911533
+  },
+  {
+    "route_index": 5,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.187401791,
+      "lon": -75.57731706
+    },
+    "distance_km": 10.55,
+    "duration_minutes": 29.501666666666665,
+    "electric_wh_consumed": 52.80046433248521,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3647.199535667497
+  },
+  {
+    "route_index": 6,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.189873091,
+      "lon": -75.57393215
+    },
+    "distance_km": 10.33,
+    "duration_minutes": 28.908333333333335,
+    "electric_wh_consumed": 61.12831100164123,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3638.8716889983366
+  },
+  {
+    "route_index": 7,
+    "start_coords": {
+      "lat": 6.231423933,
+      "lon": -75.52447522
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 8.8,
+    "duration_minutes": 24.331666666666667,
+    "electric_wh_consumed": 33.66498752584516,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3666.3350124741355
+  },
+  {
+    "route_index": 8,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.247090273,
+      "lon": -75.5766709
+    },
+    "distance_km": 6.74,
+    "duration_minutes": 18.584999999999997,
+    "electric_wh_consumed": 25.03679668853866,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3674.963203311447
+  },
+  {
+    "route_index": 9,
+    "start_coords": {
+      "lat": 6.231423933,
+      "lon": -75.52447522
+    },
+    "end_coords": {
+      "lat": 6.248924017,
+      "lon": -75.56783736
+    },
+    "distance_km": 6.29,
+    "duration_minutes": 17.651666666666664,
+    "electric_wh_consumed": 22.92160351376761,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3677.078396486219
+  },
+  {
+    "route_index": 10,
+    "start_coords": {
+      "lat": 6.227744568,
+      "lon": -75.54028282
+    },
+    "end_coords": {
+      "lat": 6.189873091,
+      "lon": -75.57393215
+    },
+    "distance_km": 9.97,
+    "duration_minutes": 28.095000000000002,
+    "electric_wh_consumed": 92.13719413607704,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3607.8628058639074
+  },
+  {
+    "route_index": 11,
+    "start_coords": {
+      "lat": 6.260308678,
+      "lon": -75.56683326
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 11.13,
+    "duration_minutes": 30.676666666666666,
+    "electric_wh_consumed": 81.44131369863616,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3618.5586863013377
+  },
+  {
+    "route_index": 12,
+    "start_coords": {
+      "lat": 6.261866639,
+      "lon": -75.57181869
+    },
+    "end_coords": {
+      "lat": 6.235030016,
+      "lon": -75.52633258
+    },
+    "distance_km": 7.72,
+    "duration_minutes": 23.191666666666666,
+    "electric_wh_consumed": 93.57165516402466,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3606.4283448359574
+  },
+  {
+    "route_index": 13,
+    "start_coords": {
+      "lat": 6.24883329,
+      "lon": -75.54166309
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 10.64,
+    "duration_minutes": 29.23,
+    "electric_wh_consumed": 104.86159002563653,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3595.1384099743373
+  },
+  {
+    "route_index": 14,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.227385782,
+      "lon": -75.56833206
+    },
+    "distance_km": 5.79,
+    "duration_minutes": 16.151666666666667,
+    "electric_wh_consumed": 27.411538560632884,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3672.5884614393553
+  },
+  {
+    "route_index": 15,
+    "start_coords": {
+      "lat": 6.24883329,
+      "lon": -75.54166309
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 6.25,
+    "duration_minutes": 17.138333333333332,
+    "electric_wh_consumed": 30.839431204323706,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3669.160568795666
+  },
+  {
+    "route_index": 16,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.23329307,
+      "lon": -75.57497159
+    },
+    "distance_km": 4.68,
+    "duration_minutes": 14.415,
+    "electric_wh_consumed": 23.66851851593081,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3676.3314814840596
+  },
+  {
+    "route_index": 17,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.247090273,
+      "lon": -75.5766709
+    },
+    "distance_km": 2.78,
+    "duration_minutes": 7.776666666666667,
+    "electric_wh_consumed": 13.320564216884696,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3686.679435783109
+  },
+  {
+    "route_index": 18,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.248181087,
+      "lon": -75.57209533
+    },
+    "distance_km": 3.38,
+    "duration_minutes": 9.335,
+    "electric_wh_consumed": 15.754667219356481,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3684.2453327806365
+  },
+  {
+    "route_index": 19,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.261874492,
+      "lon": -75.5622245
+    },
+    "distance_km": 3.29,
+    "duration_minutes": 9.123333333333333,
+    "electric_wh_consumed": 21.359002916448723,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3678.640997083549
+  },
+  {
+    "route_index": 20,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.241439792,
+      "lon": -75.5762626
+    },
+    "distance_km": 3.28,
+    "duration_minutes": 9.35,
+    "electric_wh_consumed": 18.8839305770992,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3681.116069422891
+  },
+  {
+    "route_index": 21,
+    "start_coords": {
+      "lat": 6.262674588,
+      "lon": -75.58891401
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 1.69,
+    "duration_minutes": 4.698333333333333,
+    "electric_wh_consumed": 9.61490837528355,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3690.3850916247147
+  },
+  {
+    "route_index": 22,
+    "start_coords": {
+      "lat": 6.238954295,
+      "lon": -75.54352748
+    },
+    "end_coords": {
+      "lat": 6.262437527,
+      "lon": -75.57029063
+    },
+    "distance_km": 4.75,
+    "duration_minutes": 12.953333333333335,
+    "electric_wh_consumed": 14.427214502071479,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3685.5727854979145
+  },
+  {
+    "route_index": 23,
+    "start_coords": {
+      "lat": 6.252544383,
+      "lon": -75.60089701
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 3.76,
+    "duration_minutes": 10.345,
+    "electric_wh_consumed": 14.500244626527374,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3685.499755373463
+  },
+  {
+    "route_index": 24,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.244114096,
+      "lon": -75.56099388
+    },
+    "distance_km": 4.67,
+    "duration_minutes": 13.085,
+    "electric_wh_consumed": 27.523268679375374,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3672.476731320615
+  },
+  {
+    "route_index": 25,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.253891107,
+      "lon": -75.5722968
+    },
+    "distance_km": 2.12,
+    "duration_minutes": 6.218333333333334,
+    "electric_wh_consumed": 14.690954423691416,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3685.309045576305
+  },
+  {
+    "route_index": 26,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.235146569,
+      "lon": -75.57222546
+    },
+    "distance_km": 4.66,
+    "duration_minutes": 13.07,
+    "electric_wh_consumed": 23.905491562941272,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3676.094508437053
+  },
+  {
+    "route_index": 27,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.235978723,
+      "lon": -75.56595579
+    },
+    "distance_km": 5.46,
+    "duration_minutes": 15.453333333333335,
+    "electric_wh_consumed": 42.69758471269743,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3657.302415287299
+  },
+  {
+    "route_index": 28,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.264076749,
+      "lon": -75.56725222
+    },
+    "distance_km": 2.14,
+    "duration_minutes": 6.0183333333333335,
+    "electric_wh_consumed": 16.065616839663686,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3683.9343831603337
+  },
+  {
+    "route_index": 29,
+    "start_coords": {
+      "lat": 6.238954295,
+      "lon": -75.54352748
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 6.1,
+    "duration_minutes": 16.721666666666668,
+    "electric_wh_consumed": 26.77710378784481,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3673.222896212143
+  },
+  {
+    "route_index": 30,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.258837203,
+      "lon": -75.56905344
+    },
+    "distance_km": 2.66,
+    "duration_minutes": 7.408333333333333,
+    "electric_wh_consumed": 16.486448872579924,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3683.513551127418
+  },
+  {
+    "route_index": 31,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.235978723,
+      "lon": -75.56595579
+    },
+    "distance_km": 5.33,
+    "duration_minutes": 14.646666666666667,
+    "electric_wh_consumed": 41.61064744962914,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3658.3893525503663
+  },
+  {
+    "route_index": 32,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.269010353,
+      "lon": -75.6135003
+    },
+    "distance_km": 6.23,
+    "duration_minutes": 17.10666666666667,
+    "electric_wh_consumed": 69.10638834897104,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3630.893611651009
+  },
+  {
+    "route_index": 33,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.248924017,
+      "lon": -75.56783736
+    },
+    "distance_km": 3.89,
+    "duration_minutes": 11.223333333333333,
+    "electric_wh_consumed": 23.559714825288303,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3676.440285174705
+  },
+  {
+    "route_index": 34,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.243565143,
+      "lon": -75.56763037
+    },
+    "distance_km": 3.73,
+    "duration_minutes": 10.536666666666667,
+    "electric_wh_consumed": 23.52945319751962,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3676.4705468024745
+  },
+  {
+    "route_index": 35,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.257928636,
+      "lon": -75.5710651
+    },
+    "distance_km": 4.64,
+    "duration_minutes": 12.805,
+    "electric_wh_consumed": 22.489058755234094,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3677.5109412447605
+  },
+  {
+    "route_index": 36,
+    "start_coords": {
+      "lat": 6.231423933,
+      "lon": -75.52447522
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 12.17,
+    "duration_minutes": 33.64666666666667,
+    "electric_wh_consumed": 122.75123074426219,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3577.2487692557124
+  },
+  {
+    "route_index": 37,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.244102996,
+      "lon": -75.57517956
+    },
+    "distance_km": 3.41,
+    "duration_minutes": 9.835,
+    "electric_wh_consumed": 19.04179253561187,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3680.958207464383
+  },
+  {
+    "route_index": 38,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.262437527,
+      "lon": -75.57029063
+    },
+    "distance_km": 2.15,
+    "duration_minutes": 6.0183333333333335,
+    "electric_wh_consumed": 15.35627042775579,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3684.6437295722426
+  },
+  {
+    "route_index": 39,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.239506097,
+      "lon": -75.57591929
+    },
+    "distance_km": 3.41,
+    "duration_minutes": 9.506666666666666,
+    "electric_wh_consumed": 21.835647242734673,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3678.164352757256
+  },
+  {
+    "route_index": 40,
+    "start_coords": {
+      "lat": 6.238083853,
+      "lon": -75.53075002
+    },
+    "end_coords": {
+      "lat": 6.235030016,
+      "lon": -75.52633258
+    },
+    "distance_km": 1.04,
+    "duration_minutes": 9.770000000000001,
+    "electric_wh_consumed": 25.01731110015036,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3674.982688899844
+  },
+  {
+    "route_index": 41,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.24280842,
+      "lon": -75.57111967
+    },
+    "distance_km": 3.42,
+    "duration_minutes": 10.018333333333334,
+    "electric_wh_consumed": 19.413235155660647,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3680.586764844333
+  },
+  {
+    "route_index": 42,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.244114096,
+      "lon": -75.56099388
+    },
+    "distance_km": 4.21,
+    "duration_minutes": 11.501666666666667,
+    "electric_wh_consumed": 17.784953938343932,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3682.215046061643
+  },
+  {
+    "route_index": 43,
+    "start_coords": {
+      "lat": 6.227744568,
+      "lon": -75.54028282
+    },
+    "end_coords": {
+      "lat": 6.261874492,
+      "lon": -75.5622245
+    },
+    "distance_km": 5.91,
+    "duration_minutes": 16.253333333333334,
+    "electric_wh_consumed": 27.682147780717692,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3672.3178522192748
+  },
+  {
+    "route_index": 44,
+    "start_coords": {
+      "lat": 6.238083853,
+      "lon": -75.53075002
+    },
+    "end_coords": {
+      "lat": 6.261874492,
+      "lon": -75.5622245
+    },
+    "distance_km": 6.45,
+    "duration_minutes": 22.39333333333333,
+    "electric_wh_consumed": 40.84706496697639,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3659.152935033018
+  },
+  {
+    "route_index": 45,
+    "start_coords": {
+      "lat": 6.24883329,
+      "lon": -75.54166309
+    },
+    "end_coords": {
+      "lat": 6.247090273,
+      "lon": -75.5766709
+    },
+    "distance_km": 5.09,
+    "duration_minutes": 14.101666666666667,
+    "electric_wh_consumed": 25.167320506189167,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3674.8326794938052
+  },
+  {
+    "route_index": 46,
+    "start_coords": {
+      "lat": 6.24883329,
+      "lon": -75.54166309
+    },
+    "end_coords": {
+      "lat": 6.235146569,
+      "lon": -75.57222546
+    },
+    "distance_km": 5.35,
+    "duration_minutes": 14.595,
+    "electric_wh_consumed": 21.605295543542628,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3678.394704456454
+  },
+  {
+    "route_index": 47,
+    "start_coords": {
+      "lat": 6.254773422,
+      "lon": -75.56583297
+    },
+    "end_coords": {
+      "lat": 6.256399862,
+      "lon": -75.56484398
+    },
+    "distance_km": 0.7,
+    "duration_minutes": 2.07,
+    "electric_wh_consumed": 4.266331431504728,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3695.7336685684954
+  },
+  {
+    "route_index": 48,
+    "start_coords": {
+      "lat": 6.238954295,
+      "lon": -75.54352748
+    },
+    "end_coords": {
+      "lat": 6.253891107,
+      "lon": -75.5722968
+    },
+    "distance_km": 4.3,
+    "duration_minutes": 11.846666666666666,
+    "electric_wh_consumed": 19.622716929624403,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3680.3772830703615
+  },
+  {
+    "route_index": 49,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 11.28,
+    "duration_minutes": 30.96333333333333,
+    "electric_wh_consumed": 121.54772303712105,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3578.4522769628556
+  },
+  {
+    "route_index": 50,
+    "start_coords": {
+      "lat": 6.257577563,
+      "lon": -75.56964787
+    },
+    "end_coords": {
+      "lat": 6.235978723,
+      "lon": -75.56595579
+    },
+    "distance_km": 3.86,
+    "duration_minutes": 10.776666666666667,
+    "electric_wh_consumed": 41.20580362171978,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3658.794196378274
+  },
+  {
+    "route_index": 51,
+    "start_coords": {
+      "lat": 6.238954295,
+      "lon": -75.54352748
+    },
+    "end_coords": {
+      "lat": 6.256399862,
+      "lon": -75.56484398
+    },
+    "distance_km": 3.46,
+    "duration_minutes": 9.441666666666666,
+    "electric_wh_consumed": 19.926522408249575,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3680.073477591744
+  },
+  {
+    "route_index": 52,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.261874492,
+      "lon": -75.5622245
+    },
+    "distance_km": 6.21,
+    "duration_minutes": 16.945,
+    "electric_wh_consumed": 24.038120302685016,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3675.9618796973036
+  },
+  {
+    "route_index": 53,
+    "start_coords": {
+      "lat": 6.231423933,
+      "lon": -75.52447522
+    },
+    "end_coords": {
+      "lat": 6.235030016,
+      "lon": -75.52633258
+    },
+    "distance_km": 2.67,
+    "duration_minutes": 9.93,
+    "electric_wh_consumed": 40.25853670044467,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3659.741463299548
+  },
+  {
+    "route_index": 54,
+    "start_coords": {
+      "lat": 6.198714745,
+      "lon": -75.55931263
+    },
+    "end_coords": {
+      "lat": 6.24569529,
+      "lon": -75.54213488
+    },
+    "distance_km": 11.0,
+    "duration_minutes": 30.001666666666665,
+    "electric_wh_consumed": 55.15208277962037,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3644.847917220361
+  },
+  {
+    "route_index": 55,
+    "start_coords": {
+      "lat": 6.23594142,
+      "lon": -75.57308543
+    },
+    "end_coords": {
+      "lat": 6.235030016,
+      "lon": -75.52633258
+    },
+    "distance_km": 7.43,
+    "duration_minutes": 22.39,
+    "electric_wh_consumed": 85.27321851451077,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3614.726781485468
+  },
+  {
+    "route_index": 56,
+    "start_coords": {
+      "lat": 6.227744568,
+      "lon": -75.54028282
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 7.44,
+    "duration_minutes": 20.58,
+    "electric_wh_consumed": 36.52522436913485,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3663.4747756308593
+  },
+  {
+    "route_index": 57,
+    "start_coords": {
+      "lat": 6.181833624,
+      "lon": -75.57131236
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 11.37,
+    "duration_minutes": 31.33,
+    "electric_wh_consumed": 38.89795320229455,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3661.1020467976914
+  },
+  {
+    "route_index": 58,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 0.57,
+    "duration_minutes": 1.7783333333333333,
+    "electric_wh_consumed": 9.553883408406737,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3690.446116591591
+  },
+  {
+    "route_index": 59,
+    "start_coords": {
+      "lat": 6.198714745,
+      "lon": -75.55931263
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 1.96,
+    "duration_minutes": 5.3516666666666675,
+    "electric_wh_consumed": 26.426494196993108,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3673.5735058030095
+  },
+  {
+    "route_index": 60,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.252521634,
+      "lon": -75.56561334
+    },
+    "distance_km": 4.14,
+    "duration_minutes": 11.479999999999999,
+    "electric_wh_consumed": 26.849543511341295,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3673.150456488655
+  },
+  {
+    "route_index": 61,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.256399862,
+      "lon": -75.56484398
+    },
+    "distance_km": 3.92,
+    "duration_minutes": 10.863333333333333,
+    "electric_wh_consumed": 21.984997127574637,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3678.015002872421
+  },
+  {
+    "route_index": 62,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.246025551,
+      "lon": -75.56393672
+    },
+    "distance_km": 4.31,
+    "duration_minutes": 12.354999999999999,
+    "electric_wh_consumed": 24.878315139100568,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3675.121684860893
+  },
+  {
+    "route_index": 63,
+    "start_coords": {
+      "lat": 6.238083853,
+      "lon": -75.53075002
+    },
+    "end_coords": {
+      "lat": 6.246025551,
+      "lon": -75.56393672
+    },
+    "distance_km": 4.77,
+    "duration_minutes": 18.05666666666667,
+    "electric_wh_consumed": 22.346399667720124,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3677.6536003322694
+  },
+  {
+    "route_index": 64,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.255430126,
+      "lon": -75.5621293
+    },
+    "distance_km": 3.66,
+    "duration_minutes": 10.726666666666667,
+    "electric_wh_consumed": 21.83994684982773,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3678.1600531501676
+  },
+  {
+    "route_index": 65,
+    "start_coords": {
+      "lat": 6.253637965,
+      "lon": -75.56077431
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 4.34,
+    "duration_minutes": 12.121666666666666,
+    "electric_wh_consumed": 22.178111910032435,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3677.821888089957
+  },
+  {
+    "route_index": 66,
+    "start_coords": {
+      "lat": 6.253637965,
+      "lon": -75.56077431
+    },
+    "end_coords": {
+      "lat": 6.235146569,
+      "lon": -75.57222546
+    },
+    "distance_km": 3.53,
+    "duration_minutes": 9.838333333333333,
+    "electric_wh_consumed": 18.042472208443936,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3681.957527791553
+  },
+  {
+    "route_index": 67,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.287446853,
+      "lon": -75.55541272
+    },
+    "distance_km": 5.62,
+    "duration_minutes": 15.686666666666667,
+    "electric_wh_consumed": 38.745024559826334,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3661.2549754401653
+  },
+  {
+    "route_index": 68,
+    "start_coords": {
+      "lat": 6.244921286,
+      "lon": -75.57479261
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 9.46,
+    "duration_minutes": 26.415000000000003,
+    "electric_wh_consumed": 76.12588746407862,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3623.8741125359024
+  },
+  {
+    "route_index": 69,
+    "start_coords": {
+      "lat": 6.251117415,
+      "lon": -75.56150774
+    },
+    "end_coords": {
+      "lat": 6.24569529,
+      "lon": -75.54213488
+    },
+    "distance_km": 2.69,
+    "duration_minutes": 7.335,
+    "electric_wh_consumed": 28.938853448093713,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3671.061146551905
+  },
+  {
+    "route_index": 70,
+    "start_coords": {
+      "lat": 6.252544383,
+      "lon": -75.60089701
+    },
+    "end_coords": {
+      "lat": 6.243565143,
+      "lon": -75.56763037
+    },
+    "distance_km": 4.59,
+    "duration_minutes": 13.068333333333333,
+    "electric_wh_consumed": 23.078612573653853,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3676.921387426345
+  },
+  {
+    "route_index": 71,
+    "start_coords": {
+      "lat": 6.244921286,
+      "lon": -75.57479261
+    },
+    "end_coords": {
+      "lat": 6.235146569,
+      "lon": -75.57222546
+    },
+    "distance_km": 2.14,
+    "duration_minutes": 6.444999999999999,
+    "electric_wh_consumed": 10.263902381733828,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3689.7360976182663
+  },
+  {
+    "route_index": 72,
+    "start_coords": {
+      "lat": 6.254181206,
+      "lon": -75.57474342
+    },
+    "end_coords": {
+      "lat": 6.24569529,
+      "lon": -75.54213488
+    },
+    "distance_km": 4.65,
+    "duration_minutes": 12.678333333333335,
+    "electric_wh_consumed": 46.513337889146236,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3653.486662110842
+  },
+  {
+    "route_index": 73,
+    "start_coords": {
+      "lat": 6.246546147,
+      "lon": -75.56801047
+    },
+    "end_coords": {
+      "lat": 6.235030016,
+      "lon": -75.52633258
+    },
+    "distance_km": 6.11,
+    "duration_minutes": 18.936666666666667,
+    "electric_wh_consumed": 81.47061148962968,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3618.5293885103492
+  },
+  {
+    "route_index": 74,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.24569529,
+      "lon": -75.54213488
+    },
+    "distance_km": 2.86,
+    "duration_minutes": 7.8116666666666665,
+    "electric_wh_consumed": 32.27844895457857,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3667.721551045416
+  },
+  {
+    "route_index": 75,
+    "start_coords": {
+      "lat": 6.254181206,
+      "lon": -75.57474342
+    },
+    "end_coords": {
+      "lat": 6.248181087,
+      "lon": -75.57209533
+    },
+    "distance_km": 1.34,
+    "duration_minutes": 3.646666666666667,
+    "electric_wh_consumed": 5.907778208641405,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3694.092221791359
+  },
+  {
+    "route_index": 76,
+    "start_coords": {
+      "lat": 6.23084439,
+      "lon": -75.5697882
+    },
+    "end_coords": {
+      "lat": 6.258837203,
+      "lon": -75.56905344
+    },
+    "distance_km": 4.07,
+    "duration_minutes": 11.088333333333333,
+    "electric_wh_consumed": 13.235300612526947,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3686.7646993874687
+  },
+  {
+    "route_index": 77,
+    "start_coords": {
+      "lat": 6.23766376,
+      "lon": -75.56396358
+    },
+    "end_coords": {
+      "lat": 6.258837203,
+      "lon": -75.56905344
+    },
+    "distance_km": 3.38,
+    "duration_minutes": 9.21,
+    "electric_wh_consumed": 18.087670674855865,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3681.912329325142
+  },
+  {
+    "route_index": 78,
+    "start_coords": {
+      "lat": 6.257577563,
+      "lon": -75.56964787
+    },
+    "end_coords": {
+      "lat": 6.248924017,
+      "lon": -75.56783736
+    },
+    "distance_km": 2.23,
+    "duration_minutes": 6.38,
+    "electric_wh_consumed": 22.791944668279424,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3677.208055331712
+  },
+  {
+    "route_index": 79,
+    "start_coords": {
+      "lat": 6.249394913,
+      "lon": -75.5560925
+    },
+    "end_coords": {
+      "lat": 6.256399862,
+      "lon": -75.56484398
+    },
+    "distance_km": 1.37,
+    "duration_minutes": 3.7383333333333337,
+    "electric_wh_consumed": 5.846200192709088,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3694.1537998072868
+  },
+  {
+    "route_index": 80,
+    "start_coords": {
+      "lat": 6.238954295,
+      "lon": -75.54352748
+    },
+    "end_coords": {
+      "lat": 6.227385782,
+      "lon": -75.56833206
+    },
+    "distance_km": 5.49,
+    "duration_minutes": 15.275,
+    "electric_wh_consumed": 37.58340835318695,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3662.4165916468028
+  },
+  {
+    "route_index": 81,
+    "start_coords": {
+      "lat": 6.260308678,
+      "lon": -75.56683326
+    },
+    "end_coords": {
+      "lat": 6.24569529,
+      "lon": -75.54213488
+    },
+    "distance_km": 3.97,
+    "duration_minutes": 11.108333333333333,
+    "electric_wh_consumed": 45.346466374358634,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3654.6535336256347
+  },
+  {
+    "route_index": 82,
+    "start_coords": {
+      "lat": 6.23594142,
+      "lon": -75.57308543
+    },
+    "end_coords": {
+      "lat": 6.260047494,
+      "lon": -75.55328222
+    },
+    "distance_km": 3.89,
+    "duration_minutes": 10.606666666666666,
+    "electric_wh_consumed": 24.24650294585435,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3675.7534970541365
+  },
+  {
+    "route_index": 83,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.23329307,
+      "lon": -75.57497159
+    },
+    "distance_km": 7.63,
+    "duration_minutes": 22.678333333333335,
+    "electric_wh_consumed": 29.91391885795995,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3670.0860811420193
+  },
+  {
+    "route_index": 84,
+    "start_coords": {
+      "lat": 6.249394913,
+      "lon": -75.5560925
+    },
+    "end_coords": {
+      "lat": 6.260047494,
+      "lon": -75.55328222
+    },
+    "distance_km": 1.7,
+    "duration_minutes": 4.623333333333333,
+    "electric_wh_consumed": 16.900792237139566,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3683.09920776286
+  },
+  {
+    "route_index": 85,
+    "start_coords": {
+      "lat": 6.260308678,
+      "lon": -75.56683326
+    },
+    "end_coords": {
+      "lat": 6.243565143,
+      "lon": -75.56763037
+    },
+    "distance_km": 2.88,
+    "duration_minutes": 8.173333333333334,
+    "electric_wh_consumed": 15.203310800978665,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3684.7966891990145
+  },
+  {
+    "route_index": 86,
+    "start_coords": {
+      "lat": 6.238083853,
+      "lon": -75.53075002
+    },
+    "end_coords": {
+      "lat": 6.252521634,
+      "lon": -75.56561334
+    },
+    "distance_km": 5.17,
+    "duration_minutes": 18.918333333333333,
+    "electric_wh_consumed": 20.278664790715776,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3679.721335209272
+  },
+  {
+    "route_index": 87,
+    "start_coords": {
+      "lat": 6.23766376,
+      "lon": -75.56396358
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 6.84,
+    "duration_minutes": 19.035,
+    "electric_wh_consumed": 87.76110663012336,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3612.2388933698644
+  },
+  {
+    "route_index": 88,
+    "start_coords": {
+      "lat": 6.23084439,
+      "lon": -75.5697882
+    },
+    "end_coords": {
+      "lat": 6.248924017,
+      "lon": -75.56783736
+    },
+    "distance_km": 2.64,
+    "duration_minutes": 7.8133333333333335,
+    "electric_wh_consumed": 11.880455837707155,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3688.1195441622876
+  },
+  {
+    "route_index": 89,
+    "start_coords": {
+      "lat": 6.251117415,
+      "lon": -75.56150774
+    },
+    "end_coords": {
+      "lat": 6.265882567,
+      "lon": -75.56115287
+    },
+    "distance_km": 3.16,
+    "duration_minutes": 8.79,
+    "electric_wh_consumed": 19.162533571850084,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3680.837466428152
+  },
+  {
+    "route_index": 90,
+    "start_coords": {
+      "lat": 6.236241686,
+      "lon": -75.56686843
+    },
+    "end_coords": {
+      "lat": 6.253891107,
+      "lon": -75.5722968
+    },
+    "distance_km": 3.56,
+    "duration_minutes": 10.085,
+    "electric_wh_consumed": 25.459621667673694,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3674.540378332325
+  },
+  {
+    "route_index": 91,
+    "start_coords": {
+      "lat": 6.23084439,
+      "lon": -75.5697882
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 6.46,
+    "duration_minutes": 17.755,
+    "electric_wh_consumed": 77.05494053685028,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3622.9450594631385
+  },
+  {
+    "route_index": 92,
+    "start_coords": {
+      "lat": 6.230486006,
+      "lon": -75.53176288
+    },
+    "end_coords": {
+      "lat": 6.235030016,
+      "lon": -75.52633258
+    },
+    "distance_km": 1.77,
+    "duration_minutes": 7.221666666666667,
+    "electric_wh_consumed": 37.13658991066336,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3662.863410089328
+  },
+  {
+    "route_index": 93,
+    "start_coords": {
+      "lat": 6.198714745,
+      "lon": -75.55931263
+    },
+    "end_coords": {
+      "lat": 6.200991338,
+      "lon": -75.58142249
+    },
+    "distance_km": 3.71,
+    "duration_minutes": 10.128333333333334,
+    "electric_wh_consumed": 15.089730767300969,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3684.9102692326906
+  },
+  {
+    "route_index": 94,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.200991338,
+      "lon": -75.58142249
+    },
+    "distance_km": 8.06,
+    "duration_minutes": 22.123333333333335,
+    "electric_wh_consumed": 33.32866208248848,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3666.671337917493
+  },
+  {
+    "route_index": 95,
+    "start_coords": {
+      "lat": 6.261866639,
+      "lon": -75.57181869
+    },
+    "end_coords": {
+      "lat": 6.203209732,
+      "lon": -75.55807279
+    },
+    "distance_km": 11.73,
+    "duration_minutes": 31.978333333333335,
+    "electric_wh_consumed": 83.10116115645582,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3616.8988388435187
+  },
+  {
+    "route_index": 96,
+    "start_coords": {
+      "lat": 6.236241686,
+      "lon": -75.56686843
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 5.79,
+    "duration_minutes": 16.481666666666666,
+    "electric_wh_consumed": 34.66338586660429,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3665.336614133388
+  },
+  {
+    "route_index": 97,
+    "start_coords": {
+      "lat": 6.252544383,
+      "lon": -75.60089701
+    },
+    "end_coords": {
+      "lat": 6.265882567,
+      "lon": -75.56115287
+    },
+    "distance_km": 6.57,
+    "duration_minutes": 18.16166666666667,
+    "electric_wh_consumed": 31.413371684823353,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3668.5866283151627
+  },
+  {
+    "route_index": 98,
+    "start_coords": {
+      "lat": 6.227744568,
+      "lon": -75.54028282
+    },
+    "end_coords": {
+      "lat": 6.256399862,
+      "lon": -75.56484398
+    },
+    "distance_km": 5.06,
+    "duration_minutes": 13.96,
+    "electric_wh_consumed": 18.307889232679795,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3681.692110767311
+  },
+  {
+    "route_index": 99,
+    "start_coords": {
+      "lat": 6.198714745,
+      "lon": -75.55931263
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 10.41,
+    "duration_minutes": 28.71333333333333,
+    "electric_wh_consumed": 36.98110907732261,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3663.0188909226586
+  },
+  {
+    "route_index": 100,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.235030016,
+      "lon": -75.52633258
+    },
+    "distance_km": 9.66,
+    "duration_minutes": 28.83833333333333,
+    "electric_wh_consumed": 99.66691657073883,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3600.3330834292356
+  },
+  {
+    "route_index": 101,
+    "start_coords": {
+      "lat": 6.251117415,
+      "lon": -75.56150774
+    },
+    "end_coords": {
+      "lat": 6.200991338,
+      "lon": -75.58142249
+    },
+    "distance_km": 8.06,
+    "duration_minutes": 22.290000000000003,
+    "electric_wh_consumed": 35.475236157893015,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3664.5247638420983
+  },
+  {
+    "route_index": 102,
+    "start_coords": {
+      "lat": 6.246546147,
+      "lon": -75.56801047
+    },
+    "end_coords": {
+      "lat": 6.269010353,
+      "lon": -75.6135003
+    },
+    "distance_km": 8.21,
+    "duration_minutes": 22.853333333333335,
+    "electric_wh_consumed": 80.26682973168104,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3619.733170268312
+  },
+  {
+    "route_index": 103,
+    "start_coords": {
+      "lat": 6.181833624,
+      "lon": -75.57131236
+    },
+    "end_coords": {
+      "lat": 6.241439792,
+      "lon": -75.5762626
+    },
+    "distance_km": 7.73,
+    "duration_minutes": 21.316666666666666,
+    "electric_wh_consumed": 22.005760036105674,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3677.9942399638903
+  },
+  {
+    "route_index": 104,
+    "start_coords": {
+      "lat": 6.198714745,
+      "lon": -75.55931263
+    },
+    "end_coords": {
+      "lat": 6.261874492,
+      "lon": -75.5622245
+    },
+    "distance_km": 10.15,
+    "duration_minutes": 27.666666666666668,
+    "electric_wh_consumed": 31.97589563727172,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3668.024104362708
+  },
+  {
+    "route_index": 105,
+    "start_coords": {
+      "lat": 6.23594142,
+      "lon": -75.57308543
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 4.48,
+    "duration_minutes": 12.558333333333334,
+    "electric_wh_consumed": 22.41275023950127,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3677.587249760492
+  },
+  {
+    "route_index": 106,
+    "start_coords": {
+      "lat": 6.24883329,
+      "lon": -75.54166309
+    },
+    "end_coords": {
+      "lat": 6.265882567,
+      "lon": -75.56115287
+    },
+    "distance_km": 4.63,
+    "duration_minutes": 12.816666666666666,
+    "electric_wh_consumed": 24.667735759201182,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3675.3322642407957
+  },
+  {
+    "route_index": 107,
+    "start_coords": {
+      "lat": 6.246546147,
+      "lon": -75.56801047
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 4.12,
+    "duration_minutes": 11.8,
+    "electric_wh_consumed": 22.87583531640197,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3677.12416468359
+  },
+  {
+    "route_index": 108,
+    "start_coords": {
+      "lat": 6.251557255,
+      "lon": -75.57634923
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 3.03,
+    "duration_minutes": 8.365,
+    "electric_wh_consumed": 13.586840296623706,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3686.413159703372
+  },
+  {
+    "route_index": 109,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.24569529,
+      "lon": -75.54213488
+    },
+    "distance_km": 6.6,
+    "duration_minutes": 18.153333333333332,
+    "electric_wh_consumed": 61.68623233690469,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3638.313767663085
+  },
+  {
+    "route_index": 110,
+    "start_coords": {
+      "lat": 6.226729989,
+      "lon": -75.56623934
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 6.32,
+    "duration_minutes": 17.645,
+    "electric_wh_consumed": 27.847575562053482,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3672.152424437935
+  },
+  {
+    "route_index": 111,
+    "start_coords": {
+      "lat": 6.260308678,
+      "lon": -75.56683326
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 2.98,
+    "duration_minutes": 8.538333333333332,
+    "electric_wh_consumed": 17.8737233315668,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3682.1262766684254
+  },
+  {
+    "route_index": 112,
+    "start_coords": {
+      "lat": 6.254773422,
+      "lon": -75.56583297
+    },
+    "end_coords": {
+      "lat": 6.235146569,
+      "lon": -75.57222546
+    },
+    "distance_km": 3.48,
+    "duration_minutes": 9.593333333333334,
+    "electric_wh_consumed": 17.130238102483048,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3682.8697618975125
+  },
+  {
+    "route_index": 113,
+    "start_coords": {
+      "lat": 6.254181206,
+      "lon": -75.57474342
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 1.89,
+    "duration_minutes": 6.246666666666667,
+    "electric_wh_consumed": 13.294373767827569,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3686.705626232174
+  },
+  {
+    "route_index": 114,
+    "start_coords": {
+      "lat": 6.23084439,
+      "lon": -75.5697882
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 5.45,
+    "duration_minutes": 15.185,
+    "electric_wh_consumed": 25.279272729152847,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3674.7207272708365
+  },
+  {
+    "route_index": 115,
+    "start_coords": {
+      "lat": 6.254773422,
+      "lon": -75.56583297
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 3.82,
+    "duration_minutes": 10.591666666666667,
+    "electric_wh_consumed": 19.984081275644527,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3680.0159187243494
+  },
+  {
+    "route_index": 116,
+    "start_coords": {
+      "lat": 6.261866639,
+      "lon": -75.57181869
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 2.75,
+    "duration_minutes": 7.598333333333333,
+    "electric_wh_consumed": 17.244156656776457,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3682.7558433432173
+  },
+  {
+    "route_index": 117,
+    "start_coords": {
+      "lat": 6.251117415,
+      "lon": -75.56150774
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 3.78,
+    "duration_minutes": 10.405,
+    "electric_wh_consumed": 20.79521049551865,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3679.2047895044825
+  },
+  {
+    "route_index": 118,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.265882567,
+      "lon": -75.56115287
+    },
+    "distance_km": 3.22,
+    "duration_minutes": 9.156666666666666,
+    "electric_wh_consumed": 26.10876872140029,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3673.8912312785956
+  },
+  {
+    "route_index": 119,
+    "start_coords": {
+      "lat": 6.23594142,
+      "lon": -75.57308543
+    },
+    "end_coords": {
+      "lat": 6.252521634,
+      "lon": -75.56561334
+    },
+    "distance_km": 2.18,
+    "duration_minutes": 6.4383333333333335,
+    "electric_wh_consumed": 14.086116981131577,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3685.9138830188645
+  },
+  {
+    "route_index": 120,
+    "start_coords": {
+      "lat": 6.23594142,
+      "lon": -75.57308543
+    },
+    "end_coords": {
+      "lat": 6.258837203,
+      "lon": -75.56905344
+    },
+    "distance_km": 3.1,
+    "duration_minutes": 8.461666666666666,
+    "electric_wh_consumed": 10.368778122875366,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3689.631221877124
+  },
+  {
+    "route_index": 121,
+    "start_coords": {
+      "lat": 6.238954295,
+      "lon": -75.54352748
+    },
+    "end_coords": {
+      "lat": 6.261874492,
+      "lon": -75.5622245
+    },
+    "distance_km": 4.3,
+    "duration_minutes": 11.735000000000001,
+    "electric_wh_consumed": 29.300780956287472,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3670.6992190437077
+  },
+  {
+    "route_index": 122,
+    "start_coords": {
+      "lat": 6.244921286,
+      "lon": -75.57479261
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 2.86,
+    "duration_minutes": 8.276666666666667,
+    "electric_wh_consumed": 14.843965280636219,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3685.156034719358
+  },
+  {
+    "route_index": 123,
+    "start_coords": {
+      "lat": 6.249394913,
+      "lon": -75.5560925
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 4.35,
+    "duration_minutes": 11.956666666666667,
+    "electric_wh_consumed": 23.663423314887236,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3676.336576685104
+  },
+  {
+    "route_index": 124,
+    "start_coords": {
+      "lat": 6.23766376,
+      "lon": -75.56396358
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 5.32,
+    "duration_minutes": 14.901666666666667,
+    "electric_wh_consumed": 29.252330399253996,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3670.7476696007416
+  },
+  {
+    "route_index": 125,
+    "start_coords": {
+      "lat": 6.260332292,
+      "lon": -75.57921722
+    },
+    "end_coords": {
+      "lat": 6.260047494,
+      "lon": -75.55328222
+    },
+    "distance_km": 4.41,
+    "duration_minutes": 12.181666666666667,
+    "electric_wh_consumed": 35.522114739754194,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3664.4778852602403
+  },
+  {
+    "route_index": 126,
+    "start_coords": {
+      "lat": 6.23766376,
+      "lon": -75.56396358
+    },
+    "end_coords": {
+      "lat": 6.248924017,
+      "lon": -75.56783736
+    },
+    "distance_km": 1.92,
+    "duration_minutes": 5.666666666666667,
+    "electric_wh_consumed": 16.42804924942191,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3683.571950750577
+  },
+  {
+    "route_index": 127,
+    "start_coords": {
+      "lat": 6.261866639,
+      "lon": -75.57181869
+    },
+    "end_coords": {
+      "lat": 6.244102996,
+      "lon": -75.57517956
+    },
+    "distance_km": 3.62,
+    "duration_minutes": 10.036666666666667,
+    "electric_wh_consumed": 15.211471896299045,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3684.788528103695
+  },
+  {
+    "route_index": 128,
+    "start_coords": {
+      "lat": 6.23084439,
+      "lon": -75.5697882
+    },
+    "end_coords": {
+      "lat": 6.24569529,
+      "lon": -75.54213488
+    },
+    "distance_km": 6.04,
+    "duration_minutes": 16.473333333333333,
+    "electric_wh_consumed": 43.45024643145065,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3656.549753568539
+  },
+  {
+    "route_index": 129,
+    "start_coords": {
+      "lat": 6.236241686,
+      "lon": -75.56686843
+    },
+    "end_coords": {
+      "lat": 6.24569529,
+      "lon": -75.54213488
+    },
+    "distance_km": 3.97,
+    "duration_minutes": 11.021666666666667,
+    "electric_wh_consumed": 42.51951233014827,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3657.4804876698513
+  },
+  {
+    "route_index": 130,
+    "start_coords": {
+      "lat": 6.246546147,
+      "lon": -75.56801047
+    },
+    "end_coords": {
+      "lat": 6.247090273,
+      "lon": -75.5766709
+    },
+    "distance_km": 1.64,
+    "duration_minutes": 4.911666666666666,
+    "electric_wh_consumed": 11.02998528549684,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3688.9700147145004
+  },
+  {
+    "route_index": 131,
+    "start_coords": {
+      "lat": 6.251117415,
+      "lon": -75.56150774
+    },
+    "end_coords": {
+      "lat": 6.253891107,
+      "lon": -75.5722968
+    },
+    "distance_km": 1.99,
+    "duration_minutes": 5.53,
+    "electric_wh_consumed": 13.6408224956255,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3686.3591775043733
+  },
+  {
+    "route_index": 132,
+    "start_coords": {
+      "lat": 6.257577563,
+      "lon": -75.56964787
+    },
+    "end_coords": {
+      "lat": 6.261773129,
+      "lon": -75.58057905
+    },
+    "distance_km": 2.27,
+    "duration_minutes": 6.5633333333333335,
+    "electric_wh_consumed": 17.325531476459506,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3682.6744685235353
+  },
+  {
+    "route_index": 133,
+    "start_coords": {
+      "lat": 6.227744568,
+      "lon": -75.54028282
+    },
+    "end_coords": {
+      "lat": 6.260047494,
+      "lon": -75.55328222
+    },
+    "distance_km": 5.35,
+    "duration_minutes": 14.731666666666666,
+    "electric_wh_consumed": 29.151930051140024,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3670.8480699488537
+  },
+  {
+    "route_index": 134,
+    "start_coords": {
+      "lat": 6.251117415,
+      "lon": -75.56150774
+    },
+    "end_coords": {
+      "lat": 6.262437527,
+      "lon": -75.57029063
+    },
+    "distance_km": 2.35,
+    "duration_minutes": 6.3966666666666665,
+    "electric_wh_consumed": 9.881630336434768,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3690.11836966356
+  },
+  {
+    "route_index": 135,
+    "start_coords": {
+      "lat": 6.262674588,
+      "lon": -75.58891401
+    },
+    "end_coords": {
+      "lat": 6.253891107,
+      "lon": -75.5722968
+    },
+    "distance_km": 2.97,
+    "duration_minutes": 8.405,
+    "electric_wh_consumed": 12.593476073604077,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3687.406523926396
+  },
+  {
+    "route_index": 136,
+    "start_coords": {
+      "lat": 6.254773422,
+      "lon": -75.56583297
+    },
+    "end_coords": {
+      "lat": 6.261874492,
+      "lon": -75.5622245
+    },
+    "distance_km": 1.34,
+    "duration_minutes": 4.0183333333333335,
+    "electric_wh_consumed": 7.759915942556474,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3692.2400840574433
+  },
+  {
+    "route_index": 137,
+    "start_coords": {
+      "lat": 6.251117415,
+      "lon": -75.56150774
+    },
+    "end_coords": {
+      "lat": 6.261874492,
+      "lon": -75.5622245
+    },
+    "distance_km": 2.03,
+    "duration_minutes": 5.53,
+    "electric_wh_consumed": 11.279196840920363,
+    "combustion_wh_consumed": 0.0,
+    "fuel_gallons_consumed": 0.0,
+    "final_battery_wh": 3688.720803159077
+  }
+]

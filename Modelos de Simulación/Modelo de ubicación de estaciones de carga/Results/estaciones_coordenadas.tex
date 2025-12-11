@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\geometry{a4paper, margin=2cm}
+
+\title{Coordenadas de Estaciones de Carga\\(Casos de Estudio: Bogotá, Medellín y Valle de Aburrá)}
+\author{Sistema de Optimización de Infraestructura de Carga}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Resumen}
+Este documento presenta las coordenadas geográficas (latitud y longitud) de todas las estaciones de carga optimizadas para los tres casos de estudio: Bogotá, Medellín y Valle de Aburrá.
+
+\begin{table}[h]
+\centering
+\caption{Resumen de Estaciones por Caso de Estudio}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Caso de Estudio} & \textbf{Número de Estaciones} & \textbf{Tecnologías} \\
+\midrule
+Bogotá & 8 & Cargador Alta Capacidad: 2, Cargador Estándar: 5, Intercambio de Baterías: 1 \\
+Medellín & 8 & Cargador Alta Capacidad: 1, Cargador Estándar: 7 \\
+Valle de Aburrá & 10 & Cargador Estándar: 10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Coordenadas Detalladas de Estaciones}
+
+\begin{longtable}{p{2.5cm}p{3.5cm}p{4cm}cc}
+\caption{Coordenadas de todas las estaciones de carga optimizadas}\\
+\toprule
+\textbf{Caso de Estudio} & \textbf{ID Estación} & \textbf{Tecnología} & \textbf{Latitud (°)} & \textbf{Longitud (°)} \\
+\midrule
+\endfirsthead
+
+\multicolumn{5}{c}{{\tablename\ \thetable{} -- continuación de la página anterior}} \\
+\toprule
+\textbf{Caso de Estudio} & \textbf{ID Estación} & \textbf{Tecnología} & \textbf{Latitud (°)} & \textbf{Longitud (°)} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{5}{r}{{Continúa en la página siguiente}} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+% BOGOTÁ
+Bogotá & ST-BOG-095-037 & Cargador Alta Capacidad & 4.590993 & -74.109941 \\
+Bogotá & ST-BOG-095-039 & Cargador Alta Capacidad & 4.590993 & -74.091759 \\
+Bogotá & ST-BOG-095-041 & Cargador Estándar & 4.590993 & -74.073578 \\
+Bogotá & ST-BOG-097-037 & Intercambio de Baterías & 4.609011 & -74.109941 \\
+Bogotá & ST-BOG-097-040 & Cargador Estándar & 4.609011 & -74.082669 \\
+Bogotá & ST-BOG-100-040 & Cargador Estándar & 4.636039 & -74.082669 \\
+Bogotá & ST-BOG-101-038 & Cargador Estándar & 4.645048 & -74.100850 \\
+Bogotá & ST-BOG-102-040 & Cargador Estándar & 4.654057 & -74.082669 \\
+
+% MEDELLÍN
+Medellín & ST-MED-001-016 & Cargador Estándar & 6.177337 & -75.569288 \\
+Medellín & ST-MED-003-017 & Cargador Estándar & 6.195355 & -75.560197 \\
+Medellín & ST-MED-007-016 & Cargador Estándar & 6.231391 & -75.569288 \\
+Medellín & ST-MED-007-020 & Cargador Estándar & 6.231391 & -75.532924 \\
+Medellín & ST-MED-009-013 & Cargador Estándar & 6.249409 & -75.596561 \\
+Medellín & ST-MED-009-017 & Cargador Estándar & 6.249409 & -75.560197 \\
+Medellín & ST-MED-009-019 & Cargador Estándar & 6.249409 & -75.542015 \\
+Medellín & ST-MED-010-015 & Cargador Alta Capacidad & 6.258418 & -75.578379 \\
+
+% VALLE DE ABURRÁ
+Valle de Aburrá & ST-VAL-027-014 & Cargador Estándar & 6.226001 & -75.587470 \\
+Valle de Aburrá & ST-VAL-028-016 & Cargador Estándar & 6.235010 & -75.569288 \\
+Valle de Aburrá & ST-VAL-028-020 & Cargador Estándar & 6.235010 & -75.532924 \\
+Valle de Aburrá & ST-VAL-029-014 & Cargador Estándar & 6.244019 & -75.587470 \\
+Valle de Aburrá & ST-VAL-030-016 & Cargador Estándar & 6.253028 & -75.569288 \\
+Valle de Aburrá & ST-VAL-030-019 & Cargador Estándar & 6.253028 & -75.542015 \\
+Valle de Aburrá & ST-VAL-032-017 & Cargador Estándar & 6.271046 & -75.560197 \\
+Valle de Aburrá & ST-VAL-033-013 & Cargador Estándar & 6.280055 & -75.596561 \\
+Valle de Aburrá & ST-VAL-034-019 & Cargador Estándar & 6.289064 & -75.542015 \\
+Valle de Aburrá & ST-VAL-035-016 & Cargador Estándar & 6.298073 & -75.569288 \\
+
+\end{longtable}
+
+\section{Notas}
+\begin{itemize}
+    \item Las coordenadas están en el sistema de referencia WGS84 (EPSG:4326).
+    \item La latitud es positiva hacia el norte (valores positivos indican hemisferio norte).
+    \item La longitud es negativa hacia el oeste (valores negativos indican hemisferio oeste para Colombia).
+    \item Las tecnologías disponibles son:
+    \begin{itemize}
+        \item \textbf{Cargador Estándar}: Cargador convencional con capacidad moderada.
+        \item \textbf{Cargador Alta Capacidad}: Cargador rápido con mayor capacidad de servicio.
+        \item \textbf{Intercambio de Baterías}: Estación que permite el intercambio rápido de baterías.
+    \end{itemize}
+    \item Total de estaciones: 26 estaciones distribuidas en los tres casos de estudio.
+\end{itemize}
+
+\end{document}
+

@@ -1,0 +1,1809 @@
+﻿Ciudad_Municipio;ESTRATO;Municipio_Origen;Municipio_Destino;Motivo_Viaje
+Bogotá;2;Bogotá;Bogotá;A trabajar
+Bogotá;2;Bogotá;Bogotá;A regresar al hogar
+Bogotá;1;Bogotá;Bogotá;A acompañar a alguien sin remuneración
+Bogotá;1;Bogotá;Bogotá;A regresar al hogar
+Bogotá;1;Bogotá;Bogotá;A trabajar
+Bogotá;3;Bogotá;Bogotá;A trabajar
+Bogotá;3;Bogotá;Bogotá;A regresar al hogar
+Soacha;No aplica;Soacha;Bogotá;A asuntos médicos personales
+Soacha;No aplica;Bogotá;Soacha;A regresar al hogar
+Soacha;No aplica;Soacha;Bogotá;A trabajar
+Soacha;No aplica;Soacha;Bogotá;A Estudiar
+Bogotá;3;Bogotá;Bogotá;A acompañar a alguien sin remuneración
+Bogotá;3;Bogotá;Bogotá;A Estudiar
+Bogotá;1;Bogotá;Bogotá;A realizar algún trámite personal
+Bogotá;1;Bogotá;Bogotá;A realizar compras
+Bogotá;1;Bogotá;Bogotá;A Estudiar
+Bogotá;3;Bogotá;Bogotá;A llevar y/o dejar algo
+Bogotá;2;Bogotá;Bogotá;A realizar algún trámite personal
+Bogotá;2;Bogotá;Bogotá;Conduzco vehículo como forma de trabajo
+Bogotá;2;Bogotá;Bogotá;A Estudiar
+Bogotá;2;Bogotá;Bogotá;A acompañar a alguien sin remuneración
+Bogotá;3;Bogotá;Bogotá;A realizar algún trámite personal
+Soacha;No aplica;Soacha;Bogotá;A realizar algún trámite personal
+Soacha;No aplica;Soacha;Bogotá;A acompañar a alguien sin remuneración
+Bogotá;4;Bogotá;Bogotá;A trabajar
+Bogotá;4;Bogotá;Bogotá;A regresar al hogar
+Bogotá;1;Bogotá;Bogotá;A asuntos médicos personales
+Bogotá;3;Bogotá;Bogotá;A visitar a alguien
+Bogotá;4;Bogotá;Chía;A trabajar
+Bogotá;4;Chía;Bogotá;A regresar al hogar
+Bogotá;2;Bogotá;Bogotá;A realizar actividades físicas y/o deportivas
+Cota;No aplica;Cota;Cota;A trabajar
+Cota;No aplica;Cota;Cota;A regresar al hogar
+Bogotá;2;Bogotá;Sopó;A trabajar
+Bogotá;2;Sopó;Bogotá;A regresar al hogar
+Bogotá;1;Bogotá;Funza;A trabajar
+Bogotá;2;Bogotá;Bogotá;A llevar y/o dejar algo
+Bogotá;2;Bogotá;Bogotá;A realizar compras
+Bogotá;3;Soacha;Bogotá;A regresar al hogar
+Bogotá;1;Bogotá;Bogotá;A visitar a alguien
+Funza;No aplica;Funza;Mosquera;A trabajar
+Funza;No aplica;Mosquera;Funza;A regresar al hogar
+Bogotá;2;Bogotá;Sibaté;A trabajar
+Bogotá;2;Sibaté;Bogotá;A regresar al hogar
+Bogotá;5;Bogotá;Bogotá;A trabajar
+Bogotá;5;Bogotá;Bogotá;A realizar algún trámite personal
+Bogotá;4;Bogotá;Bogotá;A realizar algún trámite personal
+Bogotá;3;Bogotá;Bogotá;A realizar compras
+Bogotá;2;Bogotá;Funza;A trabajar
+Bogotá;2;Funza;Bogotá;A regresar al hogar
+Bogotá;2;Bogotá;Bogotá;A asuntos médicos personales
+Bogotá;3;Bogotá;Funza;A trabajar
+Cajicá;No aplica;Cajicá;Cajicá;A acompañar a alguien sin remuneración
+Cajicá;No aplica;Cajicá;Cajicá;A regresar al hogar
+Cajicá;No aplica;Cajicá;Bogotá;A trabajar
+Cajicá;No aplica;Bogotá;Cajicá;A regresar al hogar
+Bogotá;4;Bogotá;Bogotá;A Estudiar
+Bogotá;3;Bogotá;Bogotá;Conduzco vehículo como forma de trabajo
+Bogotá;2;Bogotá;Chía;A trabajar
+Bogotá;2;Chía;Bogotá;A regresar al hogar
+Bogotá;4;Bogotá;Bogotá;A realizar actividades físicas y/o deportivas
+Bogotá;1;Bogotá;Cajicá;A trabajar
+Bogotá;1;Cajicá;Bogotá;A regresar al hogar
+Bogotá;2;Bogotá;Mosquera;A visitar a alguien
+Bogotá;2;Mosquera;Bogotá;A regresar al hogar
+Bogotá;3;Bogotá;Cajicá;A trabajar
+Bogotá;3;Cajicá;Bogotá;A regresar al hogar
+Bogotá;2;Bogotá;Bogotá;A visitar a alguien
+Soacha;No aplica;Soacha;Soacha;A trabajar
+Soacha;No aplica;Soacha;Soacha;A regresar al hogar
+Bogotá;1;Funza;Bogotá;A regresar al hogar
+Bogotá;3;Bogotá;Soacha;A trabajar
+Soacha;No aplica;Soacha;Funza;A trabajar
+Soacha;No aplica;Funza;Soacha;A regresar al hogar
+Bogotá;3;Bogotá;Bogotá;A realizar actividades recreativas y culturales
+Cota;No aplica;Cota;Bogotá;A trabajar
+Cota;No aplica;Bogotá;Cota;A regresar al hogar
+Bogotá;1;Bogotá;Zipaquirá;A realizar algún trámite personal
+Bogotá;1;Zipaquirá;Bogotá;A regresar al hogar
+Bogotá;2;Bogotá;La Calera;A trabajar
+Bogotá;2;La Calera;Bogotá;A regresar al hogar
+Soacha;No aplica;Soacha;Bogotá;A llevar y/o dejar algo
+Bogotá;3;Bogotá;Bogotá;A buscar trabajo
+Madrid;No aplica;Madrid;Bogotá;A trabajar
+Bogotá;1;Bogotá;Soacha;A Estudiar
+Bogotá;1;Soacha;Bogotá;A regresar al hogar
+Bogotá;2;Bogotá;Facatativá;A Estudiar
+Bogotá;2;Facatativá;Bogotá;A regresar al hogar
+Mosquera;No aplica;Mosquera;Mosquera;A regresar al hogar
+Bogotá;2;Bogotá;Soacha;A visitar a alguien
+Bogotá;2;Soacha;La Mesa;A visitar a alguien
+Bogotá;4;Bogotá;Cáqueza;A realizar actividades recreativas y culturales
+Bogotá;4;Bogotá;Bogotá;A realizar compras
+Bogotá;4;Bogotá;Bogotá;A acompañar a alguien sin remuneración
+Bogotá;1;Bogotá;Soacha;A trabajar
+Funza;No aplica;Funza;Funza;A trabajar
+Funza;No aplica;Funza;Funza;A regresar al hogar
+Bogotá;2;Bogotá;Soacha;A realizar algún trámite personal
+Bogotá;2;Soacha;Bogotá;A regresar al hogar
+Bogotá;2;Bogotá;Soacha;A trabajar
+Bogotá;2;Bogotá;Cota;A trabajar
+Cajicá;No aplica;Cajicá;Tocancipá;A trabajar
+Cajicá;No aplica;Tocancipá;Cajicá;A regresar al hogar
+Bogotá;6;Bogotá;Bogotá;A trabajar
+Bogotá;6;Bogotá;Bogotá;A regresar al hogar
+Soacha;No aplica;Soacha;Soacha;A Estudiar
+Cota;No aplica;Cota;Chía;A trabajar
+Cota;No aplica;Chía;Cota;A regresar al hogar
+Bogotá;2;Bogotá;Tocaima;A trabajar
+Bogotá;2;Tocaima;Bogotá;A regresar al hogar
+Bogotá;3;Bogotá;Bogotá;A asuntos médicos personales
+Sibaté;No aplica;Sibaté;Sibaté;A realizar algún trámite personal
+Sibaté;No aplica;Sibaté;Sibaté;A regresar al hogar
+Sibaté;No aplica;Sibaté;Sibaté;A llevar y/o dejar algo
+Bogotá;2;Bogotá;Tenjo;A trabajar
+Bogotá;2;Tenjo;Bogotá;A regresar al hogar
+Bogotá;2;Bogotá;Tocancipá;A trabajar
+Bogotá;2;Tocancipá;Bogotá;A regresar al hogar
+Bogotá;2;Cota;Bogotá;A regresar al hogar
+Soacha;No aplica;Bogotá;Bogotá;A trabajar
+Soacha;No aplica;Bogotá;Bogotá;A visitar a alguien
+Bogotá;2;Bogotá;Bogotá;A realizar actividades recreativas y culturales
+Cajicá;No aplica;Cajicá;Sopó;A trabajar
+Cajicá;No aplica;Sopó;Cajicá;A regresar al hogar
+Bogotá;3;Bogotá;Cota;A trabajar
+Bogotá;3;Cota;Bogotá;A regresar al hogar
+Bojacá;No aplica;Bojacá;Bojacá;A trabajar
+Bogotá;4;Bogotá;Bogotá;A asuntos médicos personales
+Bogotá;1;Bogotá;Bogotá;A llevar y/o dejar algo
+Soacha;No aplica;Soacha;Soacha;A asuntos médicos personales
+Sibaté;No aplica;Sibaté;Sibaté;A trabajar
+Bogotá;4;Bogotá;Bogotá;Conduzco vehículo como forma de trabajo
+Bogotá;1;Bogotá;Cota;A trabajar
+Bogotá;1;Cota;Bogotá;A regresar al hogar
+Soacha;No aplica;Soacha;La Calera;A trabajar
+Soacha;No aplica;La Calera;Soacha;A regresar al hogar
+Funza;No aplica;Funza;Bogotá;A trabajar
+Funza;No aplica;Bogotá;Funza;A regresar al hogar
+Bogotá;3;Bogotá;Facatativá;A trabajar
+Soacha;No aplica;Soacha;Sibaté;A trabajar
+Soacha;No aplica;Sibaté;Soacha;A regresar al hogar
+Bogotá;1;Bogotá;Bogotá;A realizar actividades físicas y/o deportivas
+Bogotá;1;Bogotá;Bogotá;A asistir actividad de tipo religioso y/o culto
+Bogotá;3;Bogotá;Tocaima;A trabajar
+Bogotá;3;Tocaima;Tocaima;A trabajar
+Bogotá;3;Bogotá;Funza;A realizar algún trámite personal
+Bogotá;3;Funza;Bogotá;A regresar al hogar
+Soacha;No aplica;Soacha;Tocancipá;A trabajar
+Soacha;No aplica;Tocancipá;Soacha;A regresar al hogar
+Soacha;No aplica;Soacha;Soacha;A acompañar a alguien sin remuneración
+Mosquera;No aplica;Mosquera;Funza;A trabajar
+Mosquera;No aplica;Mosquera;Mosquera;A trabajar
+Soacha;No aplica;Soacha;Cota;A trabajar
+Soacha;No aplica;Cota;Soacha;A regresar al hogar
+Soacha;No aplica;Soacha;Chía;A trabajar
+Soacha;No aplica;Chía;Soacha;A regresar al hogar
+Bogotá;4;Bogotá;Bogotá;A llevar y/o dejar algo
+Soacha;No aplica;Soacha;Soacha;A llevar y/o dejar algo
+Soacha;No aplica;Soacha;Soacha;A realizar compras
+Bogotá;2;Bogotá;Cajicá;A trabajar
+Bogotá;2;Cajicá;Bogotá;A regresar al hogar
+Cajicá;No aplica;Cajicá;Cajicá;A trabajar
+Cajicá;No aplica;Cajicá;Bogotá;A llevar y/o dejar algo
+Bogotá;3;Bogotá;La Calera;A trabajar
+Bogotá;3;La Calera;Bogotá;A regresar al hogar
+Sibaté;No aplica;Sibaté;Funza;A trabajar
+Bogotá;2;Bogotá;Soacha;A realizar compras
+Bogotá;1;Bogotá;Choachí;A trabajar
+Bogotá;1;Choachí;Bogotá;A regresar al hogar
+Madrid;No aplica;Madrid;Funza;A trabajar
+Bogotá;2;Bogotá;Bogotá;A buscar trabajo
+Bogotá;2;Bogotá;Mosquera;A trabajar
+Funza;No aplica;Funza;Funza;A acompañar a alguien sin remuneración
+Funza;No aplica;Funza;Funza;A realizar compras
+Funza;No aplica;Funza;Bogotá;A acompañar a alguien sin remuneración
+Funza;No aplica;Bogotá;Bogotá;A trabajar
+Funza;No aplica;Bogotá;Bogotá;A Estudiar
+Funza;No aplica;Bogotá;Funza;A realizar compras
+Funza;No aplica;Funza;Funza;A Estudiar
+Soacha;No aplica;Soacha;Bogotá;A realizar compras
+Bogotá;3;Bogotá;Chía;A trabajar
+Bogotá;3;Chía;Bogotá;A regresar al hogar
+Bogotá;3;Bogotá;Bogotá;A acompañar a alguien con remuneración
+Bogotá;3;Chía;Bogotá;A trabajar
+Bogotá;1;Bogotá;Madrid;A trabajar
+Bogotá;1;Bogotá;Bogotá;A realizar actividades recreativas y culturales
+Bogotá;3;Bogotá;Sopó;A trabajar
+Bogotá;3;Sopó;Bogotá;A regresar al hogar
+Bogotá;3;Bogotá;Mosquera;A trabajar
+Bogotá;3;Mosquera;Bogotá;A regresar al hogar
+Bogotá;4;Bogotá;Cota;A trabajar
+Soacha;No aplica;Soacha;Tocaima;A trabajar
+Soacha;No aplica;Tocaima;Soacha;A regresar al hogar
+Bogotá;1;Bogotá;Bogotá;A buscar trabajo
+Madrid;No aplica;Madrid;Mosquera;A trabajar
+Sibaté;No aplica;Sibaté;Bogotá;A trabajar
+Sibaté;No aplica;Bogotá;Sibaté;A regresar al hogar
+Bogotá;4;Bogotá;Bogotá;A visitar a alguien
+Bogotá;2;Bogotá;Bogotá;A acompañar a alguien con remuneración
+Sibaté;No aplica;Sibaté;Fusagasugá;A trabajar
+Sibaté;No aplica;Fusagasugá;Sibaté;A regresar al hogar
+Bogotá;5;Bogotá;Bogotá;A Estudiar
+Bogotá;5;Bogotá;Bogotá;A regresar al hogar
+Mosquera;No aplica;Mosquera;Bogotá;A acompañar a alguien sin remuneración
+Mosquera;No aplica;Bogotá;Mosquera;A regresar al hogar
+El Rosal;No aplica;El Rosal;Cota;A trabajar
+El Rosal;No aplica;Cota;El Rosal;A regresar al hogar
+Zipaquirá;No aplica;Zipaquirá;Zipaquirá;A realizar compras
+Zipaquirá;No aplica;Zipaquirá;Zipaquirá;A regresar al hogar
+Bogotá;2;Bogotá;Guasca;A realizar compras
+Bogotá;2;Guasca;Bogotá;A regresar al hogar
+Chía;No aplica;Chía;Tabio;A trabajar
+Chía;No aplica;Tabio;Chía;A regresar al hogar
+Chía;No aplica;Chía;Tocancipá;A trabajar
+Chía;No aplica;Tocancipá;Chía;A regresar al hogar
+Chía;No aplica;Chía;Bogotá;A trabajar
+Chía;No aplica;Bogotá;Chía;A regresar al hogar
+El Rosal;No aplica;El Rosal;Funza;A trabajar
+El Rosal;No aplica;Funza;El Rosal;A regresar al hogar
+El Rosal;No aplica;El Rosal;Facatativá;A acompañar a alguien sin remuneración
+El Rosal;No aplica;Facatativá;El Rosal;A regresar al hogar
+El Rosal;No aplica;El Rosal;Bogotá;A realizar algún trámite personal
+El Rosal;No aplica;Bogotá;El Rosal;A regresar al hogar
+El Rosal;No aplica;El Rosal;Facatativá;A realizar algún trámite personal
+El Rosal;No aplica;El Rosal;Cota;A Estudiar
+Zipaquirá;No aplica;Zipaquirá;Zipaquirá;A realizar actividades físicas y/o deportivas
+Cota;No aplica;Cota;Bogotá;A Estudiar
+Subachoque;No aplica;Subachoque;Cota;A trabajar
+Subachoque;No aplica;Cota;Subachoque;A regresar al hogar
+Mosquera;No aplica;Mosquera;Bogotá;A trabajar
+Subachoque;No aplica;Subachoque;Tenjo;A trabajar
+Subachoque;No aplica;Tenjo;Subachoque;A regresar al hogar
+Subachoque;No aplica;Subachoque;Funza;A trabajar
+Subachoque;No aplica;Funza;Subachoque;A regresar al hogar
+Bojacá;No aplica;Bojacá;Facatativá;A realizar actividades físicas y/o deportivas
+Choachí;No aplica;Choachí;Choachí;A realizar compras
+Choachí;No aplica;Choachí;Choachí;A regresar al hogar
+Choachí;No aplica;Choachí;Bogotá;A trabajar
+Choachí;No aplica;Bogotá;Choachí;A regresar al hogar
+Choachí;No aplica;Choachí;Fómeque;A trabajar
+Choachí;No aplica;Fómeque;Choachí;A regresar al hogar
+Subachoque;No aplica;Subachoque;Subachoque;A trabajar
+Subachoque;No aplica;Subachoque;Subachoque;A regresar al hogar
+Chía;No aplica;Chía;Chía;A trabajar
+Chía;No aplica;Chía;Chía;A regresar al hogar
+Cota;No aplica;Cota;Bogotá;A realizar algún trámite personal
+El Rosal;No aplica;El Rosal;El Rosal;A trabajar
+El Rosal;No aplica;El Rosal;El Rosal;A regresar al hogar
+Bogotá;4;Bogotá;Chocontá;A trabajar
+Bogotá;4;Chocontá;Bogotá;A regresar al hogar
+Bojacá;No aplica;Bojacá;Bojacá;A regresar al hogar
+Zipaquirá;No aplica;Zipaquirá;Sopó;A trabajar
+Choachí;No aplica;Choachí;Choachí;A trabajar
+Choachí;No aplica;Choachí;Fómeque;A acompañar a alguien sin remuneración
+Bogotá;2;Bogotá;Madrid;A trabajar
+Bogotá;2;Madrid;Bogotá;A regresar al hogar
+Chía;No aplica;Chía;Zipaquirá;A trabajar
+Chía;No aplica;Zipaquirá;Chía;A regresar al hogar
+La Calera;No aplica;La Calera;La Calera;A regresar al hogar
+Bogotá;2;Bogotá;Soacha;A asuntos médicos personales
+Tenjo;No aplica;Tenjo;Tenjo;A trabajar
+Tenjo;No aplica;Tenjo;Tenjo;A regresar al hogar
+La Calera;No aplica;La Calera;Bogotá;A acompañar a alguien sin remuneración
+La Calera;No aplica;Bogotá;La Calera;A regresar al hogar
+Funza;No aplica;Funza;Bogotá;A Estudiar
+La Calera;No aplica;La Calera;La Calera;A trabajar
+Cota;No aplica;Cota;Tenjo;A trabajar
+Cota;No aplica;Tenjo;Cota;A regresar al hogar
+Cota;No aplica;Cota;Bogotá;A realizar compras
+Soacha;No aplica;Soacha;Soacha;A realizar algún trámite personal
+Bojacá;No aplica;Bojacá;Bogotá;A trabajar
+Bojacá;No aplica;Bojacá;Chía;A trabajar
+El Rosal;No aplica;El Rosal;El Rosal;A realizar compras
+Bogotá;5;Bogotá;Bogotá;A llevar y/o dejar algo
+Bojacá;No aplica;Bojacá;Madrid;A trabajar
+Bojacá;No aplica;Madrid;Bojacá;A regresar al hogar
+Soacha;No aplica;Soacha;Cota;A visitar a alguien
+Bogotá;5;Bogotá;Chía;A trabajar
+Bogotá;5;Chía;Bogotá;A regresar al hogar
+Choachí;No aplica;Choachí;Sopó;A trabajar
+Choachí;No aplica;Sopó;Choachí;A regresar al hogar
+Choachí;No aplica;Choachí;Choachí;A Estudiar
+El Rosal;No aplica;Facatativá;Facatativá;A realizar compras
+El Rosal;No aplica;El Rosal;Bogotá;A trabajar
+Bogotá;4;Bogotá;Tenjo;A trabajar
+Bogotá;4;Tenjo;Bogotá;A regresar al hogar
+Chía;No aplica;Bogotá;Bogotá;A trabajar
+Chía;No aplica;Chía;Chía;A Estudiar
+El Rosal;No aplica;El Rosal;Facatativá;A asuntos médicos personales
+Sopó;No aplica;Sopó;Bogotá;A trabajar
+Sopó;No aplica;Bogotá;Sopó;A regresar al hogar
+Sopó;No aplica;Sopó;Tocancipá;A trabajar
+Sopó;No aplica;Tocancipá;Sopó;A regresar al hogar
+Sopó;No aplica;Sopó;Sopó;A regresar al hogar
+Tenjo;No aplica;Tenjo;Bogotá;A Estudiar
+Tenjo;No aplica;Bogotá;Tenjo;A regresar al hogar
+La Calera;No aplica;La Calera;La Calera;A acompañar a alguien sin remuneración
+La Calera;No aplica;La Calera;Bogotá;A Estudiar
+La Calera;No aplica;La Calera;Bogotá;A trabajar
+Mosquera;No aplica;Mosquera;Bogotá;A realizar algún trámite personal
+Bogotá;4;Cota;Bogotá;A regresar al hogar
+Sopó;No aplica;Sopó;Sopó;A trabajar
+Mosquera;No aplica;Mosquera;Mosquera;A realizar compras
+Tabio;No aplica;Tabio;Tenjo;A trabajar
+Tabio;No aplica;Tenjo;Tabio;A regresar al hogar
+Subachoque;No aplica;Subachoque;Bogotá;A asuntos médicos personales
+Subachoque;No aplica;Bogotá;Subachoque;A regresar al hogar
+Subachoque;No aplica;Bogotá;Bogotá;A asuntos médicos personales
+Tabio;No aplica;Tabio;Bogotá;A trabajar
+Tabio;No aplica;Bogotá;Tabio;A regresar al hogar
+Chía;No aplica;Chía;Ubaté;A trabajar
+Chía;No aplica;Ubaté;Chía;A regresar al hogar
+Tocancipá;No aplica;Tocancipá;Tocancipá;A realizar algún trámite personal
+Tocancipá;No aplica;Tocancipá;Tocancipá;A regresar al hogar
+Gachancipá;No aplica;Gachancipá;Gachancipá;A trabajar
+Gachancipá;No aplica;Gachancipá;Gachancipá;A regresar al hogar
+Gachancipá;No aplica;Gachancipá;Tocancipá;A trabajar
+Gachancipá;No aplica;Tocancipá;Gachancipá;A regresar al hogar
+Tabio;No aplica;Tabio;Cajicá;A realizar algún trámite personal
+Tabio;No aplica;Cajicá;Tabio;A regresar al hogar
+Cajicá;No aplica;Cajicá;Chía;A trabajar
+Cajicá;No aplica;Chía;Cajicá;A regresar al hogar
+Tabio;No aplica;Tabio;Tabio;A trabajar
+Tabio;No aplica;Tabio;Tabio;A regresar al hogar
+Tabio;No aplica;Tabio;Tenjo;A visitar a alguien
+Cajicá;No aplica;Cajicá;Cota;A trabajar
+Cajicá;No aplica;Cajicá;Zipaquirá;A trabajar
+Cota;No aplica;Cota;La Calera;A trabajar
+Cota;No aplica;La Calera;Cota;A regresar al hogar
+Cota;No aplica;Cota;Chía;A Estudiar
+Gachancipá;No aplica;Gachancipá;Cajicá;A trabajar
+Gachancipá;No aplica;Cajicá;Gachancipá;A regresar al hogar
+Gachancipá;No aplica;Gachancipá;Bogotá;A trabajar
+Gachancipá;No aplica;Bogotá;Gachancipá;A regresar al hogar
+Gachancipá;No aplica;Gachancipá;Tocancipá;A realizar actividades recreativas y culturales
+Cota;No aplica;Cota;Mosquera;A trabajar
+Cota;No aplica;Mosquera;Cota;A regresar al hogar
+Cota;No aplica;Cota;Funza;A trabajar
+Cota;No aplica;Funza;Cota;A regresar al hogar
+Cajicá;No aplica;Cajicá;Bogotá;A Estudiar
+Gachancipá;No aplica;Gachancipá;Sopó;A trabajar
+Gachancipá;No aplica;Sopó;Gachancipá;A regresar al hogar
+Cota;No aplica;Cota;Cota;A Estudiar
+Mosquera;No aplica;Mosquera;Cáqueza;A trabajar
+Cota;No aplica;Cota;Cota;A acompañar a alguien con remuneración
+Cota;No aplica;Cota;Cajicá;A trabajar
+Cota;No aplica;Cajicá;Cota;A regresar al hogar
+Soacha;No aplica;Soacha;Fusagasugá;A Estudiar
+Soacha;No aplica;Fusagasugá;Soacha;A regresar al hogar
+Subachoque;No aplica;Subachoque;Bogotá;A trabajar
+Cota;No aplica;Bogotá;Bogotá;A trabajar
+Cota;No aplica;Cota;Cota;A realizar actividades recreativas y culturales
+Bogotá;2;Bogotá;La Calera;A realizar algún trámite personal
+Cajicá;No aplica;Cajicá;Funza;A trabajar
+Madrid;No aplica;Madrid;Cota;A trabajar
+Madrid;No aplica;Cota;Madrid;A regresar al hogar
+Madrid;No aplica;Bogotá;Madrid;A regresar al hogar
+Madrid;No aplica;Mosquera;Madrid;A regresar al hogar
+Cota;No aplica;Cota;Cota;A realizar algún trámite personal
+Bogotá;6;Bogotá;Bogotá;A Estudiar
+Bogotá;6;Bogotá;Chía;A Estudiar
+Bogotá;6;Chía;Bogotá;A regresar al hogar
+Bogotá;3;Bogotá;Bogotá;A asistir actividad de tipo religioso y/o culto
+Zipaquirá;No aplica;Zipaquirá;Bogotá;A trabajar
+Zipaquirá;No aplica;Bogotá;Zipaquirá;A regresar al hogar
+Tocancipá;No aplica;Tocancipá;Tocancipá;A trabajar
+Cota;No aplica;Cota;Cota;A acompañar a alguien sin remuneración
+Madrid;No aplica;Madrid;Madrid;A trabajar
+Madrid;No aplica;Madrid;Madrid;A regresar al hogar
+Tenjo;No aplica;Tenjo;Bogotá;A trabajar
+Tenjo;No aplica;Tenjo;Tabio;A trabajar
+Mosquera;No aplica;Mosquera;Madrid;A realizar algún trámite personal
+Mosquera;No aplica;Mosquera;Funza;A realizar compras
+Gachancipá;No aplica;Gachancipá;Tocancipá;A buscar trabajo
+Bojacá;No aplica;Zipacón;Bojacá;A regresar al hogar
+Zipaquirá;No aplica;Zipaquirá;Zipaquirá;A acompañar a alguien sin remuneración
+Zipaquirá;No aplica;Zipaquirá;Zipaquirá;A Estudiar
+Subachoque;No aplica;Subachoque;Facatativá;A realizar algún trámite personal
+Subachoque;No aplica;Facatativá;Subachoque;A regresar al hogar
+Gachancipá;No aplica;Gachancipá;Bogotá;A Estudiar
+Sopó;No aplica;Gachancipá;Sopó;A regresar al hogar
+Bojacá;No aplica;Bojacá;Madrid;A realizar compras
+Bojacá;No aplica;Bojacá;Mosquera;A trabajar
+Bojacá;No aplica;Mosquera;Bojacá;A regresar al hogar
+Bojacá;No aplica;Bojacá;Facatativá;A realizar algún trámite personal
+Bojacá;No aplica;Facatativá;Bojacá;A regresar al hogar
+Chía;No aplica;Chía;Bogotá;A visitar a alguien
+Mosquera;No aplica;Mosquera;Madrid;A trabajar
+Mosquera;No aplica;Madrid;Mosquera;A regresar al hogar
+Tenjo;No aplica;Tenjo;Chía;A trabajar
+Tenjo;No aplica;Chía;Tenjo;A regresar al hogar
+Tenjo;No aplica;Tenjo;Mosquera;A trabajar
+Tenjo;No aplica;Mosquera;Tenjo;A regresar al hogar
+Bojacá;No aplica;Bojacá;Facatativá;A trabajar
+Tenjo;No aplica;Tenjo;Bogotá;A visitar a alguien
+Gachancipá;No aplica;Gachancipá;Tocancipá;A realizar algún trámite personal
+Mosquera;No aplica;Mosquera;Bogotá;A realizar compras
+El Rosal;No aplica;El Rosal;Subachoque;A trabajar
+El Rosal;No aplica;Subachoque;El Rosal;A regresar al hogar
+Tenjo;No aplica;Tenjo;Funza;A trabajar
+Tenjo;No aplica;Funza;Tenjo;A regresar al hogar
+Zipaquirá;No aplica;Zipaquirá;Pacho;A trabajar
+Zipaquirá;No aplica;Pacho;Zipaquirá;A regresar al hogar
+Sopó;No aplica;Sopó;Suesca;A realizar algún trámite personal
+Sopó;No aplica;Suesca;Sopó;A regresar al hogar
+Sopó;No aplica;Sopó;Suesca;A trabajar
+Sopó;No aplica;Sopó;Sopó;A realizar compras
+Sopó;No aplica;Sopó;Sopó;A acompañar a alguien sin remuneración
+Sopó;No aplica;Sopó;Sopó;A realizar algún trámite personal
+Zipaquirá;No aplica;Zipaquirá;Zipaquirá;A realizar algún trámite personal
+Sopó;No aplica;Sopó;Zipaquirá;A trabajar
+Sopó;No aplica;Zipaquirá;Sopó;A regresar al hogar
+Tenjo;No aplica;Tenjo;Sopó;A trabajar
+Tenjo;No aplica;Sopó;Tenjo;A regresar al hogar
+El Rosal;No aplica;El Rosal;Tenjo;A trabajar
+El Rosal;No aplica;Tenjo;El Rosal;A regresar al hogar
+Zipaquirá;No aplica;Zipaquirá;Zipaquirá;A trabajar
+Gachancipá;No aplica;Gachancipá;Funza;A trabajar
+Gachancipá;No aplica;Funza;Gachancipá;A regresar al hogar
+Facatativá;No aplica;Facatativá;Madrid;A trabajar
+Facatativá;No aplica;Madrid;Facatativá;A regresar al hogar
+Facatativá;No aplica;Facatativá;Facatativá;A trabajar
+Facatativá;No aplica;Facatativá;Facatativá;A Estudiar
+Facatativá;No aplica;Facatativá;Facatativá;A regresar al hogar
+Subachoque;No aplica;Subachoque;El Rosal;A trabajar
+Subachoque;No aplica;El Rosal;Subachoque;A regresar al hogar
+Facatativá;No aplica;Facatativá;Facatativá;A realizar algún trámite personal
+Facatativá;No aplica;Facatativá;Facatativá;A visitar a alguien
+Chía;No aplica;Chía;Cajicá;A realizar compras
+Subachoque;No aplica;Subachoque;Tabio;A trabajar
+Subachoque;No aplica;Tabio;Subachoque;A regresar al hogar
+Cajicá;No aplica;Cajicá;Chía;A Estudiar
+Facatativá;No aplica;Facatativá;El Rosal;A trabajar
+Facatativá;No aplica;El Rosal;Facatativá;A regresar al hogar
+Bojacá;No aplica;Bojacá;Facatativá;A asuntos médicos personales
+Bojacá;No aplica;Bojacá;Funza;A trabajar
+Bojacá;No aplica;Funza;Bojacá;A regresar al hogar
+Facatativá;No aplica;Facatativá;Tenjo;A trabajar
+Facatativá;No aplica;Tenjo;Facatativá;A regresar al hogar
+Subachoque;No aplica;Subachoque;Madrid;A trabajar
+Subachoque;No aplica;Madrid;Subachoque;A regresar al hogar
+Facatativá;No aplica;Facatativá;Facatativá;A llevar y/o dejar algo
+Facatativá;No aplica;Facatativá;Zipacón;A trabajar
+Facatativá;No aplica;Zipacón;Facatativá;A regresar al hogar
+Tabio;No aplica;Tabio;Madrid;A trabajar
+Tabio;No aplica;Tabio;Cajicá;A trabajar
+Sopó;No aplica;Sopó;Suesca;A llevar y/o dejar algo
+Gachancipá;No aplica;Gachancipá;Gachancipá;A visitar a alguien
+Subachoque;No aplica;Subachoque;Cajicá;Conduzco vehículo como forma de trabajo
+Subachoque;No aplica;Cajicá;Subachoque;A regresar al hogar
+Zipaquirá;No aplica;Zipaquirá;Cajicá;A trabajar
+Zipaquirá;No aplica;Cajicá;Zipaquirá;A regresar al hogar
+Facatativá;No aplica;Facatativá;Cota;A trabajar
+Zipaquirá;No aplica;Zipaquirá;Tocancipá;A realizar algún trámite personal
+Zipaquirá;No aplica;Tocancipá;Zipaquirá;A regresar al hogar
+Gachancipá;No aplica;Gachancipá;Zipaquirá;A trabajar
+Gachancipá;No aplica;Zipaquirá;Gachancipá;A regresar al hogar
+Mosquera;No aplica;Funza;Mosquera;A regresar al hogar
+Madrid;No aplica;Madrid;Bogotá;A Estudiar
+Tabio;No aplica;Tabio;Chía;A trabajar
+Tabio;No aplica;Chía;Tabio;A regresar al hogar
+Gachancipá;No aplica;Gachancipá;Gachancipá;A realizar algún trámite personal
+Bojacá;No aplica;Bogotá;Bojacá;A regresar al hogar
+Bojacá;No aplica;Bojacá;Bojacá;A realizar compras
+Mosquera;No aplica;Bogotá;Bogotá;A realizar algún trámite personal
+Facatativá;No aplica;Facatativá;Bogotá;A asuntos médicos personales
+Facatativá;No aplica;Bogotá;Facatativá;A regresar al hogar
+Madrid;No aplica;Madrid;Zipaquirá;A trabajar
+Madrid;No aplica;Zipaquirá;Madrid;A regresar al hogar
+Madrid;No aplica;Funza;Madrid;A regresar al hogar
+Facatativá;No aplica;Facatativá;Facatativá;A realizar actividades físicas y/o deportivas
+Bojacá;No aplica;Bojacá;Bojacá;A Estudiar
+Facatativá;No aplica;Facatativá;Fusagasugá;A trabajar
+Facatativá;No aplica;Fusagasugá;Facatativá;A regresar al hogar
+Funza;No aplica;Funza;Cota;A trabajar
+Sopó;No aplica;Sopó;La Calera;A trabajar
+Sopó;No aplica;La Calera;Sopó;A regresar al hogar
+Sopó;No aplica;Sopó;Cajicá;A Estudiar
+Sopó;No aplica;Cajicá;Sopó;A regresar al hogar
+Facatativá;No aplica;Facatativá;Funza;A trabajar
+Facatativá;No aplica;Funza;Facatativá;A regresar al hogar
+Facatativá;No aplica;Facatativá;Facatativá;A acompañar a alguien sin remuneración
+Bojacá;No aplica;Bojacá;Subachoque;A trabajar
+Bojacá;No aplica;Subachoque;Bojacá;A regresar al hogar
+Facatativá;No aplica;Cota;Facatativá;A regresar al hogar
+Zipaquirá;No aplica;Zipaquirá;Chía;A trabajar
+Zipaquirá;No aplica;Chía;Zipaquirá;A regresar al hogar
+Facatativá;No aplica;Facatativá;Bogotá;A trabajar
+Bogotá;2;Bogotá;La Calera;A Estudiar
+Bogotá;3;Tocaima;Bogotá;A regresar al hogar
+Bogotá;6;Bogotá;Bogotá;A realizar algún trámite personal
+Bogotá;4;Bogotá;Tocancipá;A trabajar
+Bogotá;4;Tocancipá;Bogotá;A regresar al hogar
+Bojacá;No aplica;Bojacá;Bojacá;A acompañar a alguien sin remuneración
+Bojacá;No aplica;Bojacá;Tabio;A trabajar
+Bojacá;No aplica;Tabio;Bojacá;A regresar al hogar
+Bogotá;6;Bogotá;Bogotá;A acompañar a alguien sin remuneración
+Bogotá;6;Bogotá;Bogotá;A realizar actividades físicas y/o deportivas
+Tabio;No aplica;Tabio;Tabio;A acompañar a alguien sin remuneración
+Tabio;No aplica;Tabio;Tabio;A Estudiar
+Cota;No aplica;Cota;Facatativá;A trabajar
+Cota;No aplica;Facatativá;Cota;A regresar al hogar
+Zipaquirá;No aplica;Sopó;Zipaquirá;A regresar al hogar
+Bogotá;5;Bogotá;Bogotá;A realizar actividades físicas y/o deportivas
+Sopó;No aplica;Sopó;Bogotá;A realizar algún trámite personal
+Bogotá;6;Bogotá;Bogotá;A llevar y/o dejar algo
+Bogotá;5;Bogotá;Bogotá;A realizar actividades recreativas y culturales
+Bogotá;6;Bogotá;Zipaquirá;A trabajar
+Bogotá;6;Zipaquirá;Bogotá;A regresar al hogar
+Bogotá;6;Bogotá;Bogotá;A realizar compras
+Bogotá;6;Bogotá;Chocontá;A trabajar
+Bogotá;6;Chocontá;Bogotá;A regresar al hogar
+Bogotá;5;Bogotá;Bogotá;A acompañar a alguien sin remuneración
+Mosquera;No aplica;Mosquera;Cota;A trabajar
+Mosquera;No aplica;Cota;Mosquera;A regresar al hogar
+Cajicá;No aplica;Zipaquirá;Cajicá;A regresar al hogar
+Bogotá;4;Bogotá;Mosquera;A realizar algún trámite personal
+Bogotá;4;Mosquera;Bogotá;A regresar al hogar
+Sopó;No aplica;Sopó;Sopó;A Estudiar
+Cajicá;No aplica;Cajicá;Cajicá;A Estudiar
+Bogotá;5;Bogotá;Bogotá;A realizar compras
+Cajicá;No aplica;Cajicá;Cajicá;A llevar y/o dejar algo
+Bogotá;6;Bogotá;Bogotá;A asuntos médicos personales
+Bogotá;4;Bogotá;Soacha;A asuntos médicos personales
+Bogotá;4;Soacha;Bogotá;A regresar al hogar
+Bogotá;6;Bogotá;Bogotá;A visitar a alguien
+Bogotá;5;Bogotá;Bogotá;A visitar a alguien
+Bogotá;6;Bogotá;Cajicá;A realizar algún trámite personal
+Bogotá;6;Cajicá;Bogotá;A regresar al hogar
+Bogotá;4;Bogotá;Bogotá;A realizar actividades recreativas y culturales
+Bogotá;6;Bogotá;Bogotá;A realizar actividades recreativas y culturales
+Bogotá;5;Bogotá;Bogotá;A asuntos médicos personales
+Chía;No aplica;Chía;Chía;A visitar a alguien
+Bogotá;3;Bogotá;Bogotá;A realizar actividades físicas y/o deportivas
+Bogotá;5;Bogotá;Chía;A Estudiar
+Bogotá;6;Bogotá;Chía;A visitar a alguien
+Bogotá;3;Bogotá;Tocancipá;A trabajar
+Bogotá;3;Tocancipá;Bogotá;A regresar al hogar
+Itagui;3;Itagui;Medellin;Al Trabajo
+Medellin;3;Medellin;Itagui;Regreso a casa
+Medellin;2;Medellin;Medellin;Al Trabajo
+Medellin;2;Medellin;Medellin;Regreso a casa
+Medellin;1;Medellin;Itagui;Al Trabajo
+Itagui;1;Itagui;Medellin;Regreso a casa
+Itagui;2;Itagui;Medellin;Al Trabajo
+Medellin;2;Medellin;Itagui;Regreso a casa
+Itagui;3;Itagui;Itagui;Diligencia o tr√°mite
+Itagui;3;Itagui;Itagui;Regreso a casa
+Medellin;3;Medellin;Medellin;Al Trabajo
+Itagui;2;Itagui;Bello;Estudio
+Bello;2;Bello;Itagui;Regreso a casa
+Itagui;2;Itagui;Itagui;Estudio
+Itagui;3;Itagui;La Estrella;Al Trabajo
+La Estrella;3;La Estrella;Itagui;Regreso a casa
+Medellin;3;Medellin;Medellin;Diligencia o tr√°mite
+Medellin;3;Medellin;Medellin;Estudio
+Medellin;3;Medellin;Medellin;Regreso a casa
+Itagui;3;Itagui;Sabaneta;Recreaci√≥n
+Sabaneta;3;Sabaneta;Itagui;Recoger o dejar a alguien
+Itagui;3;Itagui;Sabaneta;Recoger o dejar a alguien
+Sabaneta;3;Sabaneta;Itagui;Regreso a casa
+Itagui;3;Itagui;Envigado;Al Trabajo
+Envigado;3;Envigado;Itagui;Regreso a casa
+Itagui;3;Itagui;Itagui;Al Trabajo
+Guarne;2;Guarne;Itagui;Regreso a casa
+Itagui;2;Itagui;Guarne;Al Trabajo
+Itagui;2;Itagui;Bello;Al Trabajo
+Itagui;2;Itagui;Itagui;Al Trabajo
+Itagui;2;Itagui;Itagui;Regreso a casa
+Itagui;3;Itagui;Carmen de Vivoral;Al Trabajo
+Carmen de Vivoral;3;Carmen de Vivoral;Itagui;Regreso a casa
+Medellin;2;Medellin;Medellin;Otro
+Bello;4;Bello;Medellin;Al Trabajo
+Medellin;4;Medellin;Bello;Regreso a casa
+Bello;3;Bello;Medellin;Diligencia o tr√°mite
+Medellin;3;Medellin;Bello;Regreso a casa
+Bello;3;Bello;Bello;Al Trabajo
+Bello;3;Bello;Bello;Regreso a casa
+Bello;2;Bello;Medellin;Al Trabajo
+Medellin;2;Medellin;Bello;Regreso a casa
+Bello;1;Bello;Bello;Estudio
+Bello;1;Bello;Bello;Recreaci√≥n
+Itagui;3;Itagui;Itagui;Estudio
+Itagui;3;Itagui;Sabaneta;Al Trabajo
+Itagui;3;Itagui;La Ceja;Al Trabajo
+La Ceja;3;La Ceja;Itagui;Regreso a casa
+Medellin;2;Medellin;Itagui;Al Trabajo
+Itagui;2;Itagui;Medellin;Regreso a casa
+Itagui;3;Itagui;Medellin;Estudio
+Itagui;3;Itagui;Medellin;Recreaci√≥n
+Medellin;2;Medellin;Medellin;Estudio
+Medellin;2;Medellin;Envigado;Otro
+Envigado;2;Envigado;Medellin;Regreso a casa
+Medellin;2;Medellin;Medellin;Recoger o dejar a alguien
+Medellin;2;Medellin;Bello;Al Trabajo
+Bello;2;Bello;Medellin;Almuerzo
+Bello;2;Bello;Medellin;Regreso a casa
+Medellin;2;Medellin;La Estrella;Al Trabajo
+La Estrella;2;La Estrella;Medellin;Regreso a casa
+Medellin;2;Medellin;Itagui;Estudio
+Itagui;2;Itagui;Envigado;Al Trabajo
+Envigado;2;Envigado;Itagui;Regreso a casa
+Envigado;4;Envigado;Medellin;Estudio
+Medellin;4;Medellin;Envigado;Regreso a casa
+Medellin;1;Medellin;Medellin;Al Trabajo
+Medellin;1;Medellin;Medellin;Regreso a casa
+Medellin;2;Medellin;Medellin;Diligencia o tr√°mite
+Itagui;3;Itagui;Medellin;Compras
+Itagui;3;Itagui;Guarne;Al Trabajo
+Guarne;3;Guarne;Itagui;Regreso a casa
+Envigado;2;Envigado;Medellin;Al Trabajo
+Medellin;2;Medellin;Envigado;Regreso a casa
+Envigado;2;Envigado;Envigado;Al Trabajo
+Envigado;2;Envigado;Envigado;Regreso a casa
+Medellin;3;Medellin;Itagui;Almuerzo
+Bello;1;Bello;Bello;Regreso a casa
+Bello;1;Bello;Bello;Recoger o dejar a alguien
+Bello;3;Bello;Medellin;Recoger o dejar a alguien
+Bello;3;Bello;Medellin;Al Trabajo
+Envigado;3;Envigado;Copacabana;Al Trabajo
+Copacabana;3;Copacabana;Envigado;Regreso a casa
+Envigado;3;Envigado;Sabaneta;Al Trabajo
+Sabaneta;3;Sabaneta;Envigado;Regreso a casa
+Bello;3;Bello;Medellin;Acompa√±ar a alguien
+Bello;3;Bello;Medellin;Salud
+Bello;4;Bello;La Ceja;Al Trabajo
+La Ceja;4;La Ceja;Bello;Regreso a casa
+Bello;1;Bello;Bello;Al Trabajo
+Bello;1;Bello;Medellin;Al Trabajo
+Medellin;1;Medellin;Bello;Regreso a casa
+Bello;3;Bello;Bello;Diligencia o tr√°mite
+Bello;3;Bello;Barbosa;Diligencia o tr√°mite
+Barbosa;3;Barbosa;Bello;Diligencia o tr√°mite
+Bello;3;Bello;Girardota;Al Trabajo
+Girardota;3;Girardota;Bello;Regreso a casa
+Medellin;1;Medellin;Medellin;Salud
+Medellin;1;Medellin;Bello;Al Trabajo
+Bello;1;Bello;Medellin;Regreso a casa
+Medellin;1;Medellin;Envigado;Al Trabajo
+Envigado;1;Envigado;Medellin;Estudio
+Medellin;1;Medellin;Medellin;Estudio
+Envigado;4;Envigado;Envigado;Al Trabajo
+Envigado;4;Envigado;Envigado;Regreso a casa
+Envigado;4;Envigado;Itagui;Al Trabajo
+Itagui;4;Itagui;Envigado;Almuerzo
+Medellin;1;Medellin;Medellin;Compras
+Itagui;2;Itagui;Medellin;Estudio
+Medellin;1;Medellin;Medellin;Acompa√±ar a alguien
+Medellin;1;Medellin;Itagui;Estudio
+Itagui;1;Itagui;Medellin;Recoger o dejar a alguien
+Medellin;2;Medellin;Sabaneta;Al Trabajo
+Sabaneta;2;Sabaneta;Medellin;Regreso a casa
+Medellin;2;Medellin;Medellin;Salud
+Envigado;3;Envigado;Envigado;Al Trabajo
+Envigado;3;Envigado;Envigado;Regreso a casa
+Envigado;3;Envigado;Medellin;Al Trabajo
+Medellin;3;Medellin;Envigado;Regreso a casa
+Envigado;3;Envigado;Itagui;Estudio
+Itagui;3;Itagui;Envigado;Regreso a casa
+Envigado;2;Envigado;Envigado;Recoger o dejar a alguien
+Medellin;1;Medellin;Marinilla;Al Trabajo
+Marinilla;1;Marinilla;Medellin;Regreso a casa
+Envigado;1;Envigado;Medellin;Regreso a casa
+Medellin;2;Medellin;Itagui;Recoger o dejar a alguien
+Envigado;4;Envigado;Copacabana;Al Trabajo
+Copacabana;4;Copacabana;Envigado;Regreso a casa
+Medellin;2;Medellin;Envigado;Al Trabajo
+Envigado;4;Envigado;Medellin;Al Trabajo
+Bello;2;Bello;Sabaneta;Al Trabajo
+Sabaneta;2;Sabaneta;Bello;Regreso a casa
+Envigado;3;Envigado;Medellin;Recoger o dejar a alguien
+Medellin;3;Medellin;Envigado;Recoger o dejar a alguien
+Envigado;3;Envigado;Medellin;Estudio
+Bello;2;Bello;Girardota;Al Trabajo
+Girardota;2;Girardota;Bello;Regreso a casa
+Bello;2;Bello;Medellin;Estudio
+Medellin;1;Medellin;Medellin;Recoger o dejar a alguien
+Medellin;1;Medellin;Medellin;Diligencia o tr√°mite
+Medellin;1;Medellin;Sabaneta;Al Trabajo
+Sabaneta;1;Sabaneta;Medellin;Regreso a casa
+Rionegro;3;Rionegro;Medellin;Regreso a casa
+Medellin;3;Medellin;Rionegro;Al Trabajo
+Medellin;3;Medellin;Medellin;Recoger o dejar a alguien
+Medellin;1;Medellin;Rionegro;Al Trabajo
+Rionegro;1;Rionegro;Medellin;Regreso a casa
+Medellin;2;Medellin;Medellin;Recreaci√≥n
+Medellin;1;Medellin;Girardota;Al Trabajo
+Girardota;1;Girardota;Medellin;Regreso a casa
+Medellin;2;Medellin;Girardota;Al Trabajo
+Girardota;2;Girardota;Medellin;Regreso a casa
+Bello;1;Bello;Copacabana;Al Trabajo
+Copacabana;1;Copacabana;Bello;Regreso a casa
+Bello;1;Bello;Rionegro;Al Trabajo
+Rionegro;1;Rionegro;Bello;Regreso a casa
+Bello;1;Bello;Medellin;Recreaci√≥n
+Bello;2;Bello;Bello;Al Trabajo
+Bello;2;Bello;Bello;Regreso a casa
+Medellin;3;Medellin;Medellin;Recreaci√≥n
+Bello;2;Bello;Medellin;Diligencia o tr√°mite
+Medellin;2;Medellin;Rionegro;Al Trabajo
+Rionegro;2;Rionegro;Medellin;Regreso a casa
+Medellin;2;Medellin;La Uni√≥n;Al Trabajo
+La Uni√≥n;2;La Uni√≥n;Medellin;Regreso a casa
+Medellin;2;Medellin;Itagui;Diligencia o tr√°mite
+Medellin;3;Medellin;Itagui;Al Trabajo
+Itagui;3;Itagui;Medellin;Regreso a casa
+Medellin;2;Medellin;Itagui;Compras
+Bello;2;Bello;Itagui;Al Trabajo
+Itagui;2;Itagui;Bello;Regreso a casa
+Bello;4;Bello;Bello;Al Trabajo
+Bello;4;Bello;Bello;Regreso a casa
+Bello;3;Bello;Medellin;Estudio
+Bello;3;Bello;Medellin;Otro
+Bello;3;Bello;Itagui;Diligencia o tr√°mite
+Itagui;3;Itagui;Bello;Regreso a casa
+Bello;3;Bello;Copacabana;Al Trabajo
+Copacabana;3;Copacabana;Bello;Regreso a casa
+Medellin;1;Medellin;Medellin;Otro
+Medellin;3;Medellin;Medellin;Otro
+Medellin;2;Medellin;Copacabana;Al Trabajo
+Copacabana;2;Copacabana;Medellin;Regreso a casa
+Medellin;2;Medellin;Bello;Otro
+Envigado;3;Envigado;Envigado;Recoger o dejar a alguien
+Envigado;3;Envigado;Envigado;Estudio
+Medellin;3;Medellin;Envigado;Al Trabajo
+Envigado;3;Envigado;Medellin;Regreso a casa
+Medellin;3;Medellin;Bello;Al Trabajo
+Bello;3;Bello;Medellin;Regreso a casa
+Envigado;4;Envigado;Envigado;Estudio
+Bello;2;Bello;Marinilla;Al Trabajo
+Marinilla;2;Marinilla;Bello;Regreso a casa
+Bello;3;Bello;Bello;Estudio
+Bello;3;Bello;Municipios Occidente;Diligencia o tr√°mite
+Municipios Occidente;3;Municipios Occidente;Bello;Regreso a casa
+Bello;3;Bello;Rionegro;Al Trabajo
+Rionegro;3;Rionegro;Bello;Regreso a casa
+Envigado;3;Envigado;Medellin;Recreaci√≥n
+Medellin;1;Medellin;Itagui;Diligencia o tr√°mite
+Medellin;3;Medellin;Medellin;Almuerzo
+Envigado;2;Envigado;Itagui;Al Trabajo
+Itagui;2;Itagui;Envigado;Regreso a casa
+Bello;2;Bello;San Carlos;Diligencia o tr√°mite
+San Carlos;2;San Carlos;Bello;Regreso a casa
+Bello;1;Bello;Itagui;Al Trabajo
+Itagui;1;Itagui;Bello;Regreso a casa
+Bello;1;Bello;Caldas;Al Trabajo
+Caldas;1;Caldas;Bello;Regreso a casa
+Envigado;2;Envigado;Envigado;Almuerzo
+Envigado;2;Envigado;Envigado;Compras
+Medellin;1;Medellin;Caldas;Salud
+Caldas;1;Caldas;Medellin;Regreso a casa
+Envigado;2;Envigado;Medellin;Estudio
+Andes;1;Andes;Medellin;Al Trabajo
+Bello;4;Bello;Copacabana;Al Trabajo
+Copacabana;4;Copacabana;Bello;Regreso a casa
+Bello;3;Bello;Girardota;Diligencia o tr√°mite
+Envigado;4;Envigado;Girardota;Al Trabajo
+Girardota;4;Girardota;Envigado;Regreso a casa
+Bello;3;Bello;Itagui;Al Trabajo
+Medellin;3;Medellin;Medellin;Salud
+Bello;3;Bello;Envigado;Al Trabajo
+Envigado;3;Envigado;Bello;Regreso a casa
+Bello;4;Bello;Bello;Estudio
+Bello;4;Bello;Bello;Recreaci√≥n
+Bello;4;Bello;Medellin;Estudio
+Bello;2;Bello;Envigado;Diligencia o tr√°mite
+Envigado;2;Envigado;Bello;Regreso a casa
+Bello;1;Bello;Bello;Diligencia o tr√°mite
+Envigado;3;Envigado;Itagui;Recreaci√≥n
+Bello;4;Bello;Caldas;Al Trabajo
+Caldas;4;Caldas;Bello;Regreso a casa
+Bello;3;Bello;Bello;Recoger o dejar a alguien
+Medellin;4;Medellin;Medellin;Recreaci√≥n
+Envigado;2;Envigado;Bello;Al Trabajo
+Bello;2;Bello;Envigado;Regreso a casa
+Envigado;3;Envigado;Itagui;Al Trabajo
+Envigado;3;Envigado;Itagui;Compras
+Bello;2;Bello;Bello;Acompa√±ar a alguien
+Bello;2;Bello;Envigado;Al Trabajo
+Bello;1;Bello;Bello;Compras
+Medellin;2;Medellin;Bello;Recoger o dejar a alguien
+Medellin;4;Medellin;Medellin;Estudio
+Bello;4;Bello;Bello;Acompa√±ar a alguien
+Bello;4;Bello;Municipios Occidente;Al Trabajo
+Municipios Occidente;4;Municipios Occidente;Bello;Regreso a casa
+Bello;4;Bello;Bello;Salud
+Bello;4;Bello;Medellin;Recreaci√≥n
+Rionegro;4;Rionegro;Bello;Al Trabajo
+Bello;2;Bello;Bello;Compras
+Bello;1;Bello;Medellin;Estudio
+Bello;3;Bello;Bello;Recreaci√≥n
+Bello;2;Bello;Medellin;Acompa√±ar a alguien
+Bello;1;Bello;Medellin;Recoger o dejar a alguien
+Bello;1;Bello;Pereira;Recreaci√≥n
+Bello;1;Bello;Medellin;Salud
+Bello;1;Bello;Bello;Acompa√±ar a alguien
+Medellin;4;Medellin;Bello;Al Trabajo
+Bello;2;Bello;Municipios Norte;Al Trabajo
+Municipios Norte;2;Municipios Norte;Bello;Regreso a casa
+Envigado;2;Envigado;Envigado;Diligencia o tr√°mite
+Envigado;2;Envigado;Envigado;Estudio
+Bello;3;Bello;Barbosa;Al Trabajo
+Barbosa;3;Barbosa;Bello;Regreso a casa
+Bello;3;Bello;T√°mesis;Al Trabajo
+T√°mesis;3;T√°mesis;Bello;Regreso a casa
+Bello;3;Bello;Medellin;Compras
+Bello;1;Bello;Medellin;Diligencia o tr√°mite
+Bello;1;Bello;Itagui;Otro
+Envigado;2;Envigado;Medellin;Recreaci√≥n
+Bello;3;Bello;Caldas;Al Trabajo
+Caldas;3;Caldas;Bello;Regreso a casa
+Medellin;1;Medellin;Sabaneta;Recreaci√≥n
+Sabaneta;1;Sabaneta;Bello;Regreso a casa
+Bello;1;Bello;Rionegro;Regreso a casa
+Rionegro;1;Rionegro;Bello;Al Trabajo
+Bello;2;Bello;Medellin;Recreaci√≥n
+Itagui;1;Itagui;Medellin;Al Trabajo
+Bello;3;Bello;Copacabana;Otro
+Bello;2;Bello;Medellin;Compras
+Bello;3;Bello;-;Al Trabajo
+Bello;3;Bello;Guarne;Al Trabajo
+Guarne;3;Guarne;Bello;Regreso a casa
+Bello;2;Bello;Barbosa;Al Trabajo
+Barbosa;2;Barbosa;Bello;Regreso a casa
+Bello;1;Bello;Guatape Pe√±ol;Al Trabajo
+Guatape Pe√±ol;1;Guatape Pe√±ol;Bello;Regreso a casa
+Bello;2;Bello;Bello;Estudio
+Bello;1;Bello;Municipios del Sur;Al Trabajo
+Municipios del Sur;1;Municipios del Sur;Bello;Regreso a casa
+Bello;3;Bello;Bello;Compras
+Medellin;2;Medellin;Bello;Almuerzo
+Bello;2;Bello;Caldas;Al Trabajo
+Caldas;2;Caldas;Bello;Regreso a casa
+Bello;1;Bello;Sabaneta;Diligencia o tr√°mite
+Sabaneta;1;Sabaneta;Bello;Al Trabajo
+Bello;1;Bello;Envigado;Al Trabajo
+Envigado;1;Envigado;Bello;Regreso a casa
+Medellin;3;Medellin;Bello;Almuerzo
+Bello;1;Bello;Caldas;Recreaci√≥n
+Bello;2;Bello;Bello;Recreaci√≥n
+Envigado;2;Envigado;Medellin;Diligencia o tr√°mite
+Bello;2;Bello;Bello;Diligencia o tr√°mite
+Bello;1;Bello;Medellin;Acompa√±ar a alguien
+Bello;2;Bello;Bello;Salud
+Bello;2;Bello;Bello;Almuerzo
+Medellin;1;Medellin;Bello;Recoger o dejar a alguien
+Girardota;1;Girardota;Bello;Regreso a casa
+Medellin;2;Medellin;Caldas;Al Trabajo
+Bello;2;Bello;Copacabana;Al Trabajo
+Copacabana;2;Copacabana;Bello;Regreso a casa
+Bello;3;Bello;Bello;Almuerzo
+Bello;2;Bello;La Estrella;Al Trabajo
+La Estrella;2;La Estrella;Bello;Regreso a casa
+Bello;1;Bello;Sabaneta;Al Trabajo
+Envigado;4;Envigado;Sabaneta;Estudio
+Sabaneta;4;Sabaneta;Envigado;Regreso a casa
+Barbosa;1;Barbosa;Bello;Otro
+Copacabana;2;Copacabana;Bello;Diligencia o tr√°mite
+Bello;3;Bello;Medellin;Recreaci√≥n
+Yolombo;1;Yolombo;Bello;Regreso a casa
+Bello;1;Bello;Girardota;Al Trabajo
+Bello;3;Bello;Sabaneta;Estudio
+Sabaneta;3;Sabaneta;Bello;Regreso a casa
+Bello;1;Bello;Bello;Otro
+Bello;2;Bello;Municipios Occidente;Al Trabajo
+Bello;2;Bello;Barbosa;Diligencia o tr√°mite
+Bello;1;Bello;El Pe√±ol;Al Trabajo
+Bello;3;Bello;Municipios Occidente;Al Trabajo
+La Estrella;4;La Estrella;Caldas;Estudio
+Caldas;4;Caldas;La Estrella;Regreso a casa
+Bello;2;Bello;Copacabana;Diligencia o tr√°mite
+Bello;2;Bello;Copacabana;Recoger o dejar a alguien
+Bello;2;Bello;Copacabana;Recreaci√≥n
+Bello;2;Bello;Medellin;Otro
+Copacabana;2;Copacabana;Girardota;Al Trabajo
+Bello;2;Bello;Bello;Otro
+Bello;3;Bello;Sabaneta;Al Trabajo
+Bello;2;Bello;Copacabana;Estudio
+Bello;2;Bello;Copacabana;Compras
+Medellin;3;Medellin;Bello;Diligencia o tr√°mite
+Bello;3;Bello;El Retiro;Al Trabajo
+El Retiro;3;El Retiro;Bello;Regreso a casa
+Envigado;3;Envigado;Bello;Estudio
+Bello;3;Bello;Sabaneta;Diligencia o tr√°mite
+Bello;3;Bello;Itagui;Compras
+Bello;2;Bello;Medellin;Salud
+Bello;2;Bello;Girardota;Diligencia o tr√°mite
+Bello;2;Bello;Girardota;Acompa√±ar a alguien
+Medellin;2;Medellin;Bello;Recreaci√≥n
+Envigado;3;Envigado;Medellin;Diligencia o tr√°mite
+Envigado;4;Envigado;Envigado;Diligencia o tr√°mite
+Bello;3;Bello;Bello;Acompa√±ar a alguien
+Envigado;3;Envigado;Envigado;Recreaci√≥n
+La Estrella;3;La Estrella;Medellin;Al Trabajo
+Medellin;3;Medellin;La Estrella;Regreso a casa
+La Estrella;4;La Estrella;Medellin;Estudio
+Medellin;4;Medellin;La Estrella;Regreso a casa
+La Estrella;5;La Estrella;Envigado;Al Trabajo
+Envigado;5;Envigado;La Estrella;Regreso a casa
+Itagui;3;Itagui;Envigado;Estudio
+Envigado;2;Envigado;La Estrella;Estudio
+La Estrella;2;La Estrella;Envigado;Regreso a casa
+Bello;3;Bello;Municipios Norte;Al Trabajo
+Municipios Norte;3;Municipios Norte;Bello;Regreso a casa
+Envigado;4;Envigado;Guatape Pe√±ol;Recreaci√≥n
+Guatape Pe√±ol;4;Guatape Pe√±ol;Envigado;Regreso a casa
+Envigado;4;Envigado;Itagui;Recreaci√≥n
+Itagui;4;Itagui;Envigado;Regreso a casa
+Medellin;2;Medellin;Guarne;Al Trabajo
+Guarne;2;Guarne;Bello;Regreso a casa
+La Estrella;2;La Estrella;Medellin;Al Trabajo
+Medellin;2;Medellin;La Estrella;Regreso a casa
+Bello;3;Bello;La Estrella;Al Trabajo
+La Estrella;3;La Estrella;Bello;Regreso a casa
+La Estrella;2;La Estrella;Itagui;Al Trabajo
+Itagui;2;Itagui;La Estrella;Regreso a casa
+La Estrella;2;La Estrella;Sabaneta;Salud
+Sabaneta;2;Sabaneta;La Estrella;Regreso a casa
+Bello;2;Bello;Valdivia;Al Trabajo
+Bello;3;Bello;Bello;Salud
+Medellin;2;Medellin;Girardota;Diligencia o tr√°mite
+Bello;2;Bello;Barbosa;Estudio
+Envigado;4;Envigado;Medellin;Diligencia o tr√°mite
+Bello;2;Bello;Medellin;Recoger o dejar a alguien
+Envigado;2;Envigado;La Estrella;Al Trabajo
+Envigado;4;Envigado;Envigado;Recoger o dejar a alguien
+Envigado;4;Envigado;Envigado;Compras
+Bello;1;Bello;Rionegro;Otro
+Copacabana;2;Copacabana;Medellin;Al Trabajo
+Medellin;2;Medellin;Copacabana;Regreso a casa
+Bello;2;Bello;Bello;Recoger o dejar a alguien
+Medellin;2;Medellin;Sabaneta;Otro
+Bello;1;Bello;Barbosa;Al Trabajo
+Barbosa;1;Barbosa;Bello;Regreso a casa
+Bello;2;Bello;G√≥mez Plata;Al Trabajo
+La Estrella;1;La Estrella;Medellin;Estudio
+Medellin;1;Medellin;La Estrella;Regreso a casa
+Bello;2;Bello;La Uni√≥n;Recreaci√≥n
+La Uni√≥n;2;La Uni√≥n;Bello;Regreso a casa
+La Estrella;3;La Estrella;Sabaneta;Al Trabajo
+Sabaneta;3;Sabaneta;La Estrella;Regreso a casa
+Sabaneta;3;Sabaneta;Sabaneta;Regreso a casa
+Copacabana;2;Copacabana;Copacabana;Recreaci√≥n
+Copacabana;2;Copacabana;Copacabana;Regreso a casa
+Bello;2;Bello;Copacabana;Regreso a casa
+Copacabana;2;Copacabana;Copacabana;Al Trabajo
+Bello;2;Bello;Meta;Al Trabajo
+Copacabana;2;Copacabana;Envigado;Al Trabajo
+Envigado;2;Envigado;Copacabana;Regreso a casa
+Copacabana;2;Copacabana;Medellin;Diligencia o tr√°mite
+Copacabana;2;Copacabana;Barbosa;Estudio
+Barbosa;2;Barbosa;Copacabana;Regreso a casa
+Copacabana;2;Copacabana;Copacabana;Recoger o dejar a alguien
+Copacabana;2;Copacabana;Copacabana;Estudio
+Copacabana;3;Copacabana;Medellin;Al Trabajo
+Medellin;3;Medellin;Copacabana;Regreso a casa
+Copacabana;3;Copacabana;Copacabana;Recreaci√≥n
+Copacabana;3;Copacabana;Copacabana;Regreso a casa
+Copacabana;3;Copacabana;Medellin;Estudio
+Caldas;2;Caldas;Copacabana;Al Trabajo
+Copacabana;2;Copacabana;Caldas;Regreso a casa
+Copacabana;2;Copacabana;El Retiro;Diligencia o tr√°mite
+El Retiro;2;El Retiro;Copacabana;Regreso a casa
+Copacabana;2;Copacabana;Municipios Norte;Al Trabajo
+Municipios Norte;2;Municipios Norte;Copacabana;Regreso a casa
+Girardota;2;Girardota;Bello;Al Trabajo
+Bello;2;Bello;Girardota;Regreso a casa
+Medellin;2;Medellin;Bello;Salud
+Barbosa;2;Barbosa;Barbosa;Al Trabajo
+Barbosa;2;Barbosa;Barbosa;Almuerzo
+Barbosa;2;Barbosa;Barbosa;Regreso a casa
+Barbosa;2;Barbosa;Barbosa;Diligencia o tr√°mite
+Barbosa;2;Barbosa;Itagui;Al Trabajo
+Itagui;2;Itagui;Barbosa;Regreso a casa
+Copacabana;2;Copacabana;Medellin;Estudio
+Girardota;2;Girardota;Girardota;Al Trabajo
+Girardota;2;Girardota;Girardota;Regreso a casa
+Girardota;2;Girardota;Girardota;Diligencia o tr√°mite
+Girardota;2;Girardota;Medellin;Al Trabajo
+Medellin;2;Medellin;Girardota;Regreso a casa
+Medellin;2;Medellin;Municipios Occidente;Al Trabajo
+Municipios Occidente;2;Municipios Occidente;Medellin;Regreso a casa
+La Estrella;2;La Estrella;La Estrella;Recoger o dejar a alguien
+La Estrella;2;La Estrella;La Estrella;Almuerzo
+La Estrella;2;La Estrella;La Estrella;Estudio
+Girardota;2;Girardota;Rionegro;Al Trabajo
+Rionegro;2;Rionegro;Girardota;Regreso a casa
+Girardota;2;Girardota;Barbosa;Al Trabajo
+Barbosa;2;Barbosa;Girardota;Regreso a casa
+Barbosa;2;Barbosa;Medellin;Estudio
+Medellin;2;Medellin;Barbosa;Regreso a casa
+Bello;2;Bello;Barbosa;Regreso a casa
+Barbosa;2;Barbosa;Caldas;Al Trabajo
+Caldas;2;Caldas;Barbosa;Regreso a casa
+Barbosa;2;Barbosa;Girardota;Al Trabajo
+Girardota;2;Girardota;Barbosa;Regreso a casa
+Itagui;4;Itagui;Medellin;Al Trabajo
+Medellin;4;Medellin;Itagui;Regreso a casa
+Itagui;4;Itagui;Itagui;Diligencia o tr√°mite
+Itagui;4;Itagui;Itagui;Regreso a casa
+Barbosa;2;Barbosa;Medellin;Al Trabajo
+Barbosa;2;Barbosa;Barbosa;Recreaci√≥n
+La Estrella;2;La Estrella;Itagui;Diligencia o tr√°mite
+Medellin;4;Medellin;Medellin;Otro
+Medellin;4;Medellin;Medellin;Regreso a casa
+Envigado;3;Envigado;Bello;Al Trabajo
+Sabaneta;2;Sabaneta;Envigado;Al Trabajo
+Envigado;2;Envigado;Sabaneta;Regreso a casa
+La Estrella;1;La Estrella;Itagui;Al Trabajo
+Itagui;1;Itagui;La Estrella;Regreso a casa
+La Estrella;3;La Estrella;La Estrella;Estudio
+La Estrella;3;La Estrella;La Estrella;Regreso a casa
+La Estrella;2;La Estrella;La Estrella;Otro
+Caldas;2;Caldas;Caldas;Al Trabajo
+Caldas;2;Caldas;Caldas;Regreso a casa
+Caldas;2;Caldas;Caldas;Acompa√±ar a alguien
+Caldas;2;Caldas;Caldas;Otro
+Caldas;2;Caldas;Caldas;Salud
+Caldas;2;Caldas;La Estrella;Al Trabajo
+La Estrella;2;La Estrella;Caldas;Regreso a casa
+Caldas;2;Caldas;Itagui;Al Trabajo
+Itagui;2;Itagui;Caldas;Regreso a casa
+Caldas;2;Caldas;Medellin;Al Trabajo
+Medellin;2;Medellin;Caldas;Regreso a casa
+Girardota;2;Girardota;Copacabana;Regreso a casa
+Caldas;2;Caldas;Sabaneta;Al Trabajo
+Sabaneta;2;Sabaneta;Caldas;Regreso a casa
+Caldas;3;Caldas;Medellin;Al Trabajo
+Medellin;3;Medellin;Caldas;Regreso a casa
+Caldas;3;Caldas;Caldas;Al Trabajo
+Caldas;3;Caldas;Caldas;Recoger o dejar a alguien
+Caldas;3;Caldas;Medellin;Estudio
+Copacabana;3;Copacabana;Medellin;Salud
+Copacabana;2;Copacabana;Itagui;Al Trabajo
+Itagui;2;Itagui;Copacabana;Regreso a casa
+Copacabana;3;Copacabana;Copacabana;Diligencia o tr√°mite
+Copacabana;3;Copacabana;Copacabana;Estudio
+Copacabana;3;Copacabana;Guarne;Al Trabajo
+Guarne;3;Guarne;Copacabana;Regreso a casa
+Copacabana;3;Copacabana;Bello;Al Trabajo
+Bello;3;Bello;Copacabana;Regreso a casa
+Copacabana;2;Copacabana;Bello;Salud
+Copacabana;3;Copacabana;San Roque;Al Trabajo
+San Roque;3;San Roque;Copacabana;Regreso a casa
+Copacabana;3;Copacabana;Bello;Estudio
+Copacabana;2;Copacabana;Medellin;Compras
+Copacabana;2;Copacabana;Bello;Al Trabajo
+Copacabana;2;Copacabana;Rionegro;Al Trabajo
+Rionegro;2;Rionegro;Copacabana;Regreso a casa
+Copacabana;2;Copacabana;Copacabana;Diligencia o tr√°mite
+Copacabana;3;Copacabana;Copacabana;Al Trabajo
+Copacabana;3;Copacabana;Girardota;Al Trabajo
+Girardota;3;Girardota;Copacabana;Regreso a casa
+Copacabana;2;Copacabana;Itagui;Estudio
+Copacabana;2;Copacabana;Bello;Estudio
+Girardota;2;Girardota;Bello;Estudio
+Girardota;2;Girardota;Municipios Occidente;Al Trabajo
+Municipios Occidente;2;Municipios Occidente;Girardota;Regreso a casa
+Girardota;2;Girardota;Medellin;Estudio
+Barbosa;1;Barbosa;Barbosa;Al Trabajo
+Barbosa;1;Barbosa;Barbosa;Regreso a casa
+Barbosa;1;Barbosa;Caldas;Al Trabajo
+Caldas;1;Caldas;Barbosa;Regreso a casa
+Barbosa;1;Barbosa;Medellin;Estudio
+Medellin;1;Medellin;Barbosa;Regreso a casa
+Copacabana;2;Copacabana;Medellin;Recoger o dejar a alguien
+Girardota;2;Girardota;Bello;Diligencia o tr√°mite
+Girardota;2;Girardota;Girardota;Compras
+Girardota;2;Girardota;Copacabana;Al Trabajo
+Copacabana;2;Copacabana;Girardota;Regreso a casa
+Girardota;2;Girardota;Copacabana;Estudio
+Barbosa;2;Barbosa;Medellin;Salud
+Barbosa;2;Barbosa;Medellin;Acompa√±ar a alguien
+Barbosa;2;Barbosa;Bello;Al Trabajo
+Barbosa;2;Barbosa;Bello;Diligencia o tr√°mite
+Barbosa;1;Barbosa;Copacabana;Estudio
+Copacabana;1;Copacabana;Barbosa;Regreso a casa
+La Estrella;2;La Estrella;Envigado;Al Trabajo
+Envigado;2;Envigado;La Estrella;Regreso a casa
+Barbosa;2;Barbosa;Copacabana;Al Trabajo
+Copacabana;2;Copacabana;Barbosa;Regreso a casa
+Sabaneta;2;Sabaneta;Medellin;Al Trabajo
+Girardota;2;Girardota;Medellin;Diligencia o tr√°mite
+Girardota;2;Girardota;Medellin;Acompa√±ar a alguien
+Girardota;2;Girardota;Girardota;Estudio
+Girardota;3;Girardota;Girardota;Al Trabajo
+Girardota;3;Girardota;Girardota;Regreso a casa
+Barbosa;2;Barbosa;Medellin;Diligencia o tr√°mite
+Girardota;2;Girardota;Girardota;Recreaci√≥n
+Girardota;2;Girardota;Bello;Recoger o dejar a alguien
+Barbosa;2;Barbosa;Barbosa;Compras
+Barbosa;2;Barbosa;Taraz√°;Al Trabajo
+Taraz√°;2;Taraz√°;Barbosa;Regreso a casa
+Copacabana;3;Copacabana;Barbosa;Al Trabajo
+Barbosa;3;Barbosa;Copacabana;Regreso a casa
+Barbosa;2;Barbosa;Girardota;Salud
+Sabaneta;3;Sabaneta;Medellin;Estudio
+Medellin;3;Medellin;Sabaneta;Regreso a casa
+Bello;3;Bello;Girardota;Regreso a casa
+Medellin;3;Medellin;Municipios Norte;Al Trabajo
+Girardota;2;Girardota;Girardota;Recoger o dejar a alguien
+Girardota;2;Girardota;Guarne;Al Trabajo
+Guarne;2;Guarne;Girardota;Regreso a casa
+Barbosa;2;Barbosa;Municipios Norte;Al Trabajo
+Municipios Norte;2;Municipios Norte;Barbosa;Regreso a casa
+Barbosa;2;Barbosa;Barbosa;Salud
+Girardota;1;Girardota;Girardota;Al Trabajo
+Girardota;1;Girardota;Girardota;Regreso a casa
+Girardota;3;Girardota;Medellin;Estudio
+Medellin;3;Medellin;Girardota;Regreso a casa
+Barbosa;2;Barbosa;Copacabana;Otro
+Girardota;2;Girardota;Medellin;Salud
+La Estrella;1;La Estrella;Sabaneta;Al Trabajo
+Sabaneta;1;Sabaneta;La Estrella;Regreso a casa
+Envigado;2;Envigado;Barbosa;Regreso a casa
+Girardota;2;Girardota;Itagui;Estudio
+Itagui;2;Itagui;Girardota;Regreso a casa
+Barbosa;2;Barbosa;Barbosa;Otro
+Barbosa;1;Barbosa;Medellin;Diligencia o tr√°mite
+Girardota;3;Girardota;Yarumal;Al Trabajo
+Yarumal;3;Yarumal;Girardota;Regreso a casa
+Barbosa;2;Barbosa;Barbosa;Recoger o dejar a alguien
+Barbosa;2;Barbosa;Barbosa;Estudio
+Girardota;2;Girardota;Copacabana;Diligencia o tr√°mite
+Barbosa;1;Barbosa;Medellin;Al Trabajo
+Barbosa;1;Barbosa;Municipios Norte;Al Trabajo
+Municipios Norte;1;Municipios Norte;Barbosa;Regreso a casa
+Barbosa;3;Barbosa;Medellin;Estudio
+Medellin;3;Medellin;Barbosa;Regreso a casa
+La Estrella;3;La Estrella;Medellin;Estudio
+Barbosa;1;Barbosa;Copacabana;Al Trabajo
+Barbosa;1;Barbosa;Girardota;Al Trabajo
+Girardota;1;Girardota;Barbosa;Regreso a casa
+Barbosa;1;Barbosa;Municipios Norte;Diligencia o tr√°mite
+Barbosa;3;Barbosa;Copacabana;Estudio
+Copacabana;3;Copacabana;Barbosa;Regreso a casa
+Barbosa;3;Barbosa;Barbosa;Al Trabajo
+Barbosa;3;Barbosa;Barbosa;Regreso a casa
+Barbosa;1;Barbosa;Barbosa;Recoger o dejar a alguien
+Barbosa;1;Barbosa;Bello;Al Trabajo
+Bello;1;Bello;Barbosa;Estudio
+Girardota;3;Girardota;Envigado;Al Trabajo
+Envigado;3;Envigado;Girardota;Regreso a casa
+Barbosa;3;Barbosa;Medellin;Salud
+Barbosa;3;Barbosa;Bello;Al Trabajo
+Bello;3;Bello;Barbosa;Regreso a casa
+Barbosa;2;Barbosa;Bello;Estudio
+Barbosa;2;Barbosa;Girardota;Almuerzo
+Girardota;3;Girardota;Bello;Estudio
+Medellin;6;Medellin;Medellin;Al Trabajo
+Medellin;6;Medellin;Medellin;Regreso a casa
+Girardota;3;Girardota;Girardota;Estudio
+Envigado;5;Envigado;Medellin;Al Trabajo
+Medellin;5;Medellin;Envigado;Regreso a casa
+Sabaneta;3;Sabaneta;Medellin;Al Trabajo
+Sabaneta;3;Sabaneta;Rionegro;Al Trabajo
+Rionegro;3;Rionegro;Sabaneta;Regreso a casa
+Envigado;5;Envigado;Sabaneta;Al Trabajo
+Sabaneta;5;Sabaneta;Envigado;Regreso a casa
+Girardota;2;Girardota;La Estrella;Al Trabajo
+La Estrella;2;La Estrella;Girardota;Regreso a casa
+Medellin;4;Medellin;Envigado;Al Trabajo
+Envigado;4;Envigado;Medellin;Regreso a casa
+Itagui;3;Itagui;Pereira;Al Trabajo
+Pereira;3;Pereira;Itagui;Regreso a casa
+Itagui;3;Itagui;Medellin;Salud
+Barbosa;2;Barbosa;Bajo Cauca;Al Trabajo
+Barbosa;3;Barbosa;Copacabana;Al Trabajo
+Barbosa;3;Barbosa;Girardota;Al Trabajo
+Girardota;3;Girardota;Barbosa;Regreso a casa
+Itagui;4;Itagui;Bello;Al Trabajo
+Bello;4;Bello;Itagui;Regreso a casa
+Barbosa;1;Barbosa;Barbosa;Compras
+Itagui;4;Itagui;Itagui;Recoger o dejar a alguien
+Envigado;5;Envigado;Envigado;Diligencia o tr√°mite
+Envigado;5;Envigado;Envigado;Regreso a casa
+Envigado;5;Envigado;Envigado;Al Trabajo
+Envigado;5;Envigado;Envigado;Estudio
+Envigado;2;Envigado;Envigado;Otro
+Envigado;2;Envigado;Medellin;Otro
+Envigado;1;Envigado;Medellin;Al Trabajo
+Medellin;1;Medellin;Envigado;Regreso a casa
+Envigado;1;Envigado;Sabaneta;Al Trabajo
+Sabaneta;1;Sabaneta;Envigado;Regreso a casa
+Envigado;3;Envigado;Itagui;Diligencia o tr√°mite
+Caldas;2;Caldas;Medellin;Estudio
+Medellin;5;Medellin;Envigado;Almuerzo
+Envigado;2;Envigado;Envigado;Recreaci√≥n
+La Estrella;4;La Estrella;Sabaneta;Recreaci√≥n
+Sabaneta;4;Sabaneta;Medellin;Al Trabajo
+Itagui;3;Itagui;Envigado;Almuerzo
+Envigado;3;Envigado;Rionegro;Al Trabajo
+Rionegro;3;Rionegro;Envigado;Regreso a casa
+La Estrella;2;La Estrella;La Estrella;Compras
+La Estrella;2;La Estrella;La Estrella;Regreso a casa
+La Estrella;2;La Estrella;La Estrella;Al Trabajo
+La Estrella;2;La Estrella;La Estrella;Diligencia o tr√°mite
+La Estrella;3;La Estrella;Itagui;Diligencia o tr√°mite
+Itagui;3;Itagui;La Estrella;Regreso a casa
+Medellin;6;Medellin;Medellin;Recreaci√≥n
+Medellin;6;Medellin;Medellin;Estudio
+Medellin;3;Medellin;Itagui;Salud
+Sabaneta;4;Sabaneta;Sabaneta;Estudio
+Sabaneta;4;Sabaneta;Sabaneta;Regreso a casa
+Medellin;4;Medellin;Medellin;Al Trabajo
+Medellin;3;Medellin;Itagui;Recreaci√≥n
+Medellin;5;Medellin;Medellin;Al Trabajo
+Medellin;5;Medellin;Medellin;Regreso a casa
+Medellin;3;Medellin;Copacabana;Al Trabajo
+Copacabana;3;Copacabana;Medellin;Regreso a casa
+Medellin;5;Medellin;Medellin;Estudio
+Itagui;3;Itagui;Medellin;Diligencia o tr√°mite
+Medellin;3;Medellin;Girardota;Al Trabajo
+Girardota;3;Girardota;Medellin;Regreso a casa
+Bello;4;Bello;Medellin;Regreso a casa
+Caldas;2;Caldas;Envigado;Al Trabajo
+Envigado;2;Envigado;Caldas;Regreso a casa
+Medellin;3;Medellin;Itagui;Compras
+Caldas;3;Caldas;Sabaneta;Al Trabajo
+Sabaneta;3;Sabaneta;Caldas;Regreso a casa
+Medellin;4;Medellin;Medellin;Almuerzo
+Caldas;3;Caldas;La Ceja;Al Trabajo
+La Ceja;3;La Ceja;Caldas;Regreso a casa
+Sabaneta;2;Sabaneta;Sabaneta;Al Trabajo
+Sabaneta;2;Sabaneta;Sabaneta;Estudio
+Sabaneta;2;Sabaneta;Sabaneta;Regreso a casa
+Caldas;2;Caldas;Rionegro;Estudio
+Rionegro;2;Rionegro;Caldas;Regreso a casa
+Medellin;2;Medellin;Marinilla;Al Trabajo
+Marinilla;2;Marinilla;Medellin;Regreso a casa
+Caldas;2;Caldas;La Estrella;Regreso a casa
+Caldas;2;Caldas;Medellin;Diligencia o tr√°mite
+Medellin;3;Medellin;Sabaneta;Al Trabajo
+Sabaneta;3;Sabaneta;Medellin;Regreso a casa
+Medellin;5;Medellin;Rionegro;Al Trabajo
+Sabaneta;2;Sabaneta;Caldas;Al Trabajo
+Caldas;2;Caldas;Sabaneta;Regreso a casa
+Caldas;3;Caldas;Envigado;Diligencia o tr√°mite
+Envigado;3;Envigado;Caldas;Regreso a casa
+Medellin;4;Medellin;Caldas;Salud
+Caldas;4;Caldas;Medellin;Regreso a casa
+Medellin;2;Medellin;Sabaneta;Regreso a casa
+Caldas;2;Caldas;Medellin;Compras
+Caldas;3;Caldas;Caldas;Regreso a casa
+Medellin;4;Medellin;El Retiro;Al Trabajo
+El Retiro;4;El Retiro;Medellin;Almuerzo
+El Retiro;4;El Retiro;Medellin;Regreso a casa
+Medellin;6;Medellin;Bello;Al Trabajo
+Bello;6;Bello;Medellin;Regreso a casa
+Envigado;3;Envigado;Bogot√° D.C.;Al Trabajo
+Medellin;5;Medellin;Medellin;Diligencia o tr√°mite
+Envigado;3;Envigado;Guarne;Al Trabajo
+Guarne;3;Guarne;Envigado;Regreso a casa
+Envigado;2;Envigado;Sabaneta;Al Trabajo
+Sabaneta;2;Sabaneta;Envigado;Regreso a casa
+Sabaneta;3;Sabaneta;Itagui;Al Trabajo
+Itagui;3;Itagui;Sabaneta;Regreso a casa
+Medellin;5;Medellin;Medellin;Recreaci√≥n
+Medellin;5;Medellin;Sabaneta;Estudio
+Sabaneta;5;Sabaneta;Medellin;Regreso a casa
+Medellin;2;Medellin;Medellin;Acompa√±ar a alguien
+Medellin;5;Medellin;Medellin;Recoger o dejar a alguien
+Medellin;3;Medellin;Medellin;Acompa√±ar a alguien
+Medellin;4;Medellin;Rionegro;Al Trabajo
+Rionegro;4;Rionegro;Medellin;Regreso a casa
+Medellin;6;Medellin;Medellin;Diligencia o tr√°mite
+Caldas;2;Caldas;La Estrella;Acompa√±ar a alguien
+Medellin;3;Medellin;Municipios del Sur;Al Trabajo
+Municipios del Sur;3;Municipios del Sur;Medellin;Regreso a casa
+Medellin;5;Medellin;Itagui;Al Trabajo
+Itagui;5;Itagui;Medellin;Regreso a casa
+Medellin;2;Medellin;Bello;Estudio
+Medellin;4;Medellin;Itagui;Al Trabajo
+Itagui;4;Itagui;Medellin;Regreso a casa
+Medellin;4;Medellin;Envigado;Recoger o dejar a alguien
+Medellin;4;Medellin;Medellin;Diligencia o tr√°mite
+Sabaneta;3;Sabaneta;Sabaneta;Al Trabajo
+Medellin;4;Medellin;Sabaneta;Al Trabajo
+Sabaneta;4;Sabaneta;Medellin;Regreso a casa
+Medellin;4;Medellin;Medellin;Salud
+Medellin;4;Medellin;Envigado;Almuerzo
+Medellin;3;Medellin;Medellin;Compras
+Itagui;3;Itagui;Medellin;Almuerzo
+Medellin;3;Medellin;Caldas;Al Trabajo
+Caldas;3;Caldas;Medellin;Regreso a casa
+Medellin;3;Medellin;Bello;Recoger o dejar a alguien
+Medellin;4;Medellin;Medellin;Recoger o dejar a alguien
+Caldas;1;Caldas;Caldas;Al Trabajo
+Caldas;1;Caldas;Caldas;Regreso a casa
+Medellin;5;Medellin;Caldas;Al Trabajo
+Caldas;5;Caldas;Medellin;Regreso a casa
+Medellin;3;Medellin;Bello;Estudio
+Medellin;4;Medellin;Copacabana;Al Trabajo
+Copacabana;4;Copacabana;Medellin;Regreso a casa
+Medellin;2;Medellin;Copacabana;Diligencia o tr√°mite
+Medellin;2;Medellin;Medellin;Compras
+Medellin;2;Medellin;Municipios Occidente;Recreaci√≥n
+Medellin;4;Medellin;Girardota;Al Trabajo
+Girardota;4;Girardota;Medellin;Regreso a casa
+Medellin;4;Medellin;Municipios Oriente;Al Trabajo
+Municipios Oriente;4;Municipios Oriente;Medellin;Regreso a casa
+Medellin;1;Medellin;Municipios Occidente;Al Trabajo
+Municipios Occidente;1;Municipios Occidente;Medellin;Regreso a casa
+Envigado;2;Envigado;Medellin;Recoger o dejar a alguien
+Guarne;2;Guarne;Medellin;Regreso a casa
+Medellin;2;Medellin;Medellin;Almuerzo
+Medellin;3;Medellin;Envigado;Diligencia o tr√°mite
+Medellin;2;Medellin;Ituango;Al Trabajo
+Medellin;2;Medellin;Barbosa;Al Trabajo
+Barbosa;2;Barbosa;Medellin;Regreso a casa
+Medellin;3;Medellin;Barbosa;Estudio
+Barbosa;3;Barbosa;Medellin;Regreso a casa
+Barbosa;1;Barbosa;Barbosa;Diligencia o tr√°mite
+Barbosa;3;Barbosa;Barbosa;Diligencia o tr√°mite
+Barbosa;2;Barbosa;Municipios Norte;Estudio
+Barbosa;2;Barbosa;Municipios Norte;Compras
+Medellin;2;Medellin;El Retiro;Al Trabajo
+El Retiro;2;El Retiro;Medellin;Regreso a casa
+Barbosa;3;Barbosa;Barbosa;Recoger o dejar a alguien
+Barbosa;1;Barbosa;Barbosa;Otro
+Girardota;2;Girardota;Girardota;Almuerzo
+Girardota;2;Girardota;Girardota;Salud
+Girardota;2;Girardota;Girardota;Acompa√±ar a alguien
+Barbosa;2;Barbosa;Barbosa;Acompa√±ar a alguien
+La Estrella;2;La Estrella;Sabaneta;Al Trabajo
+La Estrella;3;La Estrella;Itagui;Al Trabajo
+La Estrella;2;La Estrella;Medellin;Estudio
+Girardota;1;Girardota;Girardota;Recoger o dejar a alguien
+Barbosa;1;Barbosa;Barbosa;Estudio
+Barbosa;1;Barbosa;Medellin;Compras
+Barbosa;1;Barbosa;Barbosa;Acompa√±ar a alguien
+Girardota;2;Girardota;Barbosa;Recreaci√≥n
+Itagui;2;Itagui;Caldas;Recoger o dejar a alguien
+Caldas;2;Caldas;Itagui;Regreso a casa
+Girardota;2;Girardota;Itagui;Al Trabajo
+Itagui;2;Itagui;Barbosa;Diligencia o tr√°mite
+Barbosa;2;Barbosa;Girardota;Diligencia o tr√°mite
+Girardota;2;Girardota;Barbosa;Compras
+Sabaneta;1;Sabaneta;Medellin;Diligencia o tr√°mite
+Medellin;1;Medellin;Sabaneta;Regreso a casa
+Caldas;1;Caldas;Caldas;Estudio
+Caldas;1;Caldas;Medellin;Al Trabajo
+Medellin;1;Medellin;Caldas;Regreso a casa
+Caldas;1;Caldas;Municipios del Sur;Al Trabajo
+Municipios del Sur;1;Municipios del Sur;Caldas;Regreso a casa
+Caldas;2;Caldas;El Retiro;Al Trabajo
+El Retiro;2;El Retiro;Caldas;Regreso a casa
+Caldas;1;Caldas;Medellin;Otro
+Caldas;2;Caldas;Medellin;Regreso a casa
+Envigado;2;Envigado;Carmen de Vivoral;Estudio
+Carmen de Vivoral;2;Carmen de Vivoral;Caldas;Regreso a casa
+Caldas;1;Caldas;Medellin;Estudio
+Medellin;1;Medellin;Caldas;Diligencia o tr√°mite
+Caldas;2;Caldas;Bello;Estudio
+Bello;2;Bello;Caldas;Regreso a casa
+Caldas;2;Caldas;Medellin;Salud
+Sabaneta;2;Sabaneta;Itagui;Al Trabajo
+Itagui;2;Itagui;Sabaneta;Regreso a casa
+Barbosa;2;Barbosa;Girardota;Estudio
+La Estrella;2;La Estrella;Caldas;Compras
+La Estrella;2;La Estrella;Caldas;Al Trabajo
+La Estrella;1;La Estrella;La Estrella;Al Trabajo
+La Estrella;1;La Estrella;La Estrella;Regreso a casa
+La Estrella;2;La Estrella;Municipios Occidente;Al Trabajo
+Municipios Occidente;2;Municipios Occidente;La Estrella;Regreso a casa
+La Estrella;2;La Estrella;Copacabana;Al Trabajo
+Copacabana;2;Copacabana;La Estrella;Regreso a casa
+Copacabana;2;Copacabana;Bello;Recoger o dejar a alguien
+Caldas;2;Caldas;Caldas;Recreaci√≥n
+Caldas;1;Caldas;Itagui;Al Trabajo
+Itagui;1;Itagui;Caldas;Regreso a casa
+Sabaneta;2;Sabaneta;Caldas;Estudio
+Barbosa;2;Barbosa;Envigado;Al Trabajo
+Medellin;2;Medellin;Envigado;Compras
+La Estrella;1;La Estrella;Medellin;Acompa√±ar a alguien
+La Estrella;1;La Estrella;Medellin;Al Trabajo
+La Estrella;1;La Estrella;Caldas;Al Trabajo
+Caldas;1;Caldas;La Estrella;Regreso a casa
+La Estrella;1;La Estrella;Rionegro;Al Trabajo
+Bello;4;Bello;Medellin;Recoger o dejar a alguien
+Medellin;4;Medellin;Caldas;Al Trabajo
+Itagui;2;Itagui;Itagui;Diligencia o tr√°mite
+Itagui;1;Itagui;Itagui;Al Trabajo
+Itagui;1;Itagui;Itagui;Regreso a casa
+Girardota;1;Girardota;Girardota;Estudio
+Medellin;1;Medellin;Itagui;Regreso a casa
+Itagui;1;Itagui;Envigado;Diligencia o tr√°mite
+Envigado;1;Envigado;Itagui;Regreso a casa
+Itagui;1;Itagui;Itagui;Estudio
+Bello;2;Bello;Municipios Norte;Compras
+Bello;2;Bello;Municipios Norte;Acompa√±ar a alguien
+Bello;2;Bello;Municipios Norte;Recoger o dejar a alguien
+Sabaneta;2;Sabaneta;Medellin;Estudio
+Municipios Occidente;2;Municipios Occidente;Bello;Regreso a casa
+Barbosa;2;Barbosa;Yarumal;Al Trabajo
+Yarumal;2;Yarumal;Barbosa;Regreso a casa
+Itagui;2;Itagui;La Estrella;Al Trabajo
+La Estrella;2;La Estrella;Medellin;Recoger o dejar a alguien
+Itagui;2;Itagui;Itagui;Salud
+Barbosa;2;Barbosa;Medellin;Compras
+Sabaneta;2;Sabaneta;Sabaneta;Diligencia o tr√°mite
+Sabaneta;2;Sabaneta;Medellin;Diligencia o tr√°mite
+Sabaneta;2;Sabaneta;Sabaneta;Acompa√±ar a alguien
+Sabaneta;2;Sabaneta;Sabaneta;Compras
+Caldas;1;Caldas;Caldas;Recreaci√≥n
+Caldas;2;Caldas;Caldas;Diligencia o tr√°mite
+Sabaneta;2;Sabaneta;Envigado;Estudio
+Sabaneta;2;Sabaneta;La Estrella;Al Trabajo
+La Estrella;2;La Estrella;Sabaneta;Regreso a casa
+Barbosa;2;Barbosa;Medellin;Recreaci√≥n
+Itagui;1;Itagui;Caldas;Al Trabajo
+Caldas;1;Caldas;Itagui;Regreso a casa
+Itagui;1;Itagui;Envigado;Al Trabajo
+Itagui;1;Itagui;Itagui;Diligencia o tr√°mite
+Medellin;3;Medellin;Guarne;Al Trabajo
+Guarne;3;Guarne;Medellin;Regreso a casa
+La Estrella;3;La Estrella;Envigado;Diligencia o tr√°mite
+Envigado;3;Envigado;La Estrella;Regreso a casa
+La Estrella;3;La Estrella;Envigado;Acompa√±ar a alguien
+Medellin;5;Medellin;Medellin;Compras
+Envigado;5;Envigado;Medellin;Otro
+Medellin;2;Medellin;Rionegro;Acompa√±ar a alguien
+Medellin;2;Medellin;Rionegro;Diligencia o tr√°mite
+Envigado;4;Envigado;Rionegro;Al Trabajo
+Rionegro;4;Rionegro;Envigado;Regreso a casa
+Envigado;2;Envigado;Medellin;Salud
+Envigado;4;Envigado;Medellin;Salud
+Envigado;2;Envigado;Rionegro;Al Trabajo
+Rionegro;2;Rionegro;Envigado;Regreso a casa
+Envigado;5;Envigado;Medellin;Estudio
+Envigado;5;Envigado;Rionegro;Al Trabajo
+Rionegro;5;Rionegro;Envigado;Regreso a casa
+Copacabana;2;Copacabana;Bello;Otro
+Caldas;2;Caldas;Caldas;Estudio
+Medellin;3;Medellin;Itagui;Recoger o dejar a alguien
+La Estrella;1;La Estrella;La Estrella;Estudio
+La Estrella;2;La Estrella;Itagui;Estudio
+Envigado;1;Envigado;Itagui;Estudio
+Itagui;1;Itagui;Envigado;Regreso a casa
+Medellin;1;Medellin;Guarne;Compras
+Guarne;1;Guarne;Medellin;Regreso a casa
+Medellin;1;Medellin;Guarne;Diligencia o tr√°mite
+Guarne;1;Guarne;Medellin;Diligencia o tr√°mite
+Medellin;1;Medellin;Rionegro;Salud
+Medellin;1;Medellin;Guarne;Estudio
+Envigado;4;Envigado;Rionegro;Regreso a casa
+Rionegro;4;Rionegro;Envigado;Al Trabajo
+Envigado;2;Envigado;Bello;Estudio
+Copacabana;1;Copacabana;Copacabana;Al Trabajo
+Copacabana;1;Copacabana;Copacabana;Regreso a casa
+Copacabana;1;Copacabana;Copacabana;Recoger o dejar a alguien
+Copacabana;1;Copacabana;Copacabana;Estudio
+Copacabana;1;Copacabana;Medellin;Al Trabajo
+Medellin;1;Medellin;Copacabana;Regreso a casa
+Copacabana;1;Copacabana;Medellin;Otro
+Copacabana;1;Copacabana;Barbosa;Al Trabajo
+Barbosa;1;Barbosa;Copacabana;Regreso a casa
+Envigado;6;Envigado;Itagui;Al Trabajo
+Itagui;6;Itagui;Envigado;Regreso a casa
+Envigado;3;Envigado;El Retiro;Compras
+El Retiro;3;El Retiro;Envigado;Regreso a casa
+Envigado;3;Envigado;Envigado;Compras
+Envigado;1;Envigado;Envigado;Al Trabajo
+Envigado;1;Envigado;Envigado;Regreso a casa
+Copacabana;1;Copacabana;Copacabana;Recreaci√≥n
+Copacabana;1;Copacabana;Bello;Recreaci√≥n
+Bello;1;Bello;Copacabana;Regreso a casa
+Envigado;3;Envigado;Envigado;Diligencia o tr√°mite
+Envigado;5;Envigado;Sabaneta;Compras
+Envigado;6;Envigado;Medellin;Recreaci√≥n
+Medellin;6;Medellin;Envigado;Regreso a casa
+Sabaneta;3;Sabaneta;Envigado;Compras
+Envigado;3;Envigado;La Estrella;Al Trabajo
+La Estrella;3;La Estrella;Envigado;Compras
+Medellin;3;Medellin;Envigado;Compras
+Envigado;5;Envigado;Bello;Al Trabajo
+Bello;5;Bello;Envigado;Regreso a casa
+Envigado;5;Envigado;La Estrella;Al Trabajo
+La Estrella;5;La Estrella;Envigado;Regreso a casa
+Envigado;3;Envigado;La Ceja;Al Trabajo
+La Ceja;3;La Ceja;Envigado;Regreso a casa
+Envigado;6;Envigado;Medellin;Al Trabajo
+Envigado;5;Envigado;Medellin;Compras
+Envigado;5;Envigado;Angostura;Al Trabajo
+Angostura;5;Angostura;Envigado;Regreso a casa
+Envigado;5;Envigado;Medellin;Diligencia o tr√°mite
+Itagui;5;Itagui;Envigado;Regreso a casa
+Envigado;5;Envigado;Itagui;Recreaci√≥n
+Envigado;5;Envigado;Rionegro;Estudio
+Envigado;5;Envigado;Envigado;Almuerzo
+Envigado;5;Envigado;Itagui;Al Trabajo
+Envigado;5;Envigado;Medellin;Salud
+El Retiro;2;El Retiro;Medellin;Estudio
+Envigado;2;Envigado;Caldas;Al Trabajo
+Caldas;2;Caldas;Envigado;Regreso a casa
+Envigado;2;Envigado;Itagui;Compras
+Envigado;2;Envigado;Rionegro;Estudio
+Girardota;1;Girardota;Girardota;Salud
+Envigado;2;Envigado;Rionegro;Diligencia o tr√°mite
+Rionegro;2;Rionegro;Rionegro;Compras
+Envigado;6;Envigado;Medellin;Estudio
+Sabaneta;3;Sabaneta;Envigado;Diligencia o tr√°mite
+Envigado;3;Envigado;Sabaneta;Regreso a casa
+Envigado;2;Envigado;Itagui;Estudio
+Bogot√° D.C.;3;Bogot√° D.C.;Envigado;Regreso a casa
+Medellin;4;Medellin;Envigado;Diligencia o tr√°mite
+Envigado;4;Envigado;Itagui;Compras
+Envigado;4;Envigado;Sabaneta;Al Trabajo
+Barbosa;4;Barbosa;Barbosa;Regreso a casa
+Barbosa;4;Barbosa;Barbosa;Al Trabajo
+Barbosa;4;Barbosa;Barbosa;Recoger o dejar a alguien
+Barbosa;4;Barbosa;Barbosa;Estudio
+Medellin;5;Medellin;Gomez Plata;Recoger o dejar a alguien
+Gomez Plata;5;Gomez Plata;Medellin;Regreso a casa
+Medellin;3;Medellin;Sabaneta;Estudio
+Sabaneta;2;Sabaneta;Rionegro;Al Trabajo
+Rionegro;2;Rionegro;Sabaneta;Regreso a casa
+Caldas;2;Caldas;Caldas;Recoger o dejar a alguien
+Caldas;3;Caldas;Itagui;Al Trabajo
+Itagui;3;Itagui;Caldas;Estudio
+Medellin;3;Medellin;La Uni√≥n;Al Trabajo
+La Uni√≥n;3;La Uni√≥n;Medellin;Regreso a casa
+Medellin;2;Medellin;La Pintada;Recreaci√≥n
+La Pintada;2;La Pintada;Medellin;Regreso a casa
+Caldas;1;Caldas;Envigado;Diligencia o tr√°mite
+Envigado;1;Envigado;Itagui;Diligencia o tr√°mite
+Medellin;5;Medellin;Municipios Occidente;Al Trabajo
+Municipios Occidente;5;Municipios Occidente;Medellin;Regreso a casa
+Medellin;5;Medellin;Medellin;Otro
+Medellin;5;Medellin;Bello;Al Trabajo
+Bello;5;Bello;Medellin;Regreso a casa
+La Estrella;3;La Estrella;Medellin;Salud
+Medellin;5;Medellin;Medellin;Acompa√±ar a alguien
+Medellin;5;Medellin;Sabaneta;Al Trabajo
+Medellin;5;Medellin;Itagui;Diligencia o tr√°mite
+Medellin;5;Medellin;Rionegro;Diligencia o tr√°mite
+Rionegro;5;Rionegro;Medellin;Regreso a casa
+Chigorodo;2;Chigorodo;Medellin;Regreso a casa
+Sabaneta;4;Sabaneta;Sabaneta;Al Trabajo
+Medellin;4;Medellin;Sabaneta;Regreso a casa
+Medellin;3;Medellin;Municipios Occidente;Al Trabajo
+Municipios Occidente;3;Municipios Occidente;Medellin;Regreso a casa
+Envigado;6;Envigado;Envigado;Al Trabajo
+Envigado;6;Envigado;Envigado;Regreso a casa
+Caucasia;3;Caucasia;Medellin;Regreso a casa
+Medellin;4;Medellin;Medellin;Acompa√±ar a alguien
+Medellin;4;Medellin;Itagui;Acompa√±ar a alguien
+Itagui;4;Itagui;Medellin;Acompa√±ar a alguien
+Envigado;4;Envigado;Medellin;Recoger o dejar a alguien
+Medellin;3;Medellin;Itagui;Estudio
+Envigado;2;Envigado;Itagui;Almuerzo
+Itagui;2;Itagui;Itagui;Compras
+Itagui;2;Itagui;Envigado;Diligencia o tr√°mite
+Medellin;2;Medellin;Itagui;Almuerzo
+Medellin;2;Medellin;Rionegro;Salud
+Rionegro;2;Rionegro;Medellin;Otro
+Bello;3;Bello;Envigado;Regreso a casa
+Medellin;5;Medellin;Medellin;Almuerzo
+Envigado;4;Envigado;Barbosa;Al Trabajo
+Barbosa;4;Barbosa;Envigado;Regreso a casa
+Envigado;4;Envigado;Envigado;Salud
+Sabaneta;3;Sabaneta;Envigado;Al Trabajo
+Medellin;3;Medellin;Envigado;Salud
+Envigado;2;Envigado;Girardota;Al Trabajo
+Girardota;2;Girardota;Envigado;Regreso a casa
+Envigado;2;Envigado;Caldas;Estudio
+Medellin;4;Medellin;Medellin;Compras
+Medellin;5;Medellin;Rionegro;Otro
+Envigado;3;Envigado;Medellin;Salud
+Envigado;3;Envigado;Medellin;Acompa√±ar a alguien
+La Estrella;3;La Estrella;Caldas;Al Trabajo
+Caldas;3;Caldas;La Estrella;Regreso a casa
+Caldas;2;Caldas;Caldas;Almuerzo
+Caldas;2;Caldas;Caldas;Compras
+Sabaneta;2;Sabaneta;Caldas;Recoger o dejar a alguien
+Medellin;2;Medellin;Caldas;Otro
+Medellin;5;Medellin;Envigado;Estudio
+Envigado;5;Envigado;Medellin;Regreso a casa
+Medellin;3;Medellin;Copacabana;Estudio
+Medellin;3;Medellin;La Estrella;Al Trabajo
+La Estrella;3;La Estrella;Medellin;Regreso a casa
+Medellin;2;Medellin;Envigado;Recoger o dejar a alguien
+Medellin;3;Medellin;Guarne;Otro
+Medellin;5;Medellin;Medellin;Salud
+Sabaneta;3;Sabaneta;Sabaneta;Estudio
+La Estrella;3;La Estrella;La Estrella;Al Trabajo
+Medellin;4;Medellin;Copacabana;Estudio
+Municipios Norte;3;Municipios Norte;Medellin;Regreso a casa
+Medellin;5;Medellin;Marinilla;Al Trabajo
+Marinilla;5;Marinilla;Medellin;Regreso a casa
+La Estrella;1;La Estrella;Envigado;Al Trabajo
+Envigado;1;Envigado;La Estrella;Regreso a casa
+Medellin;2;Medellin;Alejandria;Diligencia o tr√°mite
+Alejandria;2;Alejandria;Medellin;Regreso a casa
+Medellin;3;Medellin;Yal√≠;Al Trabajo
+Yal√≠;3;Yal√≠;Medellin;Regreso a casa
+Caldas;3;Caldas;Municipios Occidente;Al Trabajo
+Municipios Occidente;3;Municipios Occidente;Caldas;Regreso a casa
+Caldas;3;Caldas;Sabaneta;Compras
+Envigado;5;Envigado;Medellin;Recoger o dejar a alguien
+Rionegro;2;Rionegro;Sabaneta;Al Trabajo
+Medellin;1;Medellin;La Estrella;Al Trabajo
+La Estrella;1;La Estrella;Medellin;Regreso a casa
+Envigado;5;Envigado;Monteria;Al Trabajo
+Medellin;6;Medellin;Medellin;Almuerzo
+Copacabana;6;Copacabana;Envigado;Diligencia o tr√°mite
+Copacabana;6;Copacabana;Girardota;Al Trabajo
+Girardota;6;Girardota;Copacabana;Regreso a casa
+Medellin;1;Medellin;Medellin;Recreaci√≥n
+Medellin;2;Medellin;Bello;Diligencia o tr√°mite
+Medellin;2;Medellin;Municipios Norte;Al Trabajo
+Municipios Norte;2;Municipios Norte;Medellin;Regreso a casa
+Medellin;1;Medellin;Caldas;Al Trabajo
+Medellin;2;Medellin;Sabaneta;Estudio
+Envigado;5;Envigado;Envigado;Recreaci√≥n
+Envigado;6;Envigado;Envigado;Estudio
+Bogot√° D.C.;4;Bogot√° D.C.;Medellin;Regreso a casa
+Itagui;4;Itagui;Itagui;Al Trabajo
+Rionegro;4;Rionegro;Medellin;Al Trabajo
+Medellin;4;Medellin;Bello;Otro
+Sabaneta;3;Sabaneta;Caldas;Al Trabajo
+Caldas;3;Caldas;Sabaneta;Regreso a casa
+Medellin;4;Medellin;Girardota;Recoger o dejar a alguien
+Medellin;2;Medellin;Itagui;Salud
+Medellin;3;Medellin;La Estrella;Recreaci√≥n
+Envigado;5;Envigado;Envigado;Compras
+Medellin;6;Medellin;Rionegro;Al Trabajo
+Rionegro;6;Rionegro;Medellin;Regreso a casa
+Medellin;6;Medellin;Medellin;Otro
+Envigado;6;Envigado;Medellin;Almuerzo
+Medellin;6;Medellin;Envigado;Al Trabajo
+Medellin;6;Medellin;El Retiro;Al Trabajo
+El Retiro;6;El Retiro;Medellin;Regreso a casa
+Envigado;2;Envigado;Medellin;Compras
+Medellin;1;Medellin;Municipios Norte;Recreaci√≥n
+Municipios Norte;1;Municipios Norte;Medellin;Acompa√±ar a alguien
+Envigado;5;Envigado;Guatape Pe√±ol;Al Trabajo
+Guatape Pe√±ol;5;Guatape Pe√±ol;Envigado;Regreso a casa
+Caldas;2;Caldas;Itagui;Estudio
+Medellin;3;Medellin;Itagui;Diligencia o tr√°mite
+Medellin;3;Medellin;Rionegro;Estudio
+Envigado;3;Envigado;Envigado;Almuerzo
+Medellin;3;Medellin;Marinilla;Al Trabajo
+Marinilla;3;Marinilla;Medellin;Regreso a casa
+Medellin;3;Medellin;Envigado;Acompa√±ar a alguien
+Medellin;3;Medellin;Bello;Recreaci√≥n
+Medellin;3;Medellin;Municipios Occidente;Recreaci√≥n
+Envigado;5;Envigado;Barbosa;Al Trabajo
+Medellin;3;Medellin;Liborina;Recreaci√≥n
+Liborina;3;Liborina;Medellin;Regreso a casa
+Medellin;3;Medellin;Bello;Acompa√±ar a alguien
+Medellin;2;Medellin;Puerto Berrio;Al Trabajo
+Puerto Berrio;2;Puerto Berrio;Medellin;Regreso a casa
+Medellin;4;Medellin;Girardota;Salud
+Guarne;2;Guarne;Medellin;Otro
+Medellin;3;Medellin;Marinilla;Otro
+Medellin;1;Medellin;Guatape Pe√±ol;Al Trabajo
+Guatape Pe√±ol;1;Guatape Pe√±ol;Medellin;Regreso a casa
+Envigado;3;Envigado;Medellin;Compras
+Medellin;1;Medellin;El Retiro;Al Trabajo
+El Retiro;1;El Retiro;Medellin;Otro
+Medellin;2;Medellin;Envigado;Estudio
+Medellin;3;Medellin;Barbosa;Al Trabajo
+Medellin;3;Medellin;Itagui;Otro
+Caldas;2;Caldas;Municipios Occidente;Al Trabajo
+Municipios Occidente;2;Municipios Occidente;Caldas;Regreso a casa
+Medellin;2;Medellin;Envigado;Salud
+Itagui;5;Itagui;Medellin;Recoger o dejar a alguien
+Envigado;5;Envigado;Caldas;Estudio
+Caldas;5;Caldas;Envigado;Regreso a casa
+Caucasia;2;Caucasia;Medellin;Otro
+Caucasia;2;Caucasia;Medellin;Acompa√±ar a alguien
+Medellin;2;Medellin;Cartagena;Al Trabajo
+Medellin;1;Medellin;Monteria;Al Trabajo
+Envigado;4;Envigado;La Estrella;Al Trabajo
+La Estrella;4;La Estrella;Envigado;Regreso a casa
+Envigado;2;Envigado;Copacabana;Al Trabajo
+Copacabana;2;Copacabana;Envigado;Regreso a casa
+Envigado;2;Envigado;Itagui;Diligencia o tr√°mite
+Medellin;1;Medellin;Envigado;Almuerzo
+Medellin;3;Medellin;El Retiro;Al Trabajo
+El Retiro;3;El Retiro;Medellin;Regreso a casa
+Medellin;3;Medellin;Bello;Otro
+Medellin;3;Medellin;Amalfi;Al Trabajo
+Medellin;3;Medellin;Municipios del Sur;Recreaci√≥n
+Envigado;3;Envigado;Envigado;Acompa√±ar a alguien
+Caldas;2;Caldas;Municipios del Sur;Otro
+Municipios del Sur;2;Municipios del Sur;Caldas;Regreso a casa
+Medellin;2;Medellin;Guadalupe;Al Trabajo
+Bello;3;Bello;La Ceja;Al Trabajo
+Itagui;3;Itagui;Medellin;Recoger o dejar a alguien
+Envigado;4;Envigado;Envigado;Acompa√±ar a alguien
+Medellin;1;Medellin;Medellin;Almuerzo
+Granada;1;Granada;Medellin;Regreso a casa
+Hispania;2;Hispania;Medellin;Al Trabajo
+Envigado;3;Envigado;Municipios del Sur;Diligencia o tr√°mite
+Municipios del Sur;3;Municipios del Sur;Envigado;Regreso a casa
+Envigado;4;Envigado;-;Al Trabajo
+Medellin;1;Medellin;Cocorn√°;Al Trabajo
+Cocorn√°;1;Cocorn√°;Medellin;Regreso a casa
+Medellin;1;Medellin;La Ceja;Diligencia o tr√°mite
+La Ceja;1;La Ceja;Medellin;Regreso a casa
+Medellin;3;Medellin;La Ceja;Al Trabajo
+La Ceja;3;La Ceja;Medellin;Regreso a casa
+Medellin;1;Medellin;La Ceja;Al Trabajo
+Medellin;1;Medellin;Copacabana;Al Trabajo
+Copacabana;1;Copacabana;Medellin;Regreso a casa
+Medellin;2;Medellin;Bello;Compras
+Itagui;2;Itagui;La Estrella;Recreaci√≥n
+La Estrella;2;La Estrella;Itagui;Regreso a casa
+Envigado;3;Envigado;Caldas;Estudio
+Caldas;3;Caldas;Envigado;Regreso a casa
+Medellin;2;Medellin;Guarne;Acompa√±ar a alguien
+La Estrella;3;La Estrella;Envigado;Regreso a casa
+Medellin;3;Medellin;Gomez Plata;Al Trabajo
+Itagui;2;Itagui;Rionegro;Al Trabajo
+Rionegro;2;Rionegro;Itagui;Regreso a casa
+Itagui;2;Itagui;La Estrella;Estudio
+Itagui;4;Itagui;Itagui;Almuerzo
+Itagui;2;Itagui;Medellin;Diligencia o tr√°mite
+Medellin;2;Medellin;Bello;Acompa√±ar a alguien
+Medellin;2;Medellin;Girardota;Otro
+Medellin;5;Medellin;Municipios Oriente;Acompa√±ar a alguien
+Municipios Oriente;5;Municipios Oriente;Medellin;Regreso a casa
+Medellin;3;Medellin;Girardota;Estudio
+Medellin;1;Medellin;Rionegro;Recreaci√≥n
+Medellin;2;Medellin;Caldas;Estudio
+Envigado;3;Envigado;Envigado;Salud
+Envigado;1;Envigado;Caldas;Al Trabajo
+Caldas;1;Caldas;Envigado;Regreso a casa
+Itagui;3;Itagui;Medellin;Acompa√±ar a alguien
+Itagui;2;Itagui;Itagui;Recoger o dejar a alguien
+Itagui;2;Itagui;Sabaneta;Al Trabajo
+Sabaneta;2;Sabaneta;Itagui;Regreso a casa
+Itagui;2;Itagui;Envigado;Otro
+Itagui;3;Itagui;Itagui;Compras
+Itagui;3;Itagui;Sabaneta;Compras
+Itagui;2;Itagui;Medellin;Compras
+Medellin;3;Medellin;Envigado;Estudio
+Medellin;3;Medellin;Bello;Salud
+Envigado;2;Envigado;Sabaneta;Otro
+Medellin;1;Medellin;Bello;Acompa√±ar a alguien
+Itagui;3;Itagui;Municipios Occidente;Al Trabajo
+Municipios Occidente;3;Municipios Occidente;Itagui;Regreso a casa
+Itagui;3;Itagui;Itagui;Recoger o dejar a alguien
+Itagui;3;Itagui;Caldas;Al Trabajo
+Caldas;3;Caldas;Itagui;Regreso a casa
+Itagui;3;Itagui;Rionegro;Al Trabajo
+Rionegro;3;Rionegro;Itagui;Regreso a casa
+Medellin;1;Medellin;Bello;Estudio
+Medellin;1;Medellin;Guarne;Al Trabajo
+El Retiro;1;El Retiro;Medellin;Regreso a casa
+Caldas;1;Caldas;Envigado;Al Trabajo
+Envigado;1;Envigado;Caldas;Regreso a casa
+Itagui;3;Itagui;Itagui;Recreaci√≥n
+La Estrella;3;La Estrella;Itagui;Almuerzo
+Itagui;2;Itagui;Medellin;Acompa√±ar a alguien
+Itagui;2;Itagui;Medellin;Recreaci√≥n
+Itagui;2;Itagui;Itagui;Recreaci√≥n
+Itagui;2;Itagui;Itagui;Acompa√±ar a alguien
+Itagui;2;Itagui;Envigado;Estudio
+Itagui;4;Itagui;La Estrella;Estudio
+La Estrella;4;La Estrella;Itagui;Regreso a casa
+Itagui;3;Itagui;Itagui;Acompa√±ar a alguien
+Medellin;4;Medellin;Itagui;Recoger o dejar a alguien
+Itagui;4;Itagui;Itagui;Estudio
+Itagui;4;Itagui;Itagui;Acompa√±ar a alguien
+Envigado;4;Envigado;Caldas;Estudio
+Caldas;4;Caldas;Envigado;Regreso a casa
+Itagui;2;Itagui;Caldas;Al Trabajo
+Itagui;2;Itagui;Envigado;Acompa√±ar a alguien
+Caldas;3;Caldas;Medellin;Compras
+Itagui;4;Itagui;Medellin;Recoger o dejar a alguien
+Itagui;3;Itagui;Itagui;Salud
+Itagui;1;Itagui;Envigado;Estudio
+Itagui;4;Itagui;Medellin;Estudio
+Itagui;1;Itagui;Medellin;Diligencia o tr√°mite
+Itagui;1;Itagui;Copacabana;Al Trabajo
+Copacabana;1;Copacabana;Itagui;Regreso a casa
+Copacabana;2;Copacabana;La Estrella;Al Trabajo
+Itagui;3;Itagui;Marinilla;Al Trabajo
+Marinilla;3;Marinilla;Itagui;Regreso a casa
+Itagui;2;Itagui;Envigado;Salud
+Itagui;3;Itagui;Santa Rosa de Osos;Al Trabajo
+Santa Rosa de Osos;3;Santa Rosa de Osos;Itagui;Regreso a casa
+Itagui;1;Itagui;Medellin;Otro
+Itagui;1;Itagui;Sabaneta;Al Trabajo
+Sabaneta;1;Sabaneta;Itagui;Regreso a casa
+Itagui;1;Itagui;Itagui;Recoger o dejar a alguien
+Caldas;2;Caldas;Municipios del Sur;Al Trabajo
+Itagui;3;Itagui;Municipios Norte;Al Trabajo
+Municipios Norte;3;Municipios Norte;Itagui;Regreso a casa
+Itagui;3;Itagui;Itagui;Otro
+Itagui;2;Itagui;El Retiro;Al Trabajo
+El Retiro;2;El Retiro;Itagui;Regreso a casa
+Itagui;1;Itagui;Bello;Al Trabajo
+Bello;1;Bello;Itagui;Regreso a casa
+Itagui;3;Itagui;Guatape Pe√±ol;Al Trabajo
+Guatape Pe√±ol;3;Guatape Pe√±ol;Itagui;Regreso a casa
+Itagui;2;Itagui;Municipios del Sur;Al Trabajo
+Municipios del Sur;2;Municipios del Sur;Itagui;Regreso a casa
+Itagui;1;Itagui;La Estrella;Al Trabajo
+La Estrella;1;La Estrella;Itagui;Regreso a casa
+Itagui;2;Itagui;Copacabana;Estudio
+Copacabana;2;Copacabana;Itagui;Regreso a casa
+Itagui;2;Itagui;Medellin;Otro
+Itagui;3;Itagui;Envigado;Recoger o dejar a alguien
+Itagui;3;Itagui;Ituango;Al Trabajo

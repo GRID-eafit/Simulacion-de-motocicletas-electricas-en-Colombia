@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_97ab95a8731d531120b340a9f5ad744e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 50px; right: 50px; width: 250px; height: auto; 
+            background-color: white; border:2px solid grey; z-index:9999; 
+            font-size:14px; padding: 15px; border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+<h4 style="margin-top: 0; margin-bottom: 10px; color: #333;">Leyenda</h4>
+<hr style="margin: 5px 0;">
+<p style="margin: 5px 0;"><b>Tecnologías:</b></p>
+<p style="margin: 3px 0;"><i class="fa fa-plug" style="color: blue; margin-right: 5px;"></i>Cargador Estándar</p>
+<p style="margin: 3px 0;"><i class="fa fa-bolt" style="color: green; margin-right: 5px;"></i>Cargador Alta Capacidad</p>
+<p style="margin: 3px 0;"><i class="fa fa-battery-full" style="color: purple; margin-right: 5px;"></i>Intercambio de Baterías</p>
+<hr style="margin: 10px 0;">
+<p style="margin: 5px 0;"><b>Total:</b> 26 estaciones</p>
+</div>
+    
+<div style="position: fixed; top: 10px; left: 50px; width: auto; height: auto; 
+            background-color: white; border:2px solid grey; z-index:9999; 
+            font-size:16px; padding: 10px 15px; border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+<h3 style="margin: 0; color: #333;">Estaciones de Carga Optimizadas</h3>
+<p style="margin: 5px 0 0 0; font-size: 12px; color: #666;">Casos de Estudio: Bogotá, Medellín y Valle de Aburrá</p>
+</div>
+    
+            <div class="folium-map" id="map_97ab95a8731d531120b340a9f5ad744e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_97ab95a8731d531120b340a9f5ad744e = L.map(
+                "map_97ab95a8731d531120b340a9f5ad744e",
+                {
+                    center: [5.744330726073268, -75.11151696756464],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_35c81a0589f8ecbe7811296fa9dcadb0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_35c81a0589f8ecbe7811296fa9dcadb0.addTo(map_97ab95a8731d531120b340a9f5ad744e);
+        
+    
+            var tile_layer_eb694e183af1bb596d0b9ce8d056fe74 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_eb694e183af1bb596d0b9ce8d056fe74.addTo(map_97ab95a8731d531120b340a9f5ad744e);
+        
+    
+            var tile_layer_a48f14621b812fec85943204dd9fd4f0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a48f14621b812fec85943204dd9fd4f0.addTo(map_97ab95a8731d531120b340a9f5ad744e);
+        
+    
+            var feature_group_dbc8da6ee7d348eee64ee8890f27d72c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_fc01c0f7f0a42554e1b8414a923a974f = L.marker(
+                [4.590993459631811, -74.10994127966288],
+                {
+}
+            ).addTo(feature_group_dbc8da6ee7d348eee64ee8890f27d72c);
+        
+    
+            var icon_850a773927c9a2a3e29c18ec424ab7b5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9756d58d6db2a2293f7163d5699e083a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a24d66e6a0219cb76312e7b0c0c61ea8 = $(`<div id="html_a24d66e6a0219cb76312e7b0c0c61ea8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-BOG-095-037</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Bogotá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Alta Capacidad</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 4.590993°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -74.109941°</p>     </div>     </div>`)[0];
+                popup_9756d58d6db2a2293f7163d5699e083a.setContent(html_a24d66e6a0219cb76312e7b0c0c61ea8);
+            
+        
+
+        marker_fc01c0f7f0a42554e1b8414a923a974f.bindPopup(popup_9756d58d6db2a2293f7163d5699e083a)
+        ;
+
+        
+    
+    
+            marker_fc01c0f7f0a42554e1b8414a923a974f.bindTooltip(
+                `<div>
+                     ST-BOG-095-037 - Cargador Alta Capacidad
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fc01c0f7f0a42554e1b8414a923a974f.setIcon(icon_850a773927c9a2a3e29c18ec424ab7b5);
+            
+    
+            var marker_6f5a1e8b299002ebb4c73595133e1b05 = L.marker(
+                [4.590993459631811, -74.09175946148106],
+                {
+}
+            ).addTo(feature_group_dbc8da6ee7d348eee64ee8890f27d72c);
+        
+    
+            var icon_5874f391543e1ca5ecc652d516cbae7b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7841282490a269f83109943219ba66f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1c2ddfa57bc867504d93117c2125e152 = $(`<div id="html_1c2ddfa57bc867504d93117c2125e152" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-BOG-095-039</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Bogotá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Alta Capacidad</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 4.590993°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -74.091759°</p>     </div>     </div>`)[0];
+                popup_7841282490a269f83109943219ba66f7.setContent(html_1c2ddfa57bc867504d93117c2125e152);
+            
+        
+
+        marker_6f5a1e8b299002ebb4c73595133e1b05.bindPopup(popup_7841282490a269f83109943219ba66f7)
+        ;
+
+        
+    
+    
+            marker_6f5a1e8b299002ebb4c73595133e1b05.bindTooltip(
+                `<div>
+                     ST-BOG-095-039 - Cargador Alta Capacidad
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6f5a1e8b299002ebb4c73595133e1b05.setIcon(icon_5874f391543e1ca5ecc652d516cbae7b);
+            
+    
+            var marker_38e7233f9d9d1249baa2672d0ae1efa5 = L.marker(
+                [4.590993459631811, -74.07357764329925],
+                {
+}
+            ).addTo(feature_group_dbc8da6ee7d348eee64ee8890f27d72c);
+        
+    
+            var icon_7a0f5929aa1604c4a860eb155fbeb84e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_18c8da9f9dd8899ab80f8cd9bdc5b68c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a40511f35cad327ff68cb7bc2f4e6e3 = $(`<div id="html_1a40511f35cad327ff68cb7bc2f4e6e3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-BOG-095-041</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Bogotá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 4.590993°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -74.073578°</p>     </div>     </div>`)[0];
+                popup_18c8da9f9dd8899ab80f8cd9bdc5b68c.setContent(html_1a40511f35cad327ff68cb7bc2f4e6e3);
+            
+        
+
+        marker_38e7233f9d9d1249baa2672d0ae1efa5.bindPopup(popup_18c8da9f9dd8899ab80f8cd9bdc5b68c)
+        ;
+
+        
+    
+    
+            marker_38e7233f9d9d1249baa2672d0ae1efa5.bindTooltip(
+                `<div>
+                     ST-BOG-095-041 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_38e7233f9d9d1249baa2672d0ae1efa5.setIcon(icon_7a0f5929aa1604c4a860eb155fbeb84e);
+            
+    
+            var marker_de3eb6eabbea47b1c71822d3a317db0d = L.marker(
+                [4.609011477649829, -74.10994127966288],
+                {
+}
+            ).addTo(feature_group_dbc8da6ee7d348eee64ee8890f27d72c);
+        
+    
+            var icon_0537efaaeb01218980080279e35d5636 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "battery-full",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93b24d908e2e0251a9a736425c4d0e99 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a30c00264a8d0ec02116ecd33f3301b = $(`<div id="html_8a30c00264a8d0ec02116ecd33f3301b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-BOG-097-037</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Bogotá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Intercambio de Baterías</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 4.609011°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -74.109941°</p>     </div>     </div>`)[0];
+                popup_93b24d908e2e0251a9a736425c4d0e99.setContent(html_8a30c00264a8d0ec02116ecd33f3301b);
+            
+        
+
+        marker_de3eb6eabbea47b1c71822d3a317db0d.bindPopup(popup_93b24d908e2e0251a9a736425c4d0e99)
+        ;
+
+        
+    
+    
+            marker_de3eb6eabbea47b1c71822d3a317db0d.bindTooltip(
+                `<div>
+                     ST-BOG-097-037 - Intercambio de Baterías
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_de3eb6eabbea47b1c71822d3a317db0d.setIcon(icon_0537efaaeb01218980080279e35d5636);
+            
+    
+            var marker_d2c8c29421efeb21c935f99048cef687 = L.marker(
+                [4.609011477649829, -74.08266855239015],
+                {
+}
+            ).addTo(feature_group_dbc8da6ee7d348eee64ee8890f27d72c);
+        
+    
+            var icon_8ab1c91008f946b116580a692c4e1099 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_94a7d588f7ea4d6c4739bf14105405da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_df29b5f7a44d0dc4a806eecab85ef96e = $(`<div id="html_df29b5f7a44d0dc4a806eecab85ef96e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-BOG-097-040</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Bogotá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 4.609011°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -74.082669°</p>     </div>     </div>`)[0];
+                popup_94a7d588f7ea4d6c4739bf14105405da.setContent(html_df29b5f7a44d0dc4a806eecab85ef96e);
+            
+        
+
+        marker_d2c8c29421efeb21c935f99048cef687.bindPopup(popup_94a7d588f7ea4d6c4739bf14105405da)
+        ;
+
+        
+    
+    
+            marker_d2c8c29421efeb21c935f99048cef687.bindTooltip(
+                `<div>
+                     ST-BOG-097-040 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d2c8c29421efeb21c935f99048cef687.setIcon(icon_8ab1c91008f946b116580a692c4e1099);
+            
+    
+            var marker_dff9441c79bc4a4c1583be9032ef72da = L.marker(
+                [4.636038504676856, -74.08266855239015],
+                {
+}
+            ).addTo(feature_group_dbc8da6ee7d348eee64ee8890f27d72c);
+        
+    
+            var icon_10bcfa90a0cd87f30a59ef8f27db94a1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_09fca387bb8285d38cb9907b814a2624 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ce58b6f4b514323e0c3929e560b6935 = $(`<div id="html_1ce58b6f4b514323e0c3929e560b6935" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-BOG-100-040</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Bogotá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 4.636039°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -74.082669°</p>     </div>     </div>`)[0];
+                popup_09fca387bb8285d38cb9907b814a2624.setContent(html_1ce58b6f4b514323e0c3929e560b6935);
+            
+        
+
+        marker_dff9441c79bc4a4c1583be9032ef72da.bindPopup(popup_09fca387bb8285d38cb9907b814a2624)
+        ;
+
+        
+    
+    
+            marker_dff9441c79bc4a4c1583be9032ef72da.bindTooltip(
+                `<div>
+                     ST-BOG-100-040 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dff9441c79bc4a4c1583be9032ef72da.setIcon(icon_10bcfa90a0cd87f30a59ef8f27db94a1);
+            
+    
+            var marker_76b8aa4638e53242329ec63c5443c84d = L.marker(
+                [4.645047513685864, -74.10085037057198],
+                {
+}
+            ).addTo(feature_group_dbc8da6ee7d348eee64ee8890f27d72c);
+        
+    
+            var icon_a382f7d42c0ad08d933a5e1e8dac169f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_036519a8b301163782128752625f946f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0256eaab4074297116be00363c482bf7 = $(`<div id="html_0256eaab4074297116be00363c482bf7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-BOG-101-038</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Bogotá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 4.645048°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -74.100850°</p>     </div>     </div>`)[0];
+                popup_036519a8b301163782128752625f946f.setContent(html_0256eaab4074297116be00363c482bf7);
+            
+        
+
+        marker_76b8aa4638e53242329ec63c5443c84d.bindPopup(popup_036519a8b301163782128752625f946f)
+        ;
+
+        
+    
+    
+            marker_76b8aa4638e53242329ec63c5443c84d.bindTooltip(
+                `<div>
+                     ST-BOG-101-038 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_76b8aa4638e53242329ec63c5443c84d.setIcon(icon_a382f7d42c0ad08d933a5e1e8dac169f);
+            
+    
+            var marker_ac55b8251ad14d86b95d8e8a8383e8e9 = L.marker(
+                [4.654056522694874, -74.08266855239015],
+                {
+}
+            ).addTo(feature_group_dbc8da6ee7d348eee64ee8890f27d72c);
+        
+    
+            var icon_a5a2a50555d14e8df6d32838c5548293 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6697bc734d1558dcae43e35c72f4e8ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02e7fd04affe613584923bde6bd4e3dd = $(`<div id="html_02e7fd04affe613584923bde6bd4e3dd" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-BOG-102-040</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Bogotá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 4.654057°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -74.082669°</p>     </div>     </div>`)[0];
+                popup_6697bc734d1558dcae43e35c72f4e8ae.setContent(html_02e7fd04affe613584923bde6bd4e3dd);
+            
+        
+
+        marker_ac55b8251ad14d86b95d8e8a8383e8e9.bindPopup(popup_6697bc734d1558dcae43e35c72f4e8ae)
+        ;
+
+        
+    
+    
+            marker_ac55b8251ad14d86b95d8e8a8383e8e9.bindTooltip(
+                `<div>
+                     ST-BOG-102-040 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ac55b8251ad14d86b95d8e8a8383e8e9.setIcon(icon_a5a2a50555d14e8df6d32838c5548293);
+            
+    
+            feature_group_dbc8da6ee7d348eee64ee8890f27d72c.addTo(map_97ab95a8731d531120b340a9f5ad744e);
+        
+    
+            var feature_group_8f682248ca8d71099d8833794c44b27d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_d1126278e0190cd8975e28ab607a1e17 = L.marker(
+                [6.177336788326554, -75.56928798036947],
+                {
+}
+            ).addTo(feature_group_8f682248ca8d71099d8833794c44b27d);
+        
+    
+            var icon_8b8cca1485cf08145cd37d69778e6153 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a5ace61ab0cabe681dfaf0244bf84f44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8bbf389362fb3a94ef950c9bd36ae61 = $(`<div id="html_d8bbf389362fb3a94ef950c9bd36ae61" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-MED-001-016</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Medellín</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.177337°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.569288°</p>     </div>     </div>`)[0];
+                popup_a5ace61ab0cabe681dfaf0244bf84f44.setContent(html_d8bbf389362fb3a94ef950c9bd36ae61);
+            
+        
+
+        marker_d1126278e0190cd8975e28ab607a1e17.bindPopup(popup_a5ace61ab0cabe681dfaf0244bf84f44)
+        ;
+
+        
+    
+    
+            marker_d1126278e0190cd8975e28ab607a1e17.bindTooltip(
+                `<div>
+                     ST-MED-001-016 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d1126278e0190cd8975e28ab607a1e17.setIcon(icon_8b8cca1485cf08145cd37d69778e6153);
+            
+    
+            var marker_8458bc70a325f221b17d689ac4091c50 = L.marker(
+                [6.1953548063445725, -75.56019707127857],
+                {
+}
+            ).addTo(feature_group_8f682248ca8d71099d8833794c44b27d);
+        
+    
+            var icon_8a49b7549afec2ec0d956752589853e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f73e1c1f2c28f7708083c849fe7ba87f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8343606b006fb87761a7a467e7dead7d = $(`<div id="html_8343606b006fb87761a7a467e7dead7d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-MED-003-017</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Medellín</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.195355°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.560197°</p>     </div>     </div>`)[0];
+                popup_f73e1c1f2c28f7708083c849fe7ba87f.setContent(html_8343606b006fb87761a7a467e7dead7d);
+            
+        
+
+        marker_8458bc70a325f221b17d689ac4091c50.bindPopup(popup_f73e1c1f2c28f7708083c849fe7ba87f)
+        ;
+
+        
+    
+    
+            marker_8458bc70a325f221b17d689ac4091c50.bindTooltip(
+                `<div>
+                     ST-MED-003-017 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8458bc70a325f221b17d689ac4091c50.setIcon(icon_8a49b7549afec2ec0d956752589853e5);
+            
+    
+            var marker_0c4d91b9e1827b8650486119766eb6d6 = L.marker(
+                [6.231390842380608, -75.56928798036947],
+                {
+}
+            ).addTo(feature_group_8f682248ca8d71099d8833794c44b27d);
+        
+    
+            var icon_90c933e48d3bf449bbb4f7d3683ad47c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d4bcd33c511431576c4aed79ee0b42c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_265318070337a5e44f014f5b2213a2d5 = $(`<div id="html_265318070337a5e44f014f5b2213a2d5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-MED-007-016</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Medellín</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.231391°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.569288°</p>     </div>     </div>`)[0];
+                popup_d4bcd33c511431576c4aed79ee0b42c5.setContent(html_265318070337a5e44f014f5b2213a2d5);
+            
+        
+
+        marker_0c4d91b9e1827b8650486119766eb6d6.bindPopup(popup_d4bcd33c511431576c4aed79ee0b42c5)
+        ;
+
+        
+    
+    
+            marker_0c4d91b9e1827b8650486119766eb6d6.bindTooltip(
+                `<div>
+                     ST-MED-007-016 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0c4d91b9e1827b8650486119766eb6d6.setIcon(icon_90c933e48d3bf449bbb4f7d3683ad47c);
+            
+    
+            var marker_9b7cb369ce7423e242123584926d3c10 = L.marker(
+                [6.231390842380608, -75.53292434400583],
+                {
+}
+            ).addTo(feature_group_8f682248ca8d71099d8833794c44b27d);
+        
+    
+            var icon_7f4c34116a94de0b08e32052af37667f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dace936bd047610f9027035e3375827e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7bbe7ee7899b6d787f091070466d2ccb = $(`<div id="html_7bbe7ee7899b6d787f091070466d2ccb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-MED-007-020</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Medellín</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.231391°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.532924°</p>     </div>     </div>`)[0];
+                popup_dace936bd047610f9027035e3375827e.setContent(html_7bbe7ee7899b6d787f091070466d2ccb);
+            
+        
+
+        marker_9b7cb369ce7423e242123584926d3c10.bindPopup(popup_dace936bd047610f9027035e3375827e)
+        ;
+
+        
+    
+    
+            marker_9b7cb369ce7423e242123584926d3c10.bindTooltip(
+                `<div>
+                     ST-MED-007-020 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9b7cb369ce7423e242123584926d3c10.setIcon(icon_7f4c34116a94de0b08e32052af37667f);
+            
+    
+            var marker_3938ed0e365d9739c32b9a8d4d13cb65 = L.marker(
+                [6.249408860398626, -75.5965607076422],
+                {
+}
+            ).addTo(feature_group_8f682248ca8d71099d8833794c44b27d);
+        
+    
+            var icon_69c20758a46de91b554cc94244732e2c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_497b3cd1814929e3307c049939663584 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_887b6dc1f448d198437cce2e33e6be90 = $(`<div id="html_887b6dc1f448d198437cce2e33e6be90" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-MED-009-013</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Medellín</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.249409°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.596561°</p>     </div>     </div>`)[0];
+                popup_497b3cd1814929e3307c049939663584.setContent(html_887b6dc1f448d198437cce2e33e6be90);
+            
+        
+
+        marker_3938ed0e365d9739c32b9a8d4d13cb65.bindPopup(popup_497b3cd1814929e3307c049939663584)
+        ;
+
+        
+    
+    
+            marker_3938ed0e365d9739c32b9a8d4d13cb65.bindTooltip(
+                `<div>
+                     ST-MED-009-013 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3938ed0e365d9739c32b9a8d4d13cb65.setIcon(icon_69c20758a46de91b554cc94244732e2c);
+            
+    
+            var marker_725c573378fffd0566610492ccf87052 = L.marker(
+                [6.249408860398626, -75.56019707127857],
+                {
+}
+            ).addTo(feature_group_8f682248ca8d71099d8833794c44b27d);
+        
+    
+            var icon_81b78159ded14f862d9ec5b85898492c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c4a63a0d03cfbc687deb102b9ef0bf97 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2ae07466a8e3e0cc5615f2c40b574ecc = $(`<div id="html_2ae07466a8e3e0cc5615f2c40b574ecc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-MED-009-017</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Medellín</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.249409°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.560197°</p>     </div>     </div>`)[0];
+                popup_c4a63a0d03cfbc687deb102b9ef0bf97.setContent(html_2ae07466a8e3e0cc5615f2c40b574ecc);
+            
+        
+
+        marker_725c573378fffd0566610492ccf87052.bindPopup(popup_c4a63a0d03cfbc687deb102b9ef0bf97)
+        ;
+
+        
+    
+    
+            marker_725c573378fffd0566610492ccf87052.bindTooltip(
+                `<div>
+                     ST-MED-009-017 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_725c573378fffd0566610492ccf87052.setIcon(icon_81b78159ded14f862d9ec5b85898492c);
+            
+    
+            var marker_6043823468ec806e00d010277e8a9c8b = L.marker(
+                [6.249408860398626, -75.54201525309675],
+                {
+}
+            ).addTo(feature_group_8f682248ca8d71099d8833794c44b27d);
+        
+    
+            var icon_7e8286ccf73e94e9fe485d5a0c9bab91 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_49abdcaca0520034d526670db38b6d88 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_078e64f62c9fe6e3af48f5a633b0ff6a = $(`<div id="html_078e64f62c9fe6e3af48f5a633b0ff6a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-MED-009-019</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Medellín</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.249409°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.542015°</p>     </div>     </div>`)[0];
+                popup_49abdcaca0520034d526670db38b6d88.setContent(html_078e64f62c9fe6e3af48f5a633b0ff6a);
+            
+        
+
+        marker_6043823468ec806e00d010277e8a9c8b.bindPopup(popup_49abdcaca0520034d526670db38b6d88)
+        ;
+
+        
+    
+    
+            marker_6043823468ec806e00d010277e8a9c8b.bindTooltip(
+                `<div>
+                     ST-MED-009-019 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6043823468ec806e00d010277e8a9c8b.setIcon(icon_7e8286ccf73e94e9fe485d5a0c9bab91);
+            
+    
+            var marker_2633ced434ccfcc67c6d1157f1ab4d12 = L.marker(
+                [6.258417869407635, -75.57837888946038],
+                {
+}
+            ).addTo(feature_group_8f682248ca8d71099d8833794c44b27d);
+        
+    
+            var icon_8692f7aa2c244c0804c90971f289b35b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4acbb6fdcb04492faf96322f0469d2ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_802b89be84a8093154f8b4870b3d68ad = $(`<div id="html_802b89be84a8093154f8b4870b3d68ad" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-MED-010-015</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Medellín</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Alta Capacidad</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.258418°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.578379°</p>     </div>     </div>`)[0];
+                popup_4acbb6fdcb04492faf96322f0469d2ff.setContent(html_802b89be84a8093154f8b4870b3d68ad);
+            
+        
+
+        marker_2633ced434ccfcc67c6d1157f1ab4d12.bindPopup(popup_4acbb6fdcb04492faf96322f0469d2ff)
+        ;
+
+        
+    
+    
+            marker_2633ced434ccfcc67c6d1157f1ab4d12.bindTooltip(
+                `<div>
+                     ST-MED-010-015 - Cargador Alta Capacidad
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2633ced434ccfcc67c6d1157f1ab4d12.setIcon(icon_8692f7aa2c244c0804c90971f289b35b);
+            
+    
+            feature_group_8f682248ca8d71099d8833794c44b27d.addTo(map_97ab95a8731d531120b340a9f5ad744e);
+        
+    
+            var feature_group_eba07bfe316da4ea1b75b98a6ff17cea = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_05074663b1c6f55b74c218804ed854a9 = L.marker(
+                [6.22600109482921, -75.5874697985513],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_7f93173d31f73e9f00c0dc3166f93636 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6fff020a8f3431447dd578e57dc3f1ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba02c52ba64cd0468933853869b527c8 = $(`<div id="html_ba02c52ba64cd0468933853869b527c8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-027-014</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.226001°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.587470°</p>     </div>     </div>`)[0];
+                popup_6fff020a8f3431447dd578e57dc3f1ec.setContent(html_ba02c52ba64cd0468933853869b527c8);
+            
+        
+
+        marker_05074663b1c6f55b74c218804ed854a9.bindPopup(popup_6fff020a8f3431447dd578e57dc3f1ec)
+        ;
+
+        
+    
+    
+            marker_05074663b1c6f55b74c218804ed854a9.bindTooltip(
+                `<div>
+                     ST-VAL-027-014 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_05074663b1c6f55b74c218804ed854a9.setIcon(icon_7f93173d31f73e9f00c0dc3166f93636);
+            
+    
+            var marker_6cdd209ed012e823147d2ce74e155337 = L.marker(
+                [6.23501010383822, -75.56928798036947],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_ec5c03360b462127fd453c7cb5e59625 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3c10200d5fb7fee82b974da6016869a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c67da8c5b4900ff7dbb258a5382338a = $(`<div id="html_9c67da8c5b4900ff7dbb258a5382338a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-028-016</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.235010°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.569288°</p>     </div>     </div>`)[0];
+                popup_3c10200d5fb7fee82b974da6016869a4.setContent(html_9c67da8c5b4900ff7dbb258a5382338a);
+            
+        
+
+        marker_6cdd209ed012e823147d2ce74e155337.bindPopup(popup_3c10200d5fb7fee82b974da6016869a4)
+        ;
+
+        
+    
+    
+            marker_6cdd209ed012e823147d2ce74e155337.bindTooltip(
+                `<div>
+                     ST-VAL-028-016 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6cdd209ed012e823147d2ce74e155337.setIcon(icon_ec5c03360b462127fd453c7cb5e59625);
+            
+    
+            var marker_f98c439d16528a1837440425d0379740 = L.marker(
+                [6.23501010383822, -75.53292434400583],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_0b2d3e3b4f241ed536ae7c38cda65d42 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b54e3557a0ecc4a39529a55cadb476dd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6976b40b0be8b141a72085eb06df4000 = $(`<div id="html_6976b40b0be8b141a72085eb06df4000" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-028-020</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.235010°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.532924°</p>     </div>     </div>`)[0];
+                popup_b54e3557a0ecc4a39529a55cadb476dd.setContent(html_6976b40b0be8b141a72085eb06df4000);
+            
+        
+
+        marker_f98c439d16528a1837440425d0379740.bindPopup(popup_b54e3557a0ecc4a39529a55cadb476dd)
+        ;
+
+        
+    
+    
+            marker_f98c439d16528a1837440425d0379740.bindTooltip(
+                `<div>
+                     ST-VAL-028-020 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f98c439d16528a1837440425d0379740.setIcon(icon_0b2d3e3b4f241ed536ae7c38cda65d42);
+            
+    
+            var marker_3bdb4616d8625126185d6ad4208658db = L.marker(
+                [6.244019112847228, -75.5874697985513],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_45ad8974969fd05b0b70b42494d3b711 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d2d8178f541b9919cf5423b42f3c1b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8583f03e30cd8933231d9958d843c386 = $(`<div id="html_8583f03e30cd8933231d9958d843c386" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-029-014</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.244019°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.587470°</p>     </div>     </div>`)[0];
+                popup_3d2d8178f541b9919cf5423b42f3c1b5.setContent(html_8583f03e30cd8933231d9958d843c386);
+            
+        
+
+        marker_3bdb4616d8625126185d6ad4208658db.bindPopup(popup_3d2d8178f541b9919cf5423b42f3c1b5)
+        ;
+
+        
+    
+    
+            marker_3bdb4616d8625126185d6ad4208658db.bindTooltip(
+                `<div>
+                     ST-VAL-029-014 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3bdb4616d8625126185d6ad4208658db.setIcon(icon_45ad8974969fd05b0b70b42494d3b711);
+            
+    
+            var marker_b84641384a5043192315c5f79664962f = L.marker(
+                [6.253028121856238, -75.56928798036947],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_322fd4f6e93b54b4b9025aed7825c889 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ecd9ab6524a736d7e47a5bc6ee6d84cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_470a2827e2a9ba23d0f7b84344e41dce = $(`<div id="html_470a2827e2a9ba23d0f7b84344e41dce" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-030-016</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.253028°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.569288°</p>     </div>     </div>`)[0];
+                popup_ecd9ab6524a736d7e47a5bc6ee6d84cb.setContent(html_470a2827e2a9ba23d0f7b84344e41dce);
+            
+        
+
+        marker_b84641384a5043192315c5f79664962f.bindPopup(popup_ecd9ab6524a736d7e47a5bc6ee6d84cb)
+        ;
+
+        
+    
+    
+            marker_b84641384a5043192315c5f79664962f.bindTooltip(
+                `<div>
+                     ST-VAL-030-016 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b84641384a5043192315c5f79664962f.setIcon(icon_322fd4f6e93b54b4b9025aed7825c889);
+            
+    
+            var marker_9855616ae6dba30715d59c1d211441fe = L.marker(
+                [6.253028121856238, -75.54201525309675],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_9585489c43725020a638bbc3039a8790 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4091953abdccabee2a2182bd155abe96 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5df30f352a015c917f01cc275471fb0 = $(`<div id="html_f5df30f352a015c917f01cc275471fb0" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-030-019</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.253028°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.542015°</p>     </div>     </div>`)[0];
+                popup_4091953abdccabee2a2182bd155abe96.setContent(html_f5df30f352a015c917f01cc275471fb0);
+            
+        
+
+        marker_9855616ae6dba30715d59c1d211441fe.bindPopup(popup_4091953abdccabee2a2182bd155abe96)
+        ;
+
+        
+    
+    
+            marker_9855616ae6dba30715d59c1d211441fe.bindTooltip(
+                `<div>
+                     ST-VAL-030-019 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9855616ae6dba30715d59c1d211441fe.setIcon(icon_9585489c43725020a638bbc3039a8790);
+            
+    
+            var marker_5c6f6daac9fbb2b35cacb9e5efe2801c = L.marker(
+                [6.271046139874255, -75.56019707127857],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_63b0e7b019ae1bf2ce499a93a1375a9f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e4d6a590e559f0f7b21d57cd9ed864c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c56ed8573eef019b7f3365b7686b19b1 = $(`<div id="html_c56ed8573eef019b7f3365b7686b19b1" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-032-017</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.271046°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.560197°</p>     </div>     </div>`)[0];
+                popup_e4d6a590e559f0f7b21d57cd9ed864c6.setContent(html_c56ed8573eef019b7f3365b7686b19b1);
+            
+        
+
+        marker_5c6f6daac9fbb2b35cacb9e5efe2801c.bindPopup(popup_e4d6a590e559f0f7b21d57cd9ed864c6)
+        ;
+
+        
+    
+    
+            marker_5c6f6daac9fbb2b35cacb9e5efe2801c.bindTooltip(
+                `<div>
+                     ST-VAL-032-017 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c6f6daac9fbb2b35cacb9e5efe2801c.setIcon(icon_63b0e7b019ae1bf2ce499a93a1375a9f);
+            
+    
+            var marker_0ee5b0d1efccc766a9e4567dcbcf8597 = L.marker(
+                [6.280055148883265, -75.5965607076422],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_7aafd4e5a4dd705f075e6957192214d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f49129709ae262fdeeb91615d3d53529 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6b453130374af31463602f148f6221d9 = $(`<div id="html_6b453130374af31463602f148f6221d9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-033-013</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.280055°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.596561°</p>     </div>     </div>`)[0];
+                popup_f49129709ae262fdeeb91615d3d53529.setContent(html_6b453130374af31463602f148f6221d9);
+            
+        
+
+        marker_0ee5b0d1efccc766a9e4567dcbcf8597.bindPopup(popup_f49129709ae262fdeeb91615d3d53529)
+        ;
+
+        
+    
+    
+            marker_0ee5b0d1efccc766a9e4567dcbcf8597.bindTooltip(
+                `<div>
+                     ST-VAL-033-013 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0ee5b0d1efccc766a9e4567dcbcf8597.setIcon(icon_7aafd4e5a4dd705f075e6957192214d0);
+            
+    
+            var marker_27abef36ff9875a52c8b8c22846eee58 = L.marker(
+                [6.289064157892273, -75.54201525309675],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_20403248bec4124cdcaf8a65eaeb51f1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1716418067b097bbb41d9217b38fc93f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5349cdd3937cf5a8854e225667a2973e = $(`<div id="html_5349cdd3937cf5a8854e225667a2973e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-034-019</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.289064°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.542015°</p>     </div>     </div>`)[0];
+                popup_1716418067b097bbb41d9217b38fc93f.setContent(html_5349cdd3937cf5a8854e225667a2973e);
+            
+        
+
+        marker_27abef36ff9875a52c8b8c22846eee58.bindPopup(popup_1716418067b097bbb41d9217b38fc93f)
+        ;
+
+        
+    
+    
+            marker_27abef36ff9875a52c8b8c22846eee58.bindTooltip(
+                `<div>
+                     ST-VAL-034-019 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_27abef36ff9875a52c8b8c22846eee58.setIcon(icon_20403248bec4124cdcaf8a65eaeb51f1);
+            
+    
+            var marker_7994dcaabb01196e928b1329e6d4cd55 = L.marker(
+                [6.298073166901283, -75.56928798036947],
+                {
+}
+            ).addTo(feature_group_eba07bfe316da4ea1b75b98a6ff17cea);
+        
+    
+            var icon_6710a3580b7bb734b667994a7e78170e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "plug",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f82a4275ccad52b82f5b02c61ed101b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a57eacba16ba07686f46d4f387c2e6d = $(`<div id="html_0a57eacba16ba07686f46d4f387c2e6d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; min-width: 200px;">         <h4 style="margin: 5px 0; color: #333;">ST-VAL-035-016</h4>         <hr style="margin: 5px 0;">         <p style="margin: 3px 0;"><b>Caso de Estudio:</b> Valle de Aburrá</p>         <p style="margin: 3px 0;"><b>Tecnología:</b> Cargador Estándar</p>         <p style="margin: 3px 0;"><b>Latitud:</b> 6.298073°</p>         <p style="margin: 3px 0;"><b>Longitud:</b> -75.569288°</p>     </div>     </div>`)[0];
+                popup_f82a4275ccad52b82f5b02c61ed101b4.setContent(html_0a57eacba16ba07686f46d4f387c2e6d);
+            
+        
+
+        marker_7994dcaabb01196e928b1329e6d4cd55.bindPopup(popup_f82a4275ccad52b82f5b02c61ed101b4)
+        ;
+
+        
+    
+    
+            marker_7994dcaabb01196e928b1329e6d4cd55.bindTooltip(
+                `<div>
+                     ST-VAL-035-016 - Cargador Estándar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7994dcaabb01196e928b1329e6d4cd55.setIcon(icon_6710a3580b7bb734b667994a7e78170e);
+            
+    
+            feature_group_eba07bfe316da4ea1b75b98a6ff17cea.addTo(map_97ab95a8731d531120b340a9f5ad744e);
+        
+    
+            var layer_control_597452cc3ced7d5892b1025e81d43a52_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_35c81a0589f8ecbe7811296fa9dcadb0,
+                    "CartoDB Positron" : tile_layer_eb694e183af1bb596d0b9ce8d056fe74,
+                    "CartoDB Dark" : tile_layer_a48f14621b812fec85943204dd9fd4f0,
+                },
+                overlays :  {
+                    "Bogot\u00e1" : feature_group_dbc8da6ee7d348eee64ee8890f27d72c,
+                    "Medell\u00edn" : feature_group_8f682248ca8d71099d8833794c44b27d,
+                    "Valle de Aburr\u00e1" : feature_group_eba07bfe316da4ea1b75b98a6ff17cea,
+                },
+            };
+            let layer_control_597452cc3ced7d5892b1025e81d43a52 = L.control.layers(
+                layer_control_597452cc3ced7d5892b1025e81d43a52_layers.base_layers,
+                layer_control_597452cc3ced7d5892b1025e81d43a52_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_97ab95a8731d531120b340a9f5ad744e);
+
+        
+</script>
+</html>

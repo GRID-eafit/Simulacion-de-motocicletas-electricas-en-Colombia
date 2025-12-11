@@ -1,0 +1,100 @@
+{
+  // --- A. SIMULATION & VEHICLE SETTINGS ---
+  "simulation_settings": {
+    "ors_api_key": "5b3ce3597851110001cf6248f6c7256e25064ae78661194807813b0d", // MY KEY: 5b3ce3597851110001cf6248f6c7256e25064ae78661194807813b0d  | OTHER KEY: eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjY4YjllY2M5NDFhMTRlZDFhNmJjNWI4YjEwOWMwZDE4IiwiaCI6Im11cm11cjY0In0=
+    "vehicle_model_to_use": "hybrid",
+    "hybrid_contribution": 0.0,
+    "speed_profile": {
+      "cruising_speed": 45,
+      "accel_points": 15,
+      "decel_points": 10,
+      "uphill_sensitivity": 0.5,
+      "downhill_sensitivity": 0.8,
+      "num_stops": 3,
+      "stop_duration": 20,
+      "max_slope_effect": 15
+    },
+      // --- NEW SECTION: CLUSTERING SETTINGS ---
+  "clustering_settings": {
+    "origins": {
+      "stage_1": { "eps": 400, "min_samples": 15 }, // Initial broad clustering initial 400 | 15 or 250|15
+      "stage_2": { "eps": 150, "min_samples": 10 }  // Refinement for super-clusters initial 150 | 10 or 150|10
+    },
+    "destinations": {
+      "stage_1": { "eps": 400, "min_samples": 15 }, // initial 400 | 15 or 250|15
+      "stage_2": { "eps": 150, "min_samples": 10 } // initial 150 | 10
+    }
+  },
+    "vehicle_models": {
+      "electric": {
+        // Parámetros optimizados mediante análisis de telemetría real
+        // Fuente: Puntos de rutas/telemetry.py - función calcular_potencia_por_punto()
+        // Estos parámetros fueron calibrados con datos reales de motocicletas eléctricas
+        "chassis": {"m": 140, "a": 0.74, "cd": 0.3, "crr": 0.01},
+        "wheel": {"rw": 0.3},
+        "ambient": {"rho": 1.225, "g": 9.81}
+      },
+      "hybrid": {
+        // Parámetros optimizados mediante análisis de telemetría real
+        // Fuente: Puntos de rutas/telemetry.py - función calcular_potencia_por_punto()
+        "chassis": {"m": 140, "a": 0.74, "cd": 0.3, "crr": 0.01},
+        "wheel": {"rw": 0.3},
+        "ambient": {"rho": 1.225, "g": 9.81}
+      }
+    }
+  },
+
+  // --- B. OPTIMIZATION & PLANNING SETTINGS ---
+  "optimization_settings": {
+    "grid_settings": {
+      "geodata_shapefile_path": "Medellin_Urbano_y_Rural.shp", 
+      "grid_size_km": 1.0
+    },
+    "battery_settings": {
+      "total_capacity_wh": 5400, //tener en cuenta tamaño de la bateria
+      "starting_soc_pct": 100,
+      "low_soc_threshold_pct": 20 // This is the minimum reserve SoC
+  },
+  "technologies": {
+    "Standard_Charger": {
+      "cost": 80000, "annual_op_cost": 8000,
+      "service_capacity_routes_per_day": 40,
+      "resource_units_required": 4, "color": "blue", "icon": "fa-plug"
+    },
+    "High_Capacity_Charger": {
+      "cost": 150000, "annual_op_cost": 15000,
+      "service_capacity_routes_per_day": 90,
+      "resource_units_required": 8, "color": "green", "icon": "fa-bolt"
+    },
+    "Battery_Swapping_Station": {
+      "cost": 300000, "annual_op_cost": 30000,
+      "service_capacity_routes_per_day": 200,
+      "resource_units_required": 20, "color": "purple", "icon": "fa-battery-full"
+    }
+    },
+    "parameters": {
+      "lifespan_years": 10,
+      "total_budget": 2000000,
+      "exact_stations_to_build": 10,
+      "minimum_stations_to_build": 8,
+      "enforce_exact_station_count": false,
+      "total_resource_units_available": 80,
+      "coverage_radius_km": 1,
+      "minimum_station_separation_km": 1.5,
+      "enforce_closest_assignment": true
+    },
+    "objective_function": {
+      "type": "weighted_utility",
+      "utility_weights": { "coverage": 1.0, "travel_distance": 0.2 },
+      "profit_parameters": { "revenue_per_charge_session": 5.0, "days_per_year": 365 }
+    },
+    "zonal_constraints": {
+      "enabled": false,
+      "zone_id_column": "mpio_ccdgo",
+      "max_stations_per_zone": {
+        "MEDELLÍN": 5, "BELLO": 1, "ITAGÜÍ": 1,
+        "ENVIGADO": 1, "SABANETA": 1, "DEFAULT": 5
+      }
+    }
+  }
+}

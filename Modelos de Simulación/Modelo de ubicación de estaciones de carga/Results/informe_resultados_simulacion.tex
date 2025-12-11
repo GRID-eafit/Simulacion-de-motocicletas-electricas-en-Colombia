@@ -1,0 +1,510 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{xcolor}
+
+\geometry{margin=2.5cm}
+
+\title{Resultados de Simulación y Optimización de Ubicaciones de Estaciones de Carga para Vehículos Eléctricos}
+\author{Proyecto de Investigación Delfín 2025}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento presenta los resultados completos de la simulación y optimización de ubicaciones de estaciones de carga para vehículos eléctricos ligeros (LEV) en tres ciudades colombianas: Bogotá, Medellín y Valle de Aburrá. La metodología integra técnicas de clustering DBSCAN jerárquico con optimización MILP (Mixed Integer Linear Programming) para determinar las ubicaciones óptimas considerando demanda real, restricciones físicas, económicas y de cobertura. Los resultados muestran la distribución espacial de estaciones, tipos de tecnología utilizados y métricas de cobertura para cada ciudad.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+
+Este informe presenta los resultados de un estudio integral de optimización de ubicaciones de estaciones de carga para vehículos eléctricos ligeros. El análisis se realizó mediante un pipeline automatizado que integra:
+
+\begin{itemize}
+    \item Procesamiento y limpieza de datos de movilidad
+    \item Clustering espacial de orígenes y destinos
+    \item Simulación física de consumo energético con modelo optimizado basado en telemetría real
+    \item Optimización matemática de ubicaciones
+\end{itemize}
+
+El modelo de consumo energético utilizado en este estudio está basado en parámetros optimizados mediante análisis de telemetría real de motocicletas eléctricas, implementado en el archivo \texttt{telemetry.py} ubicado en la carpeta \texttt{Puntos de rutas}. Este modelo ha sido integrado en todo el pipeline de simulación y optimización para garantizar resultados precisos y realistas.
+
+\section{Metodología}
+
+\subsection{Proceso de Análisis}
+
+El proceso completo consta de 8 etapas principales, como se muestra en la Tabla \ref{tab:proceso_clustering}:
+
+\begin{table}[H]
+\centering
+\caption{Resumen del Proceso de Clustering DBSCAN y Optimización MILP}
+\label{tab:proceso_clustering}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Etapa del Proceso} & \textbf{Método} & \textbf{Propósito} \\
+\midrule
+1. Limpieza de Datos & Filtrado geográfico & Eliminar viajes fuera de zona \\
+2. Zonificación & Filtrado por límites administrativos & Validar viajes dentro de la ciudad \\
+3. Clustering de Orígenes & DBSCAN Jerárquico (2 etapas) & Identificar zonas de alta demanda \\
+4. Clustering de Destinos & DBSCAN Jerárquico (2 etapas) & Identificar zonas de destino frecuente \\
+5. Agregación de Flujos & Agrupación O-D & Consolidar patrones de viaje \\
+6. Muestreo Estratificado & Muestreo proporcional & Seleccionar rutas representativas \\
+7. Simulación Física & OpenRouteService API & Calcular consumo energético real \\
+8. Optimización MILP & Solver MOSEK/CBC & Encontrar ubicaciones óptimas \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota:} El proceso completo integra técnicas de machine learning (clustering) 
+con optimización matemática para determinar las ubicaciones óptimas de estaciones 
+de carga considerando demanda real, restricciones físicas y económicas.
+\end{flushleft}
+\end{table}
+
+\subsection{Modelo de Consumo Energético}
+
+El modelo de consumo utilizado en este estudio está completamente basado en parámetros optimizados mediante análisis de telemetría real de motocicletas eléctricas. Los parámetros fueron obtenidos y validados a partir del archivo \texttt{telemetry.py} ubicado en la carpeta \texttt{Puntos de rutas}, y han sido integrados en todo el pipeline de simulación y optimización.
+
+El modelo implementado en \texttt{HybridBikeConsumptionModel/Modelo\_moto.py} utiliza estos mismos parámetros optimizados, garantizando consistencia en todo el proceso. Los parámetros optimizados son:
+
+\begin{itemize}
+    \item \textbf{Masa del vehículo (m):} 140 kg
+    \item \textbf{Coeficiente de arrastre (cd):} 0.3
+    \item \textbf{Área frontal (a):} 0.74 m²
+    \item \textbf{Coeficiente de rodamiento (crr):} 0.01
+    \item \textbf{Factor de corrección:} 1.617
+    \item \textbf{Eficiencia del tren motriz:} 0.85
+    \item \textbf{Densidad del aire ($\rho$):} 1.225 kg/m³
+    \item \textbf{Aceleración gravitacional (g):} 9.81 m/s²
+    \item \textbf{Radio de rueda (rw):} 0.3 m
+\end{itemize}
+
+El modelo calcula la potencia eléctrica requerida mediante la siguiente ecuación:
+
+\begin{equation}
+P_{eb} = \frac{P_m \cdot (1 - h_{cont})}{\eta_{tren}} \cdot f_{corr}
+\end{equation}
+
+donde:
+\begin{itemize}
+    \item $P_m$ es la potencia mecánica requerida
+    \item $h_{cont}$ es la contribución híbrida (0 para vehículo eléctrico puro)
+    \item $\eta_{tren} = 0.85$ es la eficiencia del tren motriz
+    \item $f_{corr} = 1.617$ es el factor de corrección optimizado
+\end{itemize}
+
+\subsection{Parámetros de Optimización}
+
+Los siguientes parámetros fueron utilizados en el modelo de optimización MILP:
+
+\begin{itemize}
+    \item \textbf{Radio de cobertura:} 1 km
+    \item \textbf{Separación mínima entre estaciones:} 1.5 km
+    \item \textbf{Presupuesto total:} \$2,000,000
+    \item \textbf{Unidades de recursos disponibles:} 80
+    \item \textbf{Tamaño de grilla:} 1.0 km
+    \item \textbf{Capacidad de batería inicial:} 3700 Wh
+    \item \textbf{Estado de carga inicial:} 100\%
+    \item \textbf{Umbral mínimo de carga:} 20\%
+\end{itemize}
+
+\subsection{Integración del Modelo de Consumo en el Pipeline}
+
+El modelo de consumo optimizado se integra en el pipeline de la siguiente manera:
+
+\begin{enumerate}
+    \item \textbf{Configuración:} Los parámetros optimizados se definen en \texttt{config.jsonc} bajo \texttt{vehicle\_models}.
+    \item \textbf{Simulación:} El script \texttt{real\_path\_simulation.py} carga estos parámetros y los pasa al modelo \texttt{HybridBikeConsumptionModel/Modelo\_moto.py}.
+    \item \textbf{Cálculo de consumo:} Para cada ruta simulada, el modelo calcula el consumo energético real considerando velocidad, pendiente y parámetros optimizados.
+    \item \textbf{Optimización:} Los resultados de consumo se utilizan en \texttt{Optimization\_FCLP.py} para determinar la viabilidad de las estaciones y calcular costos de acceso.
+\end{enumerate}
+
+Esta integración garantiza que todas las simulaciones y optimizaciones utilicen el mismo modelo de consumo validado con datos reales de telemetría.
+
+\section{Resultados Generales}
+
+\subsection{Resumen de Estaciones Optimizadas}
+
+La Tabla \ref{tab:optimizacion_estaciones} presenta los resultados de la optimización para las tres ciudades analizadas:
+
+\input{tabla_resultados_optimizacion.tex}
+
+\subsection{Distribución Geográfica}
+
+La Tabla \ref{tab:distribucion_geografica} muestra la distribución espacial de las estaciones en cada ciudad:
+
+\begin{table}[H]
+\centering
+\caption{Distribución Geográfica de Estaciones de Carga Óptimas}
+\label{tab:distribucion_geografica}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Ciudad} & \textbf{Rango Latitud (°)} & \textbf{Rango Longitud (°)} \\
+\midrule
+Bogotá & 0.054 & 0.027 \\
+Medellín & 0.081 & 0.064 \\
+Valle de Aburrá & 0.099 & 0.064 \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota:} Los rangos geográficos indican la extensión espacial de las estaciones 
+óptimas en cada ciudad, calculados como la diferencia entre las coordenadas máximas 
+y mínimas de las estaciones seleccionadas.
+\end{flushleft}
+\end{table}
+
+\section{Resultados por Ciudad}
+
+\subsection{Bogotá}
+
+\subsubsection{Estaciones Optimizadas}
+
+Bogotá cuenta con \textbf{9 estaciones} distribuidas estratégicamente: 2 High Capacity Charger, 1 Battery Swapping Station y 6 Standard Charger. Las ubicaciones detalladas están disponibles en el mapa interactivo \texttt{optimal\_locations\_map\_Bogota.html}.
+
+% Nota: Los mapas interactivos HTML están disponibles en:
+% - optimal_locations_map_Bogota.html
+% - optimal_locations_map_Medellin.html  
+% - optimal_locations_map_Valle de aburra.html
+% Para incluir capturas de pantalla, convertir los HTML a PNG primero.
+
+\subsubsection{Clustering de Orígenes y Destinos}
+
+Las Figuras \ref{fig:bogota_origins} y \ref{fig:bogota_destinations} muestran los clusters identificados mediante el algoritmo DBSCAN jerárquico de dos etapas:
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{3_clusters_origins_Bogota.png}
+\caption{Clusters de puntos de origen de viajes}
+\label{fig:bogota_origins}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{3_clusters_destinations_Bogota.png}
+\caption{Clusters de puntos de destino de viajes}
+\label{fig:bogota_destinations}
+\end{subfigure}
+\caption{Análisis de clustering de orígenes y destinos para Bogotá mediante DBSCAN jerárquico}
+\end{figure}
+
+\subsubsection{Flujos de Demanda}
+
+La Figura \ref{fig:bogota_flows} muestra los flujos de demanda identificados:
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{4_flows_map_all_Bogota.png}
+\caption{Todos los flujos de demanda identificados}
+\label{fig:bogota_flows_all}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{4_flows_map_top_Bogota.png}
+\caption{Flujos principales de mayor volumen}
+\label{fig:bogota_flows_top}
+\end{subfigure}
+\caption{Flujos de demanda origen-destino identificados en Bogotá}
+\label{fig:bogota_flows}
+\end{figure}
+
+\subsection{Medellín}
+
+\subsubsection{Estaciones Optimizadas}
+
+Medellín cuenta con \textbf{9 estaciones}, de las cuales 8 son Standard Charger y 1 es High Capacity Charger, mostrando diversidad tecnológica en la solución óptima. Ver detalles en \texttt{optimal\_locations\_map\_Medellin.html}.
+
+% Ver mapa interactivo: optimal_locations_map_Medellin.html
+
+\subsubsection{Clustering de Orígenes y Destinos}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{3_clusters_origins_Medellin.png}
+\caption{Clusters de puntos de origen de viajes}
+\label{fig:medellin_origins}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{3_clusters_destinations_Medellin.png}
+\caption{Clusters de puntos de destino de viajes}
+\label{fig:medellin_destinations}
+\end{subfigure}
+\caption{Análisis de clustering de orígenes y destinos para Medellín mediante DBSCAN jerárquico}
+\end{figure}
+
+\subsubsection{Flujos de Demanda}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{4_flows_map_all_Medellin.png}
+\caption{Todos los flujos de demanda identificados}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{4_flows_map_top_Medellin.png}
+\caption{Flujos principales de mayor volumen}
+\end{subfigure}
+\caption{Flujos de demanda origen-destino identificados en Medellín}
+\end{figure}
+
+\subsection{Valle de Aburrá}
+
+\subsubsection{Estaciones Optimizadas}
+
+El Valle de Aburrá cuenta con \textbf{10 estaciones} de tipo Standard Charger, distribuidas para cubrir la demanda de los diferentes municipios del área metropolitana. Ver detalles en \texttt{optimal\_locations\_map\_Valle de aburra.html}.
+
+% Ver mapa interactivo: optimal_locations_map_Valle de aburra.html
+
+\subsubsection{Clustering de Orígenes y Destinos}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{3_clusters_origins_Valle de aburra.png}
+\caption{Clusters de puntos de origen de viajes}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{3_clusters_destinations_Valle de aburra.png}
+\caption{Clusters de puntos de destino de viajes}
+\end{subfigure}
+\caption{Análisis de clustering de orígenes y destinos para Valle de Aburrá mediante DBSCAN jerárquico}
+\end{figure}
+
+\subsubsection{Flujos de Demanda}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{4_flows_map_all_Valle de aburra.png}
+\caption{Todos los flujos de demanda identificados}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{4_flows_map_top_Valle de aburra.png}
+\caption{Flujos principales de mayor volumen}
+\end{subfigure}
+\caption{Flujos de demanda origen-destino identificados en Valle de Aburrá}
+\end{figure}
+
+\section{Análisis Comparativo}
+
+\subsection{Comparación de Cobertura}
+
+\begin{table}[H]
+\centering
+\caption{Comparación de Resultados entre Ciudades}
+\label{tab:comparacion}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Ciudad} & \textbf{Total} & \textbf{Standard} & \textbf{High Capacity} & \textbf{Battery Swap} & \textbf{Diversidad} \\
+\midrule
+Bogotá & 9 & 6 & 2 & 1 & Sí \\
+Medellín & 9 & 8 & 1 & 0 & Sí \\
+Valle de Aburrá & 10 & 10 & 0 & 0 & No \\
+\midrule
+\textbf{Total} & \textbf{28} & \textbf{24} & \textbf{3} & \textbf{1} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Observaciones Clave}
+
+\begin{itemize}
+    \item \textbf{Bogotá} muestra la mayor diversidad tecnológica, utilizando Standard Charger, High Capacity Charger y Battery Swapping Station.
+    \item \textbf{Medellín} utiliza dos tipos de tecnología (Standard y High Capacity), mostrando flexibilidad en la solución óptima.
+    \item \textbf{Valle de Aburrá} tiene 10 estaciones, todas de tipo Standard Charger, distribuidas para cubrir múltiples municipios del área metropolitana.
+    \item La mayoría de las estaciones (24 de 28) son de tipo Standard Charger, lo que sugiere que este tipo es más eficiente para la mayoría de los casos de uso.
+\end{itemize}
+
+\section{Mapas Interactivos}
+
+Los mapas interactivos HTML están disponibles para cada ciudad y permiten explorar en detalle las ubicaciones de las estaciones, sus áreas de cobertura y las asignaciones de demanda:
+
+\begin{itemize}
+    \item \textbf{Bogotá:} \texttt{optimal\_locations\_map\_Bogota.html}
+    \item \textbf{Medellín:} \texttt{optimal\_locations\_map\_Medellin.html}
+    \item \textbf{Valle de Aburrá:} \texttt{optimal\_locations\_map\_Valle de aburra.html}
+\end{itemize}
+
+Estos mapas incluyen:
+\begin{itemize}
+    \item Marcadores de estaciones con información detallada
+    \item Círculos de cobertura (radio de 1 km)
+    \item Líneas de asignación de demanda
+    \item Capas de límites administrativos
+\end{itemize}
+
+\section{Análisis de Hotspots y Muestreo}
+
+\subsection{Mapas de Hotspots}
+
+Las Figuras \ref{fig:hotspots_bogota}, \ref{fig:hotspots_medellin} y \ref{fig:hotspots_valle} muestran los hotspots identificados mediante muestreo estratificado:
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{5_hotspots_map_Bogota.png}
+\caption{Hotspots de demanda en Bogotá}
+\label{fig:hotspots_bogota}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{5_hotspots_map_Medellin.png}
+\caption{Hotspots de demanda en Medellín}
+\label{fig:hotspots_medellin}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{5_hotspots_map_Valle de aburra.png}
+\caption{Hotspots de demanda en Valle de Aburrá}
+\label{fig:hotspots_valle}
+\end{subfigure}
+\caption{Mapas de hotspots de demanda identificados mediante muestreo estratificado}
+\end{figure}
+
+\subsection{Mapas de Muestreo Estratificado}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{5_stratified_sample_map_Bogota.png}
+\caption{Muestreo estratificado en Bogotá}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{5_stratified_sample_map_Medellin.png}
+\caption{Muestreo estratificado en Medellín}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{5_stratified_sample_map_Valle de aburra.png}
+\caption{Muestreo estratificado en Valle de Aburrá}
+\end{subfigure}
+\caption{Distribución espacial de rutas seleccionadas mediante muestreo estratificado}
+\end{figure}
+
+\section{Conclusiones}
+
+\subsection{Resultados Principales}
+
+\begin{enumerate}
+    \item Se identificaron \textbf{28 estaciones óptimas} en total para las tres ciudades analizadas.
+    \item La mayoría de las estaciones (24 de 28) son de tipo Standard Charger, indicando que este tipo es suficiente para la mayoría de los casos de uso.
+    \item Bogotá muestra la mayor diversidad tecnológica con 3 tipos diferentes (Standard, High Capacity y Battery Swapping).
+    \item Medellín utiliza dos tipos de tecnología (Standard y High Capacity).
+    \item Las estaciones están distribuidas estratégicamente para maximizar la cobertura de demanda mientras respetan las restricciones de separación mínima (1.5 km).
+\end{enumerate}
+
+\subsection{Recomendaciones}
+
+\begin{itemize}
+    \item \textbf{Implementación gradual:} Se recomienda implementar las estaciones en fases, priorizando aquellas con mayor demanda asignada.
+    \item \textbf{Monitoreo:} Establecer un sistema de monitoreo para evaluar el uso real de las estaciones y ajustar la estrategia según sea necesario.
+    \item \textbf{Expansión futura:} Considerar la expansión de la red basada en el crecimiento de la demanda y nuevos patrones de movilidad.
+    \item \textbf{Integración tecnológica:} Evaluar la incorporación de más estaciones High Capacity en áreas de alta demanda.
+\end{itemize}
+
+\subsection{Limitaciones del Estudio}
+
+\begin{itemize}
+    \item Los resultados están basados en datos históricos de movilidad y pueden no reflejar cambios futuros en patrones de viaje.
+    \item El modelo asume una cobertura uniforme dentro del radio especificado, sin considerar barreras físicas.
+    \item Los costos de instalación y operación son estimaciones y pueden variar según ubicación específica.
+\end{itemize}
+
+\section{Apéndices}
+
+\subsection{Archivos de Resultados}
+
+Todos los resultados detallados están disponibles en formato CSV:
+
+\begin{itemize}
+    \item \texttt{optimal\_solution\_Bogota.csv}
+    \item \texttt{optimal\_solution\_Medellin.csv}
+    \item \texttt{optimal\_solution\_Valle de aburra.csv}
+\end{itemize}
+
+Estos archivos contienen las coordenadas exactas (latitud, longitud) y el tipo de tecnología para cada estación.
+
+\subsection{Parámetros del Modelo de Consumo}
+
+El modelo de consumo energético implementado en \texttt{HybridBikeConsumptionModel/Modelo\_moto.py} utiliza los siguientes parámetros optimizados, obtenidos del análisis de telemetría real en \texttt{Puntos de rutas/telemetry.py}:
+
+\begin{table}[H]
+\centering
+\caption{Parámetros del Modelo de Consumo Optimizado (basados en telemetry.py)}
+\label{tab:parametros_modelo}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Parámetro} & \textbf{Símbolo} & \textbf{Valor} \\
+\midrule
+Masa del vehículo & $m$ & 140 kg \\
+Coeficiente de arrastre & $c_d$ & 0.3 \\
+Área frontal & $a$ & 0.74 m² \\
+Coeficiente de rodamiento & $c_{rr}$ & 0.01 \\
+Factor de corrección & $f_{corr}$ & 1.617 \\
+Eficiencia del tren motriz & $\eta_{tren}$ & 0.85 \\
+Densidad del aire & $\rho$ & 1.225 kg/m³ \\
+Aceleración gravitacional & $g$ & 9.81 m/s² \\
+Radio de rueda & $r_w$ & 0.3 m \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota:} Estos parámetros fueron optimizados mediante análisis de telemetría real 
+de motocicletas eléctricas en condiciones de operación urbana. El modelo se encuentra 
+implementado en \texttt{HybridBikeConsumptionModel/Modelo\_moto.py} y utiliza los mismos 
+parámetros que el archivo \texttt{Puntos de rutas/telemetry.py}.
+\end{flushleft}
+\end{table}
+
+\newpage
+
+\section*{Referencias}
+
+\begin{itemize}
+    \item Ester, M., Kriegel, H. P., Sander, J., \& Xu, X. (1996). A density-based algorithm for discovering clusters in large spatial databases with noise. \textit{KDD}, 96(34), 226-231.
+    \item Dantzig, G. B. (1963). \textit{Linear Programming and Extensions}. Princeton University Press.
+    \item OpenRouteService API Documentation. Disponible en: \url{https://openrouteservice.org/}
+\end{itemize}
+
+\end{document}
+

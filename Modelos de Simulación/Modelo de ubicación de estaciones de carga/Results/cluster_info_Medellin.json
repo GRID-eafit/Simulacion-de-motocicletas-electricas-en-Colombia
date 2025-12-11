@@ -1,0 +1,666 @@
+{
+  "territory": "Medellin",
+  "coverage_statistics": {
+    "total_trips": 4253,
+    "trips_with_origin_cluster": 3735,
+    "trips_origin_noise": 518,
+    "origin_coverage_percentage": 87.82,
+    "trips_with_dest_cluster": 3742,
+    "trips_dest_noise": 511,
+    "dest_coverage_percentage": 87.98,
+    "trips_both_clustered": 3370,
+    "both_coverage_percentage": 79.24,
+    "num_origin_clusters": 27,
+    "num_dest_clusters": 34
+  },
+  "origin_clusters": [
+    {
+      "cluster_id": 0,
+      "centroid_lat": 6.25932011125216,
+      "centroid_lon": -75.5799599247168,
+      "num_trips": 3125,
+      "color_rgb": "rgb(68, 1, 84)",
+      "color_hex": "#440154",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 1,
+      "centroid_lat": 6.200264717594117,
+      "centroid_lon": -75.55977515164707,
+      "num_trips": 170,
+      "color_rgb": "rgb(70, 14, 97)",
+      "color_hex": "#460e61",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 2,
+      "centroid_lat": 6.239407569458334,
+      "centroid_lon": -75.54374491541667,
+      "num_trips": 24,
+      "color_rgb": "rgb(72, 28, 110)",
+      "color_hex": "#481c6e",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 3,
+      "centroid_lat": 6.231594488631579,
+      "centroid_lon": -75.5317688536842,
+      "num_trips": 19,
+      "color_rgb": "rgb(71, 40, 120)",
+      "color_hex": "#472878",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 4,
+      "centroid_lat": 6.248455545538461,
+      "centroid_lon": -75.54063542923076,
+      "num_trips": 13,
+      "color_rgb": "rgb(69, 53, 128)",
+      "color_hex": "#453580",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 5,
+      "centroid_lat": 6.238970266615384,
+      "centroid_lon": -75.53086351153847,
+      "num_trips": 13,
+      "color_rgb": "rgb(65, 65, 134)",
+      "color_hex": "#414186",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 6,
+      "centroid_lat": 6.228386275199999,
+      "centroid_lon": -75.540415934,
+      "num_trips": 15,
+      "color_rgb": "rgb(61, 76, 137)",
+      "color_hex": "#3d4c89",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 7,
+      "centroid_lat": 6.231568258499999,
+      "centroid_lon": -75.52459401357144,
+      "num_trips": 14,
+      "color_rgb": "rgb(56, 86, 139)",
+      "color_hex": "#38568b",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 8,
+      "centroid_lat": 6.181611146,
+      "centroid_lon": -75.570857695,
+      "num_trips": 16,
+      "color_rgb": "rgb(51, 96, 141)",
+      "color_hex": "#33608d",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 100,
+      "centroid_lat": 6.245058505235294,
+      "centroid_lon": -75.57500181,
+      "num_trips": 17,
+      "color_rgb": "rgb(47, 106, 141)",
+      "color_hex": "#2f6a8d",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 101,
+      "centroid_lat": 6.254709527742857,
+      "centroid_lon": -75.56572299285713,
+      "num_trips": 35,
+      "color_rgb": "rgb(43, 116, 142)",
+      "color_hex": "#2b748e",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 102,
+      "centroid_lat": 6.250945739137931,
+      "centroid_lon": -75.56121007586206,
+      "num_trips": 29,
+      "color_rgb": "rgb(39, 125, 142)",
+      "color_hex": "#277d8e",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 103,
+      "centroid_lat": 6.230831272527777,
+      "centroid_lon": -75.56985037999999,
+      "num_trips": 36,
+      "color_rgb": "rgb(35, 135, 141)",
+      "color_hex": "#23878d",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 104,
+      "centroid_lat": 6.237538360076924,
+      "centroid_lon": -75.56392916,
+      "num_trips": 13,
+      "color_rgb": "rgb(32, 144, 140)",
+      "color_hex": "#20908c",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 105,
+      "centroid_lat": 6.262936094071427,
+      "centroid_lon": -75.58874962428571,
+      "num_trips": 14,
+      "color_rgb": "rgb(30, 153, 138)",
+      "color_hex": "#1e998a",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 106,
+      "centroid_lat": 6.26028719105,
+      "centroid_lon": -75.566329174,
+      "num_trips": 20,
+      "color_rgb": "rgb(31, 162, 134)",
+      "color_hex": "#1fa286",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 107,
+      "centroid_lat": 6.235421480724138,
+      "centroid_lon": -75.5733682986207,
+      "num_trips": 29,
+      "color_rgb": "rgb(37, 171, 129)",
+      "color_hex": "#25ab81",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 108,
+      "centroid_lat": 6.246246001944445,
+      "centroid_lon": -75.56796647611111,
+      "num_trips": 18,
+      "color_rgb": "rgb(48, 180, 122)",
+      "color_hex": "#30b47a",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 109,
+      "centroid_lat": 6.261551763428573,
+      "centroid_lon": -75.57204513476191,
+      "num_trips": 21,
+      "color_rgb": "rgb(64, 189, 114)",
+      "color_hex": "#40bd72",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 110,
+      "centroid_lat": 6.249032070818183,
+      "centroid_lon": -75.55606355409091,
+      "num_trips": 22,
+      "color_rgb": "rgb(83, 197, 103)",
+      "color_hex": "#53c567",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 111,
+      "centroid_lat": 6.253828352,
+      "centroid_lon": -75.560256952,
+      "num_trips": 5,
+      "color_rgb": "rgb(103, 204, 92)",
+      "color_hex": "#67cc5c",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 112,
+      "centroid_lat": 6.23613427,
+      "centroid_lon": -75.56674758416666,
+      "num_trips": 12,
+      "color_rgb": "rgb(126, 210, 78)",
+      "color_hex": "#7ed24e",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 113,
+      "centroid_lat": 6.254386958461539,
+      "centroid_lon": -75.57493846384615,
+      "num_trips": 13,
+      "color_rgb": "rgb(151, 216, 62)",
+      "color_hex": "#97d83e",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 114,
+      "centroid_lat": 6.2524436225,
+      "centroid_lon": -75.600816317,
+      "num_trips": 10,
+      "color_rgb": "rgb(178, 221, 44)",
+      "color_hex": "#b2dd2c",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 115,
+      "centroid_lat": 6.251841427933333,
+      "centroid_lon": -75.57632656066667,
+      "num_trips": 15,
+      "color_rgb": "rgb(205, 224, 29)",
+      "color_hex": "#cde01d",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 116,
+      "centroid_lat": 6.257632525285714,
+      "centroid_lon": -75.56945259142857,
+      "num_trips": 7,
+      "color_rgb": "rgb(231, 228, 25)",
+      "color_hex": "#e7e419",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": 117,
+      "centroid_lat": 6.226498908,
+      "centroid_lon": -75.56624392900001,
+      "num_trips": 10,
+      "color_rgb": "rgb(253, 231, 36)",
+      "color_hex": "#fde724",
+      "colormap": "viridis",
+      "cluster_type": "origin"
+    },
+    {
+      "cluster_id": -1,
+      "centroid_lat": 6.25332347857529,
+      "centroid_lon": -75.60047536596525,
+      "num_trips": 518,
+      "color_rgb": "rgb(128, 128, 128)",
+      "color_hex": "#808080",
+      "colormap": "gray",
+      "cluster_type": "origin"
+    }
+  ],
+  "destination_clusters": [
+    {
+      "cluster_id": 0,
+      "centroid_lat": 6.260559319365205,
+      "centroid_lon": -75.581621514301,
+      "num_trips": 2897,
+      "color_rgb": "rgb(12, 7, 134)",
+      "color_hex": "#0c0786",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 1,
+      "centroid_lat": 6.200793785171568,
+      "centroid_lon": -75.55867631720588,
+      "num_trips": 204,
+      "color_rgb": "rgb(31, 5, 142)",
+      "color_hex": "#1f058e",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 2,
+      "centroid_lat": 6.189931309,
+      "centroid_lon": -75.57344300066667,
+      "num_trips": 15,
+      "color_rgb": "rgb(47, 4, 149)",
+      "color_hex": "#2f0495",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 3,
+      "centroid_lat": 6.2006766005625,
+      "centroid_lon": -75.580764119375,
+      "num_trips": 16,
+      "color_rgb": "rgb(61, 3, 155)",
+      "color_hex": "#3d039b",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 4,
+      "centroid_lat": 6.1864669562,
+      "centroid_lon": -75.578068572,
+      "num_trips": 10,
+      "color_rgb": "rgb(74, 2, 160)",
+      "color_hex": "#4a02a0",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 5,
+      "centroid_lat": 6.235751633499999,
+      "centroid_lon": -75.52608470208334,
+      "num_trips": 24,
+      "color_rgb": "rgb(86, 1, 163)",
+      "color_hex": "#5601a3",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 6,
+      "centroid_lat": 6.246547752397436,
+      "centroid_lon": -75.54187992974359,
+      "num_trips": 78,
+      "color_rgb": "rgb(98, 0, 166)",
+      "color_hex": "#6200a6",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 7,
+      "centroid_lat": 6.2596648018181815,
+      "centroid_lon": -75.55243105545453,
+      "num_trips": 11,
+      "color_rgb": "rgb(111, 0, 168)",
+      "color_hex": "#6f00a8",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 200,
+      "centroid_lat": 6.253970890166666,
+      "centroid_lon": -75.57254308055556,
+      "num_trips": 36,
+      "color_rgb": "rgb(123, 2, 168)",
+      "color_hex": "#7b02a8",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 201,
+      "centroid_lat": 6.2435295178,
+      "centroid_lon": -75.5677329812,
+      "num_trips": 25,
+      "color_rgb": "rgb(133, 6, 166)",
+      "color_hex": "#8506a6",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 202,
+      "centroid_lat": 6.248310473,
+      "centroid_lon": -75.57223805121212,
+      "num_trips": 33,
+      "color_rgb": "rgb(144, 14, 163)",
+      "color_hex": "#900ea3",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 203,
+      "centroid_lat": 6.247341287999999,
+      "centroid_lon": -75.57669191526315,
+      "num_trips": 19,
+      "color_rgb": "rgb(155, 23, 158)",
+      "color_hex": "#9b179e",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 204,
+      "centroid_lat": 6.235851562,
+      "centroid_lon": -75.56597638565216,
+      "num_trips": 23,
+      "color_rgb": "rgb(165, 31, 151)",
+      "color_hex": "#a51f97",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 205,
+      "centroid_lat": 6.248764794736841,
+      "centroid_lon": -75.56772399947367,
+      "num_trips": 19,
+      "color_rgb": "rgb(174, 39, 145)",
+      "color_hex": "#ae2791",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 206,
+      "centroid_lat": 6.259028281947368,
+      "centroid_lon": -75.56904653736844,
+      "num_trips": 19,
+      "color_rgb": "rgb(183, 48, 138)",
+      "color_hex": "#b7308a",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 207,
+      "centroid_lat": 6.261680877413044,
+      "centroid_lon": -75.5625760576087,
+      "num_trips": 46,
+      "color_rgb": "rgb(191, 57, 130)",
+      "color_hex": "#bf3982",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 208,
+      "centroid_lat": 6.264022655300001,
+      "centroid_lon": -75.56720498899999,
+      "num_trips": 10,
+      "color_rgb": "rgb(199, 66, 123)",
+      "color_hex": "#c7427b",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 209,
+      "centroid_lat": 6.252548930486486,
+      "centroid_lon": -75.56507246756755,
+      "num_trips": 37,
+      "color_rgb": "rgb(206, 74, 117)",
+      "color_hex": "#ce4a75",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 210,
+      "centroid_lat": 6.2562264123333335,
+      "centroid_lon": -75.56485274166667,
+      "num_trips": 12,
+      "color_rgb": "rgb(213, 83, 109)",
+      "color_hex": "#d5536d",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 211,
+      "centroid_lat": 6.2413362264,
+      "centroid_lon": -75.575842472,
+      "num_trips": 10,
+      "color_rgb": "rgb(220, 93, 102)",
+      "color_hex": "#dc5d66",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 212,
+      "centroid_lat": 6.2275536288,
+      "centroid_lon": -75.56836560839999,
+      "num_trips": 25,
+      "color_rgb": "rgb(226, 102, 96)",
+      "color_hex": "#e26660",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 213,
+      "centroid_lat": 6.239338857857143,
+      "centroid_lon": -75.57582866,
+      "num_trips": 7,
+      "color_rgb": "rgb(231, 110, 90)",
+      "color_hex": "#e76e5a",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 214,
+      "centroid_lat": 6.243960587400001,
+      "centroid_lon": -75.56100346828572,
+      "num_trips": 35,
+      "color_rgb": "rgb(236, 120, 83)",
+      "color_hex": "#ec7853",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 215,
+      "centroid_lat": 6.243209972375,
+      "centroid_lon": -75.57143783500001,
+      "num_trips": 8,
+      "color_rgb": "rgb(241, 130, 76)",
+      "color_hex": "#f1824c",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 216,
+      "centroid_lat": 6.235172683049999,
+      "centroid_lon": -75.57214920950001,
+      "num_trips": 20,
+      "color_rgb": "rgb(245, 141, 69)",
+      "color_hex": "#f58d45",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 217,
+      "centroid_lat": 6.244054322875,
+      "centroid_lon": -75.57484185875,
+      "num_trips": 16,
+      "color_rgb": "rgb(248, 150, 63)",
+      "color_hex": "#f8963f",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 218,
+      "centroid_lat": 6.246049833833332,
+      "centroid_lon": -75.56393782416667,
+      "num_trips": 12,
+      "color_rgb": "rgb(251, 162, 56)",
+      "color_hex": "#fba238",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 219,
+      "centroid_lat": 6.233298747266668,
+      "centroid_lon": -75.57493765866667,
+      "num_trips": 15,
+      "color_rgb": "rgb(252, 173, 49)",
+      "color_hex": "#fcad31",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 220,
+      "centroid_lat": 6.255054857666667,
+      "centroid_lon": -75.56208199666666,
+      "num_trips": 6,
+      "color_rgb": "rgb(253, 185, 43)",
+      "color_hex": "#fdb92b",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 221,
+      "centroid_lat": 6.257854708,
+      "centroid_lon": -75.57098475375,
+      "num_trips": 8,
+      "color_rgb": "rgb(253, 196, 39)",
+      "color_hex": "#fdc427",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 222,
+      "centroid_lat": 6.26211172309091,
+      "centroid_lon": -75.57056111727273,
+      "num_trips": 11,
+      "color_rgb": "rgb(251, 209, 36)",
+      "color_hex": "#fbd124",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 223,
+      "centroid_lat": 6.265867579866668,
+      "centroid_lon": -75.561259626,
+      "num_trips": 15,
+      "color_rgb": "rgb(248, 223, 36)",
+      "color_hex": "#f8df24",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 224,
+      "centroid_lat": 6.2689668563,
+      "centroid_lon": -75.61336823100001,
+      "num_trips": 10,
+      "color_rgb": "rgb(243, 236, 38)",
+      "color_hex": "#f3ec26",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": 225,
+      "centroid_lat": 6.287433769000001,
+      "centroid_lon": -75.555368039,
+      "num_trips": 10,
+      "color_rgb": "rgb(239, 248, 33)",
+      "color_hex": "#eff821",
+      "colormap": "plasma",
+      "cluster_type": "destination"
+    },
+    {
+      "cluster_id": -1,
+      "centroid_lat": 6.250206317864971,
+      "centroid_lon": -75.59751045369863,
+      "num_trips": 511,
+      "color_rgb": "rgb(128, 128, 128)",
+      "color_hex": "#808080",
+      "colormap": "gray",
+      "cluster_type": "destination"
+    }
+  ],
+  "color_meaning": {
+    "origin_colormap": {
+      "name": "viridis",
+      "description": "Escala de colores de amarillo-verde a púrpura-azul. Clusters más oscuros (púrpura/azul) representan valores más altos en la escala, clusters más claros (amarillo/verde) representan valores más bajos."
+    },
+    "destination_colormap": {
+      "name": "plasma",
+      "description": "Escala de colores de púrpura a rosa a amarillo. Clusters más oscuros (púrpura) representan valores más bajos, clusters más claros (amarillo) representan valores más altos."
+    },
+    "noise_color": {
+      "name": "gray",
+      "rgb": "rgb(128, 128, 128)",
+      "hex": "#808080",
+      "description": "Color gris uniforme. Representa puntos de ruido (noise) que no pertenecen a ningún cluster."
+    }
+  }
+}

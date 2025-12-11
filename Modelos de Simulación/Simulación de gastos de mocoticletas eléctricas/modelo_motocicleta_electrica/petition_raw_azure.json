@@ -1,0 +1,1356 @@
+[
+  {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57174,
+            6.22502
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 17,
+          "distanceInMeters": 113.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 0
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Leave from <street>Calle 24</street>",
+            "maneuverType": "DepartStart",
+            "text": "Leave from Calle 24",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Calle 24",
+          "steps": [
+            {
+              "maneuverType": "DepartStart",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  0,
+                  6
+                ]
+              },
+              "names": [
+                "Calle 24"
+              ]
+            }
+          ],
+          "type": "Waypoint",
+          "order": {
+            "inputIndex": 0
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57137,
+            6.22419
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 60,
+          "distanceInMeters": 544.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 6
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "At the roundabout take the <roundaboutExitNumber>first</roundaboutExitNumber> exit onto <street>Carrera 43F</street>",
+            "maneuverType": "EnterThenExitRoundabout",
+            "text": "At the roundabout take the first exit onto Carrera 43F",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Carrera 43F",
+          "steps": [
+            {
+              "maneuverType": "EnterThenExitRoundabout",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  6,
+                  16
+                ]
+              },
+              "names": [
+                "Carrera 43F"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57194,
+            6.21931
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 65,
+          "distanceInMeters": 375.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 16
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Keep straight on at <street>Carrera 43F</street>",
+            "maneuverType": "KeepStraight",
+            "text": "Keep straight on at Carrera 43F",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Carrera 43F",
+          "steps": [
+            {
+              "maneuverType": "KeepStraight",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  16,
+                  26
+                ]
+              },
+              "names": [
+                "Carrera 43F"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57212,
+            6.2162
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 68,
+          "distanceInMeters": 249.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 26
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Turn left onto <street>Carrera 43D</street>",
+            "maneuverType": "TurnLeft",
+            "text": "Turn left onto Carrera 43D",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Carrera 43D",
+          "steps": [
+            {
+              "maneuverType": "TurnLeft",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  26,
+                  38
+                ]
+              },
+              "names": [
+                "Carrera 43D"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57084,
+            6.21698
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 92,
+          "distanceInMeters": 450.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 38
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Turn right onto <street>Carrera 43B</street>",
+            "maneuverType": "TurnRight",
+            "text": "Turn right onto Carrera 43B",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Carrera 43B",
+          "steps": [
+            {
+              "maneuverType": "TurnRight",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  38,
+                  47
+                ]
+              },
+              "names": [
+                "Carrera 43B"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57065,
+            6.21295
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 50,
+          "distanceInMeters": 66.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 47
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Turn left onto <street>Calle 11B</street>",
+            "maneuverType": "TurnLeft",
+            "text": "Turn left onto Calle 11B",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Calle 11B",
+          "steps": [
+            {
+              "maneuverType": "TurnLeft",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  47,
+                  48
+                ]
+              },
+              "names": [
+                "Calle 11B"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57007,
+            6.21282
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 16,
+          "distanceInMeters": 42.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 48
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Turn left onto <street>Carrera 43A</street>",
+            "maneuverType": "TurnLeft",
+            "text": "Turn left onto Carrera 43A",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Carrera 43A",
+          "steps": [
+            {
+              "maneuverType": "TurnLeft",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  48,
+                  51
+                ]
+              },
+              "names": [
+                "Carrera 43A"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.56994,
+            6.21306
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 29,
+          "distanceInMeters": 91.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 51
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Turn right onto <street>Calle 12</street>",
+            "maneuverType": "TurnRight",
+            "text": "Turn right onto Calle 12",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Calle 12",
+          "steps": [
+            {
+              "maneuverType": "TurnRight",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  51,
+                  53
+                ]
+              },
+              "names": [
+                "Calle 12"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.56912,
+            6.21308
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 0,
+          "distanceInMeters": 0.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 53
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "You have arrived at <street>Calle 12</street>",
+            "maneuverType": "ArriveFinish",
+            "text": "You have arrived at Calle 12",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Calle 12",
+          "steps": [
+            {
+              "maneuverType": "ArriveFinish",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  53,
+                  53
+                ]
+              },
+              "names": [
+                "Calle 12"
+              ]
+            }
+          ],
+          "type": "Waypoint",
+          "order": {
+            "inputIndex": 1
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "MultiLineString",
+          "coordinates": [
+            [
+              [
+                -75.57174,
+                6.22502
+              ],
+              [
+                -75.57148,
+                6.22487
+              ],
+              [
+                -75.57141,
+                6.2248
+              ],
+              [
+                -75.57137,
+                6.22473
+              ],
+              [
+                -75.57136,
+                6.22469
+              ],
+              [
+                -75.57135,
+                6.22462
+              ],
+              [
+                -75.57137,
+                6.22419
+              ],
+              [
+                -75.57138,
+                6.22418
+              ],
+              [
+                -75.57138,
+                6.22417
+              ],
+              [
+                -75.57139,
+                6.22414
+              ],
+              [
+                -75.57139,
+                6.22413
+              ],
+              [
+                -75.57138,
+                6.22411
+              ],
+              [
+                -75.57137,
+                6.22409
+              ],
+              [
+                -75.57157,
+                6.22241
+              ],
+              [
+                -75.57174,
+                6.22114
+              ],
+              [
+                -75.57186,
+                6.22019
+              ],
+              [
+                -75.57194,
+                6.21931
+              ],
+              [
+                -75.57176,
+                6.21933
+              ],
+              [
+                -75.57178,
+                6.21858
+              ],
+              [
+                -75.57178,
+                6.21826
+              ],
+              [
+                -75.57179,
+                6.21768
+              ],
+              [
+                -75.57179,
+                6.21744
+              ],
+              [
+                -75.57179,
+                6.217
+              ],
+              [
+                -75.57182,
+                6.21678
+              ],
+              [
+                -75.57186,
+                6.21664
+              ],
+              [
+                -75.5719,
+                6.21654
+              ],
+              [
+                -75.57212,
+                6.2162
+              ],
+              [
+                -75.57162,
+                6.21594
+              ],
+              [
+                -75.57154,
+                6.21592
+              ],
+              [
+                -75.57148,
+                6.21592
+              ],
+              [
+                -75.57143,
+                6.21595
+              ],
+              [
+                -75.5714,
+                6.216
+              ],
+              [
+                -75.57139,
+                6.21606
+              ],
+              [
+                -75.57125,
+                6.21696
+              ],
+              [
+                -75.57123,
+                6.217
+              ],
+              [
+                -75.5712,
+                6.21702
+              ],
+              [
+                -75.57117,
+                6.21703
+              ],
+              [
+                -75.57113,
+                6.21703
+              ],
+              [
+                -75.57084,
+                6.21698
+              ],
+              [
+                -75.57092,
+                6.21544
+              ],
+              [
+                -75.5709,
+                6.21519
+              ],
+              [
+                -75.57082,
+                6.21481
+              ],
+              [
+                -75.57082,
+                6.21478
+              ],
+              [
+                -75.57058,
+                6.2137
+              ],
+              [
+                -75.57056,
+                6.21353
+              ],
+              [
+                -75.57058,
+                6.21338
+              ],
+              [
+                -75.5706,
+                6.21322
+              ],
+              [
+                -75.57065,
+                6.21295
+              ],
+              [
+                -75.57007,
+                6.21282
+              ],
+              [
+                -75.57,
+                6.21281
+              ],
+              [
+                -75.56994,
+                6.21281
+              ],
+              [
+                -75.56994,
+                6.21306
+              ],
+              [
+                -75.56974,
+                6.21306
+              ],
+              [
+                -75.56912,
+                6.21308
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "trafficCongestion": "Mild",
+          "distanceInMeters": 1930.0,
+          "durationInSeconds": 331,
+          "departureAt": "2025-10-30T08:00:00-05:00",
+          "arrivalAt": "2025-10-30T08:06:37-05:00",
+          "durationTrafficInSeconds": 397,
+          "type": "RoutePath",
+          "legs": [
+            {
+              "distanceInMeters": 1930.0,
+              "durationInSeconds": 331,
+              "durationTrafficInSeconds": 397,
+              "departureAt": "2025-10-30T08:00:00-05:00",
+              "arrivalAt": "2025-10-30T08:06:37-05:00",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  0,
+                  53
+                ]
+              }
+            }
+          ]
+        },
+        "bbox": [
+          -75.57212,
+          6.21281,
+          -75.56912,
+          6.22502
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.56912,
+            6.21308
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 17,
+          "distanceInMeters": 91.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 0
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Leave from <street>Calle 12</street>",
+            "maneuverType": "DepartStart",
+            "text": "Leave from Calle 12",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Calle 12",
+          "steps": [
+            {
+              "maneuverType": "DepartStart",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  0,
+                  2
+                ]
+              },
+              "names": [
+                "Calle 12"
+              ]
+            }
+          ],
+          "type": "Waypoint",
+          "order": {
+            "inputIndex": 0
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.56994,
+            6.21306
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 150,
+          "distanceInMeters": 782.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 2
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Turn right onto <street>Carrera 43A</street>",
+            "maneuverType": "TurnRight",
+            "text": "Turn right onto Carrera 43A",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Carrera 43A",
+          "steps": [
+            {
+              "maneuverType": "TurnRight",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  2,
+                  21
+                ]
+              },
+              "names": [
+                "Carrera 43A"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.56938,
+            6.22008
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 556,
+          "distanceInMeters": 2365.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 21
+          },
+          "travelMode": "driving",
+          "instruction": {
+            "formattedText": "Make a U-turn at <street>Carrera 43A</street>",
+            "maneuverType": "UTurn",
+            "text": "Make a U-turn at Carrera 43A",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "towardsRoadName": "Carrera 43A",
+          "steps": [
+            {
+              "maneuverType": "UTurn",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  21,
+                  90
+                ]
+              },
+              "names": [
+                "Carrera 43A"
+              ]
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57352,
+            6.19956
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 47,
+          "distanceInMeters": 51.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 90
+          },
+          "travelMode": "other",
+          "instruction": {
+            "formattedText": "You have arrived",
+            "maneuverType": "ArriveFinish",
+            "text": "You have arrived",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "steps": [
+            {
+              "maneuverType": "ArriveFinish",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  90,
+                  95
+                ]
+              }
+            }
+          ],
+          "type": "ManeuverPoint"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -75.57356,
+            6.1999
+          ]
+        },
+        "properties": {
+          "durationInSeconds": 0,
+          "distanceInMeters": 0.0,
+          "routePathPoint": {
+            "legIndex": 0,
+            "pointIndex": 95
+          },
+          "travelMode": "other",
+          "instruction": {
+            "formattedText": "You have arrived",
+            "maneuverType": "ArriveFinish",
+            "text": "You have arrived",
+            "drivingSide": "Right"
+          },
+          "address": {
+            "countryRegion": {
+              "ISO": "CO"
+            }
+          },
+          "steps": [
+            {
+              "maneuverType": "ArriveFinish",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  95,
+                  95
+                ]
+              }
+            }
+          ],
+          "type": "Waypoint",
+          "order": {
+            "inputIndex": 1
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "MultiLineString",
+          "coordinates": [
+            [
+              [
+                -75.56912,
+                6.21308
+              ],
+              [
+                -75.56974,
+                6.21306
+              ],
+              [
+                -75.56994,
+                6.21306
+              ],
+              [
+                -75.56995,
+                6.21384
+              ],
+              [
+                -75.56988,
+                6.21465
+              ],
+              [
+                -75.56988,
+                6.21472
+              ],
+              [
+                -75.56988,
+                6.2154
+              ],
+              [
+                -75.56989,
+                6.21609
+              ],
+              [
+                -75.56988,
+                6.21666
+              ],
+              [
+                -75.56989,
+                6.21694
+              ],
+              [
+                -75.56988,
+                6.21732
+              ],
+              [
+                -75.56984,
+                6.21752
+              ],
+              [
+                -75.56982,
+                6.21777
+              ],
+              [
+                -75.56976,
+                6.21826
+              ],
+              [
+                -75.56975,
+                6.21836
+              ],
+              [
+                -75.5697,
+                6.21879
+              ],
+              [
+                -75.56966,
+                6.219
+              ],
+              [
+                -75.56963,
+                6.21911
+              ],
+              [
+                -75.56958,
+                6.21931
+              ],
+              [
+                -75.56952,
+                6.2195
+              ],
+              [
+                -75.56943,
+                6.21989
+              ],
+              [
+                -75.56938,
+                6.22008
+              ],
+              [
+                -75.56947,
+                6.22007
+              ],
+              [
+                -75.56954,
+                6.22008
+              ],
+              [
+                -75.56959,
+                6.21989
+              ],
+              [
+                -75.56967,
+                6.21957
+              ],
+              [
+                -75.56972,
+                6.21933
+              ],
+              [
+                -75.56978,
+                6.21904
+              ],
+              [
+                -75.56982,
+                6.21882
+              ],
+              [
+                -75.56993,
+                6.21826
+              ],
+              [
+                -75.56993,
+                6.21826
+              ],
+              [
+                -75.56998,
+                6.2178
+              ],
+              [
+                -75.57002,
+                6.21737
+              ],
+              [
+                -75.57006,
+                6.21697
+              ],
+              [
+                -75.57007,
+                6.21666
+              ],
+              [
+                -75.57006,
+                6.2154
+              ],
+              [
+                -75.57006,
+                6.21476
+              ],
+              [
+                -75.57005,
+                6.21468
+              ],
+              [
+                -75.57005,
+                6.21427
+              ],
+              [
+                -75.57005,
+                6.2139
+              ],
+              [
+                -75.57007,
+                6.21307
+              ],
+              [
+                -75.57007,
+                6.21282
+              ],
+              [
+                -75.57009,
+                6.21221
+              ],
+              [
+                -75.57012,
+                6.21194
+              ],
+              [
+                -75.57017,
+                6.21167
+              ],
+              [
+                -75.57026,
+                6.21136
+              ],
+              [
+                -75.57028,
+                6.2113
+              ],
+              [
+                -75.57032,
+                6.21124
+              ],
+              [
+                -75.57033,
+                6.2112
+              ],
+              [
+                -75.57048,
+                6.21085
+              ],
+              [
+                -75.57053,
+                6.21074
+              ],
+              [
+                -75.57057,
+                6.21066
+              ],
+              [
+                -75.57058,
+                6.21061
+              ],
+              [
+                -75.57069,
+                6.21035
+              ],
+              [
+                -75.57073,
+                6.21027
+              ],
+              [
+                -75.57076,
+                6.21017
+              ],
+              [
+                -75.57087,
+                6.20988
+              ],
+              [
+                -75.57113,
+                6.20912
+              ],
+              [
+                -75.57128,
+                6.20862
+              ],
+              [
+                -75.57134,
+                6.20837
+              ],
+              [
+                -75.57143,
+                6.20773
+              ],
+              [
+                -75.57145,
+                6.20754
+              ],
+              [
+                -75.57148,
+                6.20736
+              ],
+              [
+                -75.57155,
+                6.20703
+              ],
+              [
+                -75.57163,
+                6.20652
+              ],
+              [
+                -75.57163,
+                6.2064
+              ],
+              [
+                -75.57161,
+                6.20619
+              ],
+              [
+                -75.57158,
+                6.20601
+              ],
+              [
+                -75.57153,
+                6.2057
+              ],
+              [
+                -75.5715,
+                6.20554
+              ],
+              [
+                -75.57152,
+                6.20524
+              ],
+              [
+                -75.57153,
+                6.20512
+              ],
+              [
+                -75.57155,
+                6.20466
+              ],
+              [
+                -75.57158,
+                6.20452
+              ],
+              [
+                -75.57176,
+                6.2036
+              ],
+              [
+                -75.57176,
+                6.20354
+              ],
+              [
+                -75.57178,
+                6.20347
+              ],
+              [
+                -75.57199,
+                6.20285
+              ],
+              [
+                -75.57218,
+                6.20224
+              ],
+              [
+                -75.57229,
+                6.20191
+              ],
+              [
+                -75.57233,
+                6.20184
+              ],
+              [
+                -75.57266,
+                6.20115
+              ],
+              [
+                -75.57274,
+                6.20096
+              ],
+              [
+                -75.57281,
+                6.20081
+              ],
+              [
+                -75.57311,
+                6.20025
+              ],
+              [
+                -75.57315,
+                6.20018
+              ],
+              [
+                -75.57317,
+                6.20014
+              ],
+              [
+                -75.57321,
+                6.20009
+              ],
+              [
+                -75.57333,
+                6.19986
+              ],
+              [
+                -75.57342,
+                6.19972
+              ],
+              [
+                -75.57352,
+                6.19956
+              ],
+              [
+                -75.57362,
+                6.19961
+              ],
+              [
+                -75.57365,
+                6.19964
+              ],
+              [
+                -75.57367,
+                6.19968
+              ],
+              [
+                -75.57367,
+                6.19972
+              ],
+              [
+                -75.57356,
+                6.1999
+              ]
+            ]
+          ]
+        },
+        "properties": {
+          "trafficCongestion": "Heavy",
+          "distanceInMeters": 3289.0,
+          "durationInSeconds": 456,
+          "departureAt": "2025-10-30T08:00:00-05:00",
+          "arrivalAt": "2025-10-30T08:12:50-05:00",
+          "durationTrafficInSeconds": 770,
+          "type": "RoutePath",
+          "legs": [
+            {
+              "distanceInMeters": 3289.0,
+              "durationInSeconds": 456,
+              "durationTrafficInSeconds": 770,
+              "departureAt": "2025-10-30T08:00:00-05:00",
+              "arrivalAt": "2025-10-30T08:12:50-05:00",
+              "routePathRange": {
+                "legIndex": 0,
+                "range": [
+                  0,
+                  95
+                ]
+              }
+            }
+          ]
+        },
+        "bbox": [
+          -75.57367,
+          6.19956,
+          -75.56912,
+          6.22008
+        ]
+      }
+    ]
+  }
+]

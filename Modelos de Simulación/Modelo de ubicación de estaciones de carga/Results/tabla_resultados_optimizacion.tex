@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\caption{Resultados de Optimización de Ubicaciones de Estaciones de Carga}
+\label{tab:optimizacion_estaciones}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Ciudad} & \textbf{Total} & \textbf{Standard} & \textbf{High Capacity} & \textbf{Battery Swap} & \textbf{Diversidad} \\
+\midrule
+Bogotá & 9 & 6 & 2 & 1 & Sí \\
+Medellín & 9 & 8 & 1 & 0 & Sí \\
+Valle de Aburrá & 10 & 10 & 0 & 0 & No \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota:} Los resultados se obtuvieron mediante optimización MILP (Mixed Integer Linear Programming) 
+basada en clustering DBSCAN de orígenes y destinos. La diversidad tecnológica indica si se utilizaron 
+ambos tipos de cargadores en la solución óptima.
+\end{flushleft}
+\end{table}

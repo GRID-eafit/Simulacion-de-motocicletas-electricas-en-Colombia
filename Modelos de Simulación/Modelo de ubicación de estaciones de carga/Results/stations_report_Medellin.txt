@@ -1,0 +1,67 @@
+======================================================================
+   REPORTE DE ESTACIONES OPTIMIZADAS - MEDELLIN
+======================================================================
+
+ESTADÍSTICAS GENERALES
+----------------------------------------------------------------------
+Total de estaciones: 8
+Costo total de inversión: $710,000.00
+Costo operativo anual total: $71,000.00
+Capacidad de servicio total: 370 rutas/día
+Unidades de recurso totales: 36
+
+======================================================================
+DISTRIBUCIÓN POR TECNOLOGÍA
+----------------------------------------------------------------------
+
+Standard_Charger:
+  Descripción: Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.
+  Cantidad: 7 (87.5%)
+  Color: blue (#0000FF)
+  Icono: fa-plug
+  Costo unitario: $80,000.00
+  Costo operativo anual unitario: $8,000.00
+  Capacidad de servicio: 40 rutas/día
+  Unidades de recurso: 4
+  Costo total: $560,000.00
+  Costo operativo anual total: $56,000.00
+  Capacidad total: 280 rutas/día
+
+High_Capacity_Charger:
+  Descripción: Cargador de alta capacidad: Tecnología de carga rápida con mayor capacidad de servicio. Ideal para ubicaciones con alta demanda.
+  Cantidad: 1 (12.5%)
+  Color: green (#00FF00)
+  Icono: fa-bolt
+  Costo unitario: $150,000.00
+  Costo operativo anual unitario: $15,000.00
+  Capacidad de servicio: 90 rutas/día
+  Unidades de recurso: 8
+  Costo total: $150,000.00
+  Costo operativo anual total: $15,000.00
+  Capacidad total: 90 rutas/día
+
+======================================================================
+DISTRIBUCIÓN GEOGRÁFICA
+----------------------------------------------------------------------
+Latitud:
+  Mínima: 6.177337
+  Máxima: 6.258418
+  Promedio: 6.230265
+Longitud:
+  Mínima: -75.596561
+  Máxima: -75.532924
+  Promedio: -75.563606
+
+======================================================================
+LISTA DE ESTACIONES
+----------------------------------------------------------------------
+ID              Latitud      Longitud     Tecnología                Color     
+----------------------------------------------------------------------
+ST_1_16         6.177337     -75.569288   Standard_Charger          #0000FF   
+ST_3_17         6.195355     -75.560197   Standard_Charger          #0000FF   
+ST_7_16         6.231391     -75.569288   Standard_Charger          #0000FF   
+ST_7_20         6.231391     -75.532924   Standard_Charger          #0000FF   
+ST_9_13         6.249409     -75.596561   Standard_Charger          #0000FF   
+ST_9_17         6.249409     -75.560197   Standard_Charger          #0000FF   
+ST_9_19         6.249409     -75.542015   Standard_Charger          #0000FF   
+ST_10_15        6.258418     -75.578379   High_Capacity_Charger     #00FF00   

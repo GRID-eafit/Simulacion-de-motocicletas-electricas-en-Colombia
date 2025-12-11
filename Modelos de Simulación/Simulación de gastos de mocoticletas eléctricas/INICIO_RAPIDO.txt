@@ -1,0 +1,69 @@
+╔══════════════════════════════════════════════════════════════════╗
+║         SIMULACIÓN DE COSTOS DE VIAJES EN MOTOCICLETA            ║
+║                    INICIO RÁPIDO                                ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📋 PASOS PARA EJECUTAR LA SIMULACIÓN:
+
+1️⃣  INSTALAR DEPENDENCIAS
+   
+   macOS/Linux:
+   ./INSTALAR.sh
+   
+   Windows:
+   INSTALAR.bat
+   
+   O manualmente:
+   pip install -r requirements.txt
+
+
+2️⃣  VERIFICAR INSTALACIÓN (Opcional)
+   
+   python3 verificar_instalacion.py
+
+
+3️⃣  EJECUTAR LA SIMULACIÓN
+   
+   python3 calcular_costo_viaje_aleatorio.py
+
+
+📊 ARCHIVOS QUE SE GENERARÁN:
+
+   • ruta_viaje_mapa.html          → Mapa interactivo de la ruta
+   • grafica_caracteristicas_moto.png → Gráfica de características
+
+
+📁 ESTRUCTURA DE ARCHIVOS:
+
+   simulacion_costos_motos/
+   ├── calcular_costo_viaje_aleatorio.py  ← Script principal
+   ├── modelo_motocicleta_electrica/      ← Modelo de consumo
+   ├── ZONAS SIT.*                        ← Shapefiles Medellín
+   ├── zat.*                              ← Shapefiles Bogotá
+   ├── ENPH_Rev.xlsx                      ← Canasta familiar
+   ├── viajes_motos_procesados.csv       ← Base de datos
+   ├── requirements.txt                  ← Dependencias
+   ├── README.md                          ← Documentación completa
+   ├── verificar_instalacion.py           ← Script de verificación
+   ├── INSTALAR.sh                        ← Instalador (macOS/Linux)
+   └── INSTALAR.bat                       ← Instalador (Windows)
+
+
+❓ PROBLEMAS COMUNES:
+
+   • Error con geopandas/fiona:
+     macOS:   brew install gdal
+     Linux:   sudo apt-get install gdal-bin libgdal-dev
+     Windows: Descargar GDAL desde https://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+   • Error de conexión con OSRM:
+     El script tiene respaldo automático, pero verifica tu conexión a internet
+
+
+📖 MÁS INFORMACIÓN:
+
+   Lee el archivo README.md para documentación completa y detalles técnicos.
+
+
+═══════════════════════════════════════════════════════════════════
+

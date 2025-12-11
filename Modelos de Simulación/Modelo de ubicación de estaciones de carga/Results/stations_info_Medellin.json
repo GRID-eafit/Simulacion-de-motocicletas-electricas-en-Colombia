@@ -1,0 +1,240 @@
+{
+  "territory": "Medellin",
+  "statistics": {
+    "total_stations": 8,
+    "technology_distribution": {
+      "Standard_Charger": {
+        "count": 7,
+        "percentage": 87.5,
+        "total_cost": 560000,
+        "total_annual_op_cost": 56000,
+        "total_service_capacity": 280,
+        "total_resource_units": 28,
+        "color": "blue",
+        "color_hex": "#0000FF"
+      },
+      "High_Capacity_Charger": {
+        "count": 1,
+        "percentage": 12.5,
+        "total_cost": 150000,
+        "total_annual_op_cost": 15000,
+        "total_service_capacity": 90,
+        "total_resource_units": 8,
+        "color": "green",
+        "color_hex": "#00FF00"
+      }
+    },
+    "total_cost": 710000,
+    "total_annual_op_cost": 71000,
+    "total_service_capacity": 370,
+    "total_resource_units": 36,
+    "geographic_distribution": {
+      "latitude": {
+        "min": 6.177336788326554,
+        "max": 6.258417869407635,
+        "mean": 6.2302647162544815
+      },
+      "longitude": {
+        "min": -75.5965607076422,
+        "max": -75.53292434400583,
+        "mean": -75.56360616218765
+      }
+    }
+  },
+  "stations": [
+    {
+      "station_id": "ST_1_16",
+      "cell_row": 1,
+      "cell_col": 16,
+      "latitude": 6.177336788326554,
+      "longitude": -75.56928798036947,
+      "technology": "Standard_Charger",
+      "technology_name": "Standard_Charger",
+      "technology_description": "Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.",
+      "color": "blue",
+      "color_hex": "#0000FF",
+      "color_rgb": "rgb(0, 0, 255)",
+      "icon": "fa-plug",
+      "cost": 80000,
+      "annual_op_cost": 8000,
+      "service_capacity": 40,
+      "resource_units": 4
+    },
+    {
+      "station_id": "ST_3_17",
+      "cell_row": 3,
+      "cell_col": 17,
+      "latitude": 6.1953548063445725,
+      "longitude": -75.56019707127857,
+      "technology": "Standard_Charger",
+      "technology_name": "Standard_Charger",
+      "technology_description": "Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.",
+      "color": "blue",
+      "color_hex": "#0000FF",
+      "color_rgb": "rgb(0, 0, 255)",
+      "icon": "fa-plug",
+      "cost": 80000,
+      "annual_op_cost": 8000,
+      "service_capacity": 40,
+      "resource_units": 4
+    },
+    {
+      "station_id": "ST_7_16",
+      "cell_row": 7,
+      "cell_col": 16,
+      "latitude": 6.231390842380608,
+      "longitude": -75.56928798036947,
+      "technology": "Standard_Charger",
+      "technology_name": "Standard_Charger",
+      "technology_description": "Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.",
+      "color": "blue",
+      "color_hex": "#0000FF",
+      "color_rgb": "rgb(0, 0, 255)",
+      "icon": "fa-plug",
+      "cost": 80000,
+      "annual_op_cost": 8000,
+      "service_capacity": 40,
+      "resource_units": 4
+    },
+    {
+      "station_id": "ST_7_20",
+      "cell_row": 7,
+      "cell_col": 20,
+      "latitude": 6.231390842380608,
+      "longitude": -75.53292434400583,
+      "technology": "Standard_Charger",
+      "technology_name": "Standard_Charger",
+      "technology_description": "Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.",
+      "color": "blue",
+      "color_hex": "#0000FF",
+      "color_rgb": "rgb(0, 0, 255)",
+      "icon": "fa-plug",
+      "cost": 80000,
+      "annual_op_cost": 8000,
+      "service_capacity": 40,
+      "resource_units": 4
+    },
+    {
+      "station_id": "ST_9_13",
+      "cell_row": 9,
+      "cell_col": 13,
+      "latitude": 6.249408860398626,
+      "longitude": -75.5965607076422,
+      "technology": "Standard_Charger",
+      "technology_name": "Standard_Charger",
+      "technology_description": "Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.",
+      "color": "blue",
+      "color_hex": "#0000FF",
+      "color_rgb": "rgb(0, 0, 255)",
+      "icon": "fa-plug",
+      "cost": 80000,
+      "annual_op_cost": 8000,
+      "service_capacity": 40,
+      "resource_units": 4
+    },
+    {
+      "station_id": "ST_9_17",
+      "cell_row": 9,
+      "cell_col": 17,
+      "latitude": 6.249408860398626,
+      "longitude": -75.56019707127857,
+      "technology": "Standard_Charger",
+      "technology_name": "Standard_Charger",
+      "technology_description": "Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.",
+      "color": "blue",
+      "color_hex": "#0000FF",
+      "color_rgb": "rgb(0, 0, 255)",
+      "icon": "fa-plug",
+      "cost": 80000,
+      "annual_op_cost": 8000,
+      "service_capacity": 40,
+      "resource_units": 4
+    },
+    {
+      "station_id": "ST_9_19",
+      "cell_row": 9,
+      "cell_col": 19,
+      "latitude": 6.249408860398626,
+      "longitude": -75.54201525309675,
+      "technology": "Standard_Charger",
+      "technology_name": "Standard_Charger",
+      "technology_description": "Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.",
+      "color": "blue",
+      "color_hex": "#0000FF",
+      "color_rgb": "rgb(0, 0, 255)",
+      "icon": "fa-plug",
+      "cost": 80000,
+      "annual_op_cost": 8000,
+      "service_capacity": 40,
+      "resource_units": 4
+    },
+    {
+      "station_id": "ST_10_15",
+      "cell_row": 10,
+      "cell_col": 15,
+      "latitude": 6.258417869407635,
+      "longitude": -75.57837888946038,
+      "technology": "High_Capacity_Charger",
+      "technology_name": "High_Capacity_Charger",
+      "technology_description": "Cargador de alta capacidad: Tecnología de carga rápida con mayor capacidad de servicio. Ideal para ubicaciones con alta demanda.",
+      "color": "green",
+      "color_hex": "#00FF00",
+      "color_rgb": "rgb(0, 255, 0)",
+      "icon": "fa-bolt",
+      "cost": 150000,
+      "annual_op_cost": 15000,
+      "service_capacity": 90,
+      "resource_units": 8
+    }
+  ],
+  "technology_legend": {
+    "Standard_Charger": {
+      "name": "Standard_Charger",
+      "description": "Cargador estándar: Tecnología de carga convencional con capacidad moderada. Ideal para ubicaciones con demanda media.",
+      "color": "blue",
+      "color_hex": "#0000FF",
+      "color_rgb": [
+        0,
+        0,
+        255
+      ],
+      "icon": "fa-plug",
+      "cost": 80000,
+      "annual_op_cost": 8000,
+      "service_capacity": 40,
+      "resource_units": 4
+    },
+    "High_Capacity_Charger": {
+      "name": "High_Capacity_Charger",
+      "description": "Cargador de alta capacidad: Tecnología de carga rápida con mayor capacidad de servicio. Ideal para ubicaciones con alta demanda.",
+      "color": "green",
+      "color_hex": "#00FF00",
+      "color_rgb": [
+        0,
+        255,
+        0
+      ],
+      "icon": "fa-bolt",
+      "cost": 150000,
+      "annual_op_cost": 15000,
+      "service_capacity": 90,
+      "resource_units": 8
+    },
+    "Battery_Swapping_Station": {
+      "name": "Battery_Swapping_Station",
+      "description": "Estación de intercambio de baterías: Permite el intercambio rápido de baterías descargadas por baterías cargadas. Tecnología de mayor capacidad y costo.",
+      "color": "purple",
+      "color_hex": "#800080",
+      "color_rgb": [
+        128,
+        0,
+        128
+      ],
+      "icon": "fa-battery-full",
+      "cost": 300000,
+      "annual_op_cost": 30000,
+      "service_capacity": 200,
+      "resource_units": 20
+    }
+  }
+}

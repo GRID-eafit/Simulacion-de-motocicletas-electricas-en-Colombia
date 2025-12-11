@@ -1,0 +1,82 @@
+% ============================================================================
+% TABLA 1: RESULTADOS DE OPTIMIZACIÓN DE ESTACIONES DE CARGA
+% ============================================================================
+\begin{table}[htbp]
+\centering
+\caption{Resultados de Optimización de Ubicaciones de Estaciones de Carga para Vehículos Eléctricos}
+\label{tab:optimizacion_estaciones}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Ciudad} & \textbf{Total Estaciones} & \textbf{Standard Charger} & \textbf{High Capacity Charger} & \textbf{Diversidad Tecnológica} \\
+\midrule
+Bogotá & 9 & 9 & 0 & No \\
+Medellín & 10 & 9 & 1 & Sí \\
+Valle de Aburrá & 9 & 9 & 0 & No \\
+\midrule
+\textbf{Total} & \textbf{28} & \textbf{27} & \textbf{1} & \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota:} Los resultados se obtuvieron mediante optimización MILP (Mixed Integer Linear Programming) 
+basada en clustering DBSCAN jerárquico de orígenes y destinos de viajes. La diversidad tecnológica 
+indica si se utilizaron ambos tipos de cargadores en la solución óptima. El método considera 
+restricciones de presupuesto, capacidad, cobertura y asignación de demanda.
+\end{flushleft}
+\end{table}
+
+% ============================================================================
+% TABLA 2: DISTRIBUCIÓN GEOGRÁFICA DE ESTACIONES
+% ============================================================================
+\begin{table}[htbp]
+\centering
+\caption{Distribución Geográfica de Estaciones de Carga Óptimas}
+\label{tab:distribucion_geografica}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Ciudad} & \textbf{Rango Latitud (°)} & \textbf{Rango Longitud (°)} \\
+\midrule
+Bogotá & 0.054 & 0.027 \\
+Medellín & 0.081 & 0.064 \\
+Valle de Aburrá & 0.099 & 0.064 \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota:} Los rangos geográficos indican la extensión espacial de las estaciones 
+óptimas en cada ciudad, calculados como la diferencia entre las coordenadas máximas 
+y mínimas de las estaciones seleccionadas.
+\end{flushleft}
+\end{table}
+
+% ============================================================================
+% TABLA 3: RESUMEN DEL PROCESO DE CLUSTERING Y OPTIMIZACIÓN
+% ============================================================================
+\begin{table}[htbp]
+\centering
+\caption{Resumen del Proceso de Clustering DBSCAN y Optimización MILP}
+\label{tab:proceso_clustering}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Etapa del Proceso} & \textbf{Método} & \textbf{Propósito} \\
+\midrule
+1. Limpieza de Datos & Filtrado geográfico & Eliminar viajes fuera de zona \\
+2. Zonificación & Filtrado por límites administrativos & Validar viajes dentro de la ciudad \\
+3. Clustering de Orígenes & DBSCAN Jerárquico (2 etapas) & Identificar zonas de alta demanda \\
+3. Clustering de Destinos & DBSCAN Jerárquico (2 etapas) & Identificar zonas de destino frecuente \\
+4. Agregación de Flujos & Agrupación O-D & Consolidar patrones de viaje \\
+5. Muestreo Estratificado & Muestreo proporcional & Seleccionar rutas representativas \\
+6. Simulación Física & OpenRouteService API & Calcular consumo energético real \\
+7. Cálculo de Costos de Acceso & Pre-computación & Determinar viabilidad de estaciones \\
+8. Optimización MILP & Solver MOSEK/CBC & Encontrar ubicaciones óptimas \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Nota:} El proceso completo integra técnicas de machine learning (clustering) 
+con optimización matemática para determinar las ubicaciones óptimas de estaciones 
+de carga considerando demanda real, restricciones físicas y económicas.
+\end{flushleft}
+\end{table}
+
+

@@ -6,7 +6,7 @@
 
 Plataforma web interactiva para simular el consumo energético de motocicletas eléctricas en entornos urbanos colombianos.
 
-Desarrollado por el **Semillero GRID** de la Universidad EAFIT, en colaboración con el **Banco Interamericano de Desarrollo (BID)**.
+Desarrollado por la Universidad EAFIT, en colaboración con el **Banco Interamericano de Desarrollo (BID)**.
 
 ---
 

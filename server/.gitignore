@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.env
+pruebas.ipynb
+pruebas2.ipynb
+resources/ej_body.json
+resources/ej_gj.json
+resources/ej_out.json
+!resources/examples/*.json
+Puntos_de_rutas/
+.vscode/
+client/.env

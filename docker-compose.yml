@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: ebikes-backend
+    env_file:
+      - ./server/.env
+    ports:
+      - "8000:8000"
+    # volumes:
+    #   - ./server:/app
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: ebikes-frontend
+    env_file:
+      - ./client/.env
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    # volumes:
+    #   - ./client:/app

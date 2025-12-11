@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rutas para moto eléctrica</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <style>
+      html, body, #root { height: 100%; margin: 0; }
+      .map-root { height: 100vh; width: 100%; }
+      aside { background: #fff; border-right: 1px solid #e5e7eb; }
+      .panel { padding: 12px; overflow: auto; }
+      .row { display: flex; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
+      .mt8 { margin-top: 8px; }
+      .small { font-size: 13px; color: #333; }
+      button { cursor: pointer; }
+
+      /* Panel centrado arriba */
+      .coords-panel {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255,255,255,0.97);
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 10px;
+        width: 320px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      }
+      .coords-header { font-weight: 700; margin-bottom: 6px; text-align: center; }
+      .coords-last { margin-bottom: 6px; text-align: center; }
+      .coords-last-title { font-size: 12px; color: #555; }
+      .coords-list-title { font-weight: 600; margin: 6px 0 4px; }
+      .coords-empty { font-size: 12px; color: #777; }
+      .coords-list { max-height: 160px; overflow: auto; }
+      .coords-item { display: flex; align-items: center; gap: 6px; padding: 2px 0; }
+      .coords-index { width: 18px; color: #555; text-align: right; }
+      .coords-code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
+      .coords-x { margin-left: auto; border: none; background: transparent; font-size: 16px; line-height: 1; color: #999; cursor: pointer; }
+      .coords-x:hover { color: #e11d48; }
+      .coords-actions { display: flex; justify-content: flex-end; margin-top: 6px; }
+
+      /* Badges */
+      .badge { font-size: 11px; border-radius: 8px; padding: 1px 6px; border: 1px solid #d1d5db; background: #f3f4f6; }
+      .badge-start { background: #ecfeff; border-color: #06b6d4; }
+      .badge-end { background: #fff7ed; border-color: #f97316; }
+      .badge-mid { background: #eef2ff; border-color: #6366f1; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

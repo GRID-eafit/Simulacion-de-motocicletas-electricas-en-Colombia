@@ -1,0 +1,711 @@
+/* ==== base obligatoria para que el mapa ocupe todo === */
+html,
+body,
+#root {
+  min-height: 100%;
+  height: auto;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* quita el tema oscuro de la plantilla de Vite */
+body {
+  background: #fff;
+  color: #111;
+}
+
+/* ===== layout de app ===== */
+.app-shell {
+  display: grid;
+  grid-template-rows: 56px 1fr; /* barra arriba + contenido */
+  height: 100%;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+/* NUEVO: contenedor principal de páginas + footer */
+.app-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* permite que el contenido interno pueda hacer scroll si es más alto */
+}
+
+
+/* top bar */
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+}
+.topnav .brand {
+  font-weight: 800;
+}
+.topnav .tabs {
+  display: flex;
+  gap: 12px;
+}
+.topnav .tab {
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #374151;
+}
+.topnav .tab.active {
+  background: #eef2ff;
+  color: #111827;
+}
+
+/* TopNav black background styles */
+.topnav-black {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  padding: 18px 32px;   /* AUMENTADO */
+  height: 50px;         
+  border-bottom: 1px solid #222;
+}
+
+
+.topnav-brand {
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-university {
+  font-size: 10px;
+  font-weight: 600;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+.logo-name {
+  font-size: 18px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.topnav-nav {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  border-bottom-color: #999;
+}
+
+.nav-link.active {
+  border-bottom-color: white;
+  font-weight: 600;
+}
+
+.user-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.user-icon:hover {
+  opacity: 0.7;
+}
+
+.user-logo-img {
+  height: 38px;    /* Aumentado */
+  width: auto;
+  object-fit: contain;
+}
+
+
+.user-logo-img:hover {
+  opacity: 1;
+}
+
+
+/* ===== página del mapa: 2 columnas ===== */
+/* La página ahora es una columna: arriba mapa+sidebar, abajo estadísticas */
+.page {
+  display: block;          
+  width: 100%;
+}
+
+/* Bloque superior: sidebar + mapa en dos columnas */
+.page-main {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* panel izq + mapa */
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 32px;           /* espacio antes de estadísticas */
+}
+
+
+/* Sección de estadísticas y gráficas (debajo del mapa) */
+/* La sección de estadísticas es un item del flex .page.
+   No queremos que se "encoja" para hacerle espacio al footer. */
+.stats-section {
+  flex: 0 0 auto;        /* <- clave: no shrink, altura según su contenido */
+  padding-top: 24px;
+  padding-bottom: 32px;
+  margin-bottom: 0;
+}
+
+
+
+.stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.stats-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Micro-interacciones en tarjetas */
+.stats-card,
+.card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.stats-card:hover,
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+/* Opcional: grid de tarjetas de stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.stats-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+}
+
+/* === Nuevo layout vertical para las estadísticas === */
+
+.stats-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto 16px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Filas que pueden tener dos columnas en pantallas grandes */
+.stats-row-two {
+  grid-template-columns: 1fr;
+}
+
+/* A partir de 1024px, ponemos dos columnas en las filas marcadas */
+@media (min-width: 1024px) {
+  .stats-row-two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* panel lateral */
+.sidebar {
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  overflow: auto;
+  padding: 12px;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  margin: 6px 0;
+  flex-wrap: wrap;
+}
+.mt8 {
+  margin-top: 8px;
+}
+.small {
+  font-size: 13px;
+  color: #333;
+}
+button {
+  cursor: pointer;
+}
+
+/* ===== contenedor del mapa ===== */
+/* ===== contenedor del mapa ===== */
+.map-wrapper {
+  position: relative;
+  height: 60vh; /* puedes subir/bajar este porcentaje */
+  min-height: 400px; /* para que nunca quede diminuto */
+}
+.map-root {
+  height: 100%;
+  width: 100%;
+} /* hoja de Leaflet */
+
+/* panel de coordenadas centrado arriba */
+.coords-panel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  left: auto;
+  transform: none;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px;
+  width: 320px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.coords-header {
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.coords-last {
+  margin-bottom: 6px;
+  text-align: center;
+}
+.coords-last-title {
+  font-size: 12px;
+  color: #555;
+}
+.coords-list-title {
+  font-weight: 600;
+  margin: 6px 0 4px;
+}
+.coords-empty {
+  font-size: 12px;
+  color: #777;
+}
+.coords-list {
+  max-height: 160px;
+  overflow: auto;
+}
+.coords-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+.coords-index {
+  width: 18px;
+  color: #555;
+  text-align: right;
+}
+.coords-code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.coords-x {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+}
+.coords-x:hover {
+  color: #e11d48;
+}
+.coords-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+/* badges */
+.badge {
+  font-size: 11px;
+  border-radius: 8px;
+  padding: 1px 6px;
+  border: 1px solid #d1d5db;
+  background: #f3f4f6;
+}
+.badge-start {
+  background: #ecfeff;
+  border-color: #06b6d4;
+}
+.badge-end {
+  background: #fff7ed;
+  border-color: #f97316;
+}
+.badge-mid {
+  background: #eef2ff;
+  border-color: #6366f1;
+}
+
+/* --- panel bonito --- */
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+.panel-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 4px 0 10px;
+}
+.kv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0;
+}
+.kv .k {
+  font-size: 13px;
+  color: #6b7280;
+}
+.kv .v {
+  font-size: 13px;
+  color: #111;
+}
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 10px 0;
+}
+
+.switch-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 8px 0;
+}
+.switch-row input {
+  margin-top: 4px;
+}
+.switch-label .label {
+  font-weight: 600;
+}
+.switch-label .hint {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.select {
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.btn {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #f9fafb;
+}
+.btn.ghost {
+  background: #f8fafc;
+}
+.btn.primary {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+.btn.primary:hover {
+  background: #0b1220;
+}
+
+.total {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #374151;
+}
+.total strong {
+  margin-left: 6px;
+}
+
+/* Barra de tabs superior */
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+/* Estilo base de cada tab */
+.tabs a,
+.tabs a:visited {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+  color: #111; /* texto negro, sin morados */
+  background: transparent;
+}
+
+/* Tab activa */
+.tabs a.active,
+.tabs a.active:visited {
+  background: #111; /* fondo negro */
+  color: #fff; /* texto blanco */
+}
+
+/* === FOOTER estilo Figma === */
+
+
+.footer {
+  width: 100%;
+  background-color: #000000;      /* barra negra total */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  padding: 28px 40px;   /* AUMENTADO */
+  font-size: 14px;      /* Más grande */
+}
+
+/* Filas horizontales */
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.footer-contact {
+  font-size: 0.95rem;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
+/* Fila inferior: sedes */
+.footer-row-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.footer-branch {
+  text-align: center;
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .footer-row-bottom {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+}
+
+/* Contenedor gris grande */
+.hero-search {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 20px 32px;
+  background: #e3e3e3;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Texto de la pregunta */
+.hero-question {
+  font-size: 14px;
+  color: #111827;
+  /* que no se pegue a la izquierda en pantallas grandes */
+  flex: 1;
+}
+
+/* Línea vertical del medio */
+.hero-divider {
+  width: 1px;
+  align-self: stretch;
+  background: #b8b8b8;
+}
+
+/* Contenedor del logo */
+.hero-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+/* Logo BID-EAFIT (SE EDITA EN HOMEPAGE) */
+.hero-bid-logo {
+  height: 120px;     /* <-- tamaño recomendado, editable */
+  width: auto;
+  object-fit: contain;
+}
+
+/* === Telemetry sidebar look & feel === */
+
+.telemetry-card {
+  padding: 16px 18px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.telemetry-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.telemetry-title-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.telemetry-icon-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.telemetry-subtitle {
+  margin: 2px 0 0 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #6b7280;
+  max-width: 210px;
+}
+
+.telemetry-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.telemetry-file-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.telemetry-file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.telemetry-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.telemetry-metric-card {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.telemetry-metric-label {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.telemetry-metric-value {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.telemetry-downsample {
+  margin-top: 4px;
+}
+
+.telemetry-downsample-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #374151;
+}
+
+.telemetry-downsample-value {
+  font-variant-numeric: tabular-nums;
+  color: #6b7280;
+}
+
+.telemetry-hint {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-top: 6px;
+}

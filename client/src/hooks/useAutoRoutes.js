@@ -1,18 +1,15 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import * as api from "../services/api.js";
 
 /**
- * Hook para calcular rutas automáticamente cuando cambian:
- * - vehículos
- * - opciones
- * - ciudad (med | bog | amva)
- * - tráfico (true | false)
+ * Hook para calcular rutas SOLO de forma manual
+ * (evita llamadas automáticas a ORS)
  */
 export default function useAutoRoutes({
   vehicles,
   enabled = true,
   city = "med",
-  traffic = false, // 👈 nuevo parámetro
+  traffic = false,
 }) {
   const [routes, setRoutes] = useState({});
   const [selectedAlt, setSelectedAlt] = useState({});
@@ -26,47 +23,19 @@ export default function useAutoRoutes({
     alt_weight: 1.4,
   });
 
-  const debounceTimer = useRef(null);
   const abortRef = useRef(null);
-  const genRef = useRef(0);
 
-  // Cancela peticiones pendientes
   const cancelPending = () => {
-    if (debounceTimer.current) {
-      clearTimeout(debounceTimer.current);
-      debounceTimer.current = null;
-    }
     if (abortRef.current) {
       abortRef.current.abort();
       abortRef.current = null;
     }
-    genRef.current += 1;
   };
 
-  // Limpia rutas de vehículos sin suficientes puntos
-  const cleanNow = (vlist) => {
-    setRoutes((prev) => {
-      const next = { ...prev };
-      vlist.forEach((v) => {
-        if (v.waypoints.length < 2 && next[v.id]) delete next[v.id];
-      });
-      return next;
-    });
-
-    setSelectedAlt((prev) => {
-      const next = { ...prev };
-      vlist.forEach((v) => {
-        if (v.waypoints.length < 2 && next[v.id] !== undefined)
-          delete next[v.id];
-      });
-      return next;
-    });
-  };
-
-  const recompute = async (vlist) => {
+  const computeRoutesManual = async () => {
     if (!enabled) return;
 
-    const ready = vlist
+    const ready = vehicles
       .filter((v) => v.waypoints.length >= 2)
       .map((v) => ({ vehicle_id: v.id, waypoints: v.waypoints }));
 
@@ -74,79 +43,44 @@ export default function useAutoRoutes({
 
     cancelPending();
 
-    const localGen = ++genRef.current;
     const ctrl = new AbortController();
     abortRef.current = ctrl;
 
-    // 👇 Enviar ciudad + tráfico al backend
     const safeOptions = {
       ...options,
       alternatives: false,
       steps: true,
       city,
-      traffic, // 👈 enviar estado de tráfico
+      traffic,
     };
 
-    const data = await api
-      .postRoutesJSON(
+    try {
+      const data = await api.postRoutesJSON(
         { options: safeOptions, vehicles: ready },
         { signal: ctrl.signal }
-      )
-      .catch((err) => {
-        if (err?.name === "AbortError") return null;
-        throw err;
+      );
+
+      const map = {};
+      (data.routes || []).forEach((r) => {
+        map[r.vehicle_id] = r;
       });
 
-    if (!data) return;
-    if (localGen !== genRef.current) return;
+      setRoutes(map);
 
-    const map = {};
-    (data.routes || []).forEach((r) => {
-      map[r.vehicle_id] = r;
-    });
-
-    setRoutes((prev) => {
-      const keep = {};
-      ready.forEach((r) => {
-        if (prev[r.vehicle_id]) keep[r.vehicle_id] = prev[r.vehicle_id];
+      setSelectedAlt((prev) => {
+        const next = { ...prev };
+        ready.forEach((r) => {
+          if (next[r.vehicle_id] == null) next[r.vehicle_id] = 0;
+        });
+        return next;
       });
-      return { ...keep, ...map };
-    });
-
-    setSelectedAlt((prev) => {
-      const next = { ...prev };
-      ready.forEach((r) => {
-        if (next[r.vehicle_id] == null) next[r.vehicle_id] = 0;
-      });
-      return next;
-    });
-  };
-
-  useEffect(() => {
-    if (!enabled) {
-      cancelPending();
-      setRoutes({});
-      setSelectedAlt({});
-      return;
-    }
-
-    cleanNow(vehicles);
-
-    if (debounceTimer.current) clearTimeout(debounceTimer.current);
-
-    debounceTimer.current = setTimeout(() => recompute(vehicles), 250);
-
-    return () => clearTimeout(debounceTimer.current);
-  }, [vehicles, options, enabled, city, traffic]); // 👈 recalcular también si cambia tráfico
-
-  const computeRoutesManual = () => {
-    if (enabled) {
-      cleanNow(vehicles);
-      recompute(vehicles);
+    } catch (err) {
+      if (err?.name !== "AbortError") {
+        console.error("Error calculando rutas:", err);
+      }
     }
   };
 
-  // Resumen total
   const totalSummary = useMemo(() => {
     const list = Object.values(routes);
     const dist = list.reduce((s, r) => s + (r?.summary?.distance || 0), 0);

@@ -57,6 +57,7 @@ La herramienta utiliza datos geoespaciales, ruteo externo mediante **OpenRouteSe
 ## Estructura del Proyecto
 
 ```
+
 /
 ├── client/                              # Frontend React
 │   ├── src/
@@ -82,7 +83,8 @@ La herramienta utiliza datos geoespaciales, ruteo externo mediante **OpenRouteSe
 ├── docs/                                # Documentación adicional
 ├── README.md
 └── LICENSE
-```
+
+````
 
 ---
 
@@ -105,7 +107,7 @@ Asegúrate de tener instalado:
 ```bash
 git clone https://github.com/niosto/electric-bikes-routes-simulation
 cd repositorio
-```
+````
 
 ### 2. Configurar el Backend
 
@@ -151,8 +153,52 @@ ORS_TOKEN=tu_token_de_openrouteservice
 
 **¿Dónde obtener los tokens?**
 
-- **ORS_TOKEN**: Regístrate en [OpenRouteService](https://openrouteservice.org/dev/#/signup) para obtener una API key gratuita
-- **AZURE_TOKEN**: Contacta al equipo de GRID o revisa la documentación interna
+* **ORS_TOKEN**: Regístrate en [OpenRouteService](https://openrouteservice.org/dev/#/signup) para obtener una API key gratuita
+* **AZURE_TOKEN**: Contacta al equipo de GRID o revisa la documentación interna
+
+---
+
+### Variables de Entorno (Frontend)
+
+El frontend está construido con **Vite**, por lo que todas las variables de entorno utilizadas en el cliente deben comenzar con el prefijo `VITE_`.
+
+#### 1. Crear archivo `.env` en `client/`
+
+Crea un archivo llamado `.env` dentro de la carpeta `client/`:
+
+**Ruta:**
+
+```
+client/.env
+```
+
+**Contenido (ejemplo en desarrollo local):**
+
+```env
+VITE_API_URL=la_url_base
+```
+
+Esta variable define la URL base del backend a la cual el frontend enviará las solicitudes HTTP.
+
+#### 2. Reiniciar el servidor de Vite
+
+Después de crear o modificar el archivo `.env`, es obligatorio reiniciar el frontend para que Vite cargue las variables:
+
+```bash
+# detener el servidor (Ctrl + C) y luego:
+npm run dev
+```
+
+#### 3. Error común
+
+Si aparece el error:
+
+```
+RAW_BASE is undefined
+can't access property "replace"
+```
+
+significa que la variable `VITE_API_URL` no está definida correctamente o que el servidor de Vite no fue reiniciado después de crear el `.env`.
 
 ---
 
@@ -166,9 +212,10 @@ python -m uvicorn main:app --reload --port 8000
 ```
 
 El backend estará disponible en:
-- **API**: http://localhost:8000
-- **Documentación automática (Swagger)**: http://localhost:8000/docs
-- **Documentación alternativa (ReDoc)**: http://localhost:8000/redoc
+
+* **API**: [http://localhost:8000](http://localhost:8000)
+* **Documentación automática (Swagger)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+* **Documentación alternativa (ReDoc)**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 ### Iniciar el Frontend
 
@@ -178,46 +225,53 @@ npm run dev
 ```
 
 El frontend estará disponible en:
-- **Aplicación**: http://localhost:5173
+
+* **Aplicación**: [http://localhost:5173](http://localhost:5173)
 
 ---
 
 ## Flujo de la Aplicación
 
 1. **Selección de parámetros**: El usuario ingresa al frontend y configura:
-   - Ciudad (Medellín, Bogotá o AMVA)
-   - Número de motocicletas
-   - Puntos del recorrido en el mapa
-   - Tipo de perfil de conducción
-   - Uso de tráfico en tiempo real 
+
+   * Ciudad (Medellín, Bogotá o AMVA)
+   * Número de motocicletas
+   * Puntos del recorrido en el mapa
+   * Tipo de perfil de conducción
+   * Uso de tráfico en tiempo real
 
 2. **Solicitud al backend**: El frontend envía la configuración mediante HTTP POST
 
 3. **Procesamiento**:
-   - Consulta de rutas optimizadas en OpenRouteService y Azure Maps
-   - Análisis de pendientes, distancias y velocidades
-   - Ejecución del modelo físico de consumo energético
-   - Cálculo de indicadores y puntos de recarga óptimos
+
+   * Consulta de rutas optimizadas en OpenRouteService y Azure Maps
+   * Análisis de pendientes, distancias y velocidades
+   * Ejecución del modelo físico de consumo energético
+   * Cálculo de indicadores y puntos de recarga óptimos
 
 4. **Respuesta**: El backend devuelve:
-   - Geometría de la ruta en formato GeoJSON
-   - Métricas de desempeño energético
-   - Puntos de recarga recomendados
-   - Indicadores de autonomía
+
+   * Geometría de la ruta en formato GeoJSON
+   * Métricas de desempeño energético
+   * Puntos de recarga recomendados
+   * Indicadores de autonomía
 
 5. **Visualización**: El frontend muestra los resultados en:
-   - Mapa interactivo con la ruta trazada
-   - Paneles informativos con métricas
-   - Gráficos de consumo y SOC
+
+   * Mapa interactivo con la ruta trazada
+   * Paneles informativos con métricas
+   * Gráficos de consumo y SOC
 
 ---
 
 ## API Endpoints
 
 ### `GET /health`
+
 Verifica el estado del servidor y la disponibilidad del token ORS.
 
 **Respuesta:**
+
 ```json
 {
   "status": "healthy",
@@ -226,12 +280,15 @@ Verifica el estado del servidor y la disponibilidad del token ORS.
 ```
 
 ### `GET /estaciones`
+
 Devuelve las estaciones de carga disponibles por ciudad.
 
 **Query params:**
-- `ciudad`: `medellin` | `bogota` | `amva`
+
+* `ciudad`: `medellin` | `bogota` | `amva`
 
 **Respuesta:**
+
 ```json
 {
   "ciudad": "medellin",
@@ -240,9 +297,11 @@ Devuelve las estaciones de carga disponibles por ciudad.
 ```
 
 ### `POST /routes`
+
 Ejecuta la simulación de consumo energético.
 
 **Body:**
+
 ```json
 {
   "ciudad": "medellin",
@@ -254,6 +313,7 @@ Ejecuta la simulación de consumo energético.
 ```
 
 **Respuesta:**
+
 ```json
 {
   "ruta": {...},
@@ -264,50 +324,54 @@ Ejecuta la simulación de consumo energético.
 ```
 
 ### `POST /routes/geojson`
+
 Versión alternativa que recibe rutas completas en formato GeoJSON.
 
 ---
 
 ## Indicadores Calculados
 
-- **SOC (State of Charge)**: Nivel de carga de la batería en porcentaje
-- **Potencia consumida**: Energía utilizada en cada segmento (kW)
-- **Distancia recorrida**: Kilometraje total y parcial
-- **Tiempo estimado**: Duración del trayecto
-- **Puntos de recarga**: Ubicaciones óptimas para recargar
-- **Autonomía restante**: Distancia que se puede recorrer con la carga actual
-- **Eficiencia energética**: Consumo promedio por kilómetro
+* **SOC (State of Charge)**: Nivel de carga de la batería en porcentaje
+* **Potencia consumida**: Energía utilizada en cada segmento (kW)
+* **Distancia recorrida**: Kilometraje total y parcial
+* **Tiempo estimado**: Duración del trayecto
+* **Puntos de recarga**: Ubicaciones óptimas para recargar
+* **Autonomía restante**: Distancia que se puede recorrer con la carga actual
+* **Eficiencia energética**: Consumo promedio por kilómetro
+
 ---
 
 ## Créditos
 
 **Proyecto desarrollado por:**
-- **Universidad EAFIT**
+
+* **Universidad EAFIT**
 
 **En colaboración con:**
-- **Banco Interamericano de Desarrollo (BID)**
+
+* **Banco Interamericano de Desarrollo (BID)**
 
 **Autores:**
-- Ana María Ortega Álvarez
-- Felipe Mendoza Giraldo
-- Gustavo Adolfo García Cruz
-- John Jairo García Rendón
-- José Fernando Martínez Cadavid
-- José Miguel Arias Mejía
-- Juan Manuel Aristizábal Tamayo
-- Juan Pablo González Alzate
-- Santiago Bernal del Río
 
-   **Monitores:**  
-      - Nicolás Ospina Torres  
-      - Alejandro Garcés Ramírez  
-  
+* Ana María Ortega Álvarez
+* Felipe Mendoza Giraldo
+* Gustavo Adolfo García Cruz
+* John Jairo García Rendón
+* José Fernando Martínez Cadavid
+* José Miguel Arias Mejía
+* Juan Manuel Aristizábal Tamayo
+* Juan Pablo González Alzate
+* Santiago Bernal del Río
+
+  **Monitores:**
+  - Nicolás Ospina Torres
+  - Alejandro Garcés Ramírez
+
 **Coordinador:**
 Gilberto Osorio Gómez
 
 ---
 
 ## Licencia
-
 
 ---

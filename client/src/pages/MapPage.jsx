@@ -22,20 +22,12 @@ export default function MapPage() {
     clearWaypointsActive,
   } = useVehicles();
 
-  // Capa importada (solo pintar) y modo dibujo
   const [importedGeoJSON, setImportedGeoJSON] = useState(null);
   const [drawOnly, setDrawOnly] = useState(false);
 
-  // Ciudad activa del mapa: Medellín, Bogotá o AMVA
-  const [city, setCity] = useState("med"); // "med" | "bog" | "amva"
+  const [city, setCity] = useState("med");
+  const [traffic, setTraffic] = useState(false);
 
-  // NUEVO: estado de tráfico
-  const [traffic, setTraffic] = useState(false); // booleano a enviar al back
-
-  // cuando hay archivo cargado, no se calculan rutas
-  const vehiclesForRouting = drawOnly ? [] : vehicles;
-
-  // Hook de rutas, recibe también la ciudad y el tráfico
   const {
     options,
     setOptions,
@@ -45,10 +37,10 @@ export default function MapPage() {
     totalSummary,
     computeRoutesManual,
   } = useAutoRoutes({
-    vehicles: vehiclesForRouting,
+    vehicles,
     enabled: !drawOnly,
     city,
-    traffic, 
+    traffic,
   });
 
   const handleGeoLoad = (fc) => {
@@ -61,71 +53,41 @@ export default function MapPage() {
     setDrawOnly(false);
   };
 
-  // Cuando cambias de ciudad, se limpian rutas, waypoints y geoJSON
   const handleChangeCity = (newCity) => {
     if (newCity === city) return;
-
-    // Limpiar todo el estado relacionado con la ruta actual
     clearAll();
     setImportedGeoJSON(null);
     setDrawOnly(false);
     setLastPoint(null);
-
-    // Cambiar ciudad
     setCity(newCity);
   };
 
   return (
     <section className="page">
-      {/* bloque superior: sidebar + mapa */}
       <div className="page-main">
         <aside className="sidebar">
-
-          {/* ============================
-              Selector de ciudad
-             ============================ */}
           <div style={{ marginBottom: "1rem" }}>
             <label style={{ fontSize: "0.9rem", fontWeight: 600 }}>
               Ciudad del mapa:
             </label>
-
-            <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.25rem" }}>
-              <button
-                type="button"
-                className={`btn small ${city === "med" ? "" : "ghost"}`}
-                onClick={() => handleChangeCity("med")}
-              >
-                Medellín
-              </button>
-
-              <button
-                type="button"
-                className={`btn small ${city === "bog" ? "" : "ghost"}`}
-                onClick={() => handleChangeCity("bog")}
-              >
-                Bogotá
-              </button>
-
-              <button
-                type="button"
-                className={`btn small ${city === "amva" ? "" : "ghost"}`}
-                onClick={() => handleChangeCity("amva")}
-              >
-                AMVA
-              </button>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              {["med", "bog", "amva"].map((c) => (
+                <button
+                  key={c}
+                  className={`btn small ${city === c ? "" : "ghost"}`}
+                  onClick={() => handleChangeCity(c)}
+                >
+                  {c === "med" ? "Medellín" : c === "bog" ? "Bogotá" : "AMVA"}
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* ============================
-              Selector de TRÁFICO (NUEVO)
-             ============================ */}
-          <div style={{ marginBottom: "1.2rem" }}>
+          <div style={{ marginBottom: "1rem" }}>
             <label style={{ fontSize: "0.9rem", fontWeight: 600 }}>
               Condición de tráfico:
             </label>
-
             <button
-              type="button"
               className={`btn small ${traffic ? "" : "ghost"}`}
               onClick={() => setTraffic(!traffic)}
             >
@@ -133,9 +95,6 @@ export default function MapPage() {
             </button>
           </div>
 
-          {/* ============================
-              Panel de controles
-             ============================ */}
           <ControlsPanel
             options={options}
             setOptions={setOptions}
@@ -157,9 +116,6 @@ export default function MapPage() {
           />
         </aside>
 
-        {/* ============================
-            MAPA
-           ============================ */}
         <div className="map-wrapper">
           <MapView
             vehicles={vehicles}
@@ -178,9 +134,6 @@ export default function MapPage() {
         </div>
       </div>
 
-      {/* ============================
-          bloque inferior: estadísticas
-         ============================ */}
       <section className="stats-section">
         <StatsPanel
           routes={routes}

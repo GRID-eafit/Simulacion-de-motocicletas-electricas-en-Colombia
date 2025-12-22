@@ -1,6 +1,9 @@
-"use client"
-import FileLoader from "./FileLoader.jsx"
-import { buildVehiclesJSON, buildRoutesFeatureCollection } from "../../utils/exporters.js"
+"use client";
+import FileLoader from "./FileLoader.jsx";
+import {
+  buildVehiclesJSON,
+  buildRoutesFeatureCollection,
+} from "../../utils/exporters.js";
 
 export default function ControlsPanel({
   options,
@@ -15,46 +18,50 @@ export default function ControlsPanel({
   totalSummary,
   computeRoutesManual,
   setVehicles,
-  // pueden no venir aún; damos valores por defecto seguros
   onGeoLoad = () => {},
   onClearGeo = () => {},
   drawOnly = false,
   routes = {},
   selectedAlt = {},
+  routeError = null,
+  isLoading = false,
 }) {
-  // Exporta el JSON de entrada (siempre 1 ruta, sin pasos)
   const exportJSON = () => {
     const payload = buildVehiclesJSON(vehicles, {
       ...options,
-      alternatives: false, // forzado
-      steps: false, // forzado
-    })
-    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = "vehicles_request.json"
-    a.click()
-    URL.revokeObjectURL(url)
-  }
+      alternatives: false,
+      steps: false,
+    });
 
-  // Exporta el GeoJSON de las rutas calculadas (si existen)
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "vehicles_request.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const exportRoutesGeoJSON = () => {
-    const fc = buildRoutesFeatureCollection(routes, selectedAlt)
-    const blob = new Blob([JSON.stringify(fc, null, 2)], { type: "application/geo+json" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = "routes.geojson"
-    a.click()
-    URL.revokeObjectURL(url)
-  }
+    const fc = buildRoutesFeatureCollection(routes, selectedAlt);
+    const blob = new Blob([JSON.stringify(fc, null, 2)], {
+      type: "application/geo+json",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "routes.geojson";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
-  // Calcular siempre 1 ruta sin pasos
   const handleCompute = () => {
-    setOptions((o) => ({ ...o, alternatives: false, steps: false }))
-    computeRoutesManual()
-  }
+    // fuerza 1 ruta sin alternativas
+    setOptions((o) => ({ ...o, alternatives: false, steps: false }));
+    computeRoutesManual();
+  };
 
   return (
     <div className="card">
@@ -62,38 +69,33 @@ export default function ControlsPanel({
 
       {/* Cargar/limpiar capa importada (solo pintar) */}
       <FileLoader onGeojson={onGeoLoad} onClearGeo={onClearGeo} />
-      <div className="small" style={{ color: drawOnly ? "#047857" : "#6b7280", marginTop: 4 }}>
-        {/*Modo: <strong>{drawOnly ? "Dibujar archivo (sin ORS)" : "Manual + ORS"}</strong>*/}
-      </div>
-
-      
-      {/*<div className="kv">
-        <span className="k">Perfil</span>
-        <span className="v">Moto eléctrica · conducción</span>
-      </div>*/}
 
       <div className="divider" />
 
-      {/* Gestión de motos (deshabilitado si hay archivo cargado) */}
+      {/* Gestión de motos */}
       <div className="row">
         <button className="btn" onClick={addVehicle} disabled={drawOnly}>
           + Agregar moto
         </button>
-        <button className="btn ghost" onClick={removeVehicle} disabled={drawOnly || vehicles.length === 1}>
+        <button
+          className="btn ghost"
+          onClick={removeVehicle}
+          disabled={drawOnly || vehicles.length === 1}
+        >
           − Quitar activa
         </button>
       </div>
 
-      <div className="row">
+      <div className="kv">
         <span className="k">Moto activa</span>
         <select
           className="select"
           value={activeVehicle}
-          onChange={(e) => setActiveVehicle(Number.parseInt(e.target.value, 10))}
+          onChange={(e) => setActiveVehicle(Number(e.target.value))}
           disabled={drawOnly}
         >
-          {vehicles.map((v, i) => (
-            <option key={v.id} value={i}>
+          {vehicles.map((v, idx) => (
+            <option key={v.id} value={idx}>
               {v.id}
             </option>
           ))}
@@ -109,29 +111,39 @@ export default function ControlsPanel({
         </button>
       </div>
 
-      <button className="btn primary" onClick={handleCompute} disabled={drawOnly}>
-        Calcular rutas
+      <div className="divider" />
+
+      {/* Calcular rutas (manual) */}
+      <button className="btn" onClick={handleCompute} disabled={drawOnly || isLoading}>
+        {isLoading ? "Calculando..." : "Calcular rutas"}
       </button>
 
-      <div className="total" style={{ marginTop: 8 }}>
-        <span>Total:</span>
-        <strong>
-          {totalSummary.distance_km} km · {totalSummary.duration_min} min
-        </strong>
+      {/* Mensaje de error en pantalla */}
+      {!!routeError && (
+        <div style={{ marginTop: 10, fontSize: 13, color: "#b91c1c" }}>
+          {routeError}
+        </div>
+      )}
+
+      <div className="small" style={{ marginTop: 8 }}>
+        Total: <strong>{totalSummary.distance_km} km</strong> ·{" "}
+        <strong>{totalSummary.duration_min} min</strong>
       </div>
 
       <div className="divider" />
 
       {/* Exportaciones */}
-      <div className="row" style={{ justifyContent: "space-between", gap: 8 }}>
-        <button className="btn" onClick={exportJSON} disabled={drawOnly}>
-          Exportar JSON (entrada)
-        </button>
+      <button className="btn ghost" onClick={exportJSON}>
+        Exportar JSON (entrada)
+      </button>
 
-        <button className="btn ghost" onClick={exportRoutesGeoJSON} disabled={Object.keys(routes || {}).length === 0}>
-          Exportar GeoJSON (rutas)
-        </button>
-      </div>
+      <button
+        className="btn ghost"
+        onClick={exportRoutesGeoJSON}
+        disabled={!Object.keys(routes || {}).length}
+      >
+        Exportar GeoJSON (rutas)
+      </button>
     </div>
-  )
+  );
 }

@@ -1,6 +1,5 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useEffect, useCallback } from "react";
 import L from "leaflet";
-import axios from "axios";
 import {
   MapContainer,
   TileLayer,
@@ -15,6 +14,7 @@ import {
 import { COLORS } from "../../utils/colors.js";
 import { makeColoredIcon } from "../../utils/icons.js";
 import CoordsPanel from "./CoordsPanel.jsx";
+
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 // ================== CONFIG ICONS ==================
@@ -22,15 +22,6 @@ delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
-
-function ClickToAdd({ onAdd }) {
-  useMapEvents({
-    click(e) {
-      onAdd([+e.latlng.lng.toFixed(6), +e.latlng.lat.toFixed(6)]);
-    },
-  });
-  return null;
-}
 
 // Componente para recentrar el mapa cuando cambia la ciudad
 function RecenterOnCity({ center }) {
@@ -53,6 +44,29 @@ const chargingIcon = new L.DivIcon({
   iconAnchor: [16, 16],
 });
 
+/**
+ * Click handler:
+ * - Si stationsMode === "custom": click en mapa agrega estación
+ * - Si no: click en mapa agrega waypoint (normal)
+ */
+function ClickHandler({ disabled, stationsMode, onAddWaypoint, onAddStation }) {
+  useMapEvents({
+    click(e) {
+      if (disabled) return;
+
+      const lng = +e.latlng.lng.toFixed(6);
+      const lat = +e.latlng.lat.toFixed(6);
+
+      if (stationsMode === "custom") {
+        onAddStation?.([lng, lat]);
+      } else {
+        onAddWaypoint?.([lng, lat]);
+      }
+    },
+  });
+  return null;
+}
+
 export default function MapView({
   vehicles,
   activeVehicle,
@@ -66,39 +80,81 @@ export default function MapView({
   importedGeoJSON,
   drawOnly = false,
   city = "med",
+
+  // ✅ estaciones (default o custom) vienen del MapPage
+  stationsMode = "default", // "default" | "custom"
+  stationsPayload = null, // { coords: [[lng,lat]], nombre: [string] }
+  setStationsPayload = () => {},
 }) {
   // Centro depende de la ciudad
   const center = useMemo(() => {
-    if (city === "bog") return [4.711, -74.072];      // Bogotá
-    if (city === "amva") return [6.247, -75.565];     // Valle de Aburrá (AMVA)
-    return [6.2442, -75.5812];                        // Medellín
+    if (city === "bog") return [4.711, -74.072]; // Bogotá
+    if (city === "amva") return [6.247, -75.565]; // Valle de Aburrá (AMVA)
+    return [6.2442, -75.5812]; // Medellín
   }, [city]);
 
-  // ========= POIs / Charging Stations =========
-  const [chargingStations, setChargingStations] = useState([]);
+  // ============================
+  // Stations view-model
+  // ============================
+  const chargingStations = useMemo(() => {
+    const coords = stationsPayload?.coords || [];
+    const names = stationsPayload?.nombre || [];
 
-  useEffect(() => {
-    async function fetchStations() {
-      try {
-        const res = await axios.get(`${VITE_API_URL}/estaciones?city=${city}`);
-        const data = res.data;
+    return coords.map((c, i) => ({
+      name: names[i] || `Estación ${i + 1}`,
+      coordinates: c, // [lng, lat]
+      idx: i,
+    }));
+  }, [stationsPayload]);
 
-        if (data?.coords && data?.nombre) {
-          const merged = data.coords.map((c, i) => ({
-            name: data.nombre[i] || `Estación ${i + 1}`,
-            coordinates: c,
-          }));
-          setChargingStations(merged);
-        } else {
-          console.warn("Formato inesperado de estaciones:", data);
-        }
-      } catch (err) {
-        console.error("Error al cargar estaciones:", err);
-      }
-    }
+  // Helper seguro: permite setStationsPayload(fn) o setStationsPayload(obj)
+  const safeSetStations = useCallback(
+    (updater) => {
+      setStationsPayload((prev) => {
+        const current =
+          prev && typeof prev === "object" ? prev : { coords: [], nombre: [] };
+        if (typeof updater === "function") return updater(current);
+        return updater;
+      });
+    },
+    [setStationsPayload]
+  );
 
-    fetchStations();
-  }, [city]);
+  const addStation = useCallback(
+    (lngLat) => {
+      safeSetStations((prev) => {
+        const prevCoords = Array.isArray(prev?.coords) ? prev.coords : [];
+        const prevNames = Array.isArray(prev?.nombre) ? prev.nombre : [];
+
+        const nextCoords = [...prevCoords, lngLat];
+        const nextNames = [...prevNames, `Estación ${nextCoords.length}`];
+
+        return { coords: nextCoords, nombre: nextNames };
+      });
+    },
+    [safeSetStations]
+  );
+
+  const removeStation = useCallback(
+    (stationIdx) => {
+      safeSetStations((prev) => {
+        const prevCoords = Array.isArray(prev?.coords) ? prev.coords : [];
+        const prevNames = Array.isArray(prev?.nombre) ? prev.nombre : [];
+
+        const nextCoords = prevCoords.filter((_, i) => i !== stationIdx);
+        const nextNames = prevNames.filter((_, i) => i !== stationIdx);
+
+        // Normaliza nombres para que queden Estación 1..N
+        const normalizedNames = nextCoords.map((_, i) => {
+          const n = nextNames[i];
+          return n && String(n).trim().length ? n : `Estación ${i + 1}`;
+        });
+
+        return { coords: nextCoords, nombre: normalizedNames };
+      });
+    },
+    [safeSetStations]
+  );
 
   // ============================================
 
@@ -170,7 +226,15 @@ export default function MapView({
           </LayersControl.BaseLayer>
         </LayersControl>
 
-        {!drawOnly && <ClickToAdd onAdd={handleAddWaypoint} />}
+        {/* ✅ Click handler: waypoint o estación según modo */}
+        {!drawOnly && (
+          <ClickHandler
+            disabled={false}
+            stationsMode={stationsMode}
+            onAddWaypoint={handleAddWaypoint}
+            onAddStation={addStation}
+          />
+        )}
 
         {/* Capa importada */}
         {importedGeoJSON?.features?.length > 0 && (
@@ -183,11 +247,7 @@ export default function MapView({
                 (feat.properties && feat.properties.id) ||
                 "otros";
               const color = importedColorMap.get(vid) || "#6b7280";
-              return {
-                color,
-                weight: 6,
-                opacity: 1.0,
-              };
+              return { color, weight: 6, opacity: 1.0 };
             }}
           />
         )}
@@ -203,8 +263,13 @@ export default function MapView({
                   : idx === v.waypoints.length - 1
                   ? markerIcons[vi].end
                   : markerIcons[vi].normal;
+
               return (
-                <Marker key={`${v.id}-wp-${idx}`} position={pos} icon={icon} />
+                <Marker
+                  key={`${v.id}-wp-${idx}`}
+                  position={pos}
+                  icon={icon}
+                />
               );
             })
           )}
@@ -217,10 +282,7 @@ export default function MapView({
 
             const sel = selectedAlt?.[v.id] ?? 0;
             const chosen =
-              sel === 0
-                ? info.geometry
-                : info.alternatives?.[sel - 1]?.geometry;
-
+              sel === 0 ? info.geometry : info.alternatives?.[sel - 1]?.geometry;
             if (!chosen?.coordinates?.length) return null;
 
             const coords = chosen.coordinates.map(([lng, lat]) => [lat, lng]);
@@ -251,15 +313,29 @@ export default function MapView({
             });
           })}
 
-        {/* Estaciones de carga */}
-        {chargingStations.map((station, idx) => (
+        {/* Estaciones de carga (default o custom) */}
+        {chargingStations.map((station) => (
           <Marker
-            key={`station-${idx}`}
+            key={`station-${station.idx}`}
             position={[station.coordinates[1], station.coordinates[0]]}
             icon={chargingIcon}
+            eventHandlers={
+              stationsMode === "custom"
+                ? {
+                    click: (ev) => {
+                      // evita que el click se interprete como click en mapa
+                      ev?.originalEvent?.stopPropagation?.();
+                      removeStation(station.idx);
+                    },
+                  }
+                : undefined
+            }
           >
             <Tooltip direction="top" offset={[0, -10]} opacity={1}>
-              <span>{station.name}</span>
+              <span>
+                {station.name}
+                {stationsMode === "custom" ? " (click para borrar)" : ""}
+              </span>
             </Tooltip>
           </Marker>
         ))}

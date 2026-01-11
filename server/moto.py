@@ -3,7 +3,15 @@ import numpy as np
 from geopy.distance import geodesic
 
 class Moto:
-    def __init__(self, name, route_data, stations, hybrid_cont):
+    def __init__(
+        self,
+        name,
+        route_data,
+        stations,
+        hybrid_cont,
+        charger_power_kw: float = 3.5,   # ✅ nuevo (opcional)
+        price_per_kwh: float = 0.0       # ✅ nuevo (opcional)
+    ):
         self.name = name
         self.route_data = route_data
         self.stations = stations
@@ -20,7 +28,7 @@ class Moto:
         self.energia_antes_de_recarga = None
 
         # Estos factores de corrección se usan para calibrar el consumo en el modelo,
-        # Se computaron usando el consumo real de la telemetría de una moto elécttrica 
+        # Se computaron usando el consumo real de la telemetría de una moto elécttrica
         self.factor_correccion = 0.959
         self.eficiencia_tren = 0.95
 
@@ -40,7 +48,15 @@ class Moto:
         self.total_combustion_kwh = 0.0
 
         # Parámetro del cargador (potencia fija, para tiempo de carga)
-        self.charger_power_kw = 3.5  # por ejemplo, cargador ~3.5 kW
+        self.charger_power_kw = float(charger_power_kw) if charger_power_kw is not None else 3.5
+
+        # ✅ nuevo: precio por kWh (moneda/kWh)
+        self.price_per_kwh = float(price_per_kwh) if price_per_kwh is not None else 0.0
+
+        # ✅ nuevos acumulados globales de recarga
+        self.total_energy_charged_kwh = 0.0
+        self.total_charge_time_min = 0.0
+        self.total_charge_cost = 0.0
 
         # Distancia y duración total de la ruta (m, s)
         self.distance = 0.0
@@ -79,8 +95,16 @@ class Moto:
             "station_name": self.stations["nombre"][station_idx],
             "station_coords": self.stations["coords"][station_idx],
             "start_coords": current_pos,
-            # Se sobrescribe en self.charge()
-            "energy_charged": 0.0,
+
+            # Se sobrescribe en self.cargar()
+            "energy_charged": 0.0,           # kWh (mantengo tu llave original)
+            "charge_time_h": 0.0,            # horas
+            "charge_time_min": 0.0,          # minutos
+            "charger_power_kw": self.charger_power_kw,
+
+            # ✅ nuevos
+            "price_per_kwh": self.price_per_kwh,
+            "charge_cost": 0.0,              # moneda
         })
 
     def cambiar_ruta(self, new_route):
@@ -101,44 +125,61 @@ class Moto:
     def cargar(self):
         """
         Simula una recarga completa de la batería en el último punto de recarga registrado.
-        Calcula cuánta energía se cargó y el tiempo estimado de carga.
+        Calcula cuánta energía se cargó, el tiempo estimado de carga
+        y ✅ el costo de la energía cargada.
         """
         # Energía que falta para llenarse (kWh)
         energy_charged = self.capacidad_bateria - self.estado_bateria
+        if energy_charged < 0:
+            energy_charged = 0.0
 
         # Batería pasa a estar llena
         self.estado_bateria = self.capacidad_bateria
 
-        # Tiempo estimado de carga con potencia fija
+        # Tiempo estimado de carga con potencia fija (lineal)
         if self.charger_power_kw > 0:
             charge_time_h = energy_charged / self.charger_power_kw
         else:
             charge_time_h = 0.0
 
+        charge_time_min = charge_time_h * 60.0
+
+        # ✅ Costo de la carga
+        charge_cost = energy_charged * self.price_per_kwh
+
         # Guardamos detalles en el último punto de recarga
         last_cp = self.puntos_recarga_realizados[-1]
-        last_cp["energy_charged"] = energy_charged           # kWh
+        last_cp["energy_charged"] = energy_charged           # kWh (tu llave original)
         last_cp["charge_time_h"] = charge_time_h             # horas
-        last_cp["charge_time_min"] = charge_time_h * 60.0    # minutos
+        last_cp["charge_time_min"] = charge_time_min         # minutos
         last_cp["charger_power_kw"] = self.charger_power_kw  # potencia del cargador
+
+        # ✅ nuevos
+        last_cp["price_per_kwh"] = self.price_per_kwh
+        last_cp["charge_cost"] = charge_cost
+
+        # ✅ acumulados globales
+        self.total_energy_charged_kwh += energy_charged
+        self.total_charge_time_min += charge_time_min
+        self.total_charge_cost += charge_cost
 
         # Log del SoC después de cargar
         self.soc_history.append(self.estado_bateria)
         self.en_carga = False
 
     def consume_step(self):
-        
+
         # Calcula fuerzas, potencias y consumos en un "paso" de la simulación
         # y actualiza la batería y los acumulados de consumo.
         # Sincronizado con calcular_soc, calcular_potencia_por_punto y calcular_consumo_y_emisiones
-        
+
         hev = self.hev
         segment = self.route_data[self.idx]
 
         if self.idx_ruta >= len(segment["coords"]):
             return False  # fin de este segmento
 
-        # Velocidad en m/s 
+        # Velocidad en m/s
         vel = segment["speeds"][self.idx_ruta]
         theta = segment["slopes"][self.idx_ruta] * math.pi / 180
 
@@ -151,19 +192,19 @@ class Moto:
         faero = 0.5 * rho * hev.Chassis.a * hev.Chassis.cd * (vel ** 2)
         froll = g * hev.Chassis.m * hev.Chassis.crr * np.cos(theta)
         fg = g * hev.Chassis.m * np.sin(theta)
-        
+
         # Velocidad anterior para calcular inercia
         if self.idx_ruta > 0:
             v_prev = segment["speeds"][self.idx_ruta - 1]
         else:
             v_prev = 0
-        
+
         delta_v = vel - v_prev
         f_inertia = hev.Chassis.m * delta_v  # delta_t = 1 segundo
 
         fres = faero + froll + fg + f_inertia
 
-        # Potencias en el tren motriz 
+        # Potencias en el tren motriz
         p_e = vel * fres
         p_m = (fres * rw) * (vel / rw)
 
@@ -180,7 +221,7 @@ class Moto:
         if p_cn <= 0:
             p_cn = 0
 
-        # Cálculo de delta_t 
+        # Cálculo de delta_t
         if self.idx_ruta == 0:
             # Primer punto
             if "ts" in segment and len(segment["ts"]) > 0:
@@ -208,7 +249,7 @@ class Moto:
         potencia_kw = p_eb / 1000.0
         consumo_wh = potencia_kw * delta_t_horas * 1000  # en Wh
         self.pow_consumption = consumo_wh / 1000  # convertir a kWh
-        
+
         # Consumo de combustión
         self.pcn_consumption = (p_cn / 1000.0) * delta_t_horas
 
@@ -216,11 +257,11 @@ class Moto:
         self.total_electric_kwh += self.pow_consumption
         self.total_combustion_kwh += self.pcn_consumption
 
-        # Actualización del SoC 
+        # Actualización del SoC
         self.estado_bateria -= consumo_wh / 1000  # convertir Wh a kWh
         if self.estado_bateria < 0:
             self.estado_bateria = 0.0
-        
+
         self.soc_history.append(self.estado_bateria)
 
         # Guardar potencia (kW) y posición
@@ -228,7 +269,7 @@ class Moto:
         self.positions.append(segment["coords"][self.idx_ruta])
 
         return True
-    
+
     def avanzar_paso(self):
         """
         Avanza un paso de simulación. Devuelve:

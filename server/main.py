@@ -1,14 +1,15 @@
 import os
-from typing import List, Dict, Any
+import json
+from typing import List, Dict, Any, Optional
+
+import httpx
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Path, Response, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from petitions import _fetch_ors_route, _to2d
 
-from dotenv import load_dotenv
+from petitions import _fetch_ors_route, _to2d
 from consume import moto_consume
-import httpx
-import json
 
 load_dotenv()
 
@@ -16,7 +17,7 @@ ALLOWED_ORIGINS = [
     o.strip() for o in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173").split(",")
 ]
 ORS_TOKEN = os.getenv("ORS_TOKEN", "")
-AZURE_TOKEN = os.getenv("AZURE_TOKEN","")
+AZURE_TOKEN = os.getenv("AZURE_TOKEN", "")
 
 PORT = int(os.getenv("PORT", "8000"))
 
@@ -40,6 +41,16 @@ class VehicleInput(BaseModel):
     waypoints: List[Waypoint] = Field(default_factory=list)
 
 
+class StationsInput(BaseModel):
+    """
+    Estaciones manuales enviadas desde el frontend (opcionales).
+    coords: lista de [lng, lat]
+    nombre: lista de nombres (puede venir vacía)
+    """
+    coords: List[List[float]] = Field(default_factory=list)
+    nombre: List[str] = Field(default_factory=list)
+
+
 class Options(BaseModel):
     profile: str = "driving"
     alternatives: bool = False
@@ -53,13 +64,21 @@ class Options(BaseModel):
     alt_weight: float = 1.4
 
     # Ciudad del mapa / estaciones
-    city: str = "med"   # "med", "bog" o "amva"
+    city: str = "med"  # "med", "bog" o "amva"
 
     traffic: bool = False
+
+    # ✅ NUEVO: recarga/costos (lo define el usuario)
+    charger_power_kw: float = 3.5   # kW
+    price_per_kwh: float = 0.0      # moneda/kWh
+
 
 class RoutesRequest(BaseModel):
     options: Options
     vehicles: List[VehicleInput]
+
+    # ✅ NUEVO (opcional): estaciones manuales
+    stations: Optional[StationsInput] = None
 
 
 def get_estaciones(ubicacion: str = "amva"):
@@ -82,19 +101,25 @@ def get_estaciones(ubicacion: str = "amva"):
 # =================== SALUD ===================
 @app.get("/health")
 def health():
-    return {"ok": True, "provider": "ors", "has_token": bool(ORS_TOKEN)}
+    return {
+        "ok": True,
+        "provider": "ors/azure",
+        "has_ors_token": bool(ORS_TOKEN),
+        "has_azure_token": bool(AZURE_TOKEN),
+    }
 
 
 @app.get("/telemetria")
-def health():
-    with open("resources/data/telemetry/telemetry_example.json","r") as f:
+def telemetria():
+    with open("resources/data/telemetry/telemetry_example.json", "r") as f:
         return json.load(f)
 
-# =================== ESTACIONES ===================
+
+# =================== ESTACIONES (DEFAULT) ===================
 @app.get("/estaciones")
 async def estaciones(city: str = "amva"):
     """
-    Devuelve estaciones dependiendo de la ciudad:
+    Devuelve estaciones default dependiendo de la ciudad:
     - "amva" (default)
     - "med"
     - "bog"
@@ -112,17 +137,49 @@ async def routes(body: RoutesRequest):
 
     city = body.options.city
     if not city:
-        raise HTTPException(
-            status_code=500, detail="NO hay ciudad"
-        )
+        raise HTTPException(status_code=500, detail="NO hay ciudad")
 
-    traffic = body.options.traffic  
+    traffic = bool(body.options.traffic)
 
-    if not ORS_TOKEN and not AZURE_TOKEN:
-        raise HTTPException(
-            status_code=500, detail="Tokens no configurados"
-        )
+    # ✅ Validación tokens según modo
+    # - traffic=True usa Azure + _fecth_alt(ORS) => requiere ambos
+    # - traffic=False usa ORS => requiere ORS
+    if traffic:
+        if not AZURE_TOKEN:
+            raise HTTPException(
+                status_code=500,
+                detail="traffic=True pero AZURE_TOKEN no está configurado en .env",
+            )
+        if not ORS_TOKEN:
+            raise HTTPException(
+                status_code=500,
+                detail="traffic=True pero ORS_TOKEN no está configurado en .env (se necesita para alt/elevation)",
+            )
+    else:
+        if not ORS_TOKEN:
+            raise HTTPException(
+                status_code=500,
+                detail="ORS_TOKEN no configurado en .env",
+            )
 
+    # ✅ Estaciones: si vienen manuales en el body, usar esas; si no, default por ciudad
+    estaciones = None
+    if body.stations and body.stations.coords:
+        # Normalizar nombres si vienen vacíos o con longitud distinta
+        names = body.stations.nombre or []
+        if len(names) < len(body.stations.coords):
+            # completar nombres faltantes
+            for i in range(len(names), len(body.stations.coords)):
+                names.append(f"Estación {i + 1}")
+
+        estaciones = {
+            "coords": body.stations.coords,
+            "nombre": names,
+        }
+    else:
+        estaciones = get_estaciones(city)
+
+    # Guardar request de ejemplo
     with open("resources/examples/ej_in.json", "w") as f:
         json.dump(body.model_dump(), f, indent=2)
 
@@ -137,8 +194,6 @@ async def routes(body: RoutesRequest):
                 continue
 
             try:
-                estaciones = get_estaciones(city)
-
                 data = await moto_consume(
                     coords=coords,
                     estaciones=estaciones,
@@ -148,22 +203,24 @@ async def routes(body: RoutesRequest):
                     azure_token=AZURE_TOKEN,
                     profile=body.options.profile,
                     city=city,
-                    traffic=traffic
+                    traffic=traffic,
+                    charger_power_kw=body.options.charger_power_kw,
+                    price_per_kwh=body.options.price_per_kwh,
                 )
 
-                # Guardar salida de ejemplo sin cambios (data ya es dict)
                 with open("resources/examples/ej_out.json", "w") as f:
                     json.dump(data, f, indent=2)
 
             except httpx.RequestError as e:
                 raise HTTPException(
-                    status_code=502, detail=f"Error de red ORS: {e!s}"
+                    status_code=502, detail=f"Error de red ORS/Azure: {e!s}"
                 )
 
             idx += 1
             out.append({"vehicle_id": v.vehicle_id, **data})
 
     return {"routes": out}
+
 
 # =================== RUTAS: GeoJSON FeatureCollection ===================
 @app.post("/routes/geojson")

@@ -271,9 +271,10 @@ button {
 /* ===== contenedor del mapa ===== */
 .map-wrapper {
   position: relative;
-  height: 60vh; /* puedes subir/bajar este porcentaje */
-  min-height: 400px; /* para que nunca quede diminuto */
+  height: 100%;
+  min-height: 100%;
 }
+
 .map-root {
   height: 100%;
   width: 100%;

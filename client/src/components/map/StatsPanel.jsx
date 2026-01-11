@@ -1,3 +1,4 @@
+// client/src/components/map/StatsPanel.jsx
 import React, { useMemo } from "react";
 import {
   LineChart,
@@ -14,7 +15,6 @@ import {
 import { COLORS } from "../../utils/colors";
 
 const getColor = (index) => COLORS[index % COLORS.length];
-
 
 export default function StatsPanel({
   routes,
@@ -106,8 +106,7 @@ export default function StatsPanel({
       return null;
     const c = cumulativeEnergyData[cumulativeEnergyData.length - 1];
     const poder_calorifico_gasolina_kwh_galon = 33.7;
-    const consumo_galones =
-      c.energyIndex / poder_calorifico_gasolina_kwh_galon;
+    const consumo_galones = c.energyIndex / poder_calorifico_gasolina_kwh_galon;
     return consumo_galones * factor_emision_co2_kg_galon;
   }, [distanceKm, cumulativeEnergyData]);
 
@@ -117,16 +116,10 @@ export default function StatsPanel({
     return Object.entries(routes)
       .map(([id, route]) => ({
         vehicle: id,
-        distanceKm: route.summary?.distance
-          ? route.summary.distance / 1000
-          : null,
-        durationMin: route.summary?.duration
-          ? route.summary.duration / 60
-          : null,
+        distanceKm: route.summary?.distance ? route.summary.distance / 1000 : null,
+        durationMin: route.summary?.duration ? route.summary.duration / 60 : null,
       }))
-      .filter(
-        (d) => Number.isFinite(d.distanceKm) && Number.isFinite(d.durationMin)
-      );
+      .filter((d) => Number.isFinite(d.distanceKm) && Number.isFinite(d.durationMin));
   }, [routes]);
 
   // === 6. Exportar CSV (datos de la ruta activa) ===
@@ -135,10 +128,8 @@ export default function StatsPanel({
 
     const rows = [];
     rows.push(`# Vehículo: ${activeId || "N/D"}`);
-    if (Number.isFinite(distanceKm))
-      rows.push(`# Distancia (km): ${distanceKm.toFixed(3)}`);
-    if (Number.isFinite(durationMin))
-      rows.push(`# Duración (min): ${durationMin.toFixed(2)}`);
+    if (Number.isFinite(distanceKm)) rows.push(`# Distancia (km): ${distanceKm.toFixed(3)}`);
+    if (Number.isFinite(durationMin)) rows.push(`# Duración (min): ${durationMin.toFixed(2)}`);
     rows.push("");
     rows.push("segmento,potencia,soc");
 
@@ -146,9 +137,7 @@ export default function StatsPanel({
       rows.push(`${d.idx},${d.power},${d.soc ?? ""}`);
     });
 
-    const blob = new Blob([rows.join("\n")], {
-      type: "text/csv;charset=utf-8;",
-    });
+    const blob = new Blob([rows.join("\n")], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
@@ -164,28 +153,29 @@ export default function StatsPanel({
     window.print();
   };
 
-  // === 7. Puntos de carga (para la nueva tarjeta) ===
+  // === 7. Puntos de carga (card nueva) ===
   const chargePoints = Array.isArray(activeRoute?.charge_points)
     ? activeRoute.charge_points
     : [];
 
   const chargeSummary = useMemo(() => {
     if (!chargePoints.length)
-      return { totalEnergyKwh: 0, totalTimeMin: 0, count: 0 };
+      return { totalEnergyKwh: 0, totalTimeMin: 0, totalCost: 0, count: 0 };
 
     let totalEnergy = 0;
     let totalTimeMin = 0;
+    let totalCost = 0;
 
     chargePoints.forEach((cp) => {
-      if (typeof cp.energy_charged === "number")
-        totalEnergy += cp.energy_charged;
-      if (typeof cp.charge_time_min === "number")
-        totalTimeMin += cp.charge_time_min;
+      if (typeof cp.energy_charged === "number") totalEnergy += cp.energy_charged;
+      if (typeof cp.charge_time_min === "number") totalTimeMin += cp.charge_time_min;
+      if (typeof cp.charge_cost === "number") totalCost += cp.charge_cost;
     });
 
     return {
       totalEnergyKwh: totalEnergy,
       totalTimeMin,
+      totalCost,
       count: chargePoints.length,
     };
   }, [chargePoints]);
@@ -194,13 +184,19 @@ export default function StatsPanel({
     if (!chargePoints.length) return [];
     return chargePoints.map((cp, idx) => ({
       idx: idx + 1,
-      energy_kwh:
-        typeof cp.energy_charged === "number" ? cp.energy_charged : null,
-      time_min:
-        typeof cp.charge_time_min === "number" ? cp.charge_time_min : null,
       station_name: cp.station_name || `Punto ${idx + 1}`,
+      energy_kwh: typeof cp.energy_charged === "number" ? cp.energy_charged : null,
+      time_min: typeof cp.charge_time_min === "number" ? cp.charge_time_min : null,
+      cost: typeof cp.charge_cost === "number" ? cp.charge_cost : null,
+      price_per_kwh: typeof cp.price_per_kwh === "number" ? cp.price_per_kwh : null,
+      charger_power_kw:
+        typeof cp.charger_power_kw === "number" ? cp.charger_power_kw : null,
     }));
   }, [chargePoints]);
+
+  const hasChargeCost = useMemo(() => {
+    return chargeChartData.some((d) => Number.isFinite(d.cost) && d.cost > 0);
+  }, [chargeChartData]);
 
   return (
     <>
@@ -227,7 +223,7 @@ export default function StatsPanel({
         </div>
       </div>
 
-            {/* NUEVO LAYOUT VERTICAL */}
+      {/* LAYOUT VERTICAL */}
       <div className="stats-layout">
         {/* === Fila 1: Resumen general (full width) === */}
         <section className="stats-row">
@@ -255,14 +251,11 @@ export default function StatsPanel({
                 )}
                 <li>
                   <strong>Puntos de ruta:</strong>{" "}
-                  {powerSocData.length ||
-                    activeRoute.geometry?.coordinates?.length ||
-                    "N/D"}
+                  {powerSocData.length || activeRoute.geometry?.coordinates?.length || "N/D"}
                 </li>
                 {Number.isFinite(emisiones_co2_kg) && (
                   <li>
-                    <strong>Emisiones de CO₂:</strong>{" "}
-                    {emisiones_co2_kg.toFixed(1)} kg
+                    <strong>Emisiones de CO₂:</strong> {emisiones_co2_kg.toFixed(1)} kg
                   </li>
                 )}
                 {Number.isFinite(emisiones_co2_equivalente_kg) && (
@@ -271,13 +264,9 @@ export default function StatsPanel({
                     {emisiones_co2_equivalente_kg.toFixed(1)} kg
                   </li>
                 )}
-                {Number.isFinite(
-                  emisiones_co2_equivalente_electrico_kg
-                ) && (
+                {Number.isFinite(emisiones_co2_equivalente_electrico_kg) && (
                   <li>
-                    <strong>
-                      Emisiones equivalentes (motocicleta eléctrica):
-                    </strong>{" "}
+                    <strong>Emisiones equivalentes (motocicleta eléctrica):</strong>{" "}
                     {emisiones_co2_equivalente_electrico_kg.toFixed(1)} kg
                   </li>
                 )}
@@ -294,27 +283,16 @@ export default function StatsPanel({
             <h3>Potencia por segmento</h3>
             {powerSocData.length ? (
               <ResponsiveContainer width="100%" height={220}>
-                <LineChart
-                  data={powerSocData}
-                  margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
-                >
+                <LineChart data={powerSocData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
                   <XAxis
                     dataKey="idx"
                     tick={{ fontSize: 10 }}
-                    label={{
-                      value: "Segmento",
-                      position: "insideBottomRight",
-                      offset: -4,
-                    }}
+                    label={{ value: "Segmento", position: "insideBottomRight", offset: -4 }}
                   />
                   <YAxis
                     yAxisId="left"
                     tick={{ fontSize: 10 }}
-                    label={{
-                      value: "Potencia (W)",
-                      angle: -90,
-                      position: "insideLeft",
-                    }}
+                    label={{ value: "Potencia (W)", angle: -90, position: "insideLeft" }}
                   />
                   <Tooltip />
                   <Legend />
@@ -325,7 +303,7 @@ export default function StatsPanel({
                     name="Potencia (W)"
                     dot={false}
                     strokeWidth={2}
-                    stroke={getColor(0)}   // rojo
+                    stroke={getColor(0)}
                   />
                 </LineChart>
               </ResponsiveContainer>
@@ -338,26 +316,15 @@ export default function StatsPanel({
             <h3>Estado de carga (SoC)</h3>
             {powerSocData.length ? (
               <ResponsiveContainer width="100%" height={220}>
-                <LineChart
-                  data={powerSocData}
-                  margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
-                >
+                <LineChart data={powerSocData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
                   <XAxis
                     dataKey="idx"
                     tick={{ fontSize: 10 }}
-                    label={{
-                      value: "Segmento",
-                      position: "insideBottomRight",
-                      offset: -4,
-                    }}
+                    label={{ value: "Segmento", position: "insideBottomRight", offset: -4 }}
                   />
                   <YAxis
                     tick={{ fontSize: 10 }}
-                    label={{
-                      value: "SoC",
-                      angle: -90,
-                      position: "insideLeft",
-                    }}
+                    label={{ value: "SoC", angle: -90, position: "insideLeft" }}
                   />
                   <Tooltip />
                   <Legend />
@@ -367,7 +334,7 @@ export default function StatsPanel({
                     name="SoC"
                     dot={false}
                     strokeWidth={2}
-                    stroke={getColor(1)}   // azul
+                    stroke={getColor(1)}
                   />
                 </LineChart>
               </ResponsiveContainer>
@@ -390,19 +357,11 @@ export default function StatsPanel({
                   <XAxis
                     dataKey="idx"
                     tick={{ fontSize: 10 }}
-                    label={{
-                      value: "Segmento",
-                      position: "insideBottomRight",
-                      offset: -4,
-                    }}
+                    label={{ value: "Segmento", position: "insideBottomRight", offset: -4 }}
                   />
                   <YAxis
                     tick={{ fontSize: 10 }}
-                    label={{
-                      value: "Índice (∑ potencia)",
-                      angle: -90,
-                      position: "insideLeft",
-                    }}
+                    label={{ value: "Índice (∑ potencia)", angle: -90, position: "insideLeft" }}
                   />
                   <Tooltip />
                   <Legend />
@@ -412,7 +371,7 @@ export default function StatsPanel({
                     name="Índice de energía"
                     dot={false}
                     strokeWidth={2}
-                    stroke={getColor(2)}   // verde
+                    stroke={getColor(2)}
                   />
                 </LineChart>
               </ResponsiveContainer>
@@ -425,29 +384,18 @@ export default function StatsPanel({
             <h3>Comparación entre vehículos</h3>
             {comparisonData.length > 1 ? (
               <ResponsiveContainer width="100%" height={220}>
-                <BarChart
-                  data={comparisonData}
-                  margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
-                >
+                <BarChart data={comparisonData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
                   <XAxis dataKey="vehicle" tick={{ fontSize: 10 }} />
                   <YAxis
                     yAxisId="left"
                     tick={{ fontSize: 10 }}
-                    label={{
-                      value: "Distancia (km)",
-                      angle: -90,
-                      position: "insideLeft",
-                    }}
+                    label={{ value: "Distancia (km)", angle: -90, position: "insideLeft" }}
                   />
                   <YAxis
                     yAxisId="right"
                     orientation="right"
                     tick={{ fontSize: 10 }}
-                    label={{
-                      value: "Duración (min)",
-                      angle: 90,
-                      position: "insideRight",
-                    }}
+                    label={{ value: "Duración (min)", angle: 90, position: "insideRight" }}
                   />
                   <Tooltip />
                   <Legend />
@@ -455,21 +403,18 @@ export default function StatsPanel({
                     yAxisId="left"
                     dataKey="distanceKm"
                     name="Distancia (km)"
-                    fill={getColor(3)}   // ámbar
+                    fill={getColor(3)}
                   />
                   <Bar
                     yAxisId="right"
                     dataKey="durationMin"
                     name="Duración (min)"
-                    fill={getColor(4)}   // púrpura
+                    fill={getColor(4)}
                   />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
-              <p>
-                Añade más motos y calcula sus rutas para ver la comparación de
-                distancia y tiempo.
-              </p>
+              <p>Añade más motos y calcula sus rutas para ver la comparación de distancia y tiempo.</p>
             )}
           </div>
         </section>
@@ -478,14 +423,14 @@ export default function StatsPanel({
         <section className="stats-row">
           <div className="stats-card stats-card-full">
             <h3>Puntos de carga</h3>
+
             {!chargePoints.length ? (
               <p>Esta ruta no realizó recargas de batería.</p>
             ) : (
               <>
                 <ul style={{ marginBottom: "0.75rem" }}>
                   <li>
-                    <strong>Número de recargas:</strong>{" "}
-                    {chargeSummary.count}
+                    <strong>Número de recargas:</strong> {chargeSummary.count}
                   </li>
                   <li>
                     <strong>Energía total recargada:</strong>{" "}
@@ -495,40 +440,76 @@ export default function StatsPanel({
                     <strong>Tiempo total en carga:</strong>{" "}
                     {chargeSummary.totalTimeMin.toFixed(1)} min
                   </li>
+                  <li>
+                    <strong>Costo total de recargas:</strong>{" "}
+                    {chargeSummary.totalCost.toFixed(2)}
+                  </li>
                 </ul>
 
+                {/* Tabla rápida por estación */}
+                <div style={{ overflowX: "auto", marginBottom: "0.75rem" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+                    <thead>
+                      <tr>
+                        <th style={{ textAlign: "left", padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+                          #
+                        </th>
+                        <th style={{ textAlign: "left", padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+                          Estación
+                        </th>
+                        <th style={{ textAlign: "right", padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+                          Energía (kWh)
+                        </th>
+                        <th style={{ textAlign: "right", padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+                          Tiempo (min)
+                        </th>
+                        <th style={{ textAlign: "right", padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+                          Costo
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {chargeChartData.map((d) => (
+                        <tr key={`cp-row-${d.idx}`}>
+                          <td style={{ padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
+                            {d.idx}
+                          </td>
+                          <td style={{ padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
+                            {d.station_name}
+                          </td>
+                          <td style={{ textAlign: "right", padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
+                            {Number.isFinite(d.energy_kwh) ? d.energy_kwh.toFixed(2) : "—"}
+                          </td>
+                          <td style={{ textAlign: "right", padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
+                            {Number.isFinite(d.time_min) ? d.time_min.toFixed(1) : "—"}
+                          </td>
+                          <td style={{ textAlign: "right", padding: "8px 6px", borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
+                            {Number.isFinite(d.cost) ? d.cost.toFixed(2) : "—"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Gráfica energía vs tiempo (la que ya tenías) */}
                 <ResponsiveContainer width="100%" height={240}>
-                  <BarChart
-                    data={chargeChartData}
-                    margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
-                  >
+                  <BarChart data={chargeChartData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
                     <XAxis
                       dataKey="idx"
                       tick={{ fontSize: 10 }}
-                      label={{
-                        value: "Punto de carga",
-                        position: "insideBottomRight",
-                        offset: -4,
-                      }}
+                      label={{ value: "Punto de carga", position: "insideBottomRight", offset: -4 }}
                     />
                     <YAxis
                       yAxisId="left"
                       tick={{ fontSize: 10 }}
-                      label={{
-                        value: "Energía (kWh)",
-                        angle: -90,
-                        position: "insideLeft",
-                      }}
+                      label={{ value: "Energía (kWh)", angle: -90, position: "insideLeft" }}
                     />
                     <YAxis
                       yAxisId="right"
                       orientation="right"
                       tick={{ fontSize: 10 }}
-                      label={{
-                        value: "Tiempo (min)",
-                        angle: 90,
-                        position: "insideRight",
-                      }}
+                      label={{ value: "Tiempo (min)", angle: 90, position: "insideRight" }}
                     />
                     <Tooltip />
                     <Legend />
@@ -536,16 +517,40 @@ export default function StatsPanel({
                       yAxisId="left"
                       dataKey="energy_kwh"
                       name="Energía recargada (kWh)"
-                      fill={getColor(5)}   // rosa
+                      fill={getColor(5)}
                     />
                     <Bar
                       yAxisId="right"
                       dataKey="time_min"
                       name="Tiempo de carga (min)"
-                      fill={getColor(6)}   // teal
+                      fill={getColor(6)}
                     />
                   </BarChart>
                 </ResponsiveContainer>
+
+                {/* Gráfica de costo (solo si hay costo) */}
+                {hasChargeCost && (
+                  <div style={{ marginTop: 14 }}>
+                    <h4 style={{ margin: "6px 0 10px", fontSize: 14 }}>
+                      Costo por punto de carga
+                    </h4>
+                    <ResponsiveContainer width="100%" height={220}>
+                      <BarChart
+                        data={chargeChartData}
+                        margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
+                      >
+                        <XAxis dataKey="idx" tick={{ fontSize: 10 }} />
+                        <YAxis
+                          tick={{ fontSize: 10 }}
+                          label={{ value: "Costo", angle: -90, position: "insideLeft" }}
+                        />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="cost" name="Costo" fill={getColor(7)} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                )}
               </>
             )}
           </div>

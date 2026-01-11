@@ -1,10 +1,11 @@
 // client/src/services/api.js
 
 // 1) Base URL del backend: viene de .env o cae por defecto a localhost (modo dev)
-const RAW_BASE = import.meta.env.VITE_API_URL;
+// IMPORTANTE: en Vite, import.meta.env.* solo existe si empieza por VITE_
+const RAW_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 // Limpia posibles slashes sobrantes al final, tipo "http://ip:8000/"
-const API_BASE = RAW_BASE.replace(/\/+$/, "");
+const API_BASE = String(RAW_BASE).replace(/\/+$/, "");
 
 // 2) Endpoints centralizados
 export const API_ROUTES = {
@@ -13,7 +14,16 @@ export const API_ROUTES = {
   health: `${API_BASE}/health`,
 };
 
+// Helper opcional para debug
+export const getApiBase = () => API_BASE;
+
 // 3) Función para /routes
+// body esperado (ej):
+// {
+//   options: { ... , charger_power_kw, price_per_kwh, city, traffic },
+//   vehicles: [{ vehicle_id, waypoints: [{coordinates:[lng,lat]}] }],
+//   stations: { coords: [[lng,lat],...], nombre: ["A", ...] }   // opcional
+// }
 export async function postRoutesJSON(body, opts = {}) {
   const res = await fetch(API_ROUTES.routes, {
     method: "POST",

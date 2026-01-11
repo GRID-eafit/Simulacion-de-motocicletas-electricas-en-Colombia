@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+// client/src/pages/MapPage.jsx
+import React, { useEffect, useState, useCallback } from "react";
 import ControlsPanel from "../components/map/ControlsPanel.jsx";
 import MapView from "../components/map/MapView.jsx";
 import useVehicles from "../hooks/useVehicles.js";
 import useAutoRoutes from "../hooks/useAutoRoutes.js";
 import StatsPanel from "../components/map/StatsPanel.jsx";
+import * as api from "../services/api.js"; // ✅ para cargar estaciones default
 
 function FloatingToast({ open, title, message, onClose }) {
   if (!open) return null;
@@ -12,17 +14,15 @@ function FloatingToast({ open, title, message, onClose }) {
     <div
       style={{
         position: "fixed",
-        top: 56,
+        top: 72,
         left: "50%",
         transform: "translateX(-50%)",
         zIndex: 9999,
         width: "min(560px, calc(100vw - 32px))",
-
         background: "rgba(248, 250, 252, 0.98)",
         color: "#0f172a",
         borderRadius: 16,
         padding: 16,
-
         boxShadow:
           "0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.06)",
         border: "1px solid rgba(0,0,0,0.06)",
@@ -32,7 +32,6 @@ function FloatingToast({ open, title, message, onClose }) {
       aria-live="polite"
     >
       <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-        {/* Icono */}
         <div
           style={{
             width: 42,
@@ -49,15 +48,8 @@ function FloatingToast({ open, title, message, onClose }) {
           ⚠️
         </div>
 
-        {/* Texto */}
         <div style={{ flex: 1 }}>
-          <div
-            style={{
-              fontWeight: 700,
-              fontSize: 15,
-              marginBottom: 4,
-            }}
-          >
+          <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 4 }}>
             {title}
           </div>
 
@@ -72,14 +64,7 @@ function FloatingToast({ open, title, message, onClose }) {
             {message}
           </div>
 
-          {/* Acción */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              marginTop: 12,
-            }}
-          >
+          <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 12 }}>
             <button
               type="button"
               onClick={onClose}
@@ -126,6 +111,50 @@ export default function MapPage() {
   const [city, setCity] = useState("med");
   const [traffic, setTraffic] = useState(false);
 
+  // ============================
+  // ✅ estaciones: default vs custom
+  // ============================
+  const [stationsMode, setStationsMode] = useState("default"); // "default" | "custom"
+  const [stationsPayload, setStationsPayload] = useState(null); // { coords: [...], nombre: [...] } | null
+  const [stationsLoading, setStationsLoading] = useState(false);
+
+  const loadDefaultStations = useCallback(async (targetCity) => {
+    setStationsLoading(true);
+    try {
+      const data = await api.getStations(targetCity);
+
+      if (data?.coords?.length) {
+        setStationsPayload({
+          coords: data.coords,
+          nombre: data.nombre || data.coords.map((_, i) => `Estación ${i + 1}`),
+        });
+      } else {
+        setStationsPayload(null);
+      }
+    } catch (e) {
+      console.error("No se pudieron cargar estaciones default:", e);
+      setStationsPayload(null);
+    } finally {
+      setStationsLoading(false);
+    }
+  }, []);
+
+  const resetStationsToDefault = useCallback(
+    async (targetCity) => {
+      setStationsMode("default");
+      await loadDefaultStations(targetCity);
+    },
+    [loadDefaultStations]
+  );
+
+  // Al iniciar y cuando cambia la ciudad: cargar estaciones default
+  useEffect(() => {
+    resetStationsToDefault(city);
+  }, [city, resetStationsToDefault]);
+
+  // ============================
+  // Toast errores rutas
+  // ============================
   const [toastOpen, setToastOpen] = useState(false);
 
   const vehiclesForRouting = drawOnly ? [] : vehicles;
@@ -138,22 +167,27 @@ export default function MapPage() {
     setSelectedAlt,
     totalSummary,
     computeRoutesManual,
-
     routeError,
     clearRouteError,
+
+    // ✅ NUEVO
+    isLoading,
+    resetRoutes,
   } = useAutoRoutes({
     vehicles: vehiclesForRouting,
-    enabled: !drawOnly, // si lo estás usando manual, esto puede seguir así
+    enabled: !drawOnly,
     city,
     traffic,
+
+    // ✅ IMPORTANTÍSIMO:
+    // Esto se manda en default (cargado por GET /estaciones) y en custom (editado en el mapa)
+    stations: stationsPayload,
   });
 
-  // Si llega un error, abrimos el toast
   useEffect(() => {
     if (routeError) setToastOpen(true);
   }, [routeError]);
 
-  // Auto-cierre del toast
   useEffect(() => {
     if (!toastOpen) return;
     const t = setTimeout(() => {
@@ -176,12 +210,14 @@ export default function MapPage() {
   const handleChangeCity = (newCity) => {
     if (newCity === city) return;
 
+    // ✅ borra rutas antes de limpiar puntos
+    resetRoutes?.();
+
     clearAll();
     setImportedGeoJSON(null);
     setDrawOnly(false);
     setLastPoint(null);
 
-    // también cerrar toast al cambiar ciudad
     setToastOpen(false);
     clearRouteError();
 
@@ -205,6 +241,7 @@ export default function MapPage() {
 
       <div className="page-main">
         <aside className="sidebar">
+          {/* Ciudad */}
           <div style={{ marginBottom: "1rem" }}>
             <label style={{ fontSize: "0.9rem", fontWeight: 600 }}>
               Ciudad del mapa:
@@ -237,6 +274,7 @@ export default function MapPage() {
             </div>
           </div>
 
+          {/* Tráfico */}
           <div style={{ marginBottom: "1.2rem" }}>
             <label style={{ fontSize: "0.9rem", fontWeight: 600 }}>
               Condición de tráfico:
@@ -263,6 +301,9 @@ export default function MapPage() {
             clearAll={() => {
               setToastOpen(false);
               clearRouteError();
+
+              // ✅ borra polilíneas/rutas también
+              resetRoutes?.();
               clearAll();
             }}
             totalSummary={totalSummary}
@@ -273,6 +314,18 @@ export default function MapPage() {
             drawOnly={drawOnly}
             routes={routes}
             selectedAlt={selectedAlt}
+            routeError={routeError}
+
+            // ✅ loading para el botón
+            isLoading={isLoading}
+
+            // ✅ props estaciones
+            stationsMode={stationsMode}
+            setStationsMode={setStationsMode}
+            stationsPayload={stationsPayload}
+            setStationsPayload={setStationsPayload}
+            stationsLoading={stationsLoading}
+            resetStationsToDefault={() => resetStationsToDefault(city)}
           />
         </aside>
 
@@ -290,6 +343,11 @@ export default function MapPage() {
             importedGeoJSON={importedGeoJSON}
             drawOnly={drawOnly}
             city={city}
+
+            // ✅ estaciones (default o custom) para el mapa
+            stationsMode={stationsMode}
+            stationsPayload={stationsPayload}
+            setStationsPayload={setStationsPayload}
           />
         </div>
       </div>

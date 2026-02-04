@@ -6,3 +6,9 @@ geopy
 numpy
 openrouteservice
 matplotlib
+pandas
+geopandas
+shapely
+requests
+folium
+openpyxl

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_272df5425e4184455df8d45eb9ae1639 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 50px; left: 50px; width: 280px; height: auto; 
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:14px; padding: 10px">
+    <p><b>Leyenda de Rutas</b></p>
+    <p><span style="color:blue; font-size:16px;">━━━</span> Ruta de Ida (20.29 km)</p>
+    <p><span style="color:red; font-size:16px;">━━━</span> Ruta de Vuelta (19.71 km)</p>
+    <p><span style="color:green; font-size:16px;">●</span> Origen: Caldas</p>
+    <p><span style="color:red; font-size:16px;">●</span> Destino: Envigado</p>
+    </div>
+    
+    
+    <div style="position: fixed; 
+                top: 10px; right: 10px; width: 300px; height: auto; 
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:12px; padding: 10px">
+    <h4>Información del Viaje</h4>
+    <p><b>Origen:</b> Caldas</p>
+    <p><b>Destino:</b> Envigado</p>
+    <p><b>Estrato:</b> 3</p>
+    <p><b>Motivo:</b> Diligencia o tr√°mite</p>
+    <hr>
+    <p><b>Distancia Total:</b> 40.00 km</p>
+    <p><b>Consumo Eléctrico:</b> 0.9451 kWh</p>
+    <p><b>Consumo Gasolina:</b> 0.148084 galones</p>
+    <p><b>Costo Eléctrico:</b> $737 - $1,134 COP</p>
+    <p><b>Costo Combustión:</b> $2,399 - $2,429 COP</p>
+    </div>
+    
+            <div class="folium-map" id="map_272df5425e4184455df8d45eb9ae1639" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_272df5425e4184455df8d45eb9ae1639 = L.map(
+                "map_272df5425e4184455df8d45eb9ae1639",
+                {
+                    center: [6.12143103, -75.625829845],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_edb01181c40cad0f0a239f722297727b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_edb01181c40cad0f0a239f722297727b.addTo(map_272df5425e4184455df8d45eb9ae1639);
+        
+    
+            var tile_layer_2aaf66033af774203e0df19b5053f725 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2aaf66033af774203e0df19b5053f725.addTo(map_272df5425e4184455df8d45eb9ae1639);
+        
+    
+            var poly_line_0d07809cf84590619264baf30cb3bf8c = L.polyline(
+                [[6.062093, -75.632146], [6.062886, -75.632664], [6.064008, -75.633494], [6.065618, -75.633471], [6.066745, -75.633698], [6.067308, -75.633428], [6.067884, -75.633226], [6.068615, -75.633353], [6.068873, -75.63415], [6.068787, -75.634782], [6.069678, -75.633784], [6.071309, -75.633008], [6.072474, -75.633226], [6.073273, -75.633416], [6.075427, -75.632869], [6.076837, -75.631832], [6.07824, -75.631088], [6.081066, -75.630272], [6.082076, -75.630883], [6.082838, -75.630797], [6.084085, -75.630312], [6.087573, -75.631457], [6.08851, -75.631703], [6.089785, -75.631624], [6.091946, -75.631538], [6.092999, -75.631842], [6.093044, -75.635339], [6.095888, -75.636337], [6.096773, -75.63678], [6.097531, -75.637078], [6.098325, -75.637044], [6.100537, -75.636249], [6.102359, -75.63648], [6.103498, -75.636435], [6.104616, -75.636486], [6.105568, -75.636489], [6.106632, -75.636258], [6.107893, -75.635955], [6.109079, -75.636414], [6.110079, -75.636851], [6.111118, -75.636626], [6.112506, -75.636663], [6.113693, -75.636626], [6.114933, -75.637251], [6.115901, -75.636413], [6.117363, -75.635313], [6.118345, -75.634405], [6.120709, -75.634314], [6.121829, -75.634819], [6.122712, -75.634496], [6.124428, -75.63444], [6.126566, -75.633724], [6.127469, -75.633136], [6.128291, -75.632714], [6.1311, -75.633412], [6.133055, -75.633614], [6.134858, -75.634432], [6.136801, -75.634255], [6.137881, -75.634657], [6.139609, -75.633859], [6.143028, -75.633749], [6.14507, -75.633442], [6.146542, -75.6346], [6.147614, -75.634747], [6.148095, -75.636053], [6.148859, -75.636318], [6.150298, -75.636067], [6.151001, -75.635731], [6.152251, -75.63423], [6.152845, -75.63184], [6.151436, -75.63211], [6.151077, -75.6328], [6.151696, -75.632599], [6.151857, -75.630893], [6.151633, -75.628616], [6.152786, -75.625882], [6.155011, -75.622213], [6.155935, -75.620357], [6.157082, -75.616998], [6.160432, -75.610973], [6.161771, -75.608379], [6.162601, -75.605357], [6.163748, -75.603712], [6.165242, -75.602866], [6.169605, -75.60189], [6.171348, -75.600412], [6.173643, -75.597187], [6.174502, -75.595665], [6.174718, -75.594653], [6.173637, -75.592921], [6.172836, -75.592758], [6.17116, -75.590361], [6.170396, -75.588627], [6.168894, -75.587799], [6.166838, -75.586088], [6.166198, -75.585101], [6.164896, -75.585269], [6.162408, -75.585742], [6.159858, -75.584929], [6.15944, -75.584789]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_272df5425e4184455df8d45eb9ae1639);
+        
+    
+        var popup_09f6407044deed0eeb8be511c3a87428 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fad273fe749960dac0ef52aa87fefaa8 = $(`<div id="html_fad273fe749960dac0ef52aa87fefaa8" style="width: 100.0%; height: 100.0%;">Ruta de Ida</div>`)[0];
+                popup_09f6407044deed0eeb8be511c3a87428.setContent(html_fad273fe749960dac0ef52aa87fefaa8);
+            
+        
+
+        poly_line_0d07809cf84590619264baf30cb3bf8c.bindPopup(popup_09f6407044deed0eeb8be511c3a87428)
+        ;
+
+        
+    
+    
+            poly_line_0d07809cf84590619264baf30cb3bf8c.bindTooltip(
+                `<div>
+                     Ida: 20.29 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_622013516eb4f1b737a5c6e0a72f1853 = L.polyline(
+                [[6.15944, -75.584789], [6.161995, -75.585574], [6.164841, -75.58692], [6.166346, -75.588289], [6.168894, -75.587799], [6.169798, -75.589261], [6.170776, -75.590854], [6.172871, -75.592809], [6.173269, -75.59228], [6.173666, -75.592133], [6.173965, -75.592491], [6.174875, -75.594549], [6.176426, -75.596404], [6.176068, -75.595862], [6.17283, -75.600143], [6.17039, -75.603521], [6.168109, -75.606517], [6.164107, -75.612107], [6.162302, -75.614675], [6.16, -75.617915], [6.156936, -75.622391], [6.155592, -75.624408], [6.154887, -75.626795], [6.154051, -75.629061], [6.153308, -75.630774], [6.152378, -75.633867], [6.151761, -75.634979], [6.150463, -75.63605], [6.149436, -75.636121], [6.148377, -75.636238], [6.147926, -75.635264], [6.147402, -75.634649], [6.146238, -75.63438], [6.144209, -75.633391], [6.143028, -75.633749], [6.139609, -75.633859], [6.138124, -75.634558], [6.137053, -75.634346], [6.135272, -75.634453], [6.133558, -75.634296], [6.132463, -75.633467], [6.129971, -75.633335], [6.127885, -75.632702], [6.127358, -75.633453], [6.12624, -75.634103], [6.124428, -75.63444], [6.122712, -75.634496], [6.121968, -75.634794], [6.120821, -75.634293], [6.118578, -75.634414], [6.117808, -75.634676], [6.116229, -75.635745], [6.115583, -75.63663], [6.114585, -75.637309], [6.113145, -75.636421], [6.112327, -75.636686], [6.111118, -75.636626], [6.110079, -75.636851], [6.109155, -75.636512], [6.10801, -75.635989], [6.106848, -75.636167], [6.105895, -75.636609], [6.10501, -75.636494], [6.104162, -75.636304], [6.103141, -75.636505], [6.101826, -75.63635], [6.100188, -75.636207], [6.098325, -75.637044], [6.097531, -75.637078], [6.096825, -75.636815], [6.09598, -75.636363], [6.093004, -75.636153], [6.091704, -75.63601], [6.090448, -75.636035], [6.088091, -75.635873], [6.088219, -75.63316], [6.088121, -75.631728], [6.084841, -75.630561], [6.083914, -75.630429], [6.082883, -75.63092], [6.082159, -75.631022], [6.08117, -75.630438], [6.0801, -75.630495], [6.077659, -75.631418], [6.076351, -75.632345], [6.07498, -75.633109], [6.073001, -75.633516], [6.07184, -75.633113], [6.070356, -75.633513], [6.068921, -75.634832], [6.068722, -75.634404], [6.068902, -75.633793], [6.068141, -75.633264], [6.067646, -75.633209], [6.067051, -75.633683], [6.066626, -75.633649], [6.065455, -75.633459], [6.063943, -75.633479], [6.062886, -75.632664], [6.062093, -75.632146]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_272df5425e4184455df8d45eb9ae1639);
+        
+    
+        var popup_df9aed373010755cd8e10b8704c39583 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9179440adc501384d1cbcd02d616df54 = $(`<div id="html_9179440adc501384d1cbcd02d616df54" style="width: 100.0%; height: 100.0%;">Ruta de Vuelta</div>`)[0];
+                popup_df9aed373010755cd8e10b8704c39583.setContent(html_9179440adc501384d1cbcd02d616df54);
+            
+        
+
+        poly_line_622013516eb4f1b737a5c6e0a72f1853.bindPopup(popup_df9aed373010755cd8e10b8704c39583)
+        ;
+
+        
+    
+    
+            poly_line_622013516eb4f1b737a5c6e0a72f1853.bindTooltip(
+                `<div>
+                     Vuelta: 19.71 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_451ca7b98c7321ac81782f40596e502e = L.marker(
+                [6.062093, -75.632146],
+                {
+}
+            ).addTo(map_272df5425e4184455df8d45eb9ae1639);
+        
+    
+            var icon_4d8831d86354e2764967c5d06ab07d48 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "play",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bfd2821d0ca1b635a0b706e35b52675e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2bd994b2b10047dc3fc06f61cfb1a011 = $(`<div id="html_2bd994b2b10047dc3fc06f61cfb1a011" style="width: 100.0%; height: 100.0%;"><b>Origen: Caldas</b><br>Distancia ida: 20.29 km<br>Distancia vuelta: 19.71 km</div>`)[0];
+                popup_bfd2821d0ca1b635a0b706e35b52675e.setContent(html_2bd994b2b10047dc3fc06f61cfb1a011);
+            
+        
+
+        marker_451ca7b98c7321ac81782f40596e502e.bindPopup(popup_bfd2821d0ca1b635a0b706e35b52675e)
+        ;
+
+        
+    
+    
+                marker_451ca7b98c7321ac81782f40596e502e.setIcon(icon_4d8831d86354e2764967c5d06ab07d48);
+            
+    
+            var marker_770ffec6c1943cab3efcfb08279ca57d = L.marker(
+                [6.15944, -75.584789],
+                {
+}
+            ).addTo(map_272df5425e4184455df8d45eb9ae1639);
+        
+    
+            var icon_5db44b077d8e715eb4c10ff6b4c1b433 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "stop",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa7667f1416d37084acd8cf8039c33cd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_43fb76973e37c95333fa365fd12efed6 = $(`<div id="html_43fb76973e37c95333fa365fd12efed6" style="width: 100.0%; height: 100.0%;"><b>Destino: Envigado</b><br>Distancia ida: 20.29 km<br>Distancia vuelta: 19.71 km</div>`)[0];
+                popup_fa7667f1416d37084acd8cf8039c33cd.setContent(html_43fb76973e37c95333fa365fd12efed6);
+            
+        
+
+        marker_770ffec6c1943cab3efcfb08279ca57d.bindPopup(popup_fa7667f1416d37084acd8cf8039c33cd)
+        ;
+
+        
+    
+    
+                marker_770ffec6c1943cab3efcfb08279ca57d.setIcon(icon_5db44b077d8e715eb4c10ff6b4c1b433);
+            
+</script>
+</html>

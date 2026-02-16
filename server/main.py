@@ -387,19 +387,11 @@ import model_wrapper
 class CostsComputeRequest(BaseModel):
     coords: List[List[float]] = Field(..., min_items=2)
 
-    # Campos requeridos por el modelo avanzado
-    municipio_origen: str = "Medellín"
-    municipio_destino: str = "Medellín"
-    estrato: str = "3"
-    motivo_viaje: str = "Trabajo"
-
-    # Ida y vuelta (el modelo por defecto lo calcula ida y vuelta, 
-    # pero si quisiéramos controlar esto, el modelo lo hace internamente)
-    # Dejamos estos campos por compatibilidad si se requerían, pero el nuevo modelo maneja su propia lógica.
-    
-    # Parámetros editables simples (opcionalmente podríamos pasarlos, 
-    # pero el modelo tiene precios hardcodeados o lógica interna. 
-    # Por ahora usaremos la lógica del modelo wrapper).
+    # Optional fields - if not provided, backend will select from CSV
+    municipio_origen: Optional[str] = None
+    municipio_destino: Optional[str] = None
+    estrato: Optional[str] = None
+    motivo_viaje: Optional[str] = None
 
 
 # Usaremos un Dict genérico para la respuesta ya que el modelo devuelve muchas cosas
@@ -465,6 +457,7 @@ async def route_only(req: RouteOnlyRequest):
 async def costs_compute(req: CostsComputeRequest):
     """
     Calcula costos usando el modelo de simulación completo (model_wrapper).
+    Si no se proporcionan municipio/estrato/motivo, el backend los seleccionará del CSV.
     """
     coords = _to2d(req.coords)
     if len(coords) < 2:
@@ -478,6 +471,7 @@ async def costs_compute(req: CostsComputeRequest):
     origin_lng, origin_lat = origin
     dest_lng, dest_lat = dest
     
+    # Pass values as-is (None if not provided) - model_wrapper will handle CSV selection
     try:
         results = model_wrapper.compute_custom_trip(
             origin_lat=origin_lat,

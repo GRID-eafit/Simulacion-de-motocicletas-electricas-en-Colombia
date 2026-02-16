@@ -11,6 +11,8 @@ from geopy.distance import geodesic
 import requests
 import json
 import time
+
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 import folium
 import matplotlib.pyplot as plt
 
@@ -28,17 +30,33 @@ else:
 
 # Cargar shapefiles
 print("Cargando shapefiles...")
-zonas_sit = gpd.read_file("ZONAS SIT.shp")
-zat = gpd.read_file("zat.shp")
+zonas_sit = gpd.read_file(os.path.join(_SCRIPT_DIR, "ZONAS SIT.shp"))
+zat = gpd.read_file(os.path.join(_SCRIPT_DIR, "zat.shp"))
 
 # Cargar datos de canasta familiar
 print("Cargando datos de canasta familiar...")
 try:
-    gasto_motos = pd.read_excel("ENPH_Rev.xlsx", sheet_name='Gasto_Motos')
+    gasto_motos = pd.read_excel(os.path.join(_SCRIPT_DIR, "ENPH_Rev.xlsx"), sheet_name='Gasto_Motos')
     print("  ✓ Datos de canasta familiar cargados")
 except Exception as e:
     print(f"  ⚠ Error al cargar canasta familiar: {e}")
     gasto_motos = None
+
+# Cargar motivos de viaje del CSV para selección aleatoria
+print("Cargando motivos de viaje...")
+_motivos_viaje = []
+try:
+    df_viajes_motivos = pd.read_csv(os.path.join(_SCRIPT_DIR, 'viajes_motos_procesados.csv'), sep=';', encoding='utf-8-sig')
+    # Filtrar motivos válidos (no vacíos y no "Motivo_Viaje" que es el header)
+    motivos_validos = df_viajes_motivos['Motivo_Viaje'].dropna()
+    motivos_validos = motivos_validos[motivos_validos.astype(str).str.strip() != '']
+    motivos_validos = motivos_validos[motivos_validos.astype(str).str.strip() != 'Motivo_Viaje']
+    _motivos_viaje = motivos_validos.tolist()
+    print(f"  ✓ {len(_motivos_viaje)} motivos de viaje cargados")
+except Exception as e:
+    print(f"  ⚠ Error al cargar motivos de viaje: {e}")
+    _motivos_viaje = ["A trabajar", "A regresar al hogar", "A Estudiar", "A realizar compras"]
+
 
 def determinar_ciudad_municipio(municipio_nombre):
     """
@@ -652,6 +670,100 @@ def inferir_info_geo(lat, lon):
     
     return None, None
 
+def seleccionar_motivo_aleatorio():
+    """
+    Selecciona un motivo de viaje aleatorio de los datos del CSV.
+    Retorna un motivo de viaje como string.
+    """
+    if _motivos_viaje and len(_motivos_viaje) > 0:
+        return random.choice(_motivos_viaje)
+    else:
+        # Fallback si no hay motivos cargados
+        return "A trabajar"
+
+def seleccionar_datos_viaje_desde_coordenadas(origin_lat, origin_lon, dest_lat, dest_lon):
+    """
+    Selecciona datos de viaje (estrato y motivo) desde el CSV basado en las coordenadas.
+    Infiere el municipio desde las coordenadas y busca viajes que coincidan.
+    Retorna: (estrato, motivo_viaje)
+    """
+    try:
+        # Inferir municipios desde coordenadas
+        municipio_origen, _ = inferir_info_geo(origin_lat, origin_lon)
+        municipio_destino, _ = inferir_info_geo(dest_lat, dest_lon)
+        
+        # Si no se pudo inferir, usar defaults
+        if not municipio_origen:
+            municipio_origen = "Medellín"
+        if not municipio_destino:
+            municipio_destino = "Medellín"
+        
+        print(f"  📍 Municipios inferidos: {municipio_origen} → {municipio_destino}")
+        
+        # Cargar CSV de viajes
+        df_viajes = pd.read_csv(os.path.join(_SCRIPT_DIR, 'viajes_motos_procesados.csv'), sep=';', encoding='utf-8-sig')
+        
+        # Filtrar viajes con estrato válido
+        df_filtrado = df_viajes[df_viajes['ESTRATO'].astype(str).str.strip() != 'No aplica'].copy()
+        df_filtrado = df_filtrado[df_filtrado['ESTRATO'].astype(str).str.strip() != '']
+        
+
+        # Función auxiliar para normalizar texto (quitar tildes y minúsculas)
+        def normalizar_texto(texto):
+            if not isinstance(texto, str):
+                return str(texto)
+            texto = texto.lower().strip()
+            reemplazos = (
+                ("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"),
+                ("à", "a"), ("è", "e"), ("ì", "i"), ("ò", "o"), ("ù", "u"),
+                ("ä", "a"), ("ë", "e"), ("ï", "i"), ("ö", "o"), ("ü", "u"),
+                ("ñ", "n")
+            )
+            for a, b in reemplazos:
+                texto = texto.replace(a, b)
+            return texto
+
+        # Intentar filtrar por municipio de origen
+        municipio_origen_norm = normalizar_texto(municipio_origen)
+        print(f"  🔍 Buscando municipio: '{municipio_origen}' (normalizado: '{municipio_origen_norm}')")
+
+        # Crear columna temporal normalizada para filtrar
+        df_filtrado['Mun_Norm'] = df_filtrado['Municipio_Origen'].apply(normalizar_texto)
+        
+        df_municipio = df_filtrado[
+            df_filtrado['Mun_Norm'] == municipio_origen_norm
+        ]
+        
+        # Si no hay viajes de ese municipio, usar todos los viajes válidos
+        if len(df_municipio) == 0:
+            print(f"  ⚠ No se encontraron viajes desde {municipio_origen}, usando datos generales")
+            df_municipio = df_filtrado
+        
+        if len(df_municipio) == 0:
+            print("  ⚠ No hay viajes válidos en CSV, usando valores por defecto")
+            return "3", "A trabajar"
+        
+        # Seleccionar viaje aleatorio
+        viaje_aleatorio = df_municipio.sample(n=1).iloc[0]
+        estrato = str(viaje_aleatorio['ESTRATO']).strip()
+        motivo = str(viaje_aleatorio['Motivo_Viaje']).strip()
+        
+        print(f"  ✓ Datos seleccionados del CSV: Estrato={estrato}, Motivo={motivo}")
+        
+        return estrato, motivo
+        
+    except FileNotFoundError:
+        print(f"  ❌ ERROR CRÍTICO: No se encuentra el archivo 'viajes_motos_procesados.csv' en {os.getcwd()}")
+        return "3", "A trabajar"
+    except Exception as e:
+        print(f"  ⚠ Error al seleccionar datos del CSV: {e}")
+        import traceback
+        traceback.print_exc()
+        # Fallback a valores por defecto
+        return "3", "A trabajar"
+
+
+
 def main():
     """Función principal que selecciona un viaje aleatorio y calcula costos."""
     print("="*70)
@@ -661,7 +773,7 @@ def main():
     # Cargar archivo de viajes procesados
     print("\n1. Cargando archivo de viajes procesados...")
     try:
-        df_viajes = pd.read_csv('viajes_motos_procesados.csv', sep=';', encoding='utf-8-sig')
+        df_viajes = pd.read_csv(os.path.join(_SCRIPT_DIR, 'viajes_motos_procesados.csv'), sep=';', encoding='utf-8-sig')
         print(f"   ✓ Archivo cargado: {len(df_viajes):,} viajes")
     except Exception as e:
         print(f"   ✗ Error al cargar archivo: {e}")

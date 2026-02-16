@@ -68,11 +68,6 @@ export default function ModeloCostosPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Defaults (used only if inference fails, handled by backend)
-  const municipio = "Medellín";
-  const estrato = "3";
-  const motivo = "Trabajo";
-
   function addPoint(p) {
     if (waypoints.length >= 2) {
       if (confirm("Ya seleccionaste origen y destino. ¿Quieres limpiar y empezar de nuevo?")) {
@@ -131,15 +126,12 @@ export default function ModeloCostosPage() {
       }
 
       // 2. Call Simulation Model
+      // Send only coordinates - backend will infer municipio, estrato, and motivo from CSV
       const r2 = await fetch(`${VITE_API_URL}/costs/compute`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          coords,
-          municipio_origen: municipio,
-          municipio_destino: municipio,
-          estrato,
-          motivo_viaje: motivo
+          coords
         }),
       });
 

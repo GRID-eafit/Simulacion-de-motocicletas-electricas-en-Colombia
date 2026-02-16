@@ -76,13 +76,14 @@ def compute_custom_trip(
     origin_lng: float, 
     dest_lat: float, 
     dest_lng: float,
-    municipio_origen: str = "Medellín",
-    municipio_destino: str = "Medellín",
-    estrato: str = "3",
-    motivo_viaje: str = "Trabajo"
+    municipio_origen: Optional[str] = None,
+    municipio_destino: Optional[str] = None,
+    estrato: Optional[str] = None,
+    motivo_viaje: Optional[str] = None
 ) -> Dict[str, Any]:
     """
     Wrapper function to call the model's logic.
+    If municipio/estrato/motivo are None, they will be selected from CSV based on coordinates.
     """
     try:
         model = _load_model()
@@ -94,27 +95,52 @@ def compute_custom_trip(
         }
 
     try:
-        # Capture stdout? The model prints a lot. 
-        # For now, we just let it print to server logs.
-        # Calling the function:
-        # def calcular_consumo_y_costos_viaje(origin_lat, origin_lon, dest_lat, dest_lon, 
-        #                                    municipio_origen, municipio_destino, 
-        #                                    estrato, motivo_viaje):
-        # Try to infer Municipality and Stratum from coordinates
-        try:
-            mun_o, est_o = model.inferir_info_geo(origin_lat, origin_lng)
-            mun_d, est_d = model.inferir_info_geo(dest_lat, dest_lng)
-            
-            if mun_o: municipio_origen = mun_o
-            if mun_d: municipio_destino = mun_d
-            if est_o: estrato = est_o  # Use Origin stratum for household calculation
-            
-            logger.info(f"Inferred: {municipio_origen}->{municipio_destino} (Estrato {estrato})")
-        except AttributeError:
-             # In case the model function doesn't exist yet (if reload failed)
-             logger.warning("inferir_info_geo function not found in model.")
-        except Exception as inf_e:
-             logger.warning(f"Inference failed: {inf_e}")
+        # Infer municipalities from coordinates if not provided
+        if not municipio_origen or not municipio_destino:
+            try:
+                mun_o, _ = model.inferir_info_geo(origin_lat, origin_lng)
+                mun_d, _ = model.inferir_info_geo(dest_lat, dest_lng)
+                
+                if not municipio_origen and mun_o:
+                    municipio_origen = mun_o
+                if not municipio_destino and mun_d:
+                    municipio_destino = mun_d
+                
+                logger.info(f"Inferred municipalities: {municipio_origen}->{municipio_destino}")
+            except AttributeError:
+                logger.warning("inferir_info_geo function not found in model.")
+            except Exception as inf_e:
+                logger.warning(f"Municipality inference failed: {inf_e}")
+
+        # Select random trip data (stratum and motive) from CSV if not provided
+        if not estrato or not motivo_viaje:
+            try:
+                csv_estrato, csv_motivo = model.seleccionar_datos_viaje_desde_coordenadas(
+                    origin_lat, origin_lng, dest_lat, dest_lng
+                )
+                
+                if not estrato:
+                    estrato = csv_estrato
+                if not motivo_viaje:
+                    motivo_viaje = csv_motivo
+                    
+                logger.info(f"Selected from CSV: Estrato={estrato}, Motivo={motivo_viaje}")
+            except AttributeError:
+                logger.warning("seleccionar_datos_viaje_desde_coordenadas function not found in model.")
+            except Exception as sel_e:
+                logger.warning(f"CSV data selection failed: {sel_e}")
+
+        # Use final defaults if still None (fallback)
+        if not municipio_origen:
+            municipio_origen = "Medellín"
+        if not municipio_destino:
+            municipio_destino = "Medellín"
+        if not estrato:
+            estrato = "3"
+        if not motivo_viaje:
+            motivo_viaje = "Trabajo"
+        
+        logger.info(f"Final parameters: {municipio_origen}->{municipio_destino}, Estrato={estrato}, Motivo={motivo_viaje}")
 
         results = model.calcular_consumo_y_costos_viaje(
             origin_lat, origin_lng, 

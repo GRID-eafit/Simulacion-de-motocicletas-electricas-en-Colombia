@@ -10,6 +10,7 @@ export default function TopNav({ brand, tabs = [], activeKey }) {
     docs: "/docs",
     map: "/mapa",
     telemetry: "/telemetry",
+    flota: "/flota",
   }
 
   return (

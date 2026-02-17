@@ -9,6 +9,7 @@ import TelemetryPage from "./pages/TelemetryPage.jsx"
 import LoginPage from "./pages/LoginPage.jsx"
 import HomePage from "./pages/HomePage.jsx"
 import DocsPage from "./pages/DocsPage.jsx"
+import FlotaPage from "./pages/FlotaPage.jsx"
 
 import { AuthProvider } from "./auth/AuthContext.jsx"
 import ProtectedRoute from "./auth/ProtectedRoute.jsx"
@@ -21,6 +22,7 @@ function useActiveKey() {
 
   if (pathname.startsWith("/telemetry")) return "telemetry"
   if (pathname.startsWith("/mapa")) return "map"
+  if (pathname.startsWith("/flota")) return "flota"
   if (pathname.startsWith("/docs")) return "docs"
   if (pathname === "/home" || pathname === "/") return "home"
 
@@ -35,6 +37,7 @@ function AppFrame() {
     { key: "home", label: "Home" },
     { key: "docs", label: "Documentación" },
     { key: "map", label: "Mapa (Rutas)" },
+    { key: "flota", label: "Flotilla" },
     { key: "telemetry", label: "Telemetría" },
   ]
 
@@ -75,6 +78,7 @@ export default function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/docs" element={<DocsPage />} />
             <Route path="/mapa" element={<MapPage />} />
+            <Route path="/flota" element={<FlotaPage />} />
             <Route path="/telemetry" element={<TelemetryPage />} />
 
             {/* Redirecciones cómodas */}

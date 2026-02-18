@@ -10,3 +10,6 @@ resources/ej_out.json
 Puntos_de_rutas/
 .vscode/
 client/.env
+.vscode/
+nginx/
+certbot/

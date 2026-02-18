@@ -11,6 +11,10 @@ import pandas as pd
 import ast 
 from petitions import _fetch_ors_route
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 options = {
     "WLSACCESSID": os.getenv("WLSACCESSID", ""),
     "WLSSECRET": os.getenv("WLSSECRET", ""),

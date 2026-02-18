@@ -220,6 +220,9 @@ async def flota(body: FlotaInput):
     try:
         coords = [wp.coordinates for wp in body.waypoints]
         coords = coords + [coords[0]]
+        if len(coords) > 5:
+            raise HTTPException(status_code=400, detail=f"The amount of points must be less or equal than 5")
+        
         recorrido = procesar_ruteo(coords=[coord[::-1] for coord in coords])
 
         recorrido_coords = [coords[0]]

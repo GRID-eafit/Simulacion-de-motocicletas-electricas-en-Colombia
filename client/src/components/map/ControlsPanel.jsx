@@ -19,21 +19,21 @@ export default function ControlsPanel({
   totalSummary,
   computeRoutesManual,
   setVehicles,
-  onGeoLoad = () => {},
-  onClearGeo = () => {},
+  onGeoLoad = () => { },
+  onClearGeo = () => { },
   drawOnly = false,
   routes = {},
   selectedAlt = {},
   routeError = null,
   isLoading = false,
 
-  // ✅ (vienen desde MapPage)
+  // (vienen desde MapPage)
   stationsMode = "default", // "default" | "custom"
-  setStationsMode = () => {},
+  setStationsMode = () => { },
   stationsPayload = null, // { coords: [[lng,lat]], nombre: [...] } o null
-  setStationsPayload = () => {},
+  setStationsPayload = () => { },
   stationsLoading = false,
-  resetStationsToDefault = () => {},
+  resetStationsToDefault = () => { },
 }) {
   // ============================
   // Export
@@ -75,7 +75,7 @@ export default function ControlsPanel({
   };
 
   // ============================
-  // ✅ Input UX (sin “0” pegajoso)
+  // Input UX (sin “0” pegajoso)
   // ============================
   const [priceInput, setPriceInput] = useState(
     options?.price_per_kwh ? String(options.price_per_kwh) : ""
@@ -114,7 +114,7 @@ export default function ControlsPanel({
   };
 
   // ============================
-  // ✅ estaciones default/custom
+  // estaciones default/custom
   // ============================
   const onUseDefaultStations = async () => {
     setStationsMode("default");
@@ -139,13 +139,13 @@ export default function ControlsPanel({
     }
   };
 
-  // ✅ NUEVO: salir de edición sin perder estaciones custom
+  // salir de edición sin perder estaciones custom
   const onFinishCustomStations = () => {
     // OJO: no resetea payload, solo cambia el modo para volver a waypoints
     setStationsMode("default");
   };
 
-  // ✅ NUEVO: limpiar estaciones (reemplaza "Restaurar")
+  // limpiar estaciones (reemplaza "Restaurar")
   const onClearStations = () => {
     // Borra todas las estaciones visibles
     setStationsPayload({ coords: [], nombre: [] });
@@ -242,7 +242,7 @@ export default function ControlsPanel({
             Ingresar estaciones
           </button>
 
-          {/* ✅ NUEVO */}
+          {/* NUEVO */}
           {stationsMode === "custom" && (
             <button
               className="btn small"
@@ -255,7 +255,7 @@ export default function ControlsPanel({
             </button>
           )}
 
-          {/* ✅ REEMPLAZO: antes decía "Restaurar" */}
+          {/*  antes decía "Restaurar" */}
           <button
             className="btn small ghost"
             onClick={onClearStations}

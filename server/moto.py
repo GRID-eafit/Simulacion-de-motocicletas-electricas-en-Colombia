@@ -9,8 +9,8 @@ class Moto:
         route_data,
         stations,
         hybrid_cont,
-        charger_power_kw: float = 3.5,   # ✅ nuevo (opcional)
-        price_per_kwh: float = 0.0       # ✅ nuevo (opcional)
+        charger_power_kw: float = 3.5,   
+        price_per_kwh: float = 0.0       
     ):
         self.name = name
         self.route_data = route_data
@@ -50,10 +50,10 @@ class Moto:
         # Parámetro del cargador (potencia fija, para tiempo de carga)
         self.charger_power_kw = float(charger_power_kw) if charger_power_kw is not None else 3.5
 
-        # ✅ nuevo: precio por kWh (moneda/kWh)
+        # precio por kWh (moneda/kWh)
         self.price_per_kwh = float(price_per_kwh) if price_per_kwh is not None else 0.0
 
-        # ✅ nuevos acumulados globales de recarga
+        # nuevos acumulados globales de recarga
         self.total_energy_charged_kwh = 0.0
         self.total_charge_time_min = 0.0
         self.total_charge_cost = 0.0
@@ -102,7 +102,7 @@ class Moto:
             "charge_time_min": 0.0,          # minutos
             "charger_power_kw": self.charger_power_kw,
 
-            # ✅ nuevos
+            # nuevos
             "price_per_kwh": self.price_per_kwh,
             "charge_cost": 0.0,              # moneda
         })
@@ -126,7 +126,7 @@ class Moto:
         """
         Simula una recarga completa de la batería en el último punto de recarga registrado.
         Calcula cuánta energía se cargó, el tiempo estimado de carga
-        y ✅ el costo de la energía cargada.
+        y el costo de la energía cargada.
         """
         # Energía que falta para llenarse (kWh)
         energy_charged = self.capacidad_bateria - self.estado_bateria
@@ -144,7 +144,7 @@ class Moto:
 
         charge_time_min = charge_time_h * 60.0
 
-        # ✅ Costo de la carga
+        # Costo de la carga
         charge_cost = energy_charged * self.price_per_kwh
 
         # Guardamos detalles en el último punto de recarga
@@ -154,11 +154,11 @@ class Moto:
         last_cp["charge_time_min"] = charge_time_min         # minutos
         last_cp["charger_power_kw"] = self.charger_power_kw  # potencia del cargador
 
-        # ✅ nuevos
+        # nuevos
         last_cp["price_per_kwh"] = self.price_per_kwh
         last_cp["charge_cost"] = charge_cost
 
-        # ✅ acumulados globales
+        # acumulados globales
         self.total_energy_charged_kwh += energy_charged
         self.total_charge_time_min += charge_time_min
         self.total_charge_cost += charge_cost

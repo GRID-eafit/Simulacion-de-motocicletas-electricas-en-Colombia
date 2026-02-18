@@ -190,7 +190,7 @@ export default function useAutoRoutes({
     [enabled, city, traffic, options, stations, cancelPending, clearRouteError]
   );
 
-  // ✅ ESTE es el único que dispara el cálculo (manual)
+  // ESTE es el único que dispara el cálculo (manual)
   const computeRoutesManual = useCallback(() => {
     if (!enabled) return;
     cleanNow(vehicles);

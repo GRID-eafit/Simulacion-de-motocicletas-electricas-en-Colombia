@@ -11,6 +11,8 @@ from pydantic import BaseModel, Field
 from petitions import _fetch_ors_route, _to2d
 from consume import moto_consume
 
+from flota import procesar_ruteo
+
 load_dotenv()
 
 ALLOWED_ORIGINS = [
@@ -40,6 +42,8 @@ class VehicleInput(BaseModel):
     vehicle_id: str
     waypoints: List[Waypoint] = Field(default_factory=list)
 
+class FlotaInput(BaseModel):
+    waypoints: List[Waypoint] = Field(default_factory=list)
 
 class StationsInput(BaseModel):
     """
@@ -68,7 +72,6 @@ class Options(BaseModel):
 
     traffic: bool = False
 
-    # ✅ NUEVO: recarga/costos (lo define el usuario)
     charger_power_kw: float = 3.5   # kW
     price_per_kwh: float = 0.0      # moneda/kWh
 
@@ -77,7 +80,6 @@ class RoutesRequest(BaseModel):
     options: Options
     vehicles: List[VehicleInput]
 
-    # ✅ NUEVO (opcional): estaciones manuales
     stations: Optional[StationsInput] = None
 
 
@@ -108,12 +110,10 @@ def health():
         "has_azure_token": bool(AZURE_TOKEN),
     }
 
-
 @app.get("/telemetria")
 def telemetria():
     with open("resources/data/telemetry/telemetry_example.json", "r") as f:
         return json.load(f)
-
 
 # =================== ESTACIONES (DEFAULT) ===================
 @app.get("/estaciones")
@@ -141,7 +141,7 @@ async def routes(body: RoutesRequest):
 
     traffic = bool(body.options.traffic)
 
-    # ✅ Validación tokens según modo
+    # Validación tokens según modo
     # - traffic=True usa Azure + _fecth_alt(ORS) => requiere ambos
     # - traffic=False usa ORS => requiere ORS
     if traffic:
@@ -162,7 +162,7 @@ async def routes(body: RoutesRequest):
                 detail="ORS_TOKEN no configurado en .env",
             )
 
-    # ✅ Estaciones: si vienen manuales en el body, usar esas; si no, default por ciudad
+    # Estaciones: si vienen manuales en el body, usar esas; si no, default por ciudad
     estaciones = None
     if body.stations and body.stations.coords:
         # Normalizar nombres si vienen vacíos o con longitud distinta
@@ -178,10 +178,6 @@ async def routes(body: RoutesRequest):
         }
     else:
         estaciones = get_estaciones(city)
-
-    # Guardar request de ejemplo
-    with open("resources/examples/ej_in.json", "w") as f:
-        json.dump(body.model_dump(), f, indent=2)
 
     out: List[Dict[str, Any]] = []
     async with httpx.AsyncClient(timeout=30) as client:
@@ -208,9 +204,6 @@ async def routes(body: RoutesRequest):
                     price_per_kwh=body.options.price_per_kwh,
                 )
 
-                with open("resources/examples/ej_out.json", "w") as f:
-                    json.dump(data, f, indent=2)
-
             except httpx.RequestError as e:
                 raise HTTPException(
                     status_code=502, detail=f"Error de red ORS/Azure: {e!s}"
@@ -221,7 +214,53 @@ async def routes(body: RoutesRequest):
 
     return {"routes": out}
 
+# =================== Flota ===================
+@app.post("/flota")
+async def flota(body: FlotaInput):
+    try:
+        coords = [wp.coordinates for wp in body.waypoints]
+        coords = coords + [coords[0]]
+        recorrido = procesar_ruteo(coords=[coord[::-1] for coord in coords])
 
+        recorrido_coords = [coords[0]]
+        for viaje in recorrido:
+            recorrido_coords.append(coords[viaje[1]])
+
+        async with httpx.AsyncClient(timeout=30) as client:
+            ruta = await _fetch_ors_route(
+                client, ORS_TOKEN, "driving", recorrido_coords,
+                steps=True, geometries="geojson", exclude=[]
+            )
+        waypoints = ruta["properties"]["way_points"]
+        
+        ruta_carga = []
+        ruta_nodos = []
+        
+        # Clasificar entre rutas de carga y entre nodos
+        points = recorrido[0]
+        for i in range(1,len(recorrido)):
+            points.append(recorrido[i][1])
+
+        ruta_carga = []
+        ruta_nodos = []
+
+        for i in range(len(points)-1):
+            if points[i] and not points[i+1]:
+                ruta_carga.append([waypoints[i],waypoints[i+1]])
+            else:
+                ruta_nodos.append([waypoints[i],waypoints[i+1]])
+        
+        return {
+            "ruta": [[ln,lat] for ln,lat,_ in ruta["geometry"]["coordinates"]],
+            "distancia" : ruta["properties"]["summary"]["distance"],
+            "duracion" : ruta["properties"]["summary"]["duration"],
+            "ruta_carga": ruta_carga,
+            "ruta_nodos": ruta_nodos,
+            "viajes": [x + 1 for x in points][:-1] + [1]
+            }
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Error: {e}")
+        
 # =================== RUTAS: GeoJSON FeatureCollection ===================
 @app.post("/routes/geojson")
 async def routes_geojson(request: Request):

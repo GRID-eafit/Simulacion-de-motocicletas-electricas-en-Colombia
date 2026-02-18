@@ -76,15 +76,14 @@ export default function MapView({
   removeWaypointAt,
   clearWaypointsActive,
   selectedAlt = {},
-  setSelectedAlt = () => {},
+  setSelectedAlt = () => { },
   importedGeoJSON,
   drawOnly = false,
   city = "med",
 
-  // ✅ estaciones (default o custom) vienen del MapPage
   stationsMode = "default", // "default" | "custom"
   stationsPayload = null, // { coords: [[lng,lat]], nombre: [string] }
-  setStationsPayload = () => {},
+  setStationsPayload = () => { },
 }) {
   // Centro depende de la ciudad
   const center = useMemo(() => {
@@ -261,8 +260,8 @@ export default function MapView({
                 idx === 0
                   ? markerIcons[vi].start
                   : idx === v.waypoints.length - 1
-                  ? markerIcons[vi].end
-                  : markerIcons[vi].normal;
+                    ? markerIcons[vi].end
+                    : markerIcons[vi].normal;
 
               return (
                 <Marker
@@ -322,12 +321,12 @@ export default function MapView({
             eventHandlers={
               stationsMode === "custom"
                 ? {
-                    click: (ev) => {
-                      // evita que el click se interprete como click en mapa
-                      ev?.originalEvent?.stopPropagation?.();
-                      removeStation(station.idx);
-                    },
-                  }
+                  click: (ev) => {
+                    // evita que el click se interprete como click en mapa
+                    ev?.originalEvent?.stopPropagation?.();
+                    removeStation(station.idx);
+                  },
+                }
                 : undefined
             }
           >

@@ -123,7 +123,7 @@ async def moto_consume(
             "emisiones_electricas": emisiones_electrico_kg,
             "emisiones_combustion": emisiones_combustion_kg,
 
-            # ✅ NUEVO: totales de recarga
+            # totales de recarga
             "total_energy_charged_kwh": moto.total_energy_charged_kwh,
             "total_charge_time_min": moto.total_charge_time_min,
             "total_charge_cost": moto.total_charge_cost,

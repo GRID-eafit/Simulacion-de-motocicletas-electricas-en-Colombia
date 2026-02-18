@@ -9,4 +9,11 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  server: {
+    host: true, // This allows the server to be exposed to the network
+    allowedHosts: [
+      'motoelectricacol.co',
+      '.motoelectricacol.co' // The dot allows subdomains too
+    ]
+  }
 })

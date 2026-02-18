@@ -12,3 +12,4 @@ shapely
 requests
 folium
 openpyxl
+gurobipy

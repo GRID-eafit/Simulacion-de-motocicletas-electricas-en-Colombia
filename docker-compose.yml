@@ -25,4 +25,17 @@ services:
       - "8000"
     restart: unless-stopped
 
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: frontend
+    env_file:
+      - ./client/.env
+    expose:
+      - "5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
   

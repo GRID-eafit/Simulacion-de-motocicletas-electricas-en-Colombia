@@ -15,6 +15,7 @@ import CostsModelPage from "./pages/CostsModelPage.jsx";
 import { AuthProvider } from "./auth/AuthContext.jsx"
 import ProtectedRoute from "./auth/ProtectedRoute.jsx"
 
+import "./index.css"
 
 // Mapea ruta -> clave activa para TopNav
 function useActiveKey() {

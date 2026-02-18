@@ -1,6 +1,6 @@
 "use client"
 import { NavLink, useNavigate } from "react-router-dom"
-import EAFITLogo from "../../images/EAFIT.jpg"  // asegúrate del nombre/ruta
+import EAFITLogo from "../../images/EAFIT.jpg" // asegúrate del nombre/ruta
 
 export default function TopNav({ brand, tabs = [], activeKey }) {
   const navigate = useNavigate()
@@ -11,6 +11,7 @@ export default function TopNav({ brand, tabs = [], activeKey }) {
     map: "/mapa",
     telemetry: "/telemetry",
     flota: "/flota",
+    costos: "/costos",
   }
 
   return (
@@ -45,7 +46,6 @@ export default function TopNav({ brand, tabs = [], activeKey }) {
           )
         })}
       </nav>
-
     </header>
   )
 }

@@ -401,3 +401,134 @@ async def tile_osm(
         "Cache-Control": "public, max-age=86400",
     }
     return Response(content=r.content, headers=headers, media_type="image/png")
+
+
+# ============================================================
+# ✅ NUEVO: ENDPOINTS PARA "MODELO COSTOS"
+# ============================================================
+
+class RouteOnlyRequest(BaseModel):
+    coords: List[List[float]] = Field(..., min_items=2)  # [[lng,lat], ...]
+    profile: str = "driving"  # usa mismo estilo que el resto del server
+    geometries: str = "geojson"
+
+
+class RouteOnlyResponse(BaseModel):
+    distance_km: float
+    duration_min: float
+    geometry: Dict[str, Any]  # GeoJSON LineString
+
+
+
+# Importar el wrapper del modelo
+import model_wrapper
+
+class CostsComputeRequest(BaseModel):
+    coords: List[List[float]] = Field(..., min_items=2)
+
+    # Optional fields - if not provided, backend will select from CSV
+    municipio_origen: Optional[str] = None
+    municipio_destino: Optional[str] = None
+    estrato: Optional[str] = None
+    motivo_viaje: Optional[str] = None
+
+
+# Usaremos un Dict genérico para la respuesta ya que el modelo devuelve muchas cosas
+# class CostsComputeResponse(BaseModel): ... 
+
+
+
+@app.post("/route_only", response_model=RouteOnlyResponse)
+async def route_only(req: RouteOnlyRequest):
+    """
+    Devuelve SOLO la ruta para pintarla en el mapa (sin moto_consume).
+    """
+    if not ORS_TOKEN:
+        raise HTTPException(status_code=500, detail="ORS_TOKEN no configurado en .env")
+
+    coords = _to2d(req.coords)
+    if len(coords) < 2:
+        raise HTTPException(status_code=400, detail="Se requieren al menos 2 puntos")
+
+    async with httpx.AsyncClient(timeout=30) as client:
+        try:
+            r = await _fetch_ors_route(
+                client=client,
+                token=ORS_TOKEN,
+                profile_key=req.profile,
+                coords=coords,
+                steps=False,
+                geometries=req.geometries,
+                exclude=[],
+                want_alternatives=False,
+                alt_count=1,
+                alt_share=0.6,
+                alt_weight=1.4,
+            )
+        except httpx.RequestError as e:
+            raise HTTPException(status_code=502, detail=f"Error de red ORS: {e!s}")
+
+    # _fetch_ors_route already returns the principal (first) feature, not the full GeoJSON
+    # So 'r' is already a feature object like:
+    # {
+    #   "type": "Feature",
+    #   "geometry": {...},
+    #   "properties": {"summary": {...}, ...}
+    # }
+    feat = r
+    if not feat or "geometry" not in feat:
+        raise HTTPException(status_code=500, detail="Respuesta ORS inesperada (sin geometry)")
+    
+    summary = (feat.get("properties") or {}).get("summary") or {}
+    dist_m = float(summary.get("distance", 0.0))
+    dur_s = float(summary.get("duration", 0.0))
+
+    geometry = feat.get("geometry") or {}
+
+    return {
+        "distance_km": dist_m / 1000.0,
+        "duration_min": dur_s / 60.0,
+        "geometry": geometry,
+    }
+
+
+@app.post("/costs/compute")
+async def costs_compute(req: CostsComputeRequest):
+    """
+    Calcula costos usando el modelo de simulación completo (model_wrapper).
+    Si no se proporcionan municipio/estrato/motivo, el backend los seleccionará del CSV.
+    """
+    coords = _to2d(req.coords)
+    if len(coords) < 2:
+        raise HTTPException(status_code=400, detail="Se requieren al menos 2 puntos")
+    
+    # El modelo espera (lat, lng)
+    # coords viene como [lng, lat]
+    origin = coords[0]
+    dest = coords[-1]
+    
+    origin_lng, origin_lat = origin
+    dest_lng, dest_lat = dest
+    
+    # Pass values as-is (None if not provided) - model_wrapper will handle CSV selection
+    try:
+        results = model_wrapper.compute_custom_trip(
+            origin_lat=origin_lat,
+            origin_lng=origin_lng,
+            dest_lat=dest_lat,
+            dest_lng=dest_lng,
+            municipio_origen=req.municipio_origen,
+            municipio_destino=req.municipio_destino,
+            estrato=req.estrato,
+            motivo_viaje=req.motivo_viaje
+        )
+        
+        # Validar si hubo error en el wrapper
+        if "error" in results and results.get("fallback") is not True:
+            # Si retorna fallback=True, es que devolvió datos parciales
+            # Si no, es un error fatal.
+             pass
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error en modelo: {str(e)}")
+
+    return results

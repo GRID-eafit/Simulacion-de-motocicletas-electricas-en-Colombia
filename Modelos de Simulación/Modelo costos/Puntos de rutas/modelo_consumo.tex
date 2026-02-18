@@ -1,0 +1,203 @@
+\subsection{Modelado del Consumo Energético}
+
+El modelo de consumo energético para una motocicleta eléctrica se basa en un análisis de fuerzas considerando el vehículo como una partícula. Este modelo tiene en cuenta las fuerzas de resistencia aerodinámica, inercial, rotacional y gravitacional, así como el ángulo de inclinación de la carretera, la densidad del aire, y los coeficientes de resistencia al aire y a la rodadura. A partir del diagrama de cuerpo libre y mediante la sumatoria de fuerzas, se describe el consumo energético de la motocicleta.
+
+\subsubsection{Modelo de Fuerzas}
+
+\begin{equation} 
+    F_{\mathrm{res}}[k] = F_{\mathrm{aero}}[k] + F_{\mathrm{roll}}[k] + F_{\mathrm{i}}[k] + F_{\mathrm{g}}[k]
+    \label{F_res}
+\end{equation}
+
+La ecuación \eqref{F_res} muestra que la fuerza resultante total que experimenta el vehículo en un instante $k$ se describe como la suma de las fuerzas que inciden sobre la motocicleta: la fuerza aerodinámica $F_{\mathrm{aero}}[k]$, la fuerza de rodadura $F_{\mathrm{roll}}[k]$, la fuerza inercial $F_{\mathrm{i}}[k]$ y la fuerza gravitacional $F_{\mathrm{g}}[k]$ en el instante $k$.
+
+\begin{equation} 
+    F_{\mathrm{aero}}[k] = \frac{1}{2} \cdot \rho \cdot A \cdot c_{\mathrm{d}} \cdot v[k]^2
+    \label{F_aero}
+\end{equation}
+
+La ecuación \eqref{F_aero} describe la fuerza aerodinámica en términos de la densidad del aire $\rho$, el área frontal del vehículo $A$, el coeficiente de resistencia aerodinámica $c_{\mathrm{d}}$ y el cuadrado de la velocidad de la motocicleta $v[k]^2$.
+
+\begin{equation} 
+    F_{\mathrm{roll}}[k] = g \cdot m \cdot c_{\mathrm{rr}} \cdot \cos(\theta[k])
+    \label{F_roll}
+\end{equation}
+
+La ecuación \eqref{F_roll} describe la fuerza de rodadura en términos de la masa del vehículo $m$, la constante gravitacional $g$, el coeficiente de resistencia a la rodadura $c_{\mathrm{rr}}$ y el coseno del ángulo de inclinación de la carretera $\theta[k]$ en el instante $k$.
+
+\begin{equation} 
+    F_{\mathrm{i}}[k] = m \cdot \Delta v[k]
+    \label{F_i}
+\end{equation}
+
+La ecuación \eqref{F_i} describe la fuerza inercial en términos de la masa del vehículo $m$ y el cambio en la velocidad $\Delta v[k] = v[k] - v[k-1]$ entre instantes consecutivos. Esta aproximación asume un intervalo de tiempo unitario entre mediciones.
+
+\begin{equation} 
+    F_{\mathrm{g}}[k] = g \cdot m \cdot \sin(\theta[k])
+    \label{F_g}
+\end{equation}
+
+La ecuación \eqref{F_g} describe la fuerza gravitacional en términos de la masa del vehículo $m$, la constante gravitacional $g$ y el seno del ángulo de inclinación de la carretera $\theta[k]$ en el instante $k$.
+
+\begin{equation} 
+    F_{\mathrm{res}}[k] = \frac{1}{2} \cdot \rho \cdot A \cdot c_{\mathrm{d}} \cdot v[k]^2 + g \cdot m \cdot c_{\mathrm{rr}} \cdot \cos(\theta[k]) + m \cdot \Delta v[k] + g \cdot m \cdot \sin(\theta[k])
+    \label{F_res_expandida}
+\end{equation}
+
+Reemplazando las ecuaciones \eqref{F_aero}, \eqref{F_roll}, \eqref{F_i} y \eqref{F_g} en la ecuación \eqref{F_res}, se obtiene la ecuación \eqref{F_res_expandida}. Esta representa la fuerza total que experimenta la motocicleta en función de la velocidad, la aceleración y el ángulo de inclinación en el instante $k$.
+
+\subsubsection{Modelo de Potencia}
+
+\begin{equation} 
+    P_{\mathrm{m}}[k] = F_{\mathrm{res}}[k] \cdot v[k]
+    \label{P_m}
+\end{equation}
+
+La potencia mecánica de la motocicleta se representa mediante el producto de la fuerza resultante y la velocidad en el instante $k$, como se muestra en la ecuación \eqref{P_m}.
+
+Para una motocicleta eléctrica, la potencia eléctrica requerida se define como:
+
+\begin{equation} 
+    P_{\mathrm{eb}}[k] = \frac{P_{\mathrm{m}}[k] \cdot (1 - \alpha_{\mathrm{comb}}) \cdot \phi_{\mathrm{corr}}}{\mu_{\mathrm{tren}}}
+    \label{P_eb}
+\end{equation}
+
+donde $\alpha_{\mathrm{comb}}$ es el factor de contribución del motor de combustión (con $0 \leq \alpha_{\mathrm{comb}} \leq 1$), $\mu_{\mathrm{tren}}$ es la eficiencia del tren de potencia eléctrico, y $\phi_{\mathrm{corr}}$ es un factor de corrección empírico que ajusta el modelo a las mediciones reales. Para una motocicleta completamente eléctrica, $\alpha_{\mathrm{comb}} = 0$.
+
+De manera análoga, la potencia requerida por el motor de combustión se define como:
+
+\begin{equation} 
+    P_{\mathrm{cn}}[k] = \frac{P_{\mathrm{m}}[k] \cdot \alpha_{\mathrm{comb}}}{\mu_{\mathrm{comb}}}
+    \label{P_cn}
+\end{equation}
+
+donde $\mu_{\mathrm{comb}}$ es la eficiencia del motor de combustión.
+
+Sustituyendo la ecuación \eqref{P_m} en las ecuaciones \eqref{P_eb} y \eqref{P_cn}, se obtienen las expresiones completas para las potencias eléctrica y de combustión:
+
+\begin{equation} 
+    P_{\mathrm{eb}}[k] = \frac{\left(\frac{1}{2} \cdot \rho \cdot A \cdot c_{\mathrm{d}} \cdot v[k]^2 + g \cdot m \cdot c_{\mathrm{rr}} \cdot \cos(\theta[k]) + m \cdot \Delta v[k] + g \cdot m \cdot \sin(\theta[k])\right) \cdot v[k] \cdot (1 - \alpha_{\mathrm{comb}}) \cdot \phi_{\mathrm{corr}}}{\mu_{\mathrm{tren}}}
+    \label{P_eb_completa}
+\end{equation}
+
+\begin{equation} 
+    P_{\mathrm{cn}}[k] = \frac{\left(\frac{1}{2} \cdot \rho \cdot A \cdot c_{\mathrm{d}} \cdot v[k]^2 + g \cdot m \cdot c_{\mathrm{rr}} \cdot \cos(\theta[k]) + m \cdot \Delta v[k] + g \cdot m \cdot \sin(\theta[k])\right) \cdot v[k] \cdot \alpha_{\mathrm{comb}}}{\mu_{\mathrm{comb}}}
+    \label{P_cn_completa}
+\end{equation}
+
+Las ecuaciones \eqref{P_eb_completa} y \eqref{P_cn_completa} describen completamente las potencias requeridas por el motor eléctrico y el motor de combustión, respectivamente, en función de los parámetros dinámicos del vehículo y las condiciones de la ruta. Se impone la restricción de que $P_{\mathrm{eb}}[k] \geq 0$ y $P_{\mathrm{cn}}[k] \geq 0$ para evitar potencias negativas.
+
+\subsubsection{Cálculo del Ángulo de Inclinación}
+
+El ángulo de inclinación de la carretera $\theta[k]$ se calcula a partir de los datos de altitud GPS mediante la siguiente expresión:
+
+\begin{equation} 
+    \theta[k] = \arctan\left(\frac{\Delta h[k]}{d_{\mathrm{horizontal}}[k]}\right)
+    \label{theta}
+\end{equation}
+
+donde $\Delta h[k] = h[k] - h[k-1]$ es la diferencia de altitud entre puntos consecutivos y $d_{\mathrm{horizontal}}[k]$ es la distancia horizontal calculada mediante la fórmula de Haversine entre las coordenadas geográficas consecutivas $(lat[k-1], lon[k-1])$ y $(lat[k], lon[k])$.
+
+\subsubsection{Modelo de Estado de Carga (SOC)}
+
+El estado de carga de la batería se calcula mediante integración temporal de la potencia consumida:
+
+\begin{equation} 
+    E[k] = E[k-1] - P_{\mathrm{eb}}[k] \cdot \Delta t[k]
+    \label{SOC}
+\end{equation}
+
+donde $E[k]$ es la energía almacenada en la batería en el instante $k$, $E[k-1]$ es la energía en el instante anterior, $P_{\mathrm{eb}}[k]$ es la potencia eléctrica consumida en el instante $k$, y $\Delta t[k] = (t[k] - t[k-1]) / 3600$ es el intervalo de tiempo en horas entre mediciones consecutivas. Se impone la restricción $E[k] \geq 0$ para evitar estados de carga negativos.
+
+\subsubsection{Preprocesamiento de Datos}
+
+Para mejorar la resolución temporal del modelo, se realiza una interpolación lineal de los vectores de velocidad, pendiente y tiempo. Dado un vector original de $n$ puntos, se generan $n + (n-1) \cdot p$ puntos, donde $p$ es el número de puntos intermedios entre cada par de puntos originales. Esta interpolación permite una representación más suave de las variaciones en velocidad y pendiente a lo largo de la ruta.
+
+\subsubsection{Optimización de Parámetros}
+
+Los parámetros del modelo se optimizan mediante minimización del error cuadrático medio entre las predicciones del modelo y las mediciones reales de telemetría. La función objetivo a minimizar es:
+
+\begin{equation} 
+    J(\mathbf{p}) = \frac{1}{N} \sum_{k=1}^{N} \left[(P_{\mathrm{eb}}^{\mathrm{modelo}}[k] - P_{\mathrm{eb}}^{\mathrm{real}}[k])^2 + \lambda \cdot (E^{\mathrm{modelo}}[k] - E^{\mathrm{real}}[k])^2\right]
+    \label{error}
+\end{equation}
+
+donde $\mathbf{p} = [m, c_{\mathrm{d}}, A, c_{\mathrm{rr}}, \phi_{\mathrm{corr}}, \mu_{\mathrm{tren}}]^T$ es el vector de parámetros a optimizar, $N$ es el número de puntos de medición, y $\lambda$ es un factor de ponderación que balancea el error de potencia y el error de estado de carga. La optimización se realiza mediante el método L-BFGS-B con restricciones de límites para cada parámetro.
+
+\subsubsection{Cálculo de Consumo y Emisiones}
+
+El consumo energético total se calcula mediante integración temporal de la potencia:
+
+\begin{equation} 
+    C_{\mathrm{eléctrico}} = \sum_{k=1}^{N} P_{\mathrm{eb}}[k] \cdot \Delta t[k]
+    \label{consumo_electrico}
+\end{equation}
+
+\begin{equation} 
+    C_{\mathrm{combustión}} = \sum_{k=1}^{N} P_{\mathrm{cn}}[k] \cdot \Delta t[k]
+    \label{consumo_combustion}
+\end{equation}
+
+donde $C_{\mathrm{eléctrico}}$ y $C_{\mathrm{combustión}}$ son los consumos totales en kWh para el motor eléctrico y de combustión, respectivamente.
+
+El consumo de combustible en galones se calcula mediante:
+
+\begin{equation} 
+    C_{\mathrm{galones}} = \frac{C_{\mathrm{combustión}}}{PC_{\mathrm{gasolina}}}
+    \label{consumo_galones}
+\end{equation}
+
+donde $PC_{\mathrm{gasolina}} = 33.7$ kWh/galón es el poder calorífico de la gasolina.
+
+Las emisiones equivalentes de ciclo de vida se calculan mediante factores de emisión específicos:
+
+\begin{equation} 
+    E_{\mathrm{CO}_2}^{\mathrm{eléctrico}} = FE_{\mathrm{eléctrico}} \cdot D
+    \label{emisiones_electrico}
+\end{equation}
+
+\begin{equation} 
+    E_{\mathrm{CO}_2}^{\mathrm{combustión}} = FE_{\mathrm{combustión}} \cdot D
+    \label{emisiones_combustion}
+\end{equation}
+
+donde $FE_{\mathrm{eléctrico}} = 35$ gCO$_2$/km y $FE_{\mathrm{combustión}} = 70$ gCO$_2$/km son los factores de emisión equivalentes de ciclo de vida para motocicletas eléctricas y de combustión, respectivamente, y $D$ es la distancia total recorrida en kilómetros, calculada mediante:
+
+\begin{equation} 
+    D = \sum_{k=1}^{N} v[k] \cdot \Delta t[k]
+    \label{distancia}
+\end{equation}
+
+\subsubsection{Parámetros del Modelo}
+
+En la Tabla \ref{tabmot} se describen los parámetros del modelo de consumo de la motocicleta eléctrica. Estos parámetros se obtienen mediante optimización basada en datos de telemetría real, ajustando el modelo para minimizar el error entre las predicciones del modelo y las mediciones de potencia y estado de carga (SOC) de la batería.
+
+\begin{table}[htbp]
+\caption{Parámetros dinámicos del modelo de motocicleta eléctrica}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{\textit{Parámetros}} & \textbf{\textit{Valor}} & \textbf{\textit{Unidades}}\\
+\cline{1-3} 
+\hline
+$\rho$ & 1.225 & [kg/m³] \\
+$A$ & 0.74 & [m²] \\
+$c_{\mathrm{d}}$ & 0.3 & -\\
+$g$ & 9.81 & [m/s²] \\
+$m$ & 140 & [kg] \\
+$c_{\mathrm{rr}}$ & 0.01 & -\\
+$\mu_{\mathrm{tren}}$ & 0.85 & -\\
+$\mu_{\mathrm{comb}}$ & 0.2 & -\\
+$\phi_{\mathrm{corr}}$ & 1.617 & -\\
+$PC_{\mathrm{gasolina}}$ & 33.7 & [kWh/galón] \\
+$FE_{\mathrm{eléctrico}}$ & 35 & [gCO$_2$/km] \\
+$FE_{\mathrm{combustión}}$ & 70 & [gCO$_2$/km] \\
+\hline
+\end{tabular}
+\label{tabmot}
+\end{center}
+\end{table}
+
+Los rangos de optimización para los parámetros ajustables son: $m \in [50, 200]$ kg, $c_{\mathrm{d}} \in [0.1, 1.0]$, $A \in [0.3, 1.5]$ m², $c_{\mathrm{rr}} \in [0.005, 0.05]$, $\phi_{\mathrm{corr}} \in [0.5, 3.0]$, y $\mu_{\mathrm{tren}} \in [0.6, 0.95]$.
+
+El modelo permite simular diferentes configuraciones híbridas variando el factor de contribución $\alpha_{\mathrm{comb}}$. Para una motocicleta completamente eléctrica, $\alpha_{\mathrm{comb}} = 0$, mientras que para una motocicleta completamente a combustión, $\alpha_{\mathrm{comb}} = 1$. Los valores intermedios permiten modelar diferentes estrategias de distribución de potencia entre ambos motores.

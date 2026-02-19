@@ -67,6 +67,13 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
 
           {/* Todo lo demás protegido por login */}
+          {/* Public Routes with Layout */}
+          <Route element={<AppFrame />}>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/" element={<Navigate to="/home" replace />} />
+          </Route>
+
+          {/* Todo lo demás protegido por login */}
           <Route
             element={
               <ProtectedRoute>
@@ -74,7 +81,6 @@ export default function App() {
               </ProtectedRoute>
             }
           >
-            <Route path="/home" element={<HomePage />} />
             <Route path="/docs" element={<DocsPage />} />
             <Route path="/mapa" element={<MapPage />} />
             <Route path="/flota" element={<FlotaPage />} />
@@ -82,7 +88,6 @@ export default function App() {
             <Route path="/costos" element={<CostsModelPage />} />
 
             {/* Redirecciones cómodas */}
-            <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="*" element={<Navigate to="/home" replace />} />
           </Route>
         </Routes>

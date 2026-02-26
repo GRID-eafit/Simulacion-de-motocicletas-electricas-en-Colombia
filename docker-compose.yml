@@ -33,7 +33,7 @@ services:
     env_file:
       - ./client/.env
     expose:
-      - "80"
+      - "5173"
     depends_on:
       - backend
     restart: unless-stopped

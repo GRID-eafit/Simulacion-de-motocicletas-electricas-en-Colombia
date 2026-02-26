@@ -1,20 +1,21 @@
-# client/Dockerfile
-FROM node:20-alpine
+# Stage 1: Build Stage
+FROM node:20-alpine AS build-stage
 
 WORKDIR /app
 
-# Copiar archivos de definición de dependencias
-COPY package.json package-lock.json ./
-
-# Instalar dependencias (usa package-lock con npm ci)
+# Install dependencies
+COPY package*.json ./
 RUN npm ci
 
-# Copiar el resto del código del frontend
-COPY . /app
+# Copy source and build the app
+COPY . .
+# Vite creates a 'dist' folder by default
+RUN npm run build
 
-# Exponer puerto default de Vite
+FROM nginx:stable-alpine AS production-stage
+
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
 EXPOSE 5173
 
-# Comando para levantar Vite en modo dev dentro del contenedor
-# --host 0.0.0.0 para que sea accesible desde fuera del contenedor
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
+CMD ["nginx", "-g", "daemon off;"]

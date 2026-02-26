@@ -182,7 +182,8 @@ export default function FlotillaPage() {
                                         <div style={{ fontSize: "0.875rem", lineHeight: "1.5" }}>
                                             {routeData.viajes.map((punto, idx) => (
                                                 <div key={idx} style={{ marginBottom: "0.25rem" }}>
-                                                    <span style={{ fontWeight: "500" }}>{idx + 1}.</span> Punto {punto}
+                                                    <span style={{ fontWeight: "500" }}>{idx + 1}.</span>
+                                                     {punto === 1 || punto === "1" ? " Depósito" : ` Punto ${punto}`}
                                                 </div>
                                             ))}
                                         </div>

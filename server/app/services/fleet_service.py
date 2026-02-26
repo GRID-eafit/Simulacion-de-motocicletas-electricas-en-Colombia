@@ -1,6 +1,4 @@
 """
-app/services/fleet_service.py
-------------------------------
 Fleet routing service using the Gurobi optimizer.
 
 Exposes :func:`procesar_ruteo` which takes a list of lat/lon coordinates
@@ -20,9 +18,7 @@ from app.core.config import settings
 from app.utils.geo import haversine_km
 
 
-# ---------------------------------------------------------------------------
 # Gurobi environment – built from settings to avoid reading env vars twice
-# ---------------------------------------------------------------------------
 
 _gurobi_env = gp.Env(params={
     "WLSACCESSID": settings.WLSACCESSID,
@@ -31,9 +27,7 @@ _gurobi_env = gp.Env(params={
 })
 
 
-# ---------------------------------------------------------------------------
 # Distance matrix
-# ---------------------------------------------------------------------------
 
 def _matriz_distancias(coords: list) -> np.ndarray:
     """Return a zero-initialised distance matrix (placeholder for ORS calls)."""
@@ -41,9 +35,7 @@ def _matriz_distancias(coords: list) -> np.ndarray:
     return np.zeros((N, N), dtype=float)
 
 
-# ---------------------------------------------------------------------------
 # Data preparation
-# ---------------------------------------------------------------------------
 
 def _prepare_data(coords: list) -> dict:
     """Build all data structures needed by the Gurobi model.
@@ -121,15 +113,12 @@ def _prepare_data(coords: list) -> dict:
     }
 
 
-# ---------------------------------------------------------------------------
 # Optimisation model
-# ---------------------------------------------------------------------------
 
 def _solve_evrp(data: dict, Tlim: float = 200) -> Tuple[list, list]:
     """Solve the Electric Vehicle Routing Problem with Battery Swap.
 
     Returns
-    -------
     used_swap:
         List of arc pairs that involve a depot-side charging swap.
     used:
@@ -315,9 +304,7 @@ def _solve_evrp(data: dict, Tlim: float = 200) -> Tuple[list, list]:
         raise RuntimeError(f"Gurobi ended with status {m.Status}")
 
 
-# ---------------------------------------------------------------------------
 # Public entry point
-# ---------------------------------------------------------------------------
 
 def procesar_ruteo(coords: list) -> list:
     """Return the ordered sequence of arc pairs for the optimal fleet route.

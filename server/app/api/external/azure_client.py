@@ -1,6 +1,4 @@
 """
-app/api/external/azure_client.py
----------------------------------
 HTTP client wrappers for the Azure Maps Routing API.
 """
 
@@ -17,7 +15,6 @@ async def fetch_azure_route(
     """Request a route from Azure Maps and return the raw GeoJSON response.
 
     Parameters
-    ----------
     client:
         Shared async HTTP client.
     token:

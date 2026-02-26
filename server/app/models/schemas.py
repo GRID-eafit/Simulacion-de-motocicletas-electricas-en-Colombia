@@ -1,7 +1,5 @@
 """
-app/models/schemas.py
----------------------
-All Pydantic request/response schemas used by the API routers.
+Pydantic request/response schemas used by the API routers.
 """
 
 from typing import Any, Dict, List, Optional

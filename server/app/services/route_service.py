@@ -1,6 +1,4 @@
 """
-app/services/route_service.py
-------------------------------
 Orchestration logic for the simulation of a single motorcycle trip.
 
 Combines external routing (ORS / Azure) with the Moto simulation class

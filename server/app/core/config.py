@@ -1,6 +1,4 @@
 """
-app/core/config.py
-------------------
 Centralised application settings loaded from environment variables / .env file.
 
 Usage:

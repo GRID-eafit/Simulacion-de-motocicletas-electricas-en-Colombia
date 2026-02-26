@@ -1,6 +1,4 @@
 """
-app/services/costs_service.py
-------------------------------
 Wrapper around the standalone trip-cost simulation model.
 
 The model lives in ``server/Modelos de Simulación/Modelo costos/`` and is
@@ -19,11 +17,6 @@ _load_error = None
 
 
 def _load_model():
-    """Lazily load the trip-cost model module.
-
-    Changes the working directory to the model folder during import so that
-    any relative file paths inside the model scripts resolve correctly.
-    """
     global _model_module, _load_error
 
     if _model_module:

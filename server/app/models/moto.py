@@ -1,6 +1,4 @@
 """
-app/models/moto.py
-------------------
 Moto simulation domain class.
 
 Simulates an electric (or hybrid) motorcycle moving along a pre-computed
@@ -83,9 +81,7 @@ class Moto:
             from HybridBikeConsumptionModel.parameters_hybrid import HEV
         self.hev = HEV()
 
-    # ------------------------------------------------------------------
     # Navigation helpers
-    # ------------------------------------------------------------------
 
     def estacion_cercana(self, current_pos: list) -> int:
         """Return the index of the charging station closest to *current_pos*
@@ -127,9 +123,7 @@ class Moto:
         self.idx_ruta = 0
         self.idx += 1
 
-    # ------------------------------------------------------------------
     # Charging
-    # ------------------------------------------------------------------
 
     def cargar(self) -> None:
         """Simulate a full recharge at the last registered charging point."""
@@ -158,9 +152,7 @@ class Moto:
         self.soc_history.append(self.estado_bateria)
         self.en_carga = False
 
-    # ------------------------------------------------------------------
     # Simulation step
-    # ------------------------------------------------------------------
 
     def consume_step(self) -> bool:
         """Compute forces, powers and energy consumption for one simulation
@@ -244,7 +236,6 @@ class Moto:
         """Advance one simulation step.
 
         Returns
-        -------
         0
             End of route.
         1

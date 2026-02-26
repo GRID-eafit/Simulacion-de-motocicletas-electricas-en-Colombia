@@ -1,6 +1,4 @@
 """
-app/api/external/ors_client.py
-------------------------------
 HTTP client wrappers for the OpenRouteService (ORS) API.
 """
 
@@ -113,9 +111,6 @@ async def fetch_elevation(
     return data["geometry"]["coordinates"]
 
 
-# ---------------------------------------------------------------------------
-# Backward-compatible aliases (used by older imports that still expect the
-# underscore-prefixed names)
-# ---------------------------------------------------------------------------
+# Backward-compatible aliases 
 _fetch_ors_route = fetch_ors_route
 _fecth_alt = fetch_elevation

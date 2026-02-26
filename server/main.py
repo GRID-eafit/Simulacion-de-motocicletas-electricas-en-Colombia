@@ -1,6 +1,4 @@
 """
-main.py
---------
 Application entry point.
 
 Creates the FastAPI instance, attaches CORS middleware, and registers all
@@ -29,9 +27,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# ---------------------------------------------------------------------------
 # Middleware
-# ---------------------------------------------------------------------------
 
 app.add_middleware(
     CORSMiddleware,
@@ -41,9 +37,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ---------------------------------------------------------------------------
 # Routers
-# ---------------------------------------------------------------------------
 
 app.include_router(misc_router.router)
 app.include_router(routes_router.router)

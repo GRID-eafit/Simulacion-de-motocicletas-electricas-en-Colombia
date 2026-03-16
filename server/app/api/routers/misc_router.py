@@ -32,9 +32,8 @@ def _get_estaciones(ubicacion: str = "amva") -> dict:
     path = mapping.get(ubicacion)
     if not path:
         raise ValueError(f"Unknown city: {ubicacion!r}")
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
-
 
 # ---------------------------------------------------------------------------
 # Endpoints

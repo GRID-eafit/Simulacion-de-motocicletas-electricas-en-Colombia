@@ -1,56 +1,32 @@
 {
   "coords": [
-    [
-      -75.623833,
-      6.153929
-    ],
-    [
-      -75.451106,
-      6.379154
-    ],
-    [
-      -75.578379,
-      6.162938
-    ],
-    [
-      -75.605652,
-      6.180956
-    ],
-    [
-      -75.569288,
-      6.207983
-    ],
-    [
-      -75.623833,
-      6.253028
-    ],
-    [
-      -75.569288,
-      6.253028
-    ],
-    [
-      -75.58747,
-      6.262037
-    ],
-    [
-      -75.560197,
-      6.289064
-    ],
-    [
-      -75.560197,
-      6.334109
-    ]
+    [-75.590197, 6.196271], [-75.564743, 6.196271], [-75.593833, 6.199875],
+    [-75.586561, 6.228704], [-75.572015, 6.232307], [-75.542924, 6.232307],
+    [-75.568379, 6.235911], [-75.528379, 6.235911], [-75.601106, 6.239515],
+    [-75.59747, 6.239515], [-75.586561, 6.239515], [-75.582924, 6.243118],
+    [-75.582924, 6.246722], [-75.568379, 6.250325], [-75.542924, 6.253929],
+    [-75.564743, 6.261136], [-75.561106, 6.26474], [-75.564743, 6.271947],
+    [-75.604743, 6.282758], [-75.590197, 6.282758], [-75.586561, 6.282758],
+    [-75.546561, 6.286361], [-75.539288, 6.289965], [-75.546561, 6.293569],
+    [-75.561106, 6.297172], [-75.582924, 6.300776], [-75.55747, 6.300776],
+    [-75.579288, 6.304379]
   ],
   "nombre": [
-    "Estacion 1",
-    "Estacion 10",
-    "Estacion 2",
-    "Estacion 3",
-    "Estacion 4",
-    "Estacion 5",
-    "Estacion 6",
-    "Estacion 7",
-    "Estacion 8",
-    "Estacion 9"
+    "Calle 12B Sur (La Colina)", "Carrera 30 (Comuna 14 - El Poblado)", "Calle 11C Sur (La Colina)",
+    "Calle 27 (Trinidad)", "Carrera 45 (Perpetuo Socorro)", "Calle 45H (Los Cerros - El Vergel)",
+    "Avenida de Las Palmas (Barrio San Diego)", "Villa Turbay", "Carrera 80A (Comuna 11 - Laureles-Estadio)",
+    "Calle 33A (Laureles)", "Carrera 65D (Los Conquistadores)", "Carrera 64B (Los Conquistadores)",
+    "Calle 42B (San Joaquín)", "Carrera 51 (La Candelaria)", "Carrera 19 (Los Mangos)",
+    "Carrera 51 (Jesús Nazareno)", "Calle 68 (San Pedro)", "Ciclorruta Jardin Botanico (San Pedro)",
+    "Carrera 94C (Pajarito)", "Carrera 86 (Bello Horizonte)", "Carrera 83 (El Diamante)",
+    "Calle 95A (San Pablo)", "Escaleras secundarias (Carpinelo)", "Calle 105 (Granizal)",
+    "Villa Niza", "Calle 100 (Picachito)", "Carrera 52 (Andalucía)", "Carrera 82 (Doce de Octubre No. 1)"
+  ],
+  "tipo": [
+    "Estándar", "Alta Capacidad", "Alta Capacidad", "Estándar", "Estándar", "Alta Capacidad",
+    "Estándar", "Estándar", "Estándar", "Estándar", "Alta Capacidad", "Alta Capacidad",
+    "Alta Capacidad", "Intercambio", "Estándar", "Estándar", "Estándar", "Alta Capacidad",
+    "Estándar", "Estándar", "Alta Capacidad", "Estándar", "Alta Capacidad", "Estándar",
+    "Alta Capacidad", "Alta Capacidad", "Estándar", "Estándar"
   ]
 }

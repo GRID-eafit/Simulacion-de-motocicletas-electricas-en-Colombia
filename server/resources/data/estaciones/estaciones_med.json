@@ -1,31 +1,31 @@
 {
   "coords": [
-    [
-      -75.58747,
-      6.213373
-    ],
-    [
-      -75.58747,
-      6.2404
-    ],
-    [
-      -75.614743,
-      6.258418
-    ],
-    [
-      -75.58747,
-      6.285445
-    ],
-    [
-      -75.551106,
-      6.294454
-    ]
+    [-75.572015, 6.180039], [-75.561106, 6.198058], [-75.564743, 6.226886],
+    [-75.539288, 6.226886], [-75.568379, 6.23049], [-75.532015, 6.23049],
+    [-75.524743, 6.23049], [-75.572015, 6.237697], [-75.568379, 6.237697],
+    [-75.564743, 6.237697], [-75.542924, 6.237697], [-75.532015, 6.237697],
+    [-75.575652, 6.244904], [-75.568379, 6.244904], [-75.55747, 6.248508],
+    [-75.542924, 6.248508], [-75.601106, 6.252112], [-75.575652, 6.252112],
+    [-75.561106, 6.252112], [-75.575652, 6.255715], [-75.564743, 6.255715],
+    [-75.579288, 6.259319], [-75.568379, 6.259319], [-75.590197, 6.262922],
+    [-75.572015, 6.262922]
   ],
   "nombre": [
-    "Estacion 1",
-    "Estacion 2",
-    "Estacion 3",
-    "Estacion 4",
-    "Estacion 5"
+    "Calle 20B Sur (El Diamante No. 2)", "Calle 1A Sur (Los Naranjos)", "Salida a Avenida de Las Palmas (La Asomadera No. 1)",
+    "Barrios de Jesús", "Carrera 43 (Barrio San Diego)", "Calle 49B (Juan Pablo II)",
+    "Calle 51A (Comuna 8 - Villa Hermosa)", "Avenida 33 (Perpetuo Socorro)", "Carrera 43C (Comuna 10 - La Candelaria)",
+    "Calle 39C (Las Palmas)", "Calle 55 (Villa Tina)", "Carrera 8 (Villa Turbay)",
+    "Calle 42A (Comuna 10 - La Candelaria)", "Calle 45 (Colón)", "Calle 55 (Boston)",
+    "Calle 56HG (Trece de Noviembre)", "Calle 44B (Los Pinos)", "Carrera 59 (Corazón de Jesús)",
+    "Carrera 45 (Los Ángeles)", "Carrera 61 (San Benito)", "Calle 58 (Villa Nueva)",
+    "calle 64 E (Nueva Villa de La Iguaná)", "Carrera 53 (Estación Villa)", "Calle 52 (Cuarta Brigada)",
+    "Carrera 58 (El Chagualo)"
+  ],
+  "tipo": [
+    "Estándar", "Estándar", "Estándar", "Estándar", "Alta Capacidad", "Estándar",
+    "Alta Capacidad", "Alta Capacidad", "Alta Capacidad", "Estándar", "Estándar", "Estándar",
+    "Alta Capacidad", "Estándar", "Alta Capacidad", "Estándar", "Estándar", "Estándar",
+    "Alta Capacidad", "Estándar", "Alta Capacidad", "Intercambio", "Alta Capacidad",
+    "Estándar", "Estándar"
   ]
 }

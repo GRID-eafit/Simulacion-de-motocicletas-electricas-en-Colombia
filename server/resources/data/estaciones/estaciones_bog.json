@@ -1,31 +1,27 @@
 {
   "coords": [
-    [
-      -74.082669,
-      4.572975
-    ],
-    [
-      -74.109941,
-      4.636039
-    ],
-    [
-      -74.037214,
-      4.690093
-    ],
-    [
-      -74.119032,
-      4.726129
-    ],
-    [
-      -74.028123,
-      4.816219
-    ]
+    [-74.082669, 4.581984], [-74.091759, 4.590993], [-74.073578, 4.590993],
+    [-74.109941, 4.600002], [-74.064487, 4.600002], [-74.10085, 4.609011],
+    [-74.082669, 4.609011], [-74.073578, 4.61802], [-74.073578, 4.627029],
+    [-74.109941, 4.636039], [-74.091759, 4.636039], [-74.082669, 4.636039],
+    [-74.073578, 4.636039], [-74.10085, 4.645048], [-74.091759, 4.645048],
+    [-74.082669, 4.645048], [-74.109941, 4.654057], [-74.10085, 4.654057],
+    [-74.073578, 4.654057]
   ],
   "nombre": [
-    "Estacion 1",
-    "Estacion 2",
-    "Estacion 3",
-    "Estacion 4",
-    "Estacion 5"
+    "Carrera 6 (Las Brisas)", "Avenida Carrera 14 (La Hortúa)", "Carrera 2 (Belén)",
+    "Calle 9A Sur (Ciudad Montes)", "Calle 1 (Las Aguas)", "Avenida Calle 6 (Paloquemao)",
+    "Carrera 19 (Santa Fe / Centro Internacional)", "Carrera 16A (Armenia)", "Carrera 20 (Galerías)",
+    "Carrera 60 (Salitre Greco)", "Avenida Calle 26 (Quinta Paredes)", "Plaza Santander (Ciudad Universitaria)",
+    "Calle 45C (Chapinero)", "Calle 24A (Salitre Oriental)", "Calle 44 (La Esmeralda)",
+    "Avenida Calle 53 (Nicolas de Federman)", "Calle 24A (Ciudad Salitre)", "Calle 43 (Localidad Teusaquillo)",
+    "Calle 63C (Chapinero Norte)"
+  ],
+  "tipo": [
+    "Estándar", "Alta Capacidad", "Intercambio Baterías", "Alta Capacidad",
+    "Intercambio Baterías", "Alta Capacidad", "Intercambio Baterías", "Intercambio Baterías",
+    "Intercambio Baterías", "Estándar", "Alta Capacidad", "Alta Capacidad",
+    "Intercambio Baterías", "Estándar", "Estándar", "Estándar",
+    "Alta Capacidad", "Estándar", "Intercambio Baterías"
   ]
 }

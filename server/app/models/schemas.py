@@ -33,6 +33,7 @@ class StationsInput(BaseModel):
     """
     coords: List[List[float]] = Field(default_factory=list)
     nombre: List[str] = Field(default_factory=list)
+    tipo: List[str] = Field(default_factory=list)
 
 
 class Options(BaseModel):

@@ -13,7 +13,7 @@ from app.api.external.ors_client import fetch_ors_route, fetch_elevation
 from app.api.external.azure_client import fetch_azure_route
 from app.models.moto import Moto
 from app.utils.geo import manage_segments, _to2d
-
+# from app.utils.charge_function import 
 
 async def enrutar(
     coords: list,
@@ -127,7 +127,7 @@ async def moto_consume(
 
     emisiones_electrico_kg = (factor_emision_electrico_gco2_km * moto.distance) / 1000
     emisiones_combustion_kg = (factor_emision_combustion_gco2_km * moto.distance) / 1000
-
+    
     return {
         "geometry": {
             "coordinates": [[lon, lat] for lon, lat, _ in moto.positions],

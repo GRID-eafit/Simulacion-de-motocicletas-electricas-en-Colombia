@@ -9,7 +9,7 @@ stops.
 import math
 import numpy as np
 from geopy.distance import geodesic
-
+from app.utils.charge_function import compute_charge_curve
 
 class Moto:
     def __init__(
@@ -102,6 +102,7 @@ class Moto:
         self.puntos_recarga_realizados.append({
             "station_name": self.stations["nombre"][station_idx],
             "station_coords": self.stations["coords"][station_idx],
+            "station_type": self.stations["tipo"][station_idx],
             "start_coords": current_pos,
             "energy_charged": 0.0,
             "charge_time_h": 0.0,
@@ -124,36 +125,81 @@ class Moto:
         self.idx += 1
 
     # Charging
-
     def cargar(self) -> None:
         """Simulate a full recharge at the last registered charging point."""
-        energy_charged = self.capacidad_bateria - self.estado_bateria
-        if energy_charged < 0:
-            energy_charged = 0.0
+        if not self.puntos_recarga_realizados:
+            raise RuntimeError("No charging point registered before calling cargar().")
 
+        energy_charged = max(0.0, self.capacidad_bateria - self.estado_bateria)
         self.estado_bateria = self.capacidad_bateria
 
+        if len(self.soc_history) == 0:
+            raise RuntimeError("soc_history is empty; cannot interpolate charge curve.")
+
+        soc_before = self.soc_history[-1]   # last recorded value (depleted level)
+        soc_after  = self.capacidad_bateria # fully charged
+
+        # Temporarily extend history so compute_charge_curve sees both anchors
+        self.soc_history.append(soc_after)
+
         charge_time_h = (energy_charged / self.charger_power_kw) if self.charger_power_kw > 0 else 0.0
+
+        last_cp = self.puntos_recarga_realizados[-1]
+        intermediate, charge_time_h = compute_charge_curve(
+            last_cp["station_type"], self.soc_history, charge_time_h
+        )
+
+        # Replace the two anchor points with: anchor_before + curve + anchor_after
+        self.soc_history = self.soc_history[:-2] + [soc_before] + intermediate + [soc_after]
+
         charge_time_min = charge_time_h * 60.0
         charge_cost = energy_charged * self.price_per_kwh
 
-        last_cp = self.puntos_recarga_realizados[-1]
-        last_cp["energy_charged"] = energy_charged
-        last_cp["charge_time_h"] = charge_time_h
-        last_cp["charge_time_min"] = charge_time_min
-        last_cp["charger_power_kw"] = self.charger_power_kw
-        last_cp["price_per_kwh"] = self.price_per_kwh
-        last_cp["charge_cost"] = charge_cost
+        last_cp.update({
+            "energy_charged":    energy_charged,
+            "charge_time_h":     charge_time_h,
+            "charge_time_min":   charge_time_min,
+            "charger_power_kw":  self.charger_power_kw,
+            "price_per_kwh":     self.price_per_kwh,
+            "charge_cost":       charge_cost,
+            "charge_point":      len(self.soc_history) - 1,
+        })
 
         self.total_energy_charged_kwh += energy_charged
-        self.total_charge_time_min += charge_time_min
-        self.total_charge_cost += charge_cost
-
-        self.soc_history.append(self.estado_bateria)
+        self.total_charge_time_min    += charge_time_min
+        self.total_charge_cost        += charge_cost
         self.en_carga = False
 
-    # Simulation step
+        n = len(intermediate)
+        segment = self.route_data[self.idx]
+        # Insert zeros at the current position so consume_step reads zeros during charge
+        insert_at = self.idx_ruta
+        segment["speeds"] = (
+            segment["speeds"][:insert_at]
+            + [0] * n
+            + segment["speeds"][insert_at:]
+        )
+        segment["slopes"] = (
+            segment["slopes"][:insert_at]
+            + [0] * n
+            + segment["slopes"][insert_at:]
+        )
+        segment["times"] = (
+            segment["times"][:insert_at]
+            + [0] * n
+            + segment["times"][insert_at:]
+        )
+        segment["coords"] = (
+            segment["coords"][:insert_at]
+            + [segment["coords"][insert_at]] * n 
+            + segment["coords"][insert_at:]
+        )
 
+        self.idx_ruta += n
+        self.power += [0]*n
+
+
+    # Simulation step
     def consume_step(self) -> bool:
         """Compute forces, powers and energy consumption for one simulation
         step and update internal state.  Returns *False* when the current
@@ -163,6 +209,7 @@ class Moto:
 
         if self.idx_ruta >= len(segment["coords"]):
             return False
+
 
         vel = segment["speeds"][self.idx_ruta]
         theta = segment["slopes"][self.idx_ruta] * math.pi / 180

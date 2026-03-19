@@ -127,6 +127,7 @@ export default function MapPage() {
         setStationsPayload({
           coords: data.coords,
           nombre: data.nombre || data.coords.map((_, i) => `Estación ${i + 1}`),
+          tipo: data.tipo
         });
       } else {
         setStationsPayload(null);

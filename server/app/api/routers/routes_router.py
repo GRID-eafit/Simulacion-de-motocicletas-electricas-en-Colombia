@@ -33,7 +33,7 @@ def _resolve_estaciones(city: str, stations_input=None) -> dict:
         names = list(stations_input.nombre or [])
         for i in range(len(names), len(stations_input.coords)):
             names.append(f"Estación {i + 1}")
-        return {"coords": stations_input.coords, "nombre": names}
+        return {"coords": stations_input.coords, "nombre": names, "tipo": stations_input.tipo}
 
     ruta_archivo = "resources/data/estaciones"
     mapping = {
@@ -44,7 +44,7 @@ def _resolve_estaciones(city: str, stations_input=None) -> dict:
     path = mapping.get(city)
     if not path:
         raise HTTPException(status_code=500, detail=f"Unknown city: {city!r}")
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         return _json.load(f)
 
 
@@ -119,7 +119,6 @@ async def routes(body: RoutesRequest):
             out.append({"vehicle_id": v.vehicle_id, **data})
 
     return {"routes": out}
-
 
 @router.post("/routes/geojson")
 async def routes_geojson(request: Request):

@@ -112,11 +112,12 @@ export default function MapPage() {
   const [traffic, setTraffic] = useState(false);
 
   // ============================
-  // ✅ estaciones: default vs custom
+  // estaciones: default vs custom
   // ============================
   const [stationsMode, setStationsMode] = useState("default"); // "default" | "custom"
   const [stationsPayload, setStationsPayload] = useState(null); // { coords: [...], nombre: [...] } | null
   const [stationsLoading, setStationsLoading] = useState(false);
+  const [customStationTipo, setCustomStationTipo] = useState("Estándar");
 
   const loadDefaultStations = useCallback(async (targetCity) => {
     setStationsLoading(true);
@@ -171,7 +172,7 @@ export default function MapPage() {
     routeError,
     clearRouteError,
 
-    // ✅ NUEVO
+    // NUEVO
     isLoading,
     resetRoutes,
   } = useAutoRoutes({
@@ -180,8 +181,7 @@ export default function MapPage() {
     city,
     traffic,
 
-    // ✅ IMPORTANTÍSIMO:
-    // Esto se manda en default (cargado por GET /estaciones) y en custom (editado en el mapa)
+    // Manda en default (cargado por GET /estaciones) y en custom (editado en el mapa)
     stations: stationsPayload,
   });
 
@@ -211,7 +211,7 @@ export default function MapPage() {
   const handleChangeCity = (newCity) => {
     if (newCity === city) return;
 
-    // ✅ borra rutas antes de limpiar puntos
+    // borra rutas antes de limpiar puntos
     resetRoutes?.();
 
     clearAll();
@@ -303,7 +303,7 @@ export default function MapPage() {
               setToastOpen(false);
               clearRouteError();
 
-              // ✅ borra polilíneas/rutas también
+              // borra polilíneas/rutas también
               resetRoutes?.();
               clearAll();
             }}
@@ -317,16 +317,18 @@ export default function MapPage() {
             selectedAlt={selectedAlt}
             routeError={routeError}
 
-            // ✅ loading para el botón
+            // loading para el botón
             isLoading={isLoading}
 
-            // ✅ props estaciones
+            // props estaciones
             stationsMode={stationsMode}
             setStationsMode={setStationsMode}
             stationsPayload={stationsPayload}
             setStationsPayload={setStationsPayload}
             stationsLoading={stationsLoading}
             resetStationsToDefault={() => resetStationsToDefault(city)}
+            customStationTipo={customStationTipo}
+            setCustomStationTipo={setCustomStationTipo}
           />
         </aside>
 
@@ -345,10 +347,11 @@ export default function MapPage() {
             drawOnly={drawOnly}
             city={city}
 
-            // ✅ estaciones (default o custom) para el mapa
+            // estaciones (default o custom) para el mapa
             stationsMode={stationsMode}
             stationsPayload={stationsPayload}
             setStationsPayload={setStationsPayload}
+            customStationTipo={customStationTipo}
           />
         </div>
       </div>

@@ -33,7 +33,7 @@ async def flota(body: FlotaInput):
         coords = [wp.coordinates for wp in body.waypoints]
         coords = coords + [coords[0]]  # close the tour
 
-        if len(coords) > 5:
+        if len(coords) > 21:
             raise HTTPException(
                 status_code=400,
                 detail="The number of waypoints must be ≤ 4 (5 including depot).",

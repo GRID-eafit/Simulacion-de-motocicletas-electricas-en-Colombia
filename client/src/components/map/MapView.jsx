@@ -32,17 +32,27 @@ function RecenterOnCity({ center }) {
   return null;
 }
 
-// Custom icon for charging stations
-const chargingIcon = new L.DivIcon({
-  className: "charging-station-icon",
-  html: `
-    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-      <circle cx="18" cy="18" r="16" fill="#000000ff" stroke="#000000ff" stroke-width="1.5" />
-      <path d="M17 6 L9 20 H17 L13 30 L25 14 H17 Z" fill="white" stroke="#ffffffff" stroke-width="1.0" />
-    </svg>`,
-  iconSize: [32, 32],
-  iconAnchor: [16, 16],
-});
+// Color map for station tipo
+const TIPO_COLOR = {
+  "Estándar": "#1a1a1a",
+  "Alta Capacidad": "#f59e0b",
+  "Intercambio": "#2563eb",
+};
+
+// Returns a DivIcon with the appropriate color for the station tipo
+function makeChargingIcon(tipo) {
+  const fill = TIPO_COLOR[tipo] || "#1a1a1a";
+  return new L.DivIcon({
+    className: "charging-station-icon",
+    html: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+        <circle cx="18" cy="18" r="16" fill="${fill}" stroke="${fill}" stroke-width="1.5" />
+        <path d="M17 6 L9 20 H17 L13 30 L25 14 H17 Z" fill="white" stroke="white" stroke-width="1.0" />
+      </svg>`,
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+  });
+}
 
 /**
  * Click handler:
@@ -82,8 +92,9 @@ export default function MapView({
   city = "med",
 
   stationsMode = "default", // "default" | "custom"
-  stationsPayload = null, // { coords: [[lng,lat]], nombre: [string] }
+  stationsPayload = null, // { coords: [[lng,lat]], nombre: [string], tipo: [string] }
   setStationsPayload = () => { },
+  customStationTipo = "Estándar", // tipo to use when adding custom stations
 }) {
   // Centro depende de la ciudad
   const center = useMemo(() => {
@@ -98,9 +109,11 @@ export default function MapView({
   const chargingStations = useMemo(() => {
     const coords = stationsPayload?.coords || [];
     const names = stationsPayload?.nombre || [];
+    const tipos = stationsPayload?.tipo || [];
 
     return coords.map((c, i) => ({
       name: names[i] || `Estación ${i + 1}`,
+      tipo: tipos[i] || "Estándar",
       coordinates: c, // [lng, lat]
       idx: i,
     }));
@@ -124,14 +137,16 @@ export default function MapView({
       safeSetStations((prev) => {
         const prevCoords = Array.isArray(prev?.coords) ? prev.coords : [];
         const prevNames = Array.isArray(prev?.nombre) ? prev.nombre : [];
+        const prevTipos = Array.isArray(prev?.tipo) ? prev.tipo : [];
 
         const nextCoords = [...prevCoords, lngLat];
         const nextNames = [...prevNames, `Estación ${nextCoords.length}`];
+        const nextTipos = [...prevTipos, customStationTipo];
 
-        return { coords: nextCoords, nombre: nextNames };
+        return { coords: nextCoords, nombre: nextNames, tipo: nextTipos };
       });
     },
-    [safeSetStations]
+    [safeSetStations, customStationTipo]
   );
 
   const removeStation = useCallback(
@@ -139,9 +154,11 @@ export default function MapView({
       safeSetStations((prev) => {
         const prevCoords = Array.isArray(prev?.coords) ? prev.coords : [];
         const prevNames = Array.isArray(prev?.nombre) ? prev.nombre : [];
+        const prevTipos = Array.isArray(prev?.tipo) ? prev.tipo : [];
 
         const nextCoords = prevCoords.filter((_, i) => i !== stationIdx);
         const nextNames = prevNames.filter((_, i) => i !== stationIdx);
+        const nextTipos = prevTipos.filter((_, i) => i !== stationIdx);
 
         // Normaliza nombres para que queden Estación 1..N
         const normalizedNames = nextCoords.map((_, i) => {
@@ -149,7 +166,7 @@ export default function MapView({
           return n && String(n).trim().length ? n : `Estación ${i + 1}`;
         });
 
-        return { coords: nextCoords, nombre: normalizedNames };
+        return { coords: nextCoords, nombre: normalizedNames, tipo: nextTipos };
       });
     },
     [safeSetStations]
@@ -317,7 +334,7 @@ export default function MapView({
           <Marker
             key={`station-${station.idx}`}
             position={[station.coordinates[1], station.coordinates[0]]}
-            icon={chargingIcon}
+            icon={makeChargingIcon(station.tipo)}
             eventHandlers={
               stationsMode === "custom"
                 ? {
@@ -333,6 +350,7 @@ export default function MapView({
             <Tooltip direction="top" offset={[0, -10]} opacity={1}>
               <span>
                 {station.name}
+                {station.tipo ? ` · ${station.tipo}` : ""}
                 {stationsMode === "custom" ? " (click para borrar)" : ""}
               </span>
             </Tooltip>

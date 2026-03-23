@@ -34,6 +34,8 @@ export default function ControlsPanel({
   setStationsPayload = () => { },
   stationsLoading = false,
   resetStationsToDefault = () => { },
+  customStationTipo = "Estándar",
+  setCustomStationTipo = () => { },
 }) {
   // ============================
   // Export
@@ -287,6 +289,23 @@ export default function ControlsPanel({
             </>
           ) : null}
         </div>
+
+        {/* Selector de tipo para estaciones custom */}
+        {stationsMode === "custom" && (
+          <div className="kv" style={{ marginTop: 10 }}>
+            <span className="k">Tipo de estación a insertar</span>
+            <select
+              className="select"
+              value={customStationTipo}
+              onChange={(e) => setCustomStationTipo(e.target.value)}
+              style={{ marginTop: 4 }}
+            >
+              <option value="Estándar">● Estándar (negra)</option>
+              <option value="Alta Capacidad">● Alta Capacidad (amarilla)</option>
+              <option value="Intercambio">● Intercambio (azul)</option>
+            </select>
+          </div>
+        )}
       </div>
 
       <div className="divider" />

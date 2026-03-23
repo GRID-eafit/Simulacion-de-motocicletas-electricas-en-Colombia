@@ -13,7 +13,7 @@ def resolve_values(station_type: str, energy_charged_time: float) -> tuple[int, 
     mapping = {
         "Estándar":              (40, energy_charged_time),
         "Alta Capacidad":        (10, 0.2 * energy_charged_time),
-        "Intercambio Baterías":  (2,  1/60),  # near-instant swap, 1 min
+        "Intercambio":  (2,  1/60),  # near-instant swap, 1 min
     }
     result = mapping.get(station_type)
     if result is None:

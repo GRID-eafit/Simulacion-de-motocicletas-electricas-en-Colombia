@@ -24,7 +24,7 @@ def _load_model():
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
     # Navigate up three levels: services → app → server → project root
-    project_root = os.path.join(current_dir, "..", "..", "..")
+    project_root = os.path.join(current_dir, "..", "..")
     model_path = os.path.normpath(os.path.join(project_root, "Modelos de Simulación", "Modelo costos"))
 
     if not os.path.exists(model_path):

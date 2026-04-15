@@ -67,8 +67,6 @@ def _prepare_data(coords: list) -> dict:
 
     N = n + 2
 
-    _matriz_distancias(coords)  # (placeholder)
-
     cij = np.zeros((N, N), dtype=float)
     for i in range(N):
         for j in range(N):
@@ -115,14 +113,25 @@ def _prepare_data(coords: list) -> dict:
 
 # Optimisation model
 
-def _solve_evrp(data: dict, Tlim: float = 200) -> Tuple[list, list]:
+def _solve_evrp(data: dict, Tlim: float = 200) -> Tuple[list, list, list]:
     """Solve the Electric Vehicle Routing Problem with Battery Swap.
 
     Returns
+    -------
     used_swap:
         List of arc pairs that involve a depot-side charging swap.
     used:
         List of regular arc pairs.
+    arc_stats:
+        List of dicts with per-arc energy data for consumption graphs.
+        Each dict contains:
+          - ``arc``: (origin_idx, destination_idx)
+          - ``energy_in_kwh``: energy level entering the arc
+          - ``consumed_kwh``: energy spent travelling the arc
+          - ``recharged_kwh``: energy added during a depot swap on this arc (0 if none)
+          - ``travel_time_min``: travel time in minutes
+          - ``charging_time_min``: depot-swap charging time (0 if no swap)
+          - ``is_swap``: whether this arc involves a depot-side charging swap
     """
     n_vehicles = data["n_vehicles"]
     n_customers = data["n_customers"]
@@ -299,15 +308,28 @@ def _solve_evrp(data: dict, Tlim: float = 200) -> Tuple[list, list]:
     if m.Status in (GRB.OPTIMAL, GRB.TIME_LIMIT, GRB.SUBOPTIMAL):
         used = [(i, j) for i in V for j in V if i != j and X[i, j].X > 0.5]
         used_swap = [(i, j) for i in V_prime for j in V_prime if i != j and Xp[i, j].X > 0.5]
-        return used_swap, used
+
+        # Only store recharge data per swap arc — battery state is propagated
+        # later in procesar_ruteo rather than read from E[i,j].X, which can
+        # be zero for organizational depot arcs and is keyed differently from
+        # the split (i→0) / (0→j) legs produced in the recorrido.
+        swap_recharge: dict = {
+            (i, j): {
+                "recharged_kwh": round(R[i, j].X, 4),
+                "charging_time_min": round(tau[i, j].X, 4),
+            }
+            for (i, j) in used_swap
+        }
+
+        return used_swap, used, swap_recharge
     else:
         raise RuntimeError(f"Gurobi ended with status {m.Status}")
 
 
 # Public entry point
 
-def procesar_ruteo(coords: list) -> list:
-    """Return the ordered sequence of arc pairs for the optimal fleet route.
+def procesar_ruteo(coords: list) -> dict:
+    """Return the optimal fleet route together with per-arc consumption data.
 
     Parameters
     ----------
@@ -318,25 +340,123 @@ def procesar_ruteo(coords: list) -> list:
 
     Returns
     -------
-    list of [origin_idx, destination_idx] pairs, where ``0`` represents
-    the depot and charging swaps are encoded as two consecutive arcs
-    passing through the depot.
+    dict with two keys:
+
+    ``recorrido``
+        List of [origin_idx, destination_idx] pairs ordered along the tour.
+        ``0`` represents the depot; charging swaps are encoded as two
+        consecutive arcs passing through the depot.
+
+    ``consumption_data``
+        List of dicts (one per arc in solution order):
+
+        - ``arc``: [origin_idx, destination_idx]
+        - ``leg``: 1-based position in the tour
+        - ``energy_in_kwh``: battery level at departure (kWh)
+        - ``consumed_kwh``: energy spent travelling this arc (kWh)
+        - ``recharged_kwh``: energy added at depot swap on this arc (kWh)
+        - ``energy_out_kwh``: battery level on arrival (kWh)
+        - ``travel_time_min``: travel time in minutes
+        - ``charging_time_min``: depot-swap charging duration (0 if none)
+        - ``is_swap``: True when this arc passes through the depot for a swap
     """
     data = _prepare_data(coords)
-    used_swap, used = _solve_evrp(data)
+    used_swap, used, swap_recharge = _solve_evrp(data)
 
-    carga = {i[0] for i in used_swap}
+    t_ij  = data["tij"]
+    conso = data["conso"]
+    E_max = data["Emax"]
+    n     = data["n"]          # number of customers (depot_end = n + 1)
+
+    carga  = {i for (i, _) in used_swap}   # customer nodes that need a swap
     viajes = used + used_swap
-    dic = {v[0]: v[1] for v in viajes}
+    dic    = {v[0]: v[1] for v in viajes}  # origin → destination mapping
 
-    n = 0
-    recorrido = []
-    while n in dic:
-        if n in carga:
-            recorrido.append([n, 0])
-            recorrido.append([0, dic[n]])
+    cur_node  = 0
+    battery   = float(E_max)   # start fully charged at depot
+    recorrido: list = []
+    consumption_data: list = []
+    leg = 1
+
+    while cur_node in dic:
+        dest = dic[cur_node]
+
+        if cur_node in carga:
+            # ── Swap arc: customer cur_node → depot → customer dest ──────
+            # The model routes cur_node → depot_end (n+1) → depot_start (0) → dest.
+            # We split this into two display legs both referencing depot as 0.
+
+            # Leg A: cur_node → depot  (travel to n+1)
+            t_to_depot  = float(t_ij[cur_node, n + 1])
+            consumed_a  = round(conso * t_to_depot, 4)
+            e_in_a      = round(battery, 4)
+            e_out_a     = round(battery - consumed_a, 4)
+
+            consumption_data.append({
+                "arc": [cur_node, 0],
+                "leg": leg,
+                "energy_in_kwh":    e_in_a,
+                "consumed_kwh":     consumed_a,
+                "recharged_kwh":    0.0,
+                "energy_out_kwh":   e_out_a,
+                "travel_time_min":  round(t_to_depot, 4),
+                "charging_time_min": 0.0,
+                "is_swap": True,
+            })
+            recorrido.append([cur_node, 0])
+            battery = e_out_a
+            leg += 1
+
+            # Leg B: depot → dest  (after battery swap / recharge)
+            sr          = swap_recharge.get((cur_node, dest), {})
+            recharged   = sr.get("recharged_kwh", 0.0)
+            charge_time = sr.get("charging_time_min", 0.0)
+            battery    += recharged            # battery replenished at depot
+
+            t_from_depot = float(t_ij[0, dest])
+            consumed_b   = round(conso * t_from_depot, 4)
+            e_in_b       = round(battery, 4)
+            e_out_b      = round(battery - consumed_b, 4)
+
+            consumption_data.append({
+                "arc": [0, dest],
+                "leg": leg,
+                "energy_in_kwh":    e_in_b,
+                "consumed_kwh":     consumed_b,
+                "recharged_kwh":    round(recharged, 4),
+                "energy_out_kwh":   e_out_b,
+                "travel_time_min":  round(t_from_depot, 4),
+                "charging_time_min": round(charge_time, 4),
+                "is_swap": True,
+            })
+            recorrido.append([0, dest])
+            battery = e_out_b
+            leg += 1
+
         else:
-            recorrido.append([n, dic[n]])
-        n = dic[n]
+            # ── Normal arc: cur_node → dest ──────────────────────────────
+            # dest may equal n+1 (depot_end) on the final arc; display as 0.
+            dest_display = 0 if dest == n + 1 else dest
+            t_arc   = float(t_ij[cur_node, dest])
+            consumed = round(conso * t_arc, 4)
+            e_in     = round(battery, 4)
+            e_out    = round(battery - consumed, 4)
 
-    return recorrido
+            consumption_data.append({
+                "arc": [cur_node, dest_display],
+                "leg": leg,
+                "energy_in_kwh":    e_in,
+                "consumed_kwh":     consumed,
+                "recharged_kwh":    0.0,
+                "energy_out_kwh":   e_out,
+                "travel_time_min":  round(t_arc, 4),
+                "charging_time_min": 0.0,
+                "is_swap": False,
+            })
+            recorrido.append([cur_node, dest_display])
+            battery = e_out
+            leg += 1
+
+        cur_node = dest
+
+    return {"recorrido": recorrido, "consumption_data": consumption_data}

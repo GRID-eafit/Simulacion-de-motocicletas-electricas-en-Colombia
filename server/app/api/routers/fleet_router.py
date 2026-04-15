@@ -15,7 +15,6 @@ from app.services.fleet_service import procesar_ruteo
 
 router = APIRouter(tags=["fleet"])
 
-
 @router.post("/flota")
 async def flota(body: FlotaInput):
     """Compute and return the optimal multi-stop fleet route.
@@ -39,7 +38,9 @@ async def flota(body: FlotaInput):
                 detail="The number of waypoints must be ≤ 4 (5 including depot).",
             )
 
-        recorrido = procesar_ruteo(coords=[coord[::-1] for coord in coords])
+        resultado = procesar_ruteo(coords=[coord[::-1] for coord in coords])
+        recorrido = resultado["recorrido"]
+        consumption_data = resultado["consumption_data"]
 
         recorrido_coords = [coords[0]]
         for viaje in recorrido:
@@ -73,6 +74,7 @@ async def flota(body: FlotaInput):
             "ruta_carga": ruta_carga,
             "ruta_nodos": ruta_nodos,
             "viajes": [x + 1 for x in points][:-1] + [1],
+            "consumption_data": consumption_data,
         }
 
     except HTTPException:

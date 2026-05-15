@@ -716,6 +716,19 @@ button {
   color: #6b7280;
 }
 
+.telemetry-number-input {
+  width: 100%;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  color: #374151;
+}
+.telemetry-number-input:focus {
+  border-color: #6b7280;
+}
+
 .telemetry-hint {
   font-size: 11px;
   color: #6b7280;

@@ -96,6 +96,8 @@ export default function TelemetryPage() {
   const [chargeSummary, setChargeSummary] = useState(null);
   const [chargePoints, setChargePoints] = useState([]);
   const inputRef = useRef(null);
+  const [batteryCapacityKwh, setBatteryCapacityKwh] = useState(2.5);
+  const [socInitialPct, setSocInitialPct] = useState(100);
 
   function handleFile(e) {
     const f = e.target.files?.[0];
@@ -136,8 +138,14 @@ export default function TelemetryPage() {
                   p.speed_kmh ?? p.speed ?? p.v_kmh ?? NaN,
                 );
                 const power = Number(
-                  p.power_kW ?? p.power ?? p.pw ?? NaN,
+                  p.power_kW ?? p.power ?? NaN,
                 );
+                // pw viene en W → convertir a kW solo si es el fallback
+                const powerFinal = Number.isFinite(power)
+                  ? power
+                  : Number.isFinite(Number(p.pw))
+                    ? Number(p.pw) / 1000
+                    : NaN;
                 const energy = Number(
                   p.energy_kWh ?? p.energy ?? NaN,
                 );
@@ -156,7 +164,7 @@ export default function TelemetryPage() {
                   lng: Number.isFinite(lng) ? lng : null,
                   alt: Number.isFinite(alt) ? alt : null,
                   speed_kmh: Number.isFinite(speed) ? speed : null,
-                  power_kW: Number.isFinite(power) ? power : null,
+                  power_kW: Number.isFinite(powerFinal) ? powerFinal : null,
                   energy_kWh: Number.isFinite(energy) ? energy : null,
                   soc: Number.isFinite(soc) ? soc : null,
                   t_epoch: Number.isFinite(tEpoch) ? tEpoch : null,
@@ -283,7 +291,7 @@ export default function TelemetryPage() {
               ? Number(p.speed)
               : null,
             power_kW: Number.isFinite(Number(p.pw))
-              ? Number(p.pw)
+              ? Number(p.pw) / 1000   // pw viene en W → convertir a kW
               : null,
             energy_kWh: null,
             soc: null,
@@ -396,9 +404,12 @@ export default function TelemetryPage() {
         t_s: t,
         speed_kmh: Number.isFinite(r.speed_kmh) ? r.speed_kmh : 0,
       });
+      const socCalc = Math.max(0, Math.min(100,
+        socInitialPct - (cum_kWh / batteryCapacityKwh) * 100
+      ));
       chart_soc.push({
         t_s: t,
-        soc: Number.isFinite(r.soc) ? r.soc : null,
+        soc: Number.isFinite(r.soc) ? r.soc : socCalc,
       });
 
       const idxDist = Math.min(i, Math.max(0, cumSegKm.length - 1));
@@ -418,7 +429,7 @@ export default function TelemetryPage() {
       chart_soc,
       chart_energy_vs_dist,
     };
-  }, [geojson, telemetryRows, downsample]);
+  }, [geojson, telemetryRows, downsample, batteryCapacityKwh, socInitialPct]);
 
   /* ---------- LAYOUT ESTILO MAPA (Rutas) ---------- */
 
@@ -511,6 +522,41 @@ export default function TelemetryPage() {
                 min={1}
                 max={10}
                 step={1}
+              />
+            </div>
+
+            {/* Parámetros de batería para estimar SoC */}
+            <div className="telemetry-downsample">
+              <label className="telemetry-downsample-label">
+                <span>Capacidad batería (kWh)</span>
+              </label>
+              <input
+                type="number"
+                min="0.1"
+                step="0.1"
+                value={batteryCapacityKwh}
+                onChange={(e) =>
+                  setBatteryCapacityKwh(Math.max(0.1, Number(e.target.value)))
+                }
+                className="telemetry-number-input"
+              />
+            </div>
+            <div className="telemetry-downsample">
+              <label className="telemetry-downsample-label">
+                <span>SoC inicial (%)</span>
+              </label>
+              <input
+                type="number"
+                min="0"
+                max="100"
+                step="1"
+                value={socInitialPct}
+                onChange={(e) =>
+                  setSocInitialPct(
+                    Math.min(100, Math.max(0, Number(e.target.value))),
+                  )
+                }
+                className="telemetry-number-input"
               />
             </div>
 
@@ -698,7 +744,7 @@ export default function TelemetryPage() {
                     <YAxis
                       tick={{ fontSize: 10 }}
                       label={{
-                        value: "SoC",
+                        value: "SoC (%)",
                         angle: -90,
                         position: "insideLeft",
                       }}

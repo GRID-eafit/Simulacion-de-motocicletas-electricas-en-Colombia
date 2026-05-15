@@ -1,9 +1,13 @@
 /* ==== base obligatoria para que el mapa ocupe todo === */
 html,
-body,
+body {
+  height: 100%;
+  margin: 0;
+}
 #root {
-  min-height: 100%;
-  height: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 * {
   box-sizing: border-box;
@@ -17,17 +21,18 @@ body {
 
 /* ===== layout de app ===== */
 .app-shell {
-  display: grid;
-  grid-template-rows: 56px 1fr; /* barra arriba + contenido */
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;           /* always fills the full viewport */
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
 
-/* NUEVO: contenedor principal de páginas + footer */
+/* Contenedor principal de páginas + footer */
 .app-main {
   display: flex;
   flex-direction: column;
-  min-height: 0; /* permite que el contenido interno pueda hacer scroll si es más alto */
+  flex: 1 0 auto;              /* grows to fill remaining space below TopNav */
+  min-height: 0;
 }
 
 
@@ -149,7 +154,9 @@ body {
 /* ===== página del mapa: 2 columnas ===== */
 /* La página ahora es una columna: arriba mapa+sidebar, abajo estadísticas */
 .page {
-  display: block;          
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;              /* grows so footer is always pushed to bottom */
   width: 100%;
 }
 
@@ -158,8 +165,9 @@ body {
   display: grid;
   grid-template-columns: 320px 1fr; /* panel izq + mapa */
   gap: 16px;
-  align-items: flex-start;
+  align-items: stretch;          /* make both columns the same height */
   margin-bottom: 32px;           /* espacio antes de estadísticas */
+  min-height: 500px;             /* minimum map height on large monitors */
 }
 
 
@@ -272,11 +280,13 @@ button {
 .map-wrapper {
   position: relative;
   height: 100%;
-  min-height: 100%;
+  min-height: 500px;           /* prevents collapse on large/zoomed-out screens */
 }
 
 .map-root {
-  height: 100%;
+  position: absolute;          /* fill the wrapper regardless of content */
+  inset: 0;
+  height: 100% !important;
   width: 100%;
 } /* hoja de Leaflet */
 
@@ -504,6 +514,8 @@ button {
   box-sizing: border-box;
   padding: 28px 40px;   /* AUMENTADO */
   font-size: 14px;      /* Más grande */
+  flex-shrink: 0;       /* never shrink */
+  margin-top: auto;     /* push to bottom when page content is short */
 }
 
 /* Filas horizontales */

@@ -8,38 +8,44 @@ Proyecto: **Análisis de indicadores de impacto técnicos,económicos, sociales,
 
 Plataforma web interactiva para simular motocicletas eléctricas en entornos urbanos colombianos.
 
-UNIVERSIDAD EAFIT
 
+Universidad EAFIT
 Escuela de Ciencias Aplicadas e Ingeniería - Grupo de Investigación en Ingeniería de Diseño (GRID)
 Escuela de Finanzas, Economía y Gobierno - Observatorio de Mercados y Empresas: Guía y Aplicaciones (OMEGA)
-
 Banco Interamericano de Desarrollo (BID)
 
 ---
 
 ## Descripción
 
-Esta plataforma permite a los usuarios simular el comportamiento energético de motocicletas eléctricas en rutas urbanas reales. Los usuarios pueden:
+Esta plataforma permite analizar y simular el desempeño de motocicletas eléctricas en escenarios urbanos reales. Los usuarios pueden:
 
-- Seleccionar rutas sobre un mapa interactivo
-- Definir parámetros de simulación (número de vehículos, tipo de perfil, etc.)
-- Visualizar indicadores de consumo, autonomía y comportamiento energético
-- Identificar puntos óptimos de recarga
+- Configurar y simular recorridos individuales o múltiples vehículos sobre mapas interactivos
+- Analizar consumo energético, autonomía, estado de carga, potencia, emisiones y necesidades de recarga
+- Comparar resultados de simulación con datos reales mediante el módulo de telemetría
+- Optimizar rutas para flotillas considerando autonomía e intercambios de batería
+- Estimar y comparar los costos de operación de motocicletas eléctricas y de combustión
 
-La herramienta utiliza datos geoespaciales, ruteo externo mediante **OpenRouteService (ORS)** y modelos físicos de consumo desarrollados por GRID para generar resultados precisos y realistas.
+La herramienta integra datos geoespaciales, servicios de ruteo, condiciones de tráfico, modelos físicos de consumo y componentes de optimización desarrollados por EAFIT para generar resultados técnicos, energéticos, ambientales y económicos.
 
 ---
 
 ## Características
 
--  **Mapa interactivo** con soporte para Medellín, Bogotá y AMVA
--  **Cálculo de consumo energético** punto a punto basado en modelos físicos
--  **Indicadores en tiempo real**: SOC, potencia consumida, distancia, tiempo estimado
--  **Identificación automática** de estaciones de carga disponibles
--  **Recálculo inteligente** cuando la batería está por agotarse
--  **Visualización de métricas** de desempeño y eficiencia
--  **Integración con tráfico** (en desarrollo)
--  **Rutas reales** generadas con OpenRouteService
+- **Mapa interactivo** con soporte para Medellín, Bogotá y el Área Metropolitana del Valle de Aburrá (AMVA).
+- **Simulación de múltiples motocicletas** y configuración de escenarios con diferentes rutas y condiciones de operación.
+- **Cálculo de consumo energético punto a punto**, basado en modelos físicos y características del recorrido.
+- **Indicadores de desempeño energético:** estado de carga (SoC), potencia, consumo, distancia, duración y emisiones equivalentes de CO₂.
+- **Identificación automática de puntos y necesidades de recarga**, incluyendo el cálculo de energía y tiempo de carga requeridos.
+- **Visualización de estaciones de carga** y recálculo de rutas cuando la autonomía disponible es insuficiente.
+- **Análisis mediante gráficos e indicadores** para evaluar el comportamiento energético y comparar múltiples vehículos.
+- **Módulo de telemetría** para visualizar y analizar recorridos reales a partir de archivos registrados.
+- **Optimización de rutas para flotillas**, considerando autonomía, secuencia de visitas e intercambios de batería.
+- **Modelo comparativo de costos** entre motocicletas eléctricas y de combustión, según las características territoriales y socioeconómicas del viaje.
+- **Integración con condiciones de tráfico** para representar escenarios de operación más realistas.
+- **Rutas reales** generadas mediante OpenRouteService (ORS) e integración de información geoespacial.
+- Exportación e importación de datos mediante formatos JSON y GeoJSON.
+- Documentación técnica integrada para facilitar la implementación, mantenimiento e integración mediante API.
 
 ---
 
@@ -87,8 +93,16 @@ La herramienta utiliza datos geoespaciales, ruteo externo mediante **OpenRouteSe
 │   ├── requirements.txt
 │   └── .env.example
 │
-├── docs/                                # Documentación adicional
+├── Modelos de Simulación/
+│   ├── Modelo de costos
+│   ├── Modelo de crecimiento vehicular de Gompertz
+│   ├── Modelo de ubicación de estaciones de carga
+│   ├── Simulación de gastos de motocicletas eléctricas
+│
+├── Informe - Herramienta de simulación _ Contrato BID #RG-T4200-P007, ATN_OC-19711-RG _ Universidad EAFIT
+│
 ├── README.md
+│
 └── LICENSE
 
 ````
@@ -239,35 +253,71 @@ El frontend estará disponible en:
 
 ## Flujo de la Aplicación
 
-1. **Selección de parámetros**: El usuario ingresa al frontend y configura:
+La aplicación se organiza en diferentes módulos que permiten simular, analizar y optimizar el desempeño de motocicletas eléctricas.
 
-   * Ciudad (Medellín, Bogotá o AMVA)
-   * Número de motocicletas
-   * Puntos del recorrido en el mapa
-   * Tipo de perfil de conducción
-   * Uso de tráfico en tiempo real
+1. **Acceso y selección del módulo**
 
-2. **Solicitud al backend**: El frontend envía la configuración mediante HTTP POST
+El usuario inicia sesión y accede a los diferentes componentes de la plataforma:
 
-3. **Procesamiento**:
+* Simulación de recorridos y comportamiento energético
+* Telemetría para el análisis de datos reales
+* Optimización de flotilla para la planificación de circuitos
+* Modelo de costos para comparar motocicletas eléctricas y de combustión
+* Documentación técnica para consulta e integración con la API
 
-   * Consulta de rutas optimizadas en OpenRouteService y Azure Maps
-   * Análisis de pendientes, distancias y velocidades
-   * Ejecución del modelo físico de consumo energético
-   * Cálculo de indicadores y puntos de recarga óptimos
+2. **Configuración del escenario**
 
-4. **Respuesta**: El backend devuelve:
+Dependiendo del módulo seleccionado, el usuario configura los parámetros necesarios. En el módulo de simulación puede definir:
 
-   * Geometría de la ruta en formato GeoJSON
-   * Métricas de desempeño energético
-   * Puntos de recarga recomendados
-   * Indicadores de autonomía
+* Ciudad o área de estudio (Medellín, Bogotá o AMVA)
+* Número de motocicletas
+* Puntos del recorrido directamente sobre el mapa
+* Ubicación de estaciones de carga
+* Condiciones de tráfico
 
-5. **Visualización**: El frontend muestra los resultados en:
+En los demás módulos, puede cargar datos de telemetría, definir puntos de visita para una flotilla o seleccionar el origen y destino de un viaje para el análisis de costos.
 
-   * Mapa interactivo con la ruta trazada
-   * Paneles informativos con métricas
-   * Gráficos de consumo y SOC
+3. **Solicitud al backend**
+
+El frontend envía la configuración y los datos requeridos al backend mediante solicitudes HTTP y una arquitectura API REST, utilizando el formato JSON.
+
+4. **Procesamiento**
+
+Según el módulo seleccionado, el backend realiza:
+
+* Consulta y generación de rutas mediante OpenRouteService y servicios geoespaciales
+* Análisis de distancias, pendientes, velocidades y condiciones de tráfico
+* Ejecución del modelo físico de consumo energético
+* Cálculo del estado de carga, potencia, consumo, autonomía y emisiones equivalentes
+* Identificación de necesidades y puntos de recarga
+* Optimización de secuencias de visita para flotillas
+* Estimación y comparación de costos entre tecnologías eléctricas y de combustión
+* Procesamiento y análisis de datos reales de telemetría
+
+5. **Respuesta**
+
+El backend devuelve, según el módulo ejecutado:
+
+* Geometrías y rutas en formato JSON o GeoJSON
+* Métricas de desempeño energético y ambiental
+* Indicadores de consumo, autonomía, potencia y estado de carga
+* Información sobre eventos y necesidades de recarga
+* Resultados de optimización de rutas y secuencias de visita
+* Comparativas de costos y ahorro potencial
+* Datos procesados para la visualización de telemetría
+
+6. **Visualización y análisis**
+
+Finalmente, el frontend presenta los resultados mediante:
+
+* Mapas interactivos con rutas, puntos de interés y estaciones de carga
+* Paneles informativos con indicadores clave
+* Gráficos de potencia, velocidad, consumo, energía acumulada y estado de carga
+* Comparaciones entre motocicletas y escenarios
+* Visualización de resultados de optimización de flotillas
+* Análisis comparativos de costos entre motocicletas eléctricas y de combustión
+
+**Nota:** Para obtener una descripción más detallada sobre la arquitectura, funcionalidades, módulos, modelos implementados, flujo de operación y resultados de la plataforma, se recomienda consultar el documento “Informe - Herramienta de simulación | Contrato BID #RG-T4200-P007, ATN_OC-19711-RG | Universidad EAFIT”, el cual constituye el documento técnico de referencia para la implementación, operación y mantenimiento de la herramienta.
 
 ---
 
@@ -333,18 +383,6 @@ Ejecuta la simulación de consumo energético.
 ### `POST /routes/geojson`
 
 Versión alternativa que recibe rutas completas en formato GeoJSON.
-
----
-
-## Indicadores Calculados
-
-* **SOC (State of Charge)**: Nivel de carga de la batería en porcentaje
-* **Potencia consumida**: Energía utilizada en cada segmento (kW)
-* **Distancia recorrida**: Kilometraje total y parcial
-* **Tiempo estimado**: Duración del trayecto
-* **Puntos de recarga**: Ubicaciones óptimas para recargar
-* **Autonomía restante**: Distancia que se puede recorrer con la carga actual
-* **Eficiencia energética**: Consumo promedio por kilómetro
 
 ---
 

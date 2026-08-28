@@ -1,4 +1,4 @@
-# Simulador de Consumo para Motocicletas Eléctricas en Entornos Urbanos
+# Herramienta de simulación de motocicletas eléctricas en entornos urbanos
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![React](https://img.shields.io/badge/React-18+-61DAFB.svg)](https://reactjs.org/)

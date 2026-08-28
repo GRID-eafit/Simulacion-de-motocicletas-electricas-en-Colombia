@@ -4,9 +4,16 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB.svg)](https://reactjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688.svg)](https://fastapi.tiangolo.com/)
 
-Plataforma web interactiva para simular el consumo energético de motocicletas eléctricas en entornos urbanos colombianos.
+Proyecto: **Análisis de indicadores de impacto técnicos,económicos, sociales, ambientales, regulatorios y aspectos de seguridad vial asociados a la inclusión de motocicletas eléctricas o híbridas de bajo cilindraje en el sector transporte en Colombia.**
 
-Desarrollado por la Universidad EAFIT, en colaboración con el **Banco Interamericano de Desarrollo (BID)**.
+Plataforma web interactiva para simular motocicletas eléctricas en entornos urbanos colombianos.
+
+UNIVERSIDAD EAFIT
+
+Escuela de Ciencias Aplicadas e Ingeniería - Grupo de Investigación en Ingeniería de Diseño (GRID)
+Escuela de Finanzas, Economía y Gobierno - Observatorio de Mercados y Empresas: Guía y Aplicaciones (OMEGA)
+
+Banco Interamericano de Desarrollo (BID)
 
 ---
 
